@@ -1,0 +1,8 @@
+LIBRARY    libnativeinteger.dll
+EXPORTS
+	nat_summation_i8n
+	nat_summation_i32n
+	nat_summation_i16n
+	nat_gainblk_i8n
+	nat_gainblk_i16n
+	nat_gainblk_i32n

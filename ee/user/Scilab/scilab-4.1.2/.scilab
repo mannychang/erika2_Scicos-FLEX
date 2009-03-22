@@ -1,0 +1,60 @@
+//** Some "alias" variables are re-defined for easy compatibility 
+s  = %s; //** Laplace for continous systems
+z  = %z; //** Z for discrete systems
+pi = %pi; //** 3.14.. etc..
+
+ieee(2) ; //** NO ERROR in case of division by zero
+lines(0); //** infinite scroll on Scilab console 
+
+//** Load additional Interfacing function library 
+exec("SCI/contrib/dspic/loader.sce"); 
+
+//** update the Scicos palettes 
+
+//** Add a menu to Scicos
+%scicos_menu($+1)=['CodeGen','FlexCodeGen','Set Target']
+
+//** add short help line for the menu  
+%CmenuTypeOneVector($+1,:)=['FlexCodeGen','Click on a Superblock (without activation output) to obtain a coded block!']
+%CmenuTypeOneVector($+1,:)=['Set Target','Click on a Superblock (without activation output) to set the Target!']
+
+
+//** Load some FLEX specific palettes
+scicos_pal($+1,:)=['MCHP16-Sources','SCI/contrib/dspic/macros/MCHP16-Sources.cosf'];
+scicos_pal($+1,:)=['FLEX-Sources','SCI/contrib/dspic/macros/FLEX-Sources.cosf'];
+scicos_pal($+1,:)=['MCHP16-Sinks'  ,'SCI/contrib/dspic/macros/MCHP16-Sinks.cosf'];
+scicos_pal($+1,:)=['FLEX-Sinks'  ,'SCI/contrib/dspic/macros/FLEX-Sinks.cosf'];
+scicos_pal($+1,:)=['MCHP16-Linear' ,'SCI/contrib/dspic/macros/MCHP16-Linear.cosf'];
+scicos_pal($+1,:)=['MCHP16-NonLinear','SCI/contrib/dspic/macros/MCHP16-NonLinear.cosf'];
+scicos_pal($+1,:)=['MCHP16-Logic','SCI/contrib/dspic/macros/MCHP16-Logic.cosf'];
+scicos_pal($+1,:)=['MCHP16-TypeConversion','SCI/contrib/dspic/macros/MCHP16-TypeConversion.cosf'];
+scicos_pal($+1,:)=['MCHP16-Branching','SCI/contrib/dspic/macros/MCHP16-Branching.cosf'];
+
+//** Load the FLEX shared library of computational functions for SIMULATION 
+exec("SCI\contrib\dspic\Flex-Sim\loader.sce"); 
+
+//** Load the shared library of of computational functions for Native Integer Support 
+exec("SCI\contrib\dspic\NativeInteger\loader.sce"); 
+
+//** Load the library of of interfacing functions for Native Integer Support 
+cd  ("SCI\contrib\dspic\NativeInteger") ;
+exec("InterfaceLoader.sci");
+
+//** Load the FLEX USB support
+cd  ("SCI\contrib\dspic\Flex-USB") ;
+exec("loader.sce");
+exec("flex_usb_datain.sci");
+exec("flex_usb_dataout.sci");
+
+//** show some message  
+disp("Scicos-FLEX Ready");disp(" ");
+
+//**===================================================================================
+
+//** Add this personal shortcut
+%scicos_short=[%scicos_short; "w" "Identification"]; 
+
+//**===================================================================================
+
+
+

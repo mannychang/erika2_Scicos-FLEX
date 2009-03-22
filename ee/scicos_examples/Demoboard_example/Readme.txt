@@ -1,0 +1,1 @@
+This is a autonomous demo used to show the capabilities of the DemoBoard using the Scilab/Scicos code generator.

@@ -1,0 +1,1 @@
+This is the most simple demo available. It uses a sine function to control the system led. A such demo is useful to test the code generation toolchain and the board.
