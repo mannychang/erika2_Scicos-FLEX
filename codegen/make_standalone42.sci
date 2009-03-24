@@ -745,6 +745,12 @@ function [Code,Code_common]=make_standalone42()
                '#include <memory.h>'
                '#include '"machine.h'"'
                ''
+               '/*'+part('-',ones(1,40))+'  Lapack messag function */';
+               'void C2F(xerbla)(SRNAME,INFO,L)'
+               '     char *SRNAME;'
+               '     int *INFO;'
+               '     long int L;'
+               '{}'
                'void set_block_error(int err)'
                '{'
                '  return;'
