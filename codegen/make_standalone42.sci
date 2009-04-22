@@ -744,13 +744,20 @@ function [Code,Code_common]=make_standalone42()
                '/* ---- Headers ---- */'
                '#include <memory.h>'
                '#include '"machine.h'"'
-               ''
+               '']
+
+	       if(isempty(grep(SCI,'5.1.1'))) then
+	       Code_common=[Code_common
                '/*'+part('-',ones(1,40))+'  Lapack messag function */';
                'void C2F(xerbla)(SRNAME,INFO,L)'
                '     char *SRNAME;'
                '     int *INFO;'
                '     long int L;'
                '{}'
+	       '']
+	       end
+
+               Code_common=[Code_common
                'void set_block_error(int err)'
                '{'
                '  return;'
