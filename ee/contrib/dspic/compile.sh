@@ -30,6 +30,6 @@ make
 echo --------------------------------------------------------
 echo DONE... Application successfully compiled!
 echo
-echo The ELF file to be programmed in MPLABIDE is the file
-echo Debug/pic30.elf
+echo The COF file to be programmed in MPLABIDE is the file
+echo Debug/pic30.cof
 echo --------------------------------------------------------
