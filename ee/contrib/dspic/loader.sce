@@ -7,3 +7,5 @@ DIR = get_absolute_file_path('loader.sce');
 // Scilab primitive for the path
 
 dspiclib = lib(DIR+'/macros/')
+dspiclib_fb = lib(DIR+'/macros/flex_blocks/')
+dspiclib_cg = lib(DIR+'/macros/codegen/')
