@@ -33,3 +33,4 @@ FLEX_DMB_button
 FLEX_buzzer
 FLEX_DMB_adcin
 FLEX_adcin
+FLEX_touchin
