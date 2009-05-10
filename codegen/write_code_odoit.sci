@@ -10,12 +10,12 @@
 //
 //12/07/07 Alan Layec
 //Copyright INRIA
-
-// Modified for RT purposes by Roberto Bucher - RTAI Team
-// roberto.bucher@supsi.ch
-
-
 function [txt]=write_code_odoit(flag)
+
+//** Code execution tracing and profiling
+global %tb ;
+%tb = [%tb;"write_code_odoit"];
+//**
  
   txt=[];
 
@@ -89,7 +89,7 @@ function [txt]=write_code_odoit(flag)
         tmp_='*(('+TYPE+' *)'+rdnom+'_block_outtbptr['+string(ix)+'])'
         txt=[txt;
              '    if (block_'+rdnom+'['+string(bk-1)+'].nmode<0) {';
-             '      i=max(min((int) '+...
+             '      i=max(min((integer) '+...
                 tmp_+',block_'+rdnom+'['+string(bk-1)+'].evout),1);'
              '    }'
              '    else {'

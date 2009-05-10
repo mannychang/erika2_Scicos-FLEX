@@ -6,11 +6,12 @@
 //
 //16/06/07 Author : A.Layec
 //Copyright INRIA
-
-// Modified for RT purposes by Roberto Bucher - RTAI Team
-// roberto.bucher@supsi.ch
-
 function [txt]=BlockProto(bk)
+
+//** Code execution tracing and profiling
+global %tb ;
+%tb = [%tb;"BlockProto"];
+//**
 
   nin=inpptr(bk+1)-inpptr(bk);  //* number of input ports */
   nout=outptr(bk+1)-outptr(bk); //* number of output ports */

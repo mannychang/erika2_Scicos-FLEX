@@ -1,12 +1,12 @@
 
 //==========================================================================
 //Generates Code for dynamically linked Fortran and C Blocks
-
-// Original file from Project Metalau - INRIA
-// Modified for RT purposes by Roberto Bucher - RTAI Team
-// roberto.bucher@supsi.ch
-
 function [CCode,FCode]=gen_blocks()
+
+//** Code execution tracing and profiling
+global %tb ;
+%tb = [%tb;"gen_blocks"];
+//**
 
   CCode=[]
   FCode=[]

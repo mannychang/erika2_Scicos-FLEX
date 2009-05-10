@@ -1,22 +1,22 @@
 // Transforms a given Scicos discrete and continuous SuperBlock into a C defined Block
 // Copyright INRIA
 //
-
-// Original file from Project Metalau - INRIA
-// Modified for RT purposes by Roberto Bucher - RTAI Team
-// roberto.bucher@supsi.ch
-
 function  [ok,XX,alreadyran,flgcdgen,szclkINTemp,freof] = do_compile_superblock42(XX,all_scs_m,numk,alreadyran)
+
+//** Code execution tracing and profiling 
+global %tb ;
+%tb = [%tb;"do_compile_superblock42"];
+//**------------------------------------- 
 
   scs_m = XX.model.rpar ; //** isolate the super block scs_m data structure 
   par = scs_m.props;
-  
   //** SAFETY : terminate current simulation 
   if alreadyran then
     //** terminate current simulation
     do_terminate() ; 
     alreadyran  = %f ;
   end
+  
 
   hname = scs_m.props.title(1);  //** super block name
 
@@ -384,7 +384,7 @@ function  [ok,XX,alreadyran,flgcdgen,szclkINTemp,freof] = do_compile_superblock4
     //** pippo.cmd : sequenza di comandi Scilab 
 
 
-    TARGETDIR = SCI+"/macros/scicos_flex/rt_templates";
+    TARGETDIR = SCI+"/contrib/RT_templates";
 
 
     [fd,ierr] = mopen(TARGETDIR+'/'+target+'.gen','r');
@@ -480,5 +480,5 @@ function  [ok,XX,alreadyran,flgcdgen,szclkINTemp,freof] = do_compile_superblock4
   end
 
   disp("----> Target generation terminated!");
-
+      
 endfunction
