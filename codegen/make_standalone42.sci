@@ -63,7 +63,7 @@ function [Code,Code_common]=make_standalone42()
 	'#ifdef linux'
 	'#define __CONST__'
 	'#else'
-	'#define __CONST__ static const'
+	'#define __CONST__ const'
 	'#endif'
 	''
 	'double '+rdnom+'_get_tsamp()'
