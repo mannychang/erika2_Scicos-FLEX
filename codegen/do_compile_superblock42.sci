@@ -384,7 +384,7 @@ function  [ok,XX,alreadyran,flgcdgen,szclkINTemp,freof] = do_compile_superblock4
     //** pippo.cmd : sequenza di comandi Scilab 
 
 
-    TARGETDIR = SCI+"/macros/scicos_flex/rt_templates";
+    TARGETDIR = SCI+"/contrib/RT_templates";
 
 
     [fd,ierr] = mopen(TARGETDIR+'/'+target+'.gen','r');
