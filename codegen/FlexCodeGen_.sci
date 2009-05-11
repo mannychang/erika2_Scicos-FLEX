@@ -11,25 +11,16 @@
 
 function FlexCodeGen_()
 
-//** Code execution tracing and profiling 
-global %tb ;
-%tb = ["FlexCodeGen"]; 
-//** 
-
-
 //** ------------- Preliminary I/O section ___________________________________________________________________________
     k = [] ; //** index of the CodeGen source superbloc candidate
 
     xc = %pt(1); //** last valid click position 
     yc = %pt(2); 
-    disp(%pt); 
-    
     
     %pt = []   ;
     Cmenu = [] ;
 
     k  = getobj(scs_m,[xc;yc]) ; //** look for a block 
-       
     //** check if we have clicked near an object
     if k==[] then
       return
@@ -47,7 +38,8 @@ global %tb ;
 //---------------------------------------------------->       THE REAL CODE GEN IS HERE --------------------------------
         //** the real code generator is here 
         [ok, XX, alreadyran, flgcdgen, szclkINTemp, freof] =  do_compile_superblock42(XX, scs_m, k, alreadyran);
- 
+        
+        
         //**quick fix for sblock that contains scope
         gh_curwin = scf(curwin)
     

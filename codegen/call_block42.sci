@@ -11,12 +11,11 @@
 //
 //16/06/07 Authors : Alan Layec
 //Copyright INRIA
-function txt=call_block42(bk,pt,flag)
 
-//** Code execution tracing and profiling
-global %tb ;
-%tb = [%tb;"call_block42"];
-//**
+// Modified for RT purposes by Roberto Bucher - RTAI Team
+// roberto.bucher@supsi.ch
+
+function txt=call_block42(bk,pt,flag)
 
   txt=[]
   //**

@@ -48,7 +48,7 @@ function  SetTarget_()
           break ; //** the the case of "cancel" exit 
       end
 
-      TARGETDIR = SCI+"/contrib/RT_templates";
+      TARGETDIR = SCI+"/macros/scicos_flex/rt_templates";
 
 //      if exists("TARGET_DIR") then
 //        [fd,ierr]=mopen(TARGET_DIR+'/'+target+'.gen','r');

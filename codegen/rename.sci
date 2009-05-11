@@ -1,4 +1,7 @@
 
+// Modified for RT purposes by Roberto Bucher - RTAI Team
+// roberto.bucher@supsi.ch
+
 function rename(folder,newname,ext)
   oldname=folder+'/Makefile';
   newname=folder+'/'+newname;
@@ -9,3 +12,4 @@ function rename(folder,newname,ext)
   mputl(T,newname);
   mdelete(oldname);
 endfunction
+

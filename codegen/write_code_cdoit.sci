@@ -9,13 +9,12 @@
 //
 //12/07/07 Alan Layec
 //Copyright INRIA
+
+// Modified for RT purposes by Roberto Bucher - RTAI Team
+// roberto.bucher@supsi.ch
+
 function [txt]=write_code_cdoit(flag)
 
-//** Code execution tracing and profiling
-global %tb ;
-%tb = [%tb;"write_code_cdoit"];
-//**
-  
   txt=[];
 
   for j=1:ncord
@@ -87,8 +86,8 @@ global %tb ;
         //** C **//
         tmp_='*(('+TYPE+' *)'+rdnom+'_block_outtbptr['+string(ix)+'])'
         txt=[txt;
-             '  i=max(min((integer) '+...
-              tmp_+',block_'+rdnom+'['+string(bk-1)+'].evout),1);'
+             '  i=max(min((int) '+...
+              tmp_+',block_'+rdnom+'['+string(bk-1)+'].nevout),1);'
              '  switch(i)'
              '  {']
         //*******//

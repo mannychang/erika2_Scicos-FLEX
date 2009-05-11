@@ -1,13 +1,9 @@
-
-
 //==========================================================================
 
-function Makename=rt_gen_make(name,files,libs)
+// Modified for RT purposes by Roberto Bucher - RTAI Team
+// roberto.bucher@supsi.ch
 
-//** Code execution tracing and profiling
-global %tb ;
-%tb = [%tb;"rt_gen_make"];
-//**
+function Makename=rt_gen_make(name,files,libs)
 
   Makename=rpat+'/Makefile';
 

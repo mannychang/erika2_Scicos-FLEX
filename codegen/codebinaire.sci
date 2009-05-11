@@ -3,11 +3,6 @@
 //used in do_compile_superblock
 function vec=codebinaire(v,szclkIN)
 
-//** Code execution tracing and profiling
-global %tb ;
-%tb = [%tb;"do_compile_superblock"];
-//**
-
   vec=zeros(1,szclkIN)
   for i=1:szclkIN
     w=v/2;
