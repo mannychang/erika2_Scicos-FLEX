@@ -56,7 +56,9 @@ function [Code,Code_common]=make_standalone42()
         '#include <stdlib.h>'
         '#include <math.h>'
         '#include <string.h>'
+        '#ifndef _NO_MALLOC_'
         '#include <memory.h>'
+	'#endif // _NO_MALLOC_'
         '#include <scicos_block4.h>'
         '#include <machine.h>'
         ''
@@ -742,7 +744,9 @@ function [Code,Code_common]=make_standalone42()
                '/*     date : '+date()+' */'
                ''
                '/* ---- Headers ---- */'
+               '#ifndef _NO_MALLOC_'
                '#include <memory.h>'
+	       '#endif // _NO_MALLOC_'
                '#include '"machine.h'"'
                '']
 
