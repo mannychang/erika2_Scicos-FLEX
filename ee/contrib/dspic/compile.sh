@@ -9,7 +9,8 @@ echo --------------------------------------------------------
 
 ${EE_INSTALLDIR}/bin/template_launcher.bat --template $1 --output .
 
-cat conf_scicos.oil | gcc -c - -E -P -o conf.oil
+#cat conf_scicos.oil | gcc -c - -E -P -o conf.oil
+cat conf_scicos.oil | gcc -c - $(cat scicos_symbols) -E -P -o conf.oil
 
 echo --------------------------------------------------------
 echo Step 2: Parsing OIL File
@@ -33,3 +34,4 @@ echo
 echo The COF file to be programmed in MPLABIDE is the file
 echo Debug/pic30.cof
 echo --------------------------------------------------------
+cd ..

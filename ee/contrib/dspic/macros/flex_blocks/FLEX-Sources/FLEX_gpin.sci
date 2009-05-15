@@ -36,7 +36,7 @@ function [x,y,typ] = FLEX_gpin(job,arg1,arg2)
   case 'define' then
     gpin_pin=1
     model=scicos_model()
-    model.sim=list('rt_gpin',4)
+    model.sim=list('flex_gpin',4)
     model.in=[],
     if exists('outport') then model.out=ones(outport,1), else model.out=1, end
     model.evtin=1

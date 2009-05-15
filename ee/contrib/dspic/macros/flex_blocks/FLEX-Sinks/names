@@ -1,0 +1,12 @@
+FLEX_DMB_buzzer
+FLEX_DMB_dac
+FLEX_DMB_gpout
+FLEX_DMB_lcd
+FLEX_DMB_leds
+FLEX_DMB_pwm
+FLEX_gpout
+FLEX_lcd
+FLEX_led
+FLEX_pwm
+FLEX_usb_send
+FLEX_zigbee_send

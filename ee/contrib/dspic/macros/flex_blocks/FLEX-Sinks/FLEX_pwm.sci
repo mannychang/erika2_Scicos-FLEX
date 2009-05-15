@@ -36,7 +36,7 @@ function [x,y,typ] = FLEX_pwm(job,arg1,arg2)
   case 'define' then
     pwm_pin=1
     model=scicos_model()
-    model.sim=list('rt_pwmout',4)
+    model.sim=list('flex_pwm',4)
     if exists('inport') then model.in=ones(inport,1), else model.in=1, end
     model.out=[]
     model.evtin=1
@@ -46,7 +46,7 @@ function [x,y,typ] = FLEX_pwm(job,arg1,arg2)
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(pwm_pin)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX-PWM'' ; ''Pin: ''+string(pwm_pin)],sz(1),sz(2),''fill'');']
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX'' ; ''PWM Pin: ''+string(pwm_pin)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction

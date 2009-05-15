@@ -36,7 +36,7 @@ function [x,y,typ] = FLEX_usb_send(job,arg1,arg2)
   case 'define' then
     channel=1
     model=scicos_model()
-    model.sim=list('flex_usb_out',4)
+    model.sim=list('flex_usb_send',4)
     if exists('inport') then model.in=ones(inport,1), else model.in=1, end
     model.out=[]
     model.evtin=1

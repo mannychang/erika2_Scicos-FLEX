@@ -36,7 +36,7 @@ function [x,y,typ] = FLEX_gpout(job,arg1,arg2)
   case 'define' then
     gpout_pin=1
     model=scicos_model()
-    model.sim=list('rt_gpout',4)
+    model.sim=list('flex_gpout',4)
     if exists('inport') then model.in=ones(inport,1), else model.in=1, end
     model.out=[]
     model.evtin=1

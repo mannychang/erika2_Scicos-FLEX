@@ -46,7 +46,7 @@ function [x,y,typ] = FLEX_DMB_pwm(job,arg1,arg2)
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(pwm_pin)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''PWM Out : ''+string(pwm_pin)],sz(1),sz(2),''fill'');']
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''PWM Pin: ''+string(pwm_pin)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction
