@@ -8,15 +8,15 @@ sweep
 simpl_tf
 redobs
 polyfit
-onetime_switch
 os2xi
+onetime_switch
 init_par
 imp_dspicf
 fullobs
 feedback
-comp_form
 d2c
 comp_form_i
+comp_form
 call_block4
 bode2freq
 bb_step
