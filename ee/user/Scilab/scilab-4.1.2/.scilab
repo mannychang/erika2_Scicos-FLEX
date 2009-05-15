@@ -18,17 +18,18 @@ exec("SCI/contrib/dspic/loader.sce");
 %CmenuTypeOneVector($+1,:)=['FlexCodeGen','Click on a Superblock (without activation output) to obtain a coded block!']
 %CmenuTypeOneVector($+1,:)=['Set Target','Click on a Superblock (without activation output) to set the Target!']
 
+PALETTE_DIR = 'SCI/contrib/dspic/macros/palettes/';
 
 //** Load some FLEX specific palettes
-scicos_pal($+1,:)=['MCHP16-Sources','SCI/contrib/dspic/macros/MCHP16-Sources.cosf'];
-scicos_pal($+1,:)=['FLEX-Sources','SCI/contrib/dspic/macros/FLEX-Sources.cosf'];
-scicos_pal($+1,:)=['MCHP16-Sinks'  ,'SCI/contrib/dspic/macros/MCHP16-Sinks.cosf'];
-scicos_pal($+1,:)=['FLEX-Sinks'  ,'SCI/contrib/dspic/macros/FLEX-Sinks.cosf'];
-scicos_pal($+1,:)=['MCHP16-Linear' ,'SCI/contrib/dspic/macros/MCHP16-Linear.cosf'];
-scicos_pal($+1,:)=['MCHP16-NonLinear','SCI/contrib/dspic/macros/MCHP16-NonLinear.cosf'];
-scicos_pal($+1,:)=['MCHP16-Logic','SCI/contrib/dspic/macros/MCHP16-Logic.cosf'];
-scicos_pal($+1,:)=['MCHP16-TypeConversion','SCI/contrib/dspic/macros/MCHP16-TypeConversion.cosf'];
-scicos_pal($+1,:)=['MCHP16-Branching','SCI/contrib/dspic/macros/MCHP16-Branching.cosf'];
+scicos_pal($+1,:)=['MCHP16-Sources',PALETTE_DIR + 'MCHP16-Sources.cosf'];
+scicos_pal($+1,:)=['MCHP16-Sinks'  ,PALETTE_DIR + 'MCHP16-Sinks.cosf'];
+scicos_pal($+1,:)=['MCHP16-Linear' ,PALETTE_DIR + 'MCHP16-Linear.cosf'];
+scicos_pal($+1,:)=['MCHP16-NonLinear',PALETTE_DIR + 'MCHP16-NonLinear.cosf'];
+scicos_pal($+1,:)=['MCHP16-Logic',PALETTE_DIR + 'MCHP16-Logic.cosf'];
+scicos_pal($+1,:)=['MCHP16-TypeConversion',PALETTE_DIR + 'MCHP16-TypeConversion.cosf'];
+scicos_pal($+1,:)=['MCHP16-Branching',PALETTE_DIR + 'MCHP16-Branching.cosf'];
+scicos_pal($+1,:)=['FLEX-Sources',PALETTE_DIR + 'FLEX-Sources.cosf'];
+scicos_pal($+1,:)=['FLEX-Sinks'  ,PALETTE_DIR + 'FLEX-Sinks.cosf'];
 
 //** Load the FLEX shared library of computational functions for SIMULATION 
 exec("SCI\contrib\dspic\Flex-Sim\loader.sce"); 
@@ -45,6 +46,8 @@ cd  ("SCI\contrib\dspic\Flex-USB") ;
 exec("loader.sce");
 exec("flex_usb_datain.sci");
 exec("flex_usb_dataout.sci");
+
+cd ("SCI\contrib\dspic");
 
 //** show some message  
 disp("Scicos-FLEX Ready");disp(" ");
