@@ -46,7 +46,7 @@ function [x,y,typ] = FLEX_zigbee_send(job,arg1,arg2)
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(channel)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX'' ; ''zigbee_send.''+string(channel)],sz(1),sz(2),''fill'');']
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX'' ; ''ZIGBEE SEND'' ; ''CH ''+string(channel)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction
