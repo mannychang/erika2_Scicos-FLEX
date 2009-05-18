@@ -1,0 +1,6 @@
+FLEX_serial_send,__USE_UART__
+FLEX_serial_receive,__USE_UART__
+FLEX_led,__USE_LEDS__
+FLEX_lcd,__USE_LCD__
+FLEX_usb_read,__USE_USB__
+FLEX_usb_write,__USE_USB__
