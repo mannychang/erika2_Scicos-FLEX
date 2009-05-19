@@ -28,8 +28,8 @@ function [x,y,typ] = FLEX_serial_receive(job,arg1,arg2)
 	  [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
       if ok then
         graphics.exprs=exprs;
-        model.rpar=[];
-        model.ipar=[serial_port;baudrate];
+        model.rpar=[baudrate];
+        model.ipar=[serial_port];
         model.dstate=[1];
         x.graphics=graphics;x.model=model
         break
@@ -43,9 +43,8 @@ function [x,y,typ] = FLEX_serial_receive(job,arg1,arg2)
     model.in=[],
     if exists('outport') then model.out=ones(outport,1), else model.out=1, end
     model.evtin=1
-    model.rpar=[]
-    model.ipar=[serial_port;
-                baudrate]
+    model.rpar=[baudrate]
+    model.ipar=[serial_port]
     model.dstate=[1];
     model.blocktype='d'
     model.dep_ut=[%t %f]

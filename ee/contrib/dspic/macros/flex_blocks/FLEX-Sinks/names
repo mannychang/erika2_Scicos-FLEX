@@ -1,5 +1,5 @@
-FLEX_usb_send
 FLEX_serial_send
+FLEX_usb_send
 FLEX_zigbee_send
 FLEX_gpout
 FLEX_pwm

@@ -1,5 +1,5 @@
-FLEX_zigbee_receive
 FLEX_serial_receive
+FLEX_zigbee_receive
 FLEX_touchin
 FLEX_gpin
 FLEX_adcin

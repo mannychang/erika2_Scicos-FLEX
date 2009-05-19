@@ -5,4 +5,5 @@ Makename=rt_gen_make(rdnom,files,archname);
 rename(rpat,'conf_embcodegen.oil','.obj');
 imp_dspicf(rpat,template);
 
-EE_get_diagram_info(rdnom,XX);
+get_blocks_name(rdnom,XX);
+
