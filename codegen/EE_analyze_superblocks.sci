@@ -1,7 +1,4 @@
-function [B_L,F_L,S_L] = EE_analyze_superblocks(XX,F_L)
- 
-	B_L = [];
-	S_L = [];
+function [B_L,F_L,S_L] = EE_analyze_superblocks(XX,B_L,F_L,S_L)
  
 	//disp("We are in " + XX.gui);
 	SYMBOLS_DIR = SCI+'/contrib/dspic';
@@ -27,11 +24,9 @@ function [B_L,F_L,S_L] = EE_analyze_superblocks(XX,F_L)
 			if scs_m.objs(i).model.sim(1)=="super" then 
 				//disp("We have the superblock:" + scs_m.objs(i).gui);		
 
-				[tmpB_L,F_L,tmpS_L] = EE_analyze_superblocks(scs_m.objs(i),F_L);
-				B_L = [B_L;tmpB_L];
-				S_L = [S_L;tmpS_L];
-
+				[B_L,F_L,S_L] = EE_analyze_superblocks(scs_m.objs(i),B_L,F_L,S_L);
 				continue;
+
 			end	
 		
 			//Block

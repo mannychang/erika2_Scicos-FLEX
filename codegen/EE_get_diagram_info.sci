@@ -1,5 +1,7 @@
 function EE_get_diagram_info(name,XX)
 
+	blocks_list = [];
+	symbols_list = [];
 	functions_list = [];
 
 	blocks_list_mk = [];
@@ -30,7 +32,7 @@ function EE_get_diagram_info(name,XX)
 				"";
 				"Analyzing the superblock..."];
 
-	[blocks_list,functions_list,symbols_list] = EE_analyze_superblocks(XX,functions_list);
+	[blocks_list,functions_list,symbols_list] = EE_analyze_superblocks(XX,blocks_list,functions_list,symbols_list);
 
 	txt = [txt;
 				"Superblock analyzed successfully.";
