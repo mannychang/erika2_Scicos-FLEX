@@ -1,5 +1,3 @@
-#export EE_INSTALLDIR=`cygpath -ms \`reg query HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Evidence /v EE_InstallPath | awk  '/EE_InstallPath/{ print $3 }'\` | xargs cygpath`
-
 export EE_INSTALLDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Evidence/EE_InstallPath`" | xargs cygpath)
 
 export EE_MCHPDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Microchip/MPLAB\ IDE/InstallDir`" | xargs cygpath)
