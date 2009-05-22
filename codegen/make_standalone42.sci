@@ -56,9 +56,9 @@ function [Code,Code_common]=make_standalone42()
         '#include <stdlib.h>'
         '#include <math.h>'
         '#include <string.h>'
-        '#ifndef __NO_MALLOC__'
+        '#if (!defined __PIC30__ && !defined __NO_MALLOC__)'
         '#include <memory.h>'
-	'#endif // __NO_MALLOC__'
+		'#endif // ! __PIC30__ && ! __NO_MALLOC__'
         '#include <scicos_block4.h>'
         '#include <machine.h>'
         ''
@@ -102,7 +102,7 @@ function [Code,Code_common]=make_standalone42()
         '/* Some general static variables */'
         'static double zero=0;'
         'static double w[1];'
-        'void **'+rdnom+'_block_outtbptr;'] //** !!
+        'void **'+rdnom+'_block_outtbptr;'] 
 
   Code=[Code;
         make_static_standalone42()]
@@ -311,12 +311,12 @@ function [Code,Code_common]=make_standalone42()
              'double * '+flex_str+'['+string(flex_nin)+'];'
             ]
       Code2=[Code2;
-             '  block_'+rdnom+'['+string(kf-1)+'].inptr = '+flex_str+';';
+             '  block_'+rdnom+'['+string(kf-1)+'].inptr = (void **)'+flex_str+';';
             ];
       flex_str = rdnom +'_'+string(kf-1)+'_insz'
 
       Code2=[Code2;
-             '  block_'+rdnom+'['+string(kf-1)+'].insz = '+flex_str+';';
+             '  block_'+rdnom+'['+string(kf-1)+'].insz = (int *)'+flex_str+';';
             ];
 
       //** inptr **//
@@ -358,11 +358,11 @@ function [Code,Code_common]=make_standalone42()
              'double * '+flex_str+'['+string(flex_nout)+'];'
             ]
       Code2=[Code2;
-             '  block_'+rdnom+'['+string(kf-1)+'].outptr = '+flex_str+';';
+             '  block_'+rdnom+'['+string(kf-1)+'].outptr = (void **)'+flex_str+';';
             ];
       flex_str = rdnom +'_'+string(kf-1)+'_outsz'
       Code2=[Code2;
-             '  block_'+rdnom+'['+string(kf-1)+'].outsz = '+flex_str+';';
+             '  block_'+rdnom+'['+string(kf-1)+'].outsz = (int *)'+flex_str+';';
             ];
 
       //** outptr **//
@@ -409,13 +409,13 @@ function [Code,Code_common]=make_standalone42()
       if (rpptr(kf+1)-rpptr(kf)>0) then
         Code2=[Code2;
                '  block_'+rdnom+'['+string(kf-1)+...
-               '].rpar=&(RPAR['+string(rpptr(kf)-1)+']);']
+               '].rpar=(double *)&(RPAR['+string(rpptr(kf)-1)+']);']
       end
       //** ipar **//
       if (ipptr(kf+1)-ipptr(kf)>0) then
         Code2=[Code2;
                '  block_'+rdnom+'['+string(kf-1)+...
-               '].ipar=&(IPAR['+string(ipptr(kf)-1)+']);']
+               '].ipar=(int *)&(IPAR['+string(ipptr(kf)-1)+']);']
       end
 
       //**********************************************************************//
@@ -432,12 +432,12 @@ function [Code,Code_common]=make_standalone42()
 
         flex_str = rdnom +'_'+string(kf-1)+'_oparsz'
         Code2=[Code2;
-               '  block_'+rdnom+'['+string(kf-1)+'].oparsz = '+flex_str+';';
+               '  block_'+rdnom+'['+string(kf-1)+'].oparsz = (int *)'+flex_str+';';
               ];
 
         flex_str = rdnom +'_'+string(kf-1)+'_opartyp'
         Code2=[Code2;
-               '  block_'+rdnom+'['+string(kf-1)+'].opartyp = '+flex_str+';';
+               '  block_'+rdnom+'['+string(kf-1)+'].opartyp = (int *)'+flex_str+';';
               ];
 
         nopar = flex_nopar;
@@ -744,10 +744,11 @@ function [Code,Code_common]=make_standalone42()
                '/*     date : '+date()+' */'
                ''
                '/* ---- Headers ---- */'
-               '#ifndef __NO_MALLOC__'
-               '#include <memory.h>'
-	       '#endif // __NO_MALLOC__'
+							 '#include <stdlib.h>'
                '#include '"machine.h'"'
+        			 '#if (!defined __PIC30__ && !defined __NO_MALLOC__)'
+               '#include <memory.h>'
+				       '#endif // ! __PIC30__ && ! __NO_MALLOC__'
                '']
 
 	       if(isempty(grep(SCI,'5.1.1'))) then
