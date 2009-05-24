@@ -1,6 +1,6 @@
-EE_get_diagram_info
 EE_analyze_superblocks
 make_standalone42
+EE_get_diagram_info
 write_code
 SetTarget_
 do_compile_superblock42

@@ -52,12 +52,24 @@ function [B_L,F_L,S_L] = EE_analyze_superblocks(XX,B_L,F_L,S_L)
 					end
 
 					//checking for symbol-associated Block
-					index=find(gui_names == scs_m.objs(i).gui)
+					index=find(gui_names == scs_m.objs(i).gui);
 					if(index~=[]) then
-						//disp("New Symbol: " + symbols(index))
+					
+						for k_index=1:size(index,2)
 						
-						//symbol-associated block
-						S_L = [S_L; symbols(index)];	
+							index_kk = find(S_L == symbols(index(1,k_index)));
+							
+							//disp("finding " + symbols(index(1,k_index)) + " in");
+							//disp(S_L);
+							//disp("found in ");
+							//disp(index_kk);
+							
+							if(index_kk==[]) then												
+							
+								S_L = [S_L; symbols(index(1,k_index))];	
+								
+							end
+						end
 					end
 				end
 			end
