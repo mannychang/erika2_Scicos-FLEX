@@ -2,7 +2,7 @@
 
 export EE_INSTALLDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Evidence/EE_InstallPath`" | xargs cygpath)
 
-export EE_MCHPDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Microchip/MPLAB\ IDE/InstallDir`" | xargs cygpath)
+#export EE_MCHPDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Microchip/MPLAB\ IDE/InstallDir`" | xargs cygpath)
 
 echo --------------------------------------------------------
 echo Step 1: Template Generation
@@ -39,6 +39,6 @@ echo The COF file being programmed automatically though
 echo Microchip ICD3 is Debug/pic30.cof
 echo --------------------------------------------------------
 
-${EE_MCHPDIR}/Programmer\ Utilities/ICD3/ICD3CMD -P33FJ256MC710 -Fpic30.cof -M
+#${EE_MCHPDIR}/Programmer\ Utilities/ICD3/ICD3CMD -P33FJ256MC710 -Fpic30.cof -M
 
 cd ..
