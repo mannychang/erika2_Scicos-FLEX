@@ -43,32 +43,26 @@ function [B_L,F_L,S_L] = EE_analyze_superblocks(XX,B_L,F_L,S_L)
 				if(index==[]) then
 					//Block not already present in list
 
-					// disp("And it''s not redundant!");
 					B_L = [B_L; scs_m.objs(i).gui];
-	
-					index = find(scs_m.objs(i).model.sim(1) == F_L)
-					if(index==[]) then
-						F_L = [F_L; scs_m.objs(i).model.sim(1)];					
-					end
+				end
+				
+				index = find(scs_m.objs(i).model.sim(1) == F_L)
+				if(index==[]) then
+					F_L = [F_L; scs_m.objs(i).model.sim(1)];					
+				end
 
-					//checking for symbol-associated Block
-					index=find(gui_names == scs_m.objs(i).gui);
-					if(index~=[]) then
+				//checking for symbol-associated Block
+				index=find(gui_names == scs_m.objs(i).gui);
+				if(index~=[]) then
+				
+					for k_index=1:size(index,2)
 					
-						for k_index=1:size(index,2)
+						index_kk = find(S_L == symbols(index(1,k_index)));
 						
-							index_kk = find(S_L == symbols(index(1,k_index)));
+						if(index_kk==[]) then												
+						
+							S_L = [S_L; symbols(index(1,k_index))];	
 							
-							//disp("finding " + symbols(index(1,k_index)) + " in");
-							//disp(S_L);
-							//disp("found in ");
-							//disp(index_kk);
-							
-							if(index_kk==[]) then												
-							
-								S_L = [S_L; symbols(index(1,k_index))];	
-								
-							end
 						end
 					end
 				end

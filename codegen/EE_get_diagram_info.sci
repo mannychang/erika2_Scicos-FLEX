@@ -106,6 +106,18 @@ function EE_get_diagram_info(name,XX)
 				"";
 				"Dynamic memory needing blocks file loaded successfully."];
 
+	txt = [txt;
+				"";
+				"Blocks list follows:"
+				""];
+				
+	for i=1:size(blocks_list,1)
+		
+		txt = [txt;
+					string(i) + ": " + blocks_list(i)];
+
+	end
+				
 	no_malloc_symbol = "__NO_MALLOC__";
 
 	dynmem_flag = 1;
@@ -179,7 +191,7 @@ function EE_get_diagram_info(name,XX)
 						"EEOPT += " + "MODELNAME=" + name;
 						symbols_list_mk;
 						blocks_list_mk;
-						"APP_SRCS += " + name + ".c"];
+						"APP_SRCS += sci_" + name + ".c"];
 
 	txt = [txt;
 				 "scicos_symbol.h:";
