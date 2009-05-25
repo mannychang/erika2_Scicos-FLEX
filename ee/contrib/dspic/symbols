@@ -33,3 +33,5 @@ FLEX_DMB_lcd,__USE_DEMOBOARD__
 FLEX_DMB_lcd,__USE_LCD__
 FLEX_usb_send,__USE_DEMOBOARD__
 FLEX_usb_send,__USE_USB__
+FLEX_usb_receive,__USE_DEMOBOARD__
+FLEX_usb_receive,__USE_USB__
