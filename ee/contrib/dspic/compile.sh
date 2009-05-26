@@ -1,8 +1,4 @@
-#export EE_INSTALLDIR=`cygpath -ms \`reg query HKEY_LOCAL_MACHINE\\\\\\\\SOFTWARE\\\\\\\\Evidence /v EE_InstallPath | awk  '/EE_InstallPath/{ print $3 }'\` | xargs cygpath`
-
 export EE_INSTALLDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Evidence/EE_InstallPath`" | xargs cygpath)
-
-#export EE_MCHPDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Microchip/MPLAB\ IDE/InstallDir`" | xargs cygpath)
 
 echo --------------------------------------------------------
 echo Step 1: Template Generation
@@ -33,12 +29,17 @@ cd Debug
 make
 
 echo --------------------------------------------------------
-echo DONE... Application successfully compiled!
-echo
-echo The COF file being programmed automatically though 
-echo Microchip ICD3 is Debug/pic30.cof
 echo --------------------------------------------------------
-
-#${EE_MCHPDIR}/Programmer\ Utilities/ICD3/ICD3CMD -P33FJ256MC710 -Fpic30.cof -M
+echo DONE... Application successfully compiled!
+echo --------------------------------------------------------
+echo --------------------------------------------------------
+echo 
+echo To program your FLEX board with the COF file
+echo Debug/pic30.cof you can:
+echo
+echo 1- use MPLAB IDE from Microchip 
+echo
+echo 2- run the flash.bat script [ICD3 only]
+echo --------------------------------------------------------
 
 cd ..
