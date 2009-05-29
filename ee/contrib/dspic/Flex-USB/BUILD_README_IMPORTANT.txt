@@ -1,0 +1,2 @@
+To build the libflex_usb_comm.dll you MUST rename the ___"lib_usbdll.lib"___ file, 
+generate by the MSVC++ 2008 express together with the "lib_usbdll.dll", in ___"lib_usbdll.ilib"___
