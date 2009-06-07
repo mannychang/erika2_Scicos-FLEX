@@ -30,6 +30,7 @@ scicos_pal($+1,:)=['MCHP16-TypeConversion',PALETTE_DIR + 'MCHP16-TypeConversion.
 scicos_pal($+1,:)=['MCHP16-Branching',PALETTE_DIR + 'MCHP16-Branching.cosf'];
 scicos_pal($+1,:)=['FLEX-Sources',PALETTE_DIR + 'FLEX-Sources.cosf'];
 scicos_pal($+1,:)=['FLEX-Sinks',PALETTE_DIR + 'FLEX-Sinks.cosf'];
+scicos_pal($+1,:)=['FLEX-Communication',PALETTE_DIR + 'FLEX-Communication.cosf'];
 scicos_pal($+1,:)=['FLEX-PC',PALETTE_DIR + 'FLEX-PC.cosf'];
 
 //** Load the FLEX shared library of computational functions for SIMULATION 
