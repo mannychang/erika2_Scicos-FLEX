@@ -1,4 +1,29 @@
-export EE_INSTALLDIR=$(cygpath -ms "`regtool get /HKLM/SOFTWARE/Evidence/EE_InstallPath`" | xargs cygpath)
+#
+# PLEASE CHANGE THIS VARIABLE BELOW TO THE CORRECT INSTALLATION PATH
+#
+export ECLIPSE_HOME="C:\Evidence\Evidence\eclipse"
+
+#########################################################################################
+#
+# NO CHANGES BELOW THIS LINE!
+#
+#########################################################################################
+
+#export ECLIPSE_HOME_MS=`cygpath -ms ${ECLIPSE_HOME}`
+
+if test -d ${ECLIPSE_HOME}; then
+  echo ECLIPSE_HOME directory found.
+else
+  echo ---------------------------------------------------------------
+  echo WARNING *******
+  echo
+  echo Compilation not performed!
+  echo
+  echo Please change the compile.sh script into `pwd`
+  echo providing the right value for ECLIPSE_HOME!
+  echo ---------------------------------------------------------------
+  exit 1;
+fi
 
 echo --------------------------------------------------------
 echo Step 1: Template Generation
@@ -7,7 +32,7 @@ echo RT-Druid is generating the scheleton application which
 echo will be compiled together with the Scicos generated code
 echo --------------------------------------------------------
 
-${EE_INSTALLDIR}/bin/template_launcher.bat --template $1 --output .
+`cygpath -ms ${ECLIPSE_HOME}`/Evidence/template_launcher.bat --template $1 --output .
 
 #cat conf_scicos.oil | gcc -c - -E -P -o conf.oil
 cat conf_scicos.oil | gcc -c - $(cat scicos_symbols) -E -P -o conf.oil
@@ -18,7 +43,7 @@ echo
 echo RT-Druid is parsing the OIL file to generate the 
 echo makefiles used for the compilation 
 echo --------------------------------------------------------
-${EE_INSTALLDIR}/bin/rtdruid_launcher.bat --oil conf.oil
+`cygpath -ms ${ECLIPSE_HOME}`/Evidence/rtd_launcher.bat --oil conf.oil
 
 echo --------------------------------------------------------
 echo Step 3: Compiling the application
