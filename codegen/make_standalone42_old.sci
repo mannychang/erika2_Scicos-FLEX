@@ -100,10 +100,8 @@ function [Code,Code_common]=make_standalone42()
   Code=[Code;
         ''
         '/* Some general static variables */'
-		'#ifndef __PIC30__'
         'static double zero=0;'
         'static double w[1];'
-		'#endif'
         'void **'+rdnom+'_block_outtbptr;'] 
 
   Code=[Code;
@@ -152,12 +150,10 @@ function [Code,Code_common]=make_standalone42()
         '/*'+part('-',ones(1,40))+'  Initialisation function */'
         'int '+rdnom+'_init()'
         '{'
-		'#ifndef __PIC30__'
-		'  double t;'
-		'#endif //__PIC30__'
+	'  double t;'
         '  int local_flag;'
 //	'#ifdef linux'
-//      '  double *args[2];'
+//        '  double *args[2];'
 //	'#endif'
         '']
 
@@ -576,14 +572,12 @@ function [Code,Code_common]=make_standalone42()
         '/*'+part('-',ones(1,40))+'  ISR function */'
         'int '+rdnom+'_isr(double t)'
         '{'
-//      '  int nevprt=1;'
+//        '  int nevprt=1;'
         '  int local_flag;'
-		'#ifndef __PIC30__'
-		'  int i;'
-		'#endif //__PIC30__'
-//		'#ifdef linux'
-//      '  double *args[2];'
-//		'#endif'
+	'  int i;'
+//	'#ifdef linux'
+//        '  double *args[2];'
+//	'#endif'
        ]
 
   if (x <> []) then
@@ -711,9 +705,7 @@ function [Code,Code_common]=make_standalone42()
         '/*'+part('-',ones(1,40))+'  Termination function */'
         'int '+rdnom+'_end()'
         '{'
-		'#ifndef __PIC30__'
-		'  double t;'
-		'#endif //__PIC30__'
+	'  double t;'
         '  int local_flag;'
 //	'#ifdef linux'
 //        '  double *args[2];'
