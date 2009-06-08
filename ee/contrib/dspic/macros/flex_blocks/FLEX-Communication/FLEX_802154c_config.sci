@@ -5,12 +5,6 @@
 // ipar[3] := BeaconOrder 
 // ipar[4] := SuperframeOrder 
 
-//local_address 
-//pan_id 
-//channel_id 
-//BeaconOrder 
-//SuperframeOrder 
-
 function [x,y,typ] = FLEX_802154c_config(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
@@ -42,16 +36,26 @@ function [x,y,typ] = FLEX_802154c_config(job,arg1,arg2)
        'Superframe Order [3...14]'],..
       list('vec',-1,'vec',-1,'vec',-1,'vec',-1,'vec',-1),exprs)
       if ~ok then break,end
-
-// TODO: fare sti check di merda!      
-//      if(axis~='X' & axis~='Y') then 
-//        warning('Accepted axis values are in [X,Y]. Keeping previous values.');
-//        break
-//      end
-//      if(res<100 | res>4096) then
-//        warning('Accepted resolution values in [100..4096]. Keeping previous values.');
-//        break;
-//      end
+      if(local_address<1 | local_address>255) then
+        warning('Invalid range for Local Address. Keeping previous values.');
+        break;
+      end
+      if(pan_id<1 | pan_id>255) then
+        warning('Invalid range for PanID. Keeping previous values.');
+        break;
+      end
+      if(channel_id<11 | channel_id>26) then
+        warning('Invalid range for Radio Channel. Keeping previous values.');
+        break;
+      end
+      if(BeaconOrder<3 | BeaconOrder>14) then
+        warning('Invalid range for Beacon Order. Keeping previous values.');
+        break;
+      end
+      if(SuperframeOrder<3 | SuperframeOrder>14) then
+        warning('Invalid range for Superframe Order. Keeping previous values.');
+        break;
+      end
 
       in=[],
       out=[],
