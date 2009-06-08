@@ -28,9 +28,8 @@ function [x,y,typ] = FLEX_canout(job,arg1,arg2)
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
       if ok then
         graphics.exprs=exprs;
-        model.rpar=[];
-        model.ipar=[can_msg_id;..
-										n_bytes];
+        model.rpar=[can_msg_id];
+        model.ipar=[n_bytes];
         model.dstate=[1];
         x.graphics=graphics;x.model=model
         break
@@ -44,15 +43,14 @@ function [x,y,typ] = FLEX_canout(job,arg1,arg2)
     if exists('inport') then model.in=ones(inport,1), else model.in=1, end
     model.out=[]
     model.evtin=1
-    model.rpar=[]
-    model.ipar=[can_msg_id;..
-								n_bytes];
+    model.rpar=[can_msg_id];
+    model.ipar=[n_bytes];
     model.dstate=[1];
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(can_msg_id);..
 					 sci2exp(n_bytes)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX CAN OUT'' ; ''PIN: ''+string(can_msg_id)],sz(1),sz(2),''fill'');']
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX CAN OUT'' ; ''MSG ID: ''+string(can_msg_id)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction
