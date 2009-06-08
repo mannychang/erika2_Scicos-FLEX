@@ -1,9 +1,9 @@
+FLEX_802154c_config
 FLEX_802154d_send
 FLEX_802154c_receive
 FLEX_802154c_send
 FLEX_802154d_config
 FLEX_802154d_receive
-FLEX_802154c_config
 FLEX_zigbee_send
 FLEX_serial_receive
 FLEX_canout
