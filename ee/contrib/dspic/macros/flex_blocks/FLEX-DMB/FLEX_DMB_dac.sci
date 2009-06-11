@@ -1,4 +1,4 @@
-function [x,y,typ] = FLEX_pwm(job,arg1,arg2)
+function [x,y,typ] = FLEX_DMB_dac(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
   case 'plot' then
@@ -17,8 +17,8 @@ function [x,y,typ] = FLEX_pwm(job,arg1,arg2)
     exprs=graphics.exprs;
     while %t do
       [ok,pwm_pin,exprs]=..
-      getvalue('Set parameters for block FLEX-PWM',..
-      ['PWM pin [1..4] :'],..
+      getvalue('Select DAC Output',..
+      ['DAC Anolog Out [1..2] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
       if exists('inport') then in=ones(inport,1), else in=1, end
@@ -36,7 +36,7 @@ function [x,y,typ] = FLEX_pwm(job,arg1,arg2)
   case 'define' then
     pwm_pin=1
     model=scicos_model()
-    model.sim=list('flex_pwm',4)
+    model.sim=list('flex_daughter_dac',4)
     if exists('inport') then model.in=ones(inport,1), else model.in=1, end
     model.out=[]
     model.evtin=1
@@ -46,7 +46,7 @@ function [x,y,typ] = FLEX_pwm(job,arg1,arg2)
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(pwm_pin)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX'' ; ''PWM Pin: ''+string(pwm_pin)],sz(1),sz(2),''fill'');']
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''DAC.Out.''+string(pwm_pin)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction

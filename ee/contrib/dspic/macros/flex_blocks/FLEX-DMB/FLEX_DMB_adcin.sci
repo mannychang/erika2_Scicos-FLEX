@@ -1,4 +1,4 @@
-function [x,y,typ] = FLEX_DMB_inertial(job,arg1,arg2)
+function [x,y,typ] = FLEX_DMB_adcin(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
   case 'plot' then
@@ -17,8 +17,8 @@ function [x,y,typ] = FLEX_DMB_inertial(job,arg1,arg2)
     exprs=graphics.exprs;
     while %t do
       [ok,adc_pin,exprs]=..
-      getvalue('Select Accelerometer Channel Input',..
-      ['Chan(x,y,z) [1..3] :'],..
+      getvalue('Selec FLEX Demo Board Analog Input',..
+      ['ADC pin [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
       in=[],
@@ -36,7 +36,7 @@ function [x,y,typ] = FLEX_DMB_inertial(job,arg1,arg2)
   case 'define' then
     adc_pin=1
     model=scicos_model()
-    model.sim=list('flex_dmb_inertial',4)
+    model.sim=list('flex_daughter_adc',4)
     model.in=[],
     if exists('outport') then model.out=ones(outport,1), else model.out=1, end
     model.evtin=1
@@ -46,7 +46,7 @@ function [x,y,typ] = FLEX_DMB_inertial(job,arg1,arg2)
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(adc_pin)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''Acc(x,y,z): ''+string(adc_pin)],sz(1),sz(2),''fill'');']
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''Adc.In.: ''+string(adc_pin)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction

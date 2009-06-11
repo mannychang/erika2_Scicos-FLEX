@@ -1,9 +1,9 @@
-function [x,y,typ] = FLEX_DMB_adcin(job,arg1,arg2)
+function [x,y,typ] = FLEX_MTB_switch(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
   case 'plot' then
     exprs=arg1.graphics.exprs;
-    adc_pin=exprs(1)
+    gpin_pin=exprs(1)
     standard_draw(arg1)
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
@@ -16,9 +16,9 @@ function [x,y,typ] = FLEX_DMB_adcin(job,arg1,arg2)
     model=arg1.model;graphics=arg1.graphics;
     exprs=graphics.exprs;
     while %t do
-      [ok,adc_pin,exprs]=..
-      getvalue('Selec FLEX Demo Board Analog Input',..
-      ['ADC pin [1..8] :'],..
+      [ok,gpin_pin,exprs]=..
+      getvalue('Select Switch Input',..
+      ['Button [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
       in=[],
@@ -27,26 +27,26 @@ function [x,y,typ] = FLEX_DMB_adcin(job,arg1,arg2)
       if ok then
         graphics.exprs=exprs;
         model.rpar=[];
-        model.ipar=[adc_pin];
+        model.ipar=[gpin_pin];
         model.dstate=[1];
         x.graphics=graphics;x.model=model
         break
       end
     end
   case 'define' then
-    adc_pin=1
+    gpin_pin=1
     model=scicos_model()
-    model.sim=list('flex_dmb_adc',4)
+    model.sim=list('flex_daughter_switch',4)
     model.in=[],
     if exists('outport') then model.out=ones(outport,1), else model.out=1, end
     model.evtin=1
     model.rpar=[]
-    model.ipar=[adc_pin]
+    model.ipar=[gpin_pin]
     model.dstate=[1];
     model.blocktype='d'
     model.dep_ut=[%t %f]
-    exprs=[sci2exp(adc_pin)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''Adc.In.: ''+string(adc_pin)],sz(1),sz(2),''fill'');']
+    exprs=[sci2exp(gpin_pin)]
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''Switch: ''+string(gpin_pin)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction

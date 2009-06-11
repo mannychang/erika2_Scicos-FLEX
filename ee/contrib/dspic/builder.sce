@@ -3,9 +3,10 @@ mode(-1);
 libname='dspic' // name of scilab function library [CUSTOM]
 libname_fb='dspic_fb' // name of scilab function library [CUSTOM]
 libname_cg='dspic_cg' // name of scilab function library [CUSTOM]
-libname_fb_sources='fb_sources' 
-libname_fb_sinks='fb_sinks'
+libname_fb_FLEX='fb_FLEX' 
 libname_fb_communication='fb_communication'
+libname_fb_DMB='fb_DMB'
+libname_fb_MTB='fb_MTB'
 libname_fb_pc='fb_pc'
 libname_misc='misc'
 
@@ -17,9 +18,10 @@ if ~MSDOS then // Unix Linux
   MACROS=DIR+'macros/' // Path of the macros directory
   CG_MACROS=MACROS+'codegen/'
   FB_MACROS=MACROS+'flex_blocks/'
-  FB_SOURCES=FB_MACROS+'/FLEX-Sources/'
-  FB_SINKS=FB_MACROS+'/FLEX-Sinks/'
+  FB_FLEX=FB_MACROS+'/FLEX/'
   FB_COMMUNICATION=FB_MACROS+'/FLEX-Communication/'
+  FB_DMB=FB_MACROS+'/FLEX-DMB/'
+  FB_MTB=FB_MACROS+'/FLEX-MTB/'
   FB_PC=FB_MACROS+'/FLEX-PC/'
   MISC=MACROS+'/misc/'
   ROUTINES = DIR+'routines/' 
@@ -28,20 +30,21 @@ else  // windows- Visual C++
   MACROS=DIR+'macros\' // Path of the macros directory
   CG_MACROS=MACROS+'codegen\'
   FB_MACROS=MACROS+'flex_blocks\' 
-  FB_SOURCES=FB_MACROS+'\FLEX-Sources\'
-  FB_SINKS=FB_MACROS+'\FLEX-Sinks\'
+  FB_FLEX=FB_MACROS+'\FLEX\'
   FB_COMMUNICATION=FB_MACROS+'\FLEX-Communication\'
+  FB_DMB=FB_MACROS+'\FLEX-DMB\'
+  FB_MTB=FB_MACROS+'\FLEX-MTB\'
   FB_PC=FB_MACROS+'\FLEX-PC\'
   MISC=MACROS+'\misc\'
 end
 
 //compile sci files if necessary and build lib file
 //genlib(libname,MACROS)
-genlib(libname_fb,FB_MACROS)
 genlib(libname_cg,CG_MACROS)
-genlib(libname_fb_sources,FB_SOURCES)
-genlib(libname_fb_sinks,FB_SINKS)
+genlib(libname_fb_FLEX,FB_FLEX)
 genlib(libname_fb_communication,FB_COMMUNICATION)
+genlib(libname_fb_DMB,FB_DMB)
+genlib(libname_fb_MTB,FB_MTB)
 genlib(libname_fb_pc,FB_PC)
 genlib(libname_misc,MISC)
 

@@ -15,12 +15,13 @@ if test -d ${ECLIPSE_HOME}; then
   echo ECLIPSE_HOME directory found.
 else
   echo ---------------------------------------------------------------
-  echo WARNING *******
+  echo WARNING 
   echo
   echo Compilation not performed!
   echo
-  echo Please change the compile.sh script into `pwd`
-  echo providing the right value for ECLIPSE_HOME!
+  echo Please change the compile.sh script into the
+  echo contrib/dspic of the Scilab/Scicos installation 
+  echo directory, providing the right value for ECLIPSE_HOME.
   echo ---------------------------------------------------------------
   exit 1;
 fi

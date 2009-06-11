@@ -1,4 +1,4 @@
-function [x,y,typ] = FLEX_touchin(job,arg1,arg2)
+function [x,y,typ] = FLEX_MTB_touch(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
   case 'plot' then
@@ -50,7 +50,7 @@ function [x,y,typ] = FLEX_touchin(job,arg1,arg2)
     axis = 'X'
 	res = 100
     model = scicos_model()
-    model.sim = list('flex_touchin',4)
+    model.sim = list('flex_daughter_touch',4)
     model.in=[],
     if exists('outport') then model.out=ones(outport,1), else model.out=1, end
     model.evtin=1
@@ -62,7 +62,7 @@ function [x,y,typ] = FLEX_touchin(job,arg1,arg2)
     model.dep_ut=[%t %f]
     exprs=[axis,sci2exp(res)]	
     gr_i=['xstringb(orig(1),orig(2),..
-         [''FLEX-touch'' ; ''Axis: ''+ axis;..
+         [''MTB touch'' ; ''Axis: ''+ axis;..
 		  ''Resolution:'' + string(res)],..
 		  sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
