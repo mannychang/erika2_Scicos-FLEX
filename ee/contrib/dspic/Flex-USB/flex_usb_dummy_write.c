@@ -51,9 +51,12 @@ void flex_usb_dummy_write(scicos_block *block, int flag)
 		flex_bus_write((unsigned char*) &output, sizeof(float), channel);
 		break;      
       case Ending:	
-		flex_usb_close();
-        sciprint("Usb Closed\n");  //** :)         
-		break;	  
+		err = flex_bus_close();
+        if (err < 0)
+           sciprint("Close problems \n");
+		else
+		   sciprint("Close OK :) \n");        
+		break;			
         
   } // close the switch   
 } // close the function 

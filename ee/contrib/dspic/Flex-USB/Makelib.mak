@@ -5,7 +5,7 @@ SCIDIR1 =C:\Evidence\SCILAB~1.2
 # name of the dll to be built
 LIBRARY = libflex_usb_comm
 # list of objects file
-OBJS = flex_usb_dummy_read.obj flex_usb_dummy_write.obj
+OBJS = flex_usb_dummy_write.obj flex_usb_dummy_read.obj
 # added libraries 
 OTHERLIBS =  "flex_usbdll.ilib" 
 !include $(SCIDIR1)\Makefile.incl.mak
