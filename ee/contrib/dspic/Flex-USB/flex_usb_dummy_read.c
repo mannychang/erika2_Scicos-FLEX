@@ -30,9 +30,10 @@ typedef unsigned char uint8_t;
 typedef unsigned short int uint16_t;
 typedef unsigned long int uint32_t;
 
-int32_t flex_bus_init(void);
-int32_t flex_bus_read(uint8_t *buf, uint16_t len, uint16_t ch);
-int32_t flex_bus_write(uint8_t *buf, uint16_t len, uint16_t ch);
+int32_t flex_usbscicos_init(void); 
+int32_t flex_usbscicos_close(void);
+float flex_usbscicos_read(uint16_t ch);
+void flex_usbscicos_write(uint16_t ch, float val);
 
 void flex_usb_dummy_read(scicos_block *block, int flag) 
 {
@@ -43,7 +44,7 @@ void flex_usb_dummy_read(scicos_block *block, int flag)
       
   switch(flag) {        
   case Init: //** Card and port init
-         err = flex_bus_init(); 	
+         err = flex_usbscicos_init(1); 	
          if (err < 0)
            sciprint("Init problems \n");
 		 else
@@ -53,13 +54,13 @@ void flex_usb_dummy_read(scicos_block *block, int flag)
   case OutputUpdate:
 		 channel = (unsigned char) block->ipar[0];
 		 //sciprint(" Do READ! \n");
-         flex_bus_read((uint8_t*) &output, sizeof(float), channel); 
+         output = flex_usbscicos_read(channel); 
          y = block->outptr[0] ; //** point to the data scructure 	     
-		 *y = output;        //** pass the value to Scicos 	  	
+		 *y = output;        //** pass the value to Scicos 	  			 
 	break;
   // **-----------------------------------------------------------------------------------
   case Ending:
-		 err = flex_bus_close();
+		 err = flex_usbscicos_close();
          if (err < 0)
            sciprint("Close problems \n");
 		 else
