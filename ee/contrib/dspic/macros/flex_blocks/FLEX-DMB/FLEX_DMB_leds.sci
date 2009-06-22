@@ -3,7 +3,8 @@ function [x,y,typ] = FLEX_DMB_leds(job,arg1,arg2)
   select job
   case 'plot' then
     exprs=arg1.graphics.exprs;
-    gpout_pin=exprs(1)
+		led_threshold=exprs(1)
+    gpout_pin=exprs(2)
     standard_draw(arg1)
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
@@ -16,17 +17,18 @@ function [x,y,typ] = FLEX_DMB_leds(job,arg1,arg2)
     model=arg1.model;graphics=arg1.graphics;
     exprs=graphics.exprs;
     while %t do
-      [ok,gpout_pin,exprs]=..
+      [ok,led_threshold, gpout_pin,exprs]=..
       getvalue('Select Demo Board Led Number',..
-      ['LED [1..8] :'],..
-      list('vec',-1),exprs)
+      ['Threshold: [0.01..0.99]';..
+			 'LED [1..8] :'],..
+      list('vec',-1,'vec',-1),exprs)
       if ~ok then break,end
       if exists('inport') then in=ones(inport,1), else in=1, end
       out=[]
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
       if ok then
         graphics.exprs=exprs;
-        model.rpar=[];
+        model.rpar=[led_threshold];
         model.ipar=[gpout_pin];
         model.dstate=[1];
         x.graphics=graphics;x.model=model
@@ -35,18 +37,19 @@ function [x,y,typ] = FLEX_DMB_leds(job,arg1,arg2)
     end
   case 'define' then
     gpout_pin=1
+    led_threshold=0.5
     model=scicos_model()
     model.sim=list('flex_daughter_leds',4)
     if exists('inport') then model.in=ones(inport,1), else model.in=1, end
     model.out=[]
     model.evtin=1
-    model.rpar=[]
+    model.rpar=[led_threshold]
     model.ipar=[gpout_pin]
     model.dstate=[1];
     model.blocktype='d'
     model.dep_ut=[%t %f]
-    exprs=[sci2exp(gpout_pin)]
-    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''LED: ''+string(gpout_pin)],sz(1),sz(2),''fill'');']
+    exprs=[sci2exp(led_threshold);sci2exp(gpout_pin)]
+    gr_i=['xstringb(orig(1),orig(2),[''FLEX-DMB'' ; ''LED: ''+string(gpout_pin)+ '' Th: ''+string(led_threshold)],sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
   end
 endfunction
