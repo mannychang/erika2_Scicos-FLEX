@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "usb_scicos_vs2008", "usb_scicos_vs2008.vcproj", "{B5D39D49-7DD3-4F79-8134-A598A6BC4757}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5D39D49-7DD3-4F79-8134-A598A6BC4757}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B5D39D49-7DD3-4F79-8134-A598A6BC4757}.Debug|Win32.Build.0 = Debug|Win32
+		{B5D39D49-7DD3-4F79-8134-A598A6BC4757}.Release|Win32.ActiveCfg = Release|Win32
+		{B5D39D49-7DD3-4F79-8134-A598A6BC4757}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
