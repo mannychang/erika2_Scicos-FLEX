@@ -1,7 +1,6 @@
 /* chris: TODO generali 
 	  1- Mettere un comment header sensato
 	  2- Spostare le funzioni statiche tutte all'inizio in un'unica section
-	  3- Devo mantenere la roba della DLL (vedi DECLDIR nel punto .h)
 	  4- Usare convenzione di nomi sensata
 	  5- Segare il codice a 80 colonne
 	  6- mettere doxygen
@@ -13,6 +12,7 @@
 #include <sched.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "compiler.h"
 #include "flex_usb.h" 
 #include "flex_usb_frame.h" 
@@ -64,9 +64,7 @@ static pthread_mutex_t rx_mutex;
 static pthread_cond_t rx_condition;
 
 
-/* 
- * compute a checksum
- */
+/* compute a checksum */
 static uint8_t checksum(uint8_t *buffer, uint8_t len)
 {
 	uint8_t sum = 0;
@@ -76,6 +74,7 @@ static uint8_t checksum(uint8_t *buffer, uint8_t len)
 	return sum;
 }
 
+/* Write in the RX buffer with shift policy */
 static void write_rx_buffer_shift(uint8_t *buf, uint32_t size) 
 {
 	uint32_t tmp_idx;
@@ -110,7 +109,7 @@ static void write_rx_buffer_shift(uint8_t *buf, uint32_t size)
 		fprintf(stderr, " new_rx_last=%d", tmp_idx);
 		fprintf(stderr, " size=%d", size);
 		fprintf(stderr, " rx_held=%d", rx_held);
-		fprintf(stderr," rx_buffer_size=%d\n",rx_buffer_size);
+		fprintf(stderr, " rx_buffer_size=%d\n",rx_buffer_size);
 		fflush(stderr);
 		#endif
 		if (tmp_idx > rx_last) {
@@ -131,19 +130,14 @@ static void write_rx_buffer_shift(uint8_t *buf, uint32_t size)
 		rx_held += size;
 		#ifdef FLEX_USB_DEBUG
 		fprintf(stderr, FLEX_USB_DEBUG_TAG);
-		fprintf(stderr, 
-			"WRITE_EXIT: rx_held , size (%d , %d)\n",
-			rx_held, size);
+		fprintf(stderr, "WRITE_EXIT: rx_held(%d) size(%d)\n", rx_held, size);
 		#endif
 	}
 	pthread_cond_signal(&rx_condition);
 	pthread_mutex_unlock(&rx_mutex);
 }
 
-/*
- * Thread for reading from USB
- */
-/* chris: TODO: riscrivere quasi da zero, vedere cosa serve mantenere! */
+/* Thread for reading from USB */
 static void *reader_thread(void *ignored_param)
 {
 	struct flex_usb_packet_t pkt;
@@ -158,8 +152,7 @@ static void *reader_thread(void *ignored_param)
 		fprintf(stderr,"check: usb_claim returns %d\n", read_bytes);
 		#endif
 		read_bytes = usb_bulk_read(dev, FLEX_USB_EP_IN, (uint8_t*) &pkt,
-					   sizeof(struct flex_usb_packet_t), 
-					   2000);
+					   sizeof(struct flex_usb_packet_t), 1);
 		if (read_bytes < 1 || 
 		    read_bytes != sizeof(struct flex_usb_packet_t)) {
 			#ifdef FLEX_USB_DEBUG
@@ -172,13 +165,9 @@ static void *reader_thread(void *ignored_param)
 			continue;
 		}
 		pthread_mutex_unlock(&usb_link_mutex);
-		/* chris: FIXME: REMOVE this test!!!!!!*/
 		#ifdef FLEX_USB_DEBUG
-		//buf[60] = '\0'; // chris: giusto per limitare il printf
-		pkt.payload[59] = '\0';
 		fprintf(stderr, FLEX_USB_DEBUG_TAG);
-		fprintf(stderr, "Read %d bytes; string(%d) = %s\n", read_bytes,
-			pkt.length, pkt.payload);
+		fprintf(stderr, "Read %d bytes; length(%d)\n", read_bytes, pkt.payload);
 		fflush(stderr);
 		#endif
 		/* Apply the specified RX buffer policy */
@@ -193,8 +182,6 @@ static void *reader_thread(void *ignored_param)
 			fflush(stderr);
 		#endif
 		}
-// chris TODO: il for serve a testare un po' il semaforo di condition
-//for(i = 0; i < 1000000; i++);
 	} /* End Of master loop */
 	return NULL;
 }
@@ -209,8 +196,7 @@ static usb_dev_handle *open_device(void)
 	fprintf(stderr, FLEX_USB_DEBUG_TAG);
 	fprintf(stderr, "Scan devices... \n");
 	#endif
-
-	/* chris: perchè faccio un get_busses in piu' ????? */
+	/* TODO: chris: perchè faccio un get_busses in piu' ????? */
 	bus = usb_get_busses();
 	for (bus = usb_get_busses(); bus != NULL; bus = bus->next) {
 		for (dev = bus->devices; dev != NULL; dev = dev->next) {
@@ -293,10 +279,34 @@ int32_t flex_usb_init(uint32_t rx_size, uint32_t tx_size, uint8_t opt)
 		#endif
 		return -1;
 	}
-	#ifdef LINUX
-	/* chris: e' corretta questa qui???? */
-	usb_detach_kernel_driver_np(dev, 0);
-	#endif
+	#if (defined linux) || (defined LINUX)
+	if (usb_detach_kernel_driver_np(dev, usb_interface_id) < 0) {
+		#ifdef FLEX_USB_DEBUG
+		const char *err = strerror(errno);
+		fprintf(stderr, FLEX_USB_DEBUG_TAG);
+		fprintf(stderr,"error: Detach Kernel Driver %d failed: "
+			"errno=%d msg=%s\n",
+			usb_interface_id, errno, err);
+		#endif
+		if (errno != 61) {
+			if (usb_close(dev) < 0) {
+				#ifdef FLEX_USB_DEBUG
+				fprintf(stderr, FLEX_USB_DEBUG_TAG);
+				fprintf(stderr,
+					"error: Unable to close device\n");
+				#endif
+				return -11;
+			}
+			return -1;
+		}
+		#ifdef FLEX_USB_DEBUG
+		fprintf(stderr, FLEX_USB_DEBUG_TAG);
+		fprintf(stderr,"INGORING ERROR: no driver was attached \n");
+		#endif
+	}
+	#endif /* LINUX */
+	/* TODO: chris: the configuration param should be read from the device
+		 properties, like the usb_interface_id in the open_device */
 	if (usb_set_configuration(dev, 1) < 0) {
 		#ifdef FLEX_USB_DEBUG
 		fprintf(stderr, FLEX_USB_DEBUG_TAG);
@@ -311,7 +321,7 @@ int32_t flex_usb_init(uint32_t rx_size, uint32_t tx_size, uint8_t opt)
 		}
 		return -1;
 	}
-	if (usb_claim_interface(dev, 0) < 0) {
+	if (usb_claim_interface(dev, usb_interface_id) < 0) {
 		#ifdef FLEX_USB_DEBUG
 		fprintf(stderr, FLEX_USB_DEBUG_TAG);
 		fprintf(stderr,"error: claiming interface 0 failed\n");
@@ -430,21 +440,18 @@ int32_t flex_usb_init(uint32_t rx_size, uint32_t tx_size, uint8_t opt)
 	return 0;
 }
 
-
-
-
 DECLDIR 
 int32_t flex_usb_read(uint8_t *buf, uint32_t len, uint8_t opt)
 {
 	uint32_t tmp_idx;
 
-	/* chris: TODO: scegliere politica in questo caso !!! */
 	if (len == 0)
+		/* chris: TODO: scegliere politica ! */
 		return -1;
 	switch (opt) {
 	case FLEX_USB_READ_BLOCK :
-		/* chris: TODO: scegliere politica in questo caso !!! */
 		if (len > rx_buffer_size)
+			/* chris: TODO: scegliere politica ! */
 			return -1;
 		pthread_mutex_lock(&rx_mutex);
 		while (rx_held < len) {
@@ -477,9 +484,9 @@ int32_t flex_usb_read(uint8_t *buf, uint32_t len, uint8_t opt)
 	tmp_idx = (rx_first + len) % rx_buffer_size;
 	#ifdef FLEX_USB_DEBUG
 	fprintf(stderr, FLEX_USB_DEBUG_TAG);
-	fprintf(stderr, "READ RX_QUEUE: rx_first=%d", rx_first);
-	fprintf(stderr, " new_rx_first=%d", tmp_idx);
-	fprintf(stderr, " len=%d\n", len);
+	fprintf(stderr, "READ RX_QUEUE: rx_first=%d ", rx_first);
+	fprintf(stderr, "new_rx_first=%d ", tmp_idx);
+	fprintf(stderr, "len=%d\n", len);
 	fflush(stderr);
 	#endif
 	/* NOTE: tmp_idx = new_first position for rx */
@@ -498,7 +505,7 @@ int32_t flex_usb_read(uint8_t *buf, uint32_t len, uint8_t opt)
 	rx_held -= len;
 	rx_first = tmp_idx;
 	pthread_mutex_unlock(&rx_mutex);
-	/* chris: note: if len > 2^31 a wrong negative value is returned */
+	/* FIXME: chris: if len > 2^31 a wrong negative value is returned */
 	return (int32_t) len; 
 }
 
@@ -518,8 +525,9 @@ int32_t flex_usb_write(uint8_t *buf, uint32_t len)
 	*/
 	/* chris: attualmente la funzione ritorna quando ha finito la 
 	          trasmissione di un solo pacchetto senza ack.
-		  NOTA: non so quello che fa la libusb, quindi non so se ho
-			certezza sull'avvenuta consegna del pacchetto
+	   FIXME: NOTA: non so quello che fa la libusb, quindi non so se ho
+			certezza sull'avvenuta consegna del pacchetto e 
+			non so quanto tempo si prende per eseguire!
 	*/
 	if (len > FLEX_USB_PACKET_PAYLOAD_SIZE)
 		return -2;
@@ -533,6 +541,8 @@ int32_t flex_usb_write(uint8_t *buf, uint32_t len)
 	pkt.crc = checksum((uint8_t*) &pkt + 1, 
 			   sizeof(struct flex_usb_packet_t) - 1);
 	pthread_mutex_lock(&usb_link_mutex);
+	//if (pthread_mutex_trylock(&usb_link_mutex) != 0)
+	//	return;
 	n = usb_claim_interface(dev, usb_interface_id);
 	#ifdef FLEX_USB_DEBUG
 	fprintf(stderr, FLEX_USB_DEBUG_TAG);
@@ -545,15 +555,17 @@ int32_t flex_usb_write(uint8_t *buf, uint32_t len)
 	fflush(stderr);
 	#endif
 	n = usb_bulk_write(dev, FLEX_USB_EP_OUT, (uint8_t*) &pkt, 
-			   sizeof(struct flex_usb_packet_t), 1000);
-//	} while (n == -116);
+			   sizeof(struct flex_usb_packet_t), 1);
+//	} while (n == -116); /* error -116 = ETIMEOUT */
+	pthread_mutex_unlock(&usb_link_mutex);
 	if (n < 0 ) {
 		#ifdef FLEX_USB_DEBUG
+		const char *err = strerror(errno);
 		fprintf(stderr, FLEX_USB_DEBUG_TAG);
-		fprintf(stderr,"error: usb_write, bulk write failed (%d)\n", n);
+		fprintf(stderr,"error: usb_write, bulk write failed "
+			"(%d) %s\n", n, err);
 		#endif
 	}
-	pthread_mutex_unlock(&usb_link_mutex);
 	return n;
 }
 
@@ -567,7 +579,6 @@ DECLDIR int32_t flex_usb_close(void)
 	fprintf(stderr,"Starting close...\n");
 	fflush(stderr);
 	#endif
-	
 	if (stat_info.stat.init == 0)
 		return 1;
 	/* Prepare close connection command */
@@ -598,12 +609,12 @@ DECLDIR int32_t flex_usb_close(void)
 	fprintf(stderr, FLEX_USB_DEBUG_TAG);
 	fprintf(stderr,"check: usb_claim returns %d\n", n);
 	#endif
-	/* chris: perche' faccio questo? per svuotare il buffer??*/
+	/* TODO: chris: perche' faccio questo? per svuotare il buffer??*/
 	usb_bulk_read(dev, FLEX_USB_EP_IN, (uint8_t*) &cmd, 
 		      sizeof(struct flex_usb_packet_t), 1000);
 	pthread_mutex_unlock(&usb_link_mutex);
 	/* Close USB interface */
-	usb_release_interface(dev, 0);
+	usb_release_interface(dev, usb_interface_id);
 	if (usb_close(dev) < 0) {
 		#ifdef FLEX_USB_DEBUG
 		fprintf(stderr, FLEX_USB_DEBUG_TAG);

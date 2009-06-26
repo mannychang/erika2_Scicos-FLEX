@@ -69,7 +69,8 @@ int main(int argc, char **argv)
 			printf("OK.\n");
 		}
 		printf("\nStart Test3 ...\n");
-		for (loopy = 0; loopy < 1000; loopy++) {
+		//for (loopy = 0; loopy < 1000; loopy++) {
+		for (;;) {
 			printf("\nReceiving:\n");
 			data0 = flex_usbscicos_read(0);
 			data1 = flex_usbscicos_read(1);
@@ -101,6 +102,7 @@ int main(int argc, char **argv)
 			flex_usbscicos_write(0, 1.1);
 			flex_usbscicos_write(1, 1.8);
 			flex_usbscicos_write(2, 1.2);
+			printf("SEND\n");
 		//*/
 			fflush(stdout);
 		}
