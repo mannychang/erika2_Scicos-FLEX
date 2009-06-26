@@ -193,7 +193,7 @@ float flex_usbscicos_read(uint16_t ch)
 		/* sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60*/
 		if (expected_channel == 0) 			
 			flex_usb_read((uint8_t *) rx_buffer_scicos, 60, 
-				      FLEX_USB_READ_BLOCK);		
+				      FLEX_USB_READ_NOBLOCK);		
 		expected_channel = (expected_channel + 1) % read_block_number;
 		val = rx_buffer_scicos[ch];
 	}
