@@ -130,7 +130,8 @@ static void write_rx_buffer_shift(uint8_t *buf, uint32_t size)
 		rx_held += size;
 		#ifdef FLEX_USB_DEBUG
 		fprintf(stderr, FLEX_USB_DEBUG_TAG);
-		fprintf(stderr, "WRITE_EXIT: rx_held(%d) size(%d)\n", rx_held, size);
+		fprintf(stderr, "WRITE_EXIT: rx_held(%d) size(%d)\n", 
+			rx_held, size);
 		#endif
 	}
 	pthread_cond_signal(&rx_condition);
@@ -152,7 +153,8 @@ static void *reader_thread(void *ignored_param)
 		fprintf(stderr,"check: usb_claim returns %d\n", read_bytes);
 		#endif
 		read_bytes = usb_bulk_read(dev, FLEX_USB_EP_IN, (uint8_t*) &pkt,
-					   sizeof(struct flex_usb_packet_t), 1);
+					   sizeof(struct flex_usb_packet_t), 
+						1000);
 		if (read_bytes < 1 || 
 		    read_bytes != sizeof(struct flex_usb_packet_t)) {
 			#ifdef FLEX_USB_DEBUG
