@@ -44,10 +44,6 @@ exec("SCI\contrib\dspic\NativeInteger\loader.sce");
 cd  ("SCI\contrib\dspic\NativeInteger") ;
 exec("InterfaceLoader.sci");
 
-//** Load the FLEX USB support
-cd  ("SCI\contrib\dspic\Flex-USB") ;
-exec("loader.sce");
-
 //** Load the FLEX UDP support
 cd  ("SCI\contrib\dspic\Flex-UDP") ;
 exec("loader.sce");
