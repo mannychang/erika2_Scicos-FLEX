@@ -48,6 +48,10 @@ exec("InterfaceLoader.sci");
 cd  ("SCI\contrib\dspic\Flex-UDP") ;
 exec("loader.sce");
 
+//** MS Visual C Express 2008 patch (by A.C.) 
+cd("SCI\contrib\MSVC2008_Patch");disp(" ");
+exec("run_me.sce");
+
 cd ("SCI\contrib\dspic");
 
 //** show some message  
