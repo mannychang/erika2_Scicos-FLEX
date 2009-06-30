@@ -162,7 +162,7 @@ int main(int argc, char **argv)
 			} else {
 				sent = send_udp_data(udp_sender,data_sender);
 				if (sent > 0)
-					;//printf(".");
+					printf(".");
 				//printf("DATA_ID=1 DATA=%f\n", data0);
 				//printf("DATA_ID=2 DATA=%f\n", data1);
 				//printf("DATA_ID=3 DATA=%f\n", data2);
@@ -178,7 +178,7 @@ int main(int argc, char **argv)
 
 			recvd = receive_udp_data(udp_receiver, data_receiver);
 			if (recvd > 0)
-				;//printf("%1.1f",((float *)data_receiver->buffer)[0]);
+				printf("*");
 			for (i=0;i<MAX_CHANNELS; i++){
 				flex_usbscicos_write(
 					i,
