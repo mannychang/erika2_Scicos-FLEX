@@ -98,12 +98,12 @@ int main(int argc, char **argv)
 				printf("DATA_ID=6 DATA=%f\n", data8);
 				printf("DATA_ID=6 DATA=%f\n", data9);
 			}
-		///*
+		/*
 			flex_usbscicos_write(0, 1.1);
 			flex_usbscicos_write(1, 1.8);
 			flex_usbscicos_write(2, 1.2);
 			printf("SEND\n");
-		//*/
+		*/
 			fflush(stdout);
 		}
 		printf("\n - flex_usbscicos_close() : ");

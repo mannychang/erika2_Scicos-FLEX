@@ -14,9 +14,9 @@
 
 #define SCICOS_USB_CHANNELS 15
 
-#define SINGLE_THREAD
-#define NO_WRITE_THREAD
-#define NO_READ_THREAD
+//#define SINGLE_THREAD
+//#define NO_WRITE_THREAD
+//#define NO_READ_THREAD
 
 #if (defined NO_WRITE_THREAD) || (defined NO_READ_THREAD)
 #ifdef SINGLE_THREAD
@@ -85,9 +85,9 @@ static void *usb_process_reader_thread(void *ignored_param)
 	while (!stop_usb_process_io)  {
 		if (!pause_reader) {
 			pthread_mutex_lock(&rx_buffer_mutex);
-			/* sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60*/		
+			/* sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60*/	
 			flex_usb_read((uint8_t *) rx_buffer_scicos, 60, 
-				FLEX_USB_READ_NOBLOCK);		
+				FLEX_USB_READ_BLOCK);		
 			pthread_mutex_unlock(&rx_buffer_mutex);
 		}		
 	} /* End of master loop */
@@ -135,7 +135,7 @@ int32_t flex_usbscicos_init(unsigned char block_type)
 	/* Initilize the flex_usb library with default options */	
 	/* sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60
 	    Tx/Rx buffer size = 10x60 */		
-	retv = flex_usb_init(600, 600, 0);
+	retv = flex_usb_init(60, 60, 0);
 	if (retv < 0) 
 		return retv;
 	/* Init local semaphores */
@@ -170,9 +170,11 @@ int32_t flex_usbscicos_init(unsigned char block_type)
 		return -3;
 	#endif
 	#ifndef NO_WRITE_THREAD
+/*
 	if (pthread_create(&usb_process_writer_tid, &t_attr, 
 			   usb_process_writer_thread, 0) < 0)
 		return -3;
+*/
 	#endif
 	is_initialized = 1;
 	if (block_type == 0)
@@ -190,7 +192,7 @@ float flex_usbscicos_read(uint16_t ch)
 	float val = 0;
 	
 	if (ch < SCICOS_USB_CHANNELS && is_initialized) {
-		/* sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60*/
+		// sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60 
 		if (expected_channel == 0) 			
 			flex_usb_read((uint8_t *) rx_buffer_scicos, 60, 
 				      FLEX_USB_READ_NOBLOCK);		
@@ -220,21 +222,24 @@ float flex_usbscicos_read(uint16_t ch)
 DECLDIR
 void flex_usbscicos_write(uint16_t ch, float val)
 {
+/*
 	static expected_channel = 0;
 
 	if (ch < SCICOS_USB_CHANNELS && is_initialized) {		
 		tx_buffer_scicos[ch] = val;		
 		if (++expected_channel == write_block_number) {			
-			/* sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60*/
+			// sizeof(float) x SCICOS_USB_CHANNELS = 4 x 15 = 60
 			flex_usb_write((uint8_t *) tx_buffer_scicos, 60);		
 			expected_channel = 0;
 		}
 	}
+*/
 } 
 #else
 DECLDIR
 void flex_usbscicos_write(uint16_t ch, float val)
 {
+/*
 	if (ch < SCICOS_USB_CHANNELS && is_initialized) {
 		if (pause_writer)
 			pause_writer = 0;
@@ -242,6 +247,7 @@ void flex_usbscicos_write(uint16_t ch, float val)
 		tx_buffer_scicos[ch] = val;
 		pthread_mutex_unlock(&tx_buffer_mutex);
 	}
+*/
 } 
 #endif
 
