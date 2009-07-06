@@ -45,6 +45,8 @@ case 'set' then //** set parameters
                                                  
     if ~ok then break, end //** in case of error
     
+    gr_i=['xstringb(orig(1),orig(2),[name; '' Port:''+string(model.ipar(5))],sz(1),sz(2),''fill'');']
+    
     ng = [];
     z  = 0;
     nx = 0;
@@ -81,6 +83,7 @@ case 'set' then //** set parameters
       model.nzcross = 0 ;
       x.model = model ;
       graphics.exprs = label ;
+      graphics.gr_i = gr_i ;
       x.graphics = graphics ;
       break
     end
