@@ -1,7 +1,7 @@
 AMAZING_tuner
-AMAZING_touch
-AMAZING_button
 AMAZING_reset
 AMAZING_leds
+AMAZING_button
 AMAZING_switch
 AMAZING_pwm
+AMAZING_touch

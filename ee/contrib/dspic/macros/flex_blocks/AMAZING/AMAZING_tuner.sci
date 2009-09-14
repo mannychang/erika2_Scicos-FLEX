@@ -62,7 +62,7 @@ function [x,y,typ] = AMAZING_tuner(job,arg1,arg2)
     exprs=[sci2exp(res_x);sci2exp(res_y)]	
     gr_i=['xstringb(orig(1),orig(2),..
          [''AMAZING'';..
-	  ''config'' ;..
+	  ''tuner'' ;..
 	  string(res_x) + ''x'' + string(res_y)],..
 	  sz(1),sz(2),''fill'');']
     x=standard_define([3 2],model,exprs,gr_i)
