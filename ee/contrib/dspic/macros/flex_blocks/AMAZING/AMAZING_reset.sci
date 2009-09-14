@@ -35,7 +35,7 @@ function [x,y,typ] = AMAZING_tuning_reset(job,arg1,arg2)
    end
   case 'define' then
     model = scicos_model()
-    model.sim = list('amazing_tuning_reset',4)
+    model.sim = list('amazing_reset',4)
     if exists('inport') then model.in=ones(inport,1), else in=1, end
     model.out=[],
     model.evtin=1

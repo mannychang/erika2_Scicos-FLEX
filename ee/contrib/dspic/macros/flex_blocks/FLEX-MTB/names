@@ -1,5 +1,5 @@
-FLEX_MTB_touch
 FLEX_MTB_switch
 FLEX_MTB_button
 FLEX_MTB_leds
 FLEX_MTB_pwm
+FLEX_MTB_touch
