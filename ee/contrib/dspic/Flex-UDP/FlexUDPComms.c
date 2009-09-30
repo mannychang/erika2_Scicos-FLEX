@@ -1,4 +1,4 @@
-#include "scicos_block4.h"
+#include "scicos/scicos_block4.h"
 #include "common.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -41,6 +41,7 @@ void udp_receiver(scicos_block *block,int flag){
             }
             /*set non blocking*/
             err = ioctlsocket(sock_str_ptr->sd, FIONBIO, &ret);
+            err = ioctlsocket(sock_str_ptr->sd, FIONBIO, &ret);
             break;
 
         //** output update
@@ -50,8 +51,9 @@ void udp_receiver(scicos_block *block,int flag){
                     (char *)&tmp[0],
                     sizeof(tmp),
                     0, 0, 0);
-            if (err < 0)
-                break;
+            if (err < 0){
+   		break;
+	    }
             for (i=0;i<MAX_CHANNELS;i++){
                 y(0,i)=(double)tmp[i];
             }

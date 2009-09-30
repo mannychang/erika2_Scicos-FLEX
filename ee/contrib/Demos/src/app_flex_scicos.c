@@ -138,21 +138,16 @@ int main(int argc, char **argv)
 			printf("OK.\n");
 		}
 		printf("\nStart Application ...\n");
-		for (;;) {
+		for (;;) 
+        {
 			for (i=0;i<MAX_CHANNELS; i++){
 				((float *)data_sender->buffer)[i] = 
 					flex_usbscicos_read(i);			
 			}	
+			sent = send_udp_data(udp_sender,data_sender);
+			if (sent > 0)
+			   printf(".");
 
-			if (retv < 0) {
-				printf(" ERROR, read retv %d.", retv);
-				fflush(stdout);
-				break;
-			} else {
-				sent = send_udp_data(udp_sender,data_sender);
-				if (sent > 0)
-					printf(".");
-			}
 
 			recvd = receive_udp_data(udp_receiver, data_receiver);
 			if (recvd > 0)
@@ -160,8 +155,10 @@ int main(int argc, char **argv)
 			for (i=0;i<MAX_CHANNELS; i++){
 				flex_usbscicos_write(
 					i,
-					((float *)data_receiver->buffer)[i]);			
+					((float *)data_receiver->buffer)[i]);
+                    //printf(" %d %f ",i,((float *)data_receiver->buffer)[i] );    			
 			}	
+
 
 			fflush(stdout);
 		}

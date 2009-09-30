@@ -111,7 +111,7 @@ case 'define' then      //** the standard define
   model.dstate = [] ;
   model.rpar = [];
   model.ipar = [add0 add1 add2 add3 port];
-  model.blocktype = 'c';
+  model.blocktype = 'd'; //'c';
   model.firing = [] ;
   model.dep_ut = [%t %f];
   model.nzcross = 0 ;

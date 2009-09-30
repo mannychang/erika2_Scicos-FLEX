@@ -54,9 +54,7 @@ FLEX_MTB_touch,__USE_TOUCH__
 FLEX_MTB_touch,__USE_LEDS__
 FLEX_lcd,__USE_DEMOBOARD__
 FLEX_lcd,__USE_LCD__
-FLEX_usb_send,__USE_DEMOBOARD__
 FLEX_usb_send,__USE_USB__
-FLEX_usb_receive,__USE_DEMOBOARD__
 FLEX_usb_receive,__USE_USB__
 AMAZING_button,__USE_MOTIONBOARD__
 AMAZING_button,__USE_BUTTONS__
