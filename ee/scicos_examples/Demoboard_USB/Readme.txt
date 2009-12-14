@@ -17,5 +17,5 @@ among a PC and the FLEX FULL board through a USB connection.
   the makefile and the source files located in the following folder: 
   - .\contrib\USB_UDP_FLEX_SCICOS_App
 
-For other info go to the site: http://www.evidence.eu.com/
+For other info go to the site: http://erika.tuxfamily.org/
 
