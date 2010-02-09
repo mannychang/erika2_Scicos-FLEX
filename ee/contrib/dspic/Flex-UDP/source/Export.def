@@ -1,0 +1,5 @@
+LIBRARY MakeTempFilenameDLL
+EXPORTS
+	udp_receiver
+	udp_sender
+	

@@ -1,126 +1,112 @@
+// Expected integer params 
+//my_addr_b1=exprs(1);		// my address byte 1
+//my_addr_b2=exprs(2);		// My address byte 2
+//my_addr_b3=exprs(3);		// My address byte 3
+//my_addr_b4=exprs(4);		// My address byte 4
+//my_port=exprs(5);			// My UDP port number
+
 function [x,y,typ] = UDP_RECEIVER(job,arg1,arg2)
-
-//** 29 June 2009
-//** ------------------------------------ INPUT ---------------------------------
-
-
-x=[];y=[];typ=[];
-
-select job //** main state machine switch
-
-case 'plot' then  //** plot the object
-  graphics = arg1.graphics;
-  exprs = graphics.exprs;
-  port   = exprs(1)(1); 
-  name  = exprs(1)(2);
-  standard_draw(arg1)
-
-case 'getinputs' then //** inputs
-  [x,y,typ] = standard_inputs(arg1) //**
-
-case 'getoutputs' then //**
-  [x,y,typ] = standard_outputs(arg1)
-
-case 'getorigin' then  //**
-  [x,y]=standard_origin(arg1)
-
-case 'set' then //** set parameters
-  x = arg1 ; //**
-  model    = arg1.model;
-  graphics = arg1.graphics;
-  label    = graphics.exprs;
-
-  sadd0 = string(model.ipar(1));
-  sadd1 = string(model.ipar(2));
-  sadd2 = string(model.ipar(3));
-  sadd3 = string(model.ipar(4));
-  sport = string(model.ipar(5));
-
-  while %t do
-    
-    dialog_box_banner = "FLEX USB Communication Parameters";
- 
-    [ok, add0, add1, add2, add3, port, name, lab] = getvalue(dialog_box_banner, ['Add.MSB';'Add.ISB';'Add.ISB';'Add.LSB';'Port';'Device'],...
-                                  list('vec',1, 'vec',1,'vec',1,'vec',1,'vec',1,'str',1), [sadd0;sadd1;sadd2;sadd3;sport;"UDP_USB Receiver"]);
-                                                 
-    if ~ok then break, end //** in case of error
-    
-    gr_i=['xstringb(orig(1),orig(2),[name; '' Port:''+string(model.ipar(5))],sz(1),sz(2),''fill'');']
-    
-    ng = [];
-    z  = 0;
-    nx = 0;
-    nz = 0;
-      o  = [15];
-      i   = [];
-      nin = 1;
-      ci  = 1;
-      nevin = 1;
-      co = [];
-    nevout = 0;
-    
-    depu = %t; dept = %f;
-    dep_ut = [depu dept];
-
-    funam = 'udp_receiver';
-    funtyp = 4 ;
-    
-    if ~ok then break,end
-         [model,graphics,ok] = check_io(model,graphics,i,o,ci,co)
-    
-    if ok then
-      model.sim = list(funam,funtyp) ; //** computation function
-      model.in  = [] ;
-      model.out = o;
-      model.evtin = ci;
-      model.evtout = [];
-      model.state = [];
-      model.dstate = 0 ;
-      model.rpar = [];
-      model.ipar = [add0 add1 add2 add3 port];
-      model.firing = [];
-      model.dep_ut = dep_ut;
-      model.nzcross = 0 ;
-      x.model = model ;
-      graphics.exprs = label ;
-      graphics.gr_i = gr_i ;
-      x.graphics = graphics ;
-      break
+  x=[];y=[];typ=[];
+  select job
+  case 'plot' then
+    exprs=arg1.graphics.exprs;
+    my_addr_b1 	= exprs(1);
+    my_addr_b2 	= exprs(2);
+    my_addr_b3 	= exprs(3);
+    my_addr_b4 	= exprs(4);
+    my_port 	= exprs(5);
+    standard_draw(arg1)
+  case 'getinputs' then
+    [x,y,typ]=standard_inputs(arg1);
+  case 'getoutputs' then
+    [x,y,typ]=standard_outputs(arg1);
+  case 'getorigin' then
+    [x,y]=standard_origin(arg1);
+  case 'set' then
+    x=arg1;
+    model=arg1.model;
+	graphics=arg1.graphics;
+    exprs=graphics.exprs;
+    while %t do
+      [ok, my_addr_b1, my_addr_b2, my_addr_b3, my_addr_b4, my_port, exprs]=..
+      getvalue('UDP Communication Parameters',..
+      ['My address byte 1 [0...255]:';..
+    	'My address byte 2 [0...255]:';..
+    	'My address byte 3 [0...255]:';..
+    	'My address byte 4 [0...255]:';..
+    	'My port number [1...65535]:';..
+       ],..
+      list('vec',1,'vec',1,'vec',1,'vec',1,'vec',1),exprs);
+      if ~ok then break,end
+      if(my_addr_b1<0 | my_addr_b1>255) then
+        warning('Invalid range for My Address byte 1. Keeping previous values.');
+        my_addr_b1 = exprs(1);
+        break;
+      end
+      if(my_addr_b2<0 | my_addr_b2>255) then
+        warning('Invalid range for My Address byte 2. Keeping previous values.');
+        my_addr_b2 = exprs(2);
+        break;
+      end
+      if(my_addr_b3<0 | my_addr_b3>255) then
+        warning('Invalid range for My Address byte 3. Keeping previous values.');
+        my_addr_b3 = exprs(3);
+        break;
+      end
+      if(my_addr_b4<0 | my_addr_b4>255) then
+        warning('Invalid range for My Address byte 4. Keeping previous values.');
+        my_addr_b4 = exprs(4);
+        break;
+      end
+      if(my_port<1 | my_port>65535) then
+        warning('Invalid range for My Port number. Keeping previous values.');
+        my_port = exprs(5);
+        break;
+      end
+      
+      // if exists('inport') then in=ones(inport,1), else in=1, end
+      in = [];																	
+      out= 15;	// we set a fixed OUTPUT dimension = 15 
+      [model,graphics,ok]=check_io(model,graphics,in,out,1,[]);
+      if ok then
+        graphics.exprs=exprs;
+        model.rpar=[];
+        model.ipar=[my_addr_b1, my_addr_b2, my_addr_b3, my_addr_b4, my_port];
+        model.dstate=[];
+        x.graphics=graphics;
+		x.model=model;
+        break
+      end
     end
- 
+  case 'define' then
+  	my_addr_b1 	= 127;			// Default value
+  	my_addr_b2 	= 0;			// Default value
+  	my_addr_b3 	= 0;			// Default value
+  	my_addr_b4 	= 2;			// Default value
+  	my_port	 	= 50000;		// Default value																
+    model=scicos_model();
+    model.sim=list('udp_receiver',4);
+    //if exists('inport') then model.in=ones(inport,1), else model.in=1, end
+    model.in = [];															
+    model.out=15;	// we set a fixed OUTPUT dimension = 15 
+    model.evtin=1;
+    model.rpar=[];
+    model.ipar=[my_addr_b1, my_addr_b2, my_addr_b3, my_addr_b4, my_port];
+    model.dstate=[];
+    model.blocktype='d';
+    model.dep_ut=[%t %f];
+    exprs=[sci2exp(my_addr_b1);..
+    		sci2exp(my_addr_b2);..
+    		sci2exp(my_addr_b3);..
+    		sci2exp(my_addr_b4);..
+    		sci2exp(my_port);..
+           	];
+    gr_i=['xstringb(orig(1),orig(2),..
+		[''PC UDP RECEIVER'';..
+		 ''MY PORT: ''+string(my_port);..
+		 ''MY IP: ''+string(my_addr_b1)+''.''+string(my_addr_b2)+''.''+string(my_addr_b3)+''.''+string(my_addr_b4);..
+		 ],..
+		sz(1),sz(2),''fill'');'];
+    x=standard_define([5 4],model,exprs,gr_i);
   end
-
-case 'define' then      //** the standard define  
-  add0 = 127;           //**
-  add1 = 0   ;
-  add2 = 0   ;
-  add3 = 1   ;
-  port  =  50000 ;
-  name = 'UDP_USB Receiver'; //** default name
-
-  model = scicos_model();
-  funam = 'udp_receiver';
-  funtyp = 4 ;
-  model.sim=list(funam, funtyp) //** simulating function
-
-  model.in = [] ; //** no input
-  model.out = [15];
-  model.evtin = 1 ;
-  model.evtout = [] ;
-  model.state = [] ;
-  model.dstate = [] ;
-  model.rpar = [];
-  model.ipar = [add0 add1 add2 add3 port];
-  model.blocktype = 'd'; //'c';
-  model.firing = [] ;
-  model.dep_ut = [%t %f];
-  model.nzcross = 0 ;
-
-  label = list( [sci2exp(port), name], [] ) ;
- 
-  gr_i=['xstringb(orig(1),orig(2),[name; '' Port:''+string(port)],sz(1),sz(2),''fill'');']
-  x = standard_define([4 2],model,label,gr_i)
-end
-
 endfunction
-

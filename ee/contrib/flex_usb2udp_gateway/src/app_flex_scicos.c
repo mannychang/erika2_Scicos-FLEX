@@ -145,8 +145,11 @@ int main(int argc, char **argv)
 					flex_usbscicos_read(i);			
 			}	
 			sent = send_udp_data(udp_sender,data_sender);
-			if (sent > 0)
+		    if (sent > 0)
+			{
 			   printf(".");
+			   printf("data_sender->buffer[0]= %f\n",((float *)data_sender->buffer)[0]);
+            }
 
 
 			recvd = receive_udp_data(udp_receiver, data_receiver);

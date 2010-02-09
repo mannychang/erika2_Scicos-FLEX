@@ -1,12 +1,12 @@
 FLEX_usb_send
-FLEX_zigbee_send
 FLEX_serial_receive
-FLEX_802154_send
+FLEX_zigbee_send
 FLEX_802154d_config
+FLEX_802154_send
+FLEX_usb_receive
 FLEX_802154c_config
 FLEX_canout
-FLEX_usb_receive
-FLEX_zigbee_receive
 FLEX_serial_send
-FLEX_802154_receive
 FLEX_canin
+FLEX_zigbee_receive
+FLEX_802154_receive
