@@ -39,7 +39,7 @@ function [x,y,typ] = UDP_SENDER(job,arg1,arg2)
     exprs=graphics.exprs;
     while %t do
       [ok, my_addr_b1, my_addr_b2, my_addr_b3, my_addr_b4, my_port, dst_addr_b1, dst_addr_b2, dst_addr_b3, dst_addr_b4, dst_port, exprs]=..
-      getvalue('UDP Communication Parameters',..
+      getvalue('UDP Communication Parameters [default values for usb, (src:192.168.0.1,9762) and (dest:192.168.0.2,9760) for ethernet] :',..
       ['My address byte 1 [0...255]:';..
     	'My address byte 2 [0...255]:';..
     	'My address byte 3 [0...255]:';..
@@ -121,8 +121,8 @@ function [x,y,typ] = UDP_SENDER(job,arg1,arg2)
   	my_addr_b1 	= 127;			// Default value
   	my_addr_b2 	= 0;			// Default value
   	my_addr_b3 	= 0;			// Default value
-  	my_addr_b4 	= 2;			// Default value
-  	my_port	 	= 50000;		// Default value
+  	my_addr_b4 	= 1;			// Default value
+  	my_port	 	= 50002;		// Default value
     dst_addr_b1 = 127;			// Default value																		
     dst_addr_b2 = 0;			// Default value																		
     dst_addr_b3 = 0;			// Default value																			

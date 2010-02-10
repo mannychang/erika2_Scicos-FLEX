@@ -28,7 +28,7 @@ function [x,y,typ] = FLEX_UDP_receive(job,arg1,arg2)
     old_pc_port_id = exprs(2);
     while %t do
       [ok, flex_port_id, pc_port_id, exprs]=..
-      getvalue('UDP Receive Params',..
+      getvalue('UDP Receive Parameters (pc: 192.168.0.1, flex: 192.168.0.2) :',..
       ['FLEX Port number [1...65535]:';..
 	  'PC Port number [1...65535]:'],..
       list('vec',1,'vec',1),exprs);

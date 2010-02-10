@@ -16,16 +16,16 @@ scs_m.objs(1)=scicos_block(..
               gui="UDP_RECEIVER",..
               graphics=scicos_graphics(..
                        orig=[0,0],..
-                       sz=[80,40],..
+                       sz=[100,80],..
                        flip=%t,..
                        theta=0,..
-                       exprs=list(["50000","UDP_USB Receiver"],[]),..
+                       exprs=["127";"0";"0";"1";"50000"],..
                        pin=[],..
                        pout=0,..
                        pein=0,..
                        peout=[],..
                        gr_i=list(..
-                       "xstringb(orig(1),orig(2),[name; '' Port:''+string(port)],sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),		[''PC UDP RECEIVER'';		 ''MY PORT: ''+string(my_port);		 ''MY IP: ''+string(my_addr_b1)+''.''+string(my_addr_b2)+''.''+string(my_addr_b3)+''.''+string(my_addr_b4);		 ],		sz(1),sz(2),''fill'');",..
                        8),..
                        id="",..
                        in_implicit=[],..
@@ -57,17 +57,17 @@ scs_m.objs(1)=scicos_block(..
 scs_m.objs(2)=scicos_block(..
               gui="UDP_SENDER",..
               graphics=scicos_graphics(..
-                       orig=[110,0],..
-                       sz=[80,40],..
+                       orig=[130,0],..
+                       sz=[100,80],..
                        flip=%t,..
                        theta=0,..
-                       exprs=list(["50001","UDP_USB Sender"],[]),..
+                       exprs=["127";"0";"0";"1";"50002";"127";"0";"0";"1";"50001"],..
                        pin=0,..
                        pout=[],..
                        pein=0,..
                        peout=[],..
                        gr_i=list(..
-                       "xstringb(orig(1),orig(2),[name; '' Port:''+string(port)],sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),		[''PC UDP SENDER'';		 ''MY PORT: ''+string(my_port);		 ''MY IP: ''+string(my_addr_b1)+''.''+string(my_addr_b2)+''.''+string(my_addr_b3)+''.''+string(my_addr_b4);		 ''DST PORT: ''+string(dst_port);''DST IP: ''+string(dst_addr_b1)+''.''+string(dst_addr_b2)+''.''+string(dst_addr_b3)+''.''+string(dst_addr_b4);		 ],		sz(1),sz(2),''fill'');",..
                        8),..
                        id="",..
                        in_implicit="E",..
@@ -86,7 +86,7 @@ scs_m.objs(2)=scicos_block(..
                        dstate=[],..
                        odstate=list(),..
                        rpar=[],..
-                       ipar=[127,0,0,1,50001],..
+                       ipar=[127,0,0,1,50002,127,0,0,1,50001],..
                        opar=list(),..
                        blocktype="d",..
                        firing=[],..
