@@ -1,7 +1,7 @@
 #
 # PLEASE CHANGE THIS VARIABLE BELOW TO THE CORRECT INSTALLATION PATH
 #
-export ECLIPSE_HOME="C:\Evidence\Evidence\eclipse"
+export ECLIPSE_HOME="C:\Evidence\eclipse"
 
 #########################################################################################
 #
