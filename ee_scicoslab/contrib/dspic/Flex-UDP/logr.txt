@@ -1,0 +1,2998 @@
+udp_receiver: WSAStartup configured successfully!
+ipar(0)=192
+ipar(1)=168
+ipar(2)=0
+ipar(3)=1
+ipar(4)=9761
+Bind procedure failed.
+#error: 10049
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093
+Socket error while trying to receive.
+#error: 10093

@@ -1,0 +1,8443 @@
+udp_receiver: WSAStartup configured successfully!
+ipar(0)=127
+ipar(1)=0
+ipar(2)=0
+ipar(3)=1
+ipar(4)=50000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.458374
+y(1)= 5.611450
+y(2)= 6.779663
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.663819
+y(2)= 6.783691
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.530884
+y(1)= 5.663819
+y(2)= 6.795776
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.482544
+y(1)= 5.603394
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.530884
+y(1)= 5.663819
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.458374
+y(1)= 5.635620
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.458374
+y(1)= 5.619506
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.450317
+y(1)= 5.611450
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.502686
+y(1)= 5.667847
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.458374
+y(1)= 5.651733
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.526855
+y(1)= 5.667847
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.450317
+y(1)= 5.603394
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.442261
+y(1)= 5.635620
+y(2)= 6.775635
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 5.627563
+y(2)= 6.787719
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 5.667847
+y(2)= 6.731324
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.555053
+y(1)= 5.667847
+y(2)= 6.932740
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.486572
+y(1)= 5.591309
+y(2)= 6.787719
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.313354
+y(1)= 5.796752
+y(2)= 6.888427
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.269043
+y(1)= 5.635620
+y(2)= 6.775635
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.216674
+y(1)= 5.603394
+y(2)= 6.666870
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.248901
+y(1)= 5.619506
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.410034
+y(1)= 5.744385
+y(2)= 6.819946
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.426147
+y(1)= 5.776611
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.442261
+y(1)= 5.780639
+y(2)= 7.077759
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.265015
+y(1)= 5.792725
+y(2)= 6.634644
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.999146
+y(1)= 5.627563
+y(2)= 6.392944
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.983032
+y(1)= 5.595336
+y(2)= 6.441284
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.152221
+y(1)= 5.522828
+y(2)= 6.682983
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.434204
+y(1)= 5.647705
+y(2)= 6.731324
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.470459
+y(1)= 5.780639
+y(2)= 7.001221
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.361695
+y(1)= 5.780639
+y(2)= 7.021362
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.265015
+y(1)= 5.571167
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.942749
+y(1)= 5.522828
+y(2)= 6.441284
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.942749
+y(1)= 5.611450
+y(2)= 6.554077
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.111938
+y(1)= 5.603394
+y(2)= 6.602417
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.313354
+y(1)= 5.756469
+y(2)= 6.795776
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.450317
+y(1)= 5.720214
+y(2)= 6.868286
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.498657
+y(1)= 5.764527
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.667847
+y(1)= 6.630616
+y(2)= 8.245972
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.442261
+y(1)= 5.591309
+y(2)= 6.731324
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.510742
+y(1)= 5.716186
+y(2)= 6.819946
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 5.667847
+y(2)= 6.819946
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.595336
+y(1)= 5.635620
+y(2)= 6.239868
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.506714
+y(1)= 5.667847
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.442261
+y(1)= 5.635620
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.502686
+y(1)= 5.631592
+y(2)= 6.775635
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.490601
+y(1)= 5.651733
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.434204
+y(1)= 5.635620
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.538940
+y(1)= 5.651733
+y(2)= 6.783691
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.466431
+y(1)= 5.619506
+y(2)= 6.731324
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.502686
+y(1)= 5.655761
+y(2)= 6.779663
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.458374
+y(1)= 5.603394
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.635620
+y(1)= 5.498657
+y(2)= 6.755493
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.563111
+y(1)= 5.756469
+y(2)= 6.828002
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.643677
+y(1)= 5.583252
+y(2)= 7.037476
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.434204
+y(1)= 5.925660
+y(2)= 6.666870
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.281128
+y(1)= 6.312378
+y(2)= 6.618530
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.297241
+y(1)= 6.409058
+y(2)= 6.264038
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.361695
+y(1)= 6.570191
+y(2)= 6.401000
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.240845
+y(1)= 6.304321
+y(2)= 6.586303
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.079712
+y(1)= 5.869263
+y(2)= 6.771607
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.281128
+y(1)= 5.853149
+y(2)= 6.682983
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.337524
+y(1)= 5.828979
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.329468
+y(1)= 6.183471
+y(2)= 6.602417
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.410034
+y(1)= 6.634644
+y(2)= 6.586303
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.353637
+y(1)= 6.384887
+y(2)= 6.441284
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.281128
+y(1)= 6.078735
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.265015
+y(1)= 5.828979
+y(2)= 6.795776
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.369751
+y(1)= 5.808838
+y(2)= 6.803833
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.273071
+y(1)= 5.256958
+y(2)= 6.731324
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.426147
+y(1)= 5.115966
+y(2)= 6.517822
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 4.813842
+y(2)= 6.489625
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.345581
+y(1)= 5.071655
+y(2)= 6.578247
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.281128
+y(1)= 5.345581
+y(2)= 6.634644
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.281128
+y(1)= 5.478515
+y(2)= 6.828002
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.341553
+y(1)= 5.506714
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.333496
+y(1)= 5.410034
+y(2)= 6.759521
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.337524
+y(1)= 5.458374
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.313354
+y(1)= 5.442261
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.301270
+y(1)= 5.478515
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.297241
+y(1)= 5.506714
+y(2)= 6.828002
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.224731
+y(1)= 5.502686
+y(2)= 6.904541
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.132080
+y(1)= 5.667847
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.934692
+y(1)= 5.756469
+y(2)= 6.562133
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.942749
+y(1)= 5.780639
+y(2)= 6.465454
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.152221
+y(1)= 5.732300
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.393920
+y(1)= 5.667847
+y(2)= 6.844116
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.490601
+y(1)= 5.635620
+y(2)= 6.844116
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 5.631592
+y(2)= 6.759521
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.377807
+y(1)= 5.796752
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.260987
+y(1)= 5.893433
+y(2)= 6.876343
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.289185
+y(1)= 5.538940
+y(2)= 6.771607
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.329468
+y(1)= 5.635620
+y(2)= 6.650757
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.534912
+y(1)= 5.474487
+y(2)= 6.900513
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.369751
+y(1)= 5.732300
+y(2)= 6.666870
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.373779
+y(1)= 5.631592
+y(2)= 6.884399
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.321412
+y(1)= 5.635620
+y(2)= 6.795776
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.442261
+y(1)= 5.627563
+y(2)= 6.731324
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.281128
+y(1)= 5.458374
+y(2)= 6.823974
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.248901
+y(1)= 5.619506
+y(2)= 6.618530
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.393920
+y(1)= 5.587280
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.426147
+y(1)= 5.643677
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.406006
+y(1)= 5.744385
+y(2)= 6.803833
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.329468
+y(1)= 5.700073
+y(2)= 6.795776
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.498657
+y(1)= 5.522828
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.410034
+y(1)= 5.281128
+y(2)= 6.844116
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.345581
+y(1)= 5.538940
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.401978
+y(1)= 5.563111
+y(2)= 6.828002
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.538940
+y(1)= 5.345581
+y(2)= 6.924682
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.385864
+y(1)= 5.667847
+y(2)= 6.682983
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.369751
+y(1)= 5.579223
+y(2)= 6.803833
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.337524
+y(1)= 5.571167
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.373779
+y(1)= 6.054565
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.313354
+y(1)= 5.248901
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.345581
+y(1)= 5.627563
+y(2)= 6.658813
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.377807
+y(1)= 5.377807
+y(2)= 6.828002
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.426147
+y(1)= 5.522828
+y(2)= 6.682983
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.438232
+y(1)= 5.667847
+y(2)= 6.658813
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.325439
+y(1)= 5.700073
+y(2)= 6.840088
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.289185
+y(1)= 5.635620
+y(2)= 6.779663
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.329468
+y(1)= 5.812866
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.442261
+y(1)= 5.377807
+y(2)= 6.908569
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.357666
+y(1)= 5.377807
+y(2)= 6.687011
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 5.393920
+y(2)= 6.783691
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.377807
+y(1)= 5.619506
+y(2)= 6.856201
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.152221
+y(1)= 5.667847
+y(2)= 6.876343
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.055542
+y(1)= 5.764527
+y(2)= 6.622558
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.797730
+y(1)= 5.506714
+y(2)= 6.280151
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.813842
+y(1)= 5.579223
+y(2)= 6.368775
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.039429
+y(1)= 5.603394
+y(2)= 6.650757
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.196533
+y(1)= 5.667847
+y(2)= 6.666870
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.369751
+y(1)= 5.627563
+y(2)= 6.952881
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.345581
+y(1)= 5.647705
+y(2)= 6.956909
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.071655
+y(1)= 5.909546
+y(2)= 6.956909
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.910522
+y(1)= 5.748413
+y(2)= 6.602417
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.749389
+y(1)= 5.748413
+y(2)= 6.183471
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 4.910522
+y(1)= 5.796752
+y(2)= 6.505737
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.111938
+y(1)= 5.659790
+y(2)= 6.803833
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.297241
+y(1)= 5.728271
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.281128
+y(1)= 5.619506
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.345581
+y(1)= 5.627563
+y(2)= 6.747436
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.434204
+y(1)= 5.635620
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.764527
+y(1)= 6.018310
+y(2)= 7.835083
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.518798
+y(1)= 5.643677
+y(2)= 6.759521
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 5.619506
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.506714
+y(1)= 5.659790
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.506714
+y(1)= 5.700073
+y(2)= 6.795776
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.474487
+y(1)= 5.619506
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.458374
+y(1)= 5.635620
+y(2)= 6.699097
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.518798
+y(1)= 5.667847
+y(2)= 6.779663
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.494628
+y(1)= 5.655761
+y(2)= 6.787719
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.442261
+y(1)= 5.603394
+y(2)= 6.755493
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.538940
+y(1)= 5.667847
+y(2)= 6.803833
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.458374
+y(1)= 5.635620
+y(2)= 6.763549
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.506714
+y(1)= 5.659790
+y(2)= 6.811890
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.506714
+y(1)= 5.667847
+y(2)= 6.787719
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.482544
+y(1)= 5.627563
+y(2)= 6.759521
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.454345
+y(1)= 5.651733
+y(2)= 6.787719
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.490601
+y(1)= 5.619506
+y(2)= 6.759521
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.506714
+y(1)= 5.651733
+y(2)= 6.775635
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+ret: 60
+y(0)= 5.514770
+y(1)= 5.627563
+y(2)= 6.799805
+y(3)= 0.000000
+y(4)= 0.000000
+y(5)= 0.000000
+y(6)= 0.000000
+y(7)= 0.000000
+y(8)= 0.000000
+y(9)= 0.000000
+y(10)= 0.000000
+y(11)= 0.000000
+y(12)= 0.000000
+y(13)= 0.000000
+y(14)= 0.000000
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+Socket error while trying to receive.
+#error: 10035
+udp_receiver: closing...done!

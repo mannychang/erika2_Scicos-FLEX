@@ -1,0 +1,2 @@
+		CFLAGS = "-DMODEL=$$MODEL$$";				//<-- DO NOT EDIT
+		CFLAGS = "-DMODELN=$$MODEL$$.c";			//<-- DO NOT EDIT

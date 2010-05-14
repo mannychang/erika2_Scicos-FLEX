@@ -1,0 +1,4 @@
+LIBRARY MakeTempFilenameDLL
+EXPORTS
+	EvidenceAmazingRollers
+	amazing_ground
