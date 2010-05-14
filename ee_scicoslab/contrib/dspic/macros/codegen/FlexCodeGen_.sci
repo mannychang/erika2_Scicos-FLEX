@@ -48,14 +48,14 @@ function FlexCodeGen_()
             Scicos_commands=['%diagram_path_objective=[];%scicos_navig=1';
                              '[alreadyran,%cpr]=do_terminate();'+...
                              '%diagram_path_objective='+sci2exp(super_path)+';%scicos_navig=1';
-                             '%pt='+sci2exp(%pt)+';Cmenu='"RTAI CodeGen"'';]
+                             '%pt='+sci2exp(%pt)+';Cmenu='"FlexCodeGen"'';]
 
          //## test to know if the precompilation of that sblock have been done
          elseif ( isequal(scs_m_top,[]) | isequal(scs_m_top,list()) ) then
             Scicos_commands=['%diagram_path_objective=[];%scicos_navig=1';
                              'global scs_m_top; scs_m_top=adjust_all_scs_m(scs_m,'+sci2exp(k)+');'+...
                              '%diagram_path_objective='+sci2exp(super_path)+';%scicos_navig=1';
-                             '%pt='+sci2exp(%pt)+';Cmenu='"RTAI CodeGen"'';]
+                             '%pt='+sci2exp(%pt)+';Cmenu='"FlexCodeGen"'';]
 
          else
             // Got to target sblock.
