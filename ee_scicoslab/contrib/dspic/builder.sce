@@ -7,6 +7,7 @@ libname_fb_FLEX='fb_FLEX'
 libname_fb_communication='fb_communication'
 libname_fb_DMB='fb_DMB'
 libname_fb_MTB='fb_MTB'
+libname_fb_DTB='fb_DTB'
 libname_fb_pc='fb_pc'
 libname_amazing='amazing'
 libname_misc='misc'
@@ -23,6 +24,7 @@ if ~MSDOS then // Unix Linux
   FB_COMMUNICATION=FB_MACROS+'FLEX-Communication/'
   FB_DMB=FB_MACROS+'FLEX-DMB/'
   FB_MTB=FB_MACROS+'FLEX-MTB/'
+  FB_DTB=FB_MACROS+'FLEX-DTB/'
   FB_PC=FB_MACROS+'FLEX-PC/'
   FB_PC=FB_MACROS+'FLEX-PC/'
   FB_AMAZING=FB_MACROS+'AMAZING/'
@@ -37,6 +39,7 @@ else  // windows- Visual C++
   FB_COMMUNICATION=FB_MACROS+'FLEX-Communication\'
   FB_DMB=FB_MACROS+'FLEX-DMB\'
   FB_MTB=FB_MACROS+'FLEX-MTB\'
+  FB_DTB=FB_MACROS+'FLEX-DTB\'
   FB_PC=FB_MACROS+'FLEX-PC\'
   FB_AMAZING=FB_MACROS+'AMAZING\'
   MISC=MACROS+'\misc\'
@@ -49,6 +52,7 @@ genlib(libname_fb_FLEX,FB_FLEX)
 genlib(libname_fb_communication,FB_COMMUNICATION)
 genlib(libname_fb_DMB,FB_DMB)
 genlib(libname_fb_MTB,FB_MTB)
+genlib(libname_fb_DTB,FB_DTB)
 genlib(libname_fb_pc,FB_PC)
 genlib(libname_amazing,FB_AMAZING)
 genlib(libname_misc,MISC)

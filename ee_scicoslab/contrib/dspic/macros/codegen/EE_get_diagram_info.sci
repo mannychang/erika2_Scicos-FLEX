@@ -195,7 +195,7 @@ function EE_get_diagram_info(name,XX)
 						symbols_list_mk;
 						blocks_list_mk;
 						"APP_SRCS += sci_" + name + ".c";
-						"ALLINCPATH += -I" + symbols_aux + WSCI + "\routines\scicos" + symbols_aux];
+						"ALLINCPATH += -I" + symbols_aux + SCI + "\routines\scicos" + symbols_aux];
 
 	txt = [txt;
 				 "scicos_symbol.h:";

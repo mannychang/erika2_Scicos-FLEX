@@ -1,8 +1,8 @@
 AMAZING_button
-AMAZING_tuner
-AMAZING_touch
-AMAZING_switch
-AMAZING_rollers
-AMAZING_reset
-AMAZING_pwm
 AMAZING_leds
+AMAZING_pwm
+AMAZING_reset
+AMAZING_rollers
+AMAZING_switch
+AMAZING_touch
+AMAZING_tuner
