@@ -31,9 +31,12 @@ scicos_pal($+1,:)=['MCHP16-Branching',PALETTE_DIR + 'MCHP16-Branching.cosf'];
 scicos_pal($+1,:)=['FLEX',PALETTE_DIR + 'FLEX.cosf'];
 scicos_pal($+1,:)=['FLEX-DemoBoard',PALETTE_DIR + 'FLEX-DMB.cosf'];
 scicos_pal($+1,:)=['FLEX-MotionBoard',PALETTE_DIR + 'FLEX-MTB.cosf'];
+scicos_pal($+1,:)=['FLEX-DoubleTouchBoard',PALETTE_DIR + 'FLEX-DTB.cosf'];
 scicos_pal($+1,:)=['FLEX-Communication',PALETTE_DIR + 'FLEX-Communication.cosf'];
 scicos_pal($+1,:)=['FLEX-PC',PALETTE_DIR + 'FLEX-PC.cosf'];
 scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
+
+if MSDOS then
 
 //** Load the FLEX shared library of computational functions for SIMULATION 
 exec("SCI\contrib\dspic\Flex-Sim\loader.sce"); 
@@ -53,10 +56,12 @@ exec("loader.sce");
 cd  ("SCI\contrib\dspic\Flex-PIDtuning") ;
 exec("loader.sce");
 
+end
+
 cd ("SCI\contrib\dspic");
 
 //** show some message  
-disp("Scicos-FLEX Ready");disp(" ");
+disp("ScicosLab-FLEX Ready");disp(" ");
 
 //**===================================================================================
 
