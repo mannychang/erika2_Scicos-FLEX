@@ -60,7 +60,35 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[0,0],[100,80],%t,0,..
+                       "id","in_implicit","out_implicit"],[0,0],[100,80],%t,0,["1";"10"],..
+                       [0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0],[],0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''FLEX CAN OUT'' ; ''MSG ID: ''+string(can_msg_id)],sz(1),sz(2),''fill'');",..
+                       8),"",["E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E"],[]),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("flex_can_out",4),..
+                       [1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1],[],1,[],[],1,1,[],[],1,list(),[],[1,10],list(),..
+                       "d",[],[%t,%f],"",0,0,list()),"FLEX_canout",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[130,0],[100,80],%t,0,["1";"10"],[],..
+                       [0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0],0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''FLEX CAN IN'' ; ''MSG ID: ''+string(can_msg_id)],sz(1),sz(2),''fill'');",..
+                       8),"",[],["E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E"]),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("flex_can_in",4),[],[],1,..
+                       [1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1],[],1,1,[],[],1,list(),[],[1,10],list(),"d",[],..
+                       [%t,%f],"",0,0,list()),"FLEX_canin",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[260,0],[100,80],%t,0,..
                        ["9760";
                        "9761";
                        "[192,168,0,2]";
@@ -82,7 +110,7 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[130,0],[100,80],%t,0,..
+                       "id","in_implicit","out_implicit"],[390,0],[100,80],%t,0,..
                        ["9760";
                        "9761";
                        "[192,168,0,2]";
@@ -104,7 +132,7 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[260,0],[60,40],%t,0,"1",0,[],0,[],..
+                       "id","in_implicit","out_implicit"],[0,110],[60,40],%t,0,"1",0,[],0,[],..
                        list(..
                        "xstringb(orig(1),orig(2),[''FLEX'' ; ''ZIGBEE SEND'' ; ''CH ''+string(channel)],sz(1),sz(2),''fill'');",..
                        8),"","E",[]),..
@@ -116,7 +144,7 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[350,0],[60,40],%t,0,"1",[],0,0,[],..
+                       "id","in_implicit","out_implicit"],[90,110],[60,40],%t,0,"1",[],0,0,[],..
                        list(..
                        "xstringb(orig(1),orig(2),[''FLEX'' ; ''usb_read: ''+string(usb_ch)],sz(1),sz(2),''fill'');",..
                        8),"",[],"E"),..
@@ -125,31 +153,6 @@ scs_m.objs(1)=scicos_block(..
                        "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
                        "nzcross","nmode","equations"],list("flex_usb_receive",4),[],[],1,1,[],1,1,[],[],..
                        1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_usb_receive",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[0,110],[60,40],%t,0,"1",0,[],0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),[''FLEX'' ; ''usb_send.''+string(channel)],sz(1),sz(2),''fill'');",..
-                       8),"","E",[]),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_usb_send",4),1,[],1,[],[],1,1,[],[],1,..
-                       list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_usb_send",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[90,110],[60,40],%t,0,"1",[],0,0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX'' ; ''ZIGBEE'';		''REC CH ''+string(zigbee_ch)],		sz(1),sz(2),''fill'');",..
-                       8),"",[],"E"),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_zigbee_receive",4),[],[],1,1,[],1,1,[],..
-                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_zigbee_receive",..
-                       list()),..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
@@ -180,27 +183,28 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[360,110],[60,40],%t,0,["1";"10"],0,[],0,[],..
+                       "id","in_implicit","out_implicit"],[360,110],[60,40],%t,0,"1",0,[],0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),[''FLEX CAN OUT'' ; ''MSG ID: ''+string(can_msg_id)],sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),[''FLEX'' ; ''usb_send.''+string(channel)],sz(1),sz(2),''fill'');",..
                        8),"","E",[]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
                        "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_canout",4),1,[],1,[],[],1,1,[],[],1,..
-                       list(),1,10,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_canout",list()),..
+                       "nzcross","nmode","equations"],list("flex_usb_send",4),1,[],1,[],[],1,1,[],[],1,..
+                       list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_usb_send",list()),..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[0,180],[60,40],%t,0,["1";"10"],[],0,0,[],..
+                       "id","in_implicit","out_implicit"],[0,180],[60,40],%t,0,"1",[],0,0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),[''FLEX CAN IN'' ; ''MSG ID: ''+string(can_msg_id)],sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),		[''FLEX'' ; ''ZIGBEE'';		''REC CH ''+string(zigbee_ch)],		sz(1),sz(2),''fill'');",..
                        8),"",[],"E"),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
                        "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_canin",4),[],[],1,1,[],1,1,[],[],1,..
-                       list(),1,10,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_canin",list()),..
+                       "nzcross","nmode","equations"],list("flex_zigbee_receive",4),[],[],1,1,[],1,1,[],..
+                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_zigbee_receive",..
+                       list()),..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
