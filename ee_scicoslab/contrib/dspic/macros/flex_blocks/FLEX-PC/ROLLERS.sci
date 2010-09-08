@@ -1,4 +1,4 @@
-function [x,y,typ] = AMAZING_rollers(job,arg1,arg2)
+function [x,y,typ] = ROLLERS(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
   case 'plot' then
@@ -17,7 +17,7 @@ function [x,y,typ] = AMAZING_rollers(job,arg1,arg2)
     graphics = arg1.graphics;
     exprs = graphics.exprs;
     while %t do
-	   [ok,axis1,axis2,axis3,axis4,axis5,axis6,exprs] = getvalue('PID controllers tuning (please, insert the configuration parameters of the rollers)',..
+	   [ok,axis1,axis2,axis3,axis4,axis5,axis6,exprs] = getvalue('Roller GUI (please, insert the configuration parameters of the rollers)',..
 	   ['KPx[max,step,value]:';'TIx[max,step,value]:';'TDx[max,step,value]:';'KPy[max,step,value]:';'TIy[max,step,value]:';'TDy[max,step,value]:'],..
 	   list('vec',3,'vec',3,'vec',3,'vec',3,'vec',3,'vec',3),exprs)
       if ~ok then 
@@ -124,7 +124,7 @@ function [x,y,typ] = AMAZING_rollers(job,arg1,arg2)
     axis5 = [10;0.001;1];
     axis6 = [10;0.001;1];
     model = scicos_model();
-    model.sim = list('EvidenceAmazingRollers',4);
+    model.sim = list('EvidenceRollers',4);
     model.in = [];
     model.out = 7;  //if exists('outport') then model.out=ones(outport,1), else model.out=1, end
     model.evtin = 1;
@@ -135,7 +135,7 @@ function [x,y,typ] = AMAZING_rollers(job,arg1,arg2)
     model.dep_ut = [%t %f];
     exprs = ['[10;0.001;1]';'[10;0.001;1]';'[10;0.001;1]';'[10;0.001;1]';'[10;0.001;1]';'[10;0.001;1]'];	
     gr_i = ['xstringb(orig(1),orig(2),..
-         [''AMAZING'';''PID TUNING''],..
+         [''ROLLER'';''GUI''],..
 	  sz(1),sz(2),''fill'');'];
     x = standard_define([3 2],model,exprs,gr_i)
   end

@@ -21,6 +21,10 @@ function [x,y,typ] = FLEX_DMB_trim(job,arg1,arg2)
       ['Pot. In [1..4] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
+	  if((adc_pin<1) | (adc_pin>4)) then
+		warning('Accepted values for adc_pin are in [1,4]. Keeping previous values.');
+		break;
+	  end
       in=[],
       if exists('outport') then out=ones(outport,1), else out=1, end
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])

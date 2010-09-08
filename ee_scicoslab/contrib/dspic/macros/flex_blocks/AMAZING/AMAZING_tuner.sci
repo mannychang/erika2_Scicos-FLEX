@@ -1,17 +1,22 @@
 function [x,y,typ] = AMAZING_tuner(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
+  
   case 'plot' then
     exprs=arg1.graphics.exprs;
     res_x = exprs(1)
     res_y = exprs(2)
     standard_draw(arg1)
+	
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
+	
   case 'getoutputs' then
     [x,y,typ]=standard_outputs(arg1)
+	
   case 'getorigin' then
     [x,y]=standard_origin(arg1)
+	
   case 'set' then
     x=arg1
     model=arg1.model;graphics=arg1.graphics;
@@ -21,15 +26,17 @@ function [x,y,typ] = AMAZING_tuner(job,arg1,arg2)
 	   ['X Resolution [100..4096]';..
 	   'Y Resolution [100..4096]:'],..
 	   list('vec',-1,'vec',-1),exprs)
-      if ~ok then break,end
-        
+      if ~ok then 
+		warning('Invalid parameters!');
+		break;
+	  end 
       if(res_x<100 | res_x>4096) then
-        warning('Accepted resolution values in [100..4096]. Keeping previous values.');
+        warning('Accepted resolution values in [100..4096]. Keeping previous value.');
         break;
       end
 
        if(res_y<100 | res_y>4096) then
-        warning('Accepted resolution values in [100..4096]. Keeping previous values.');
+        warning('Accepted resolution values in [100..4096]. Keeping previous value.');
         break;
       end
        
@@ -46,6 +53,7 @@ function [x,y,typ] = AMAZING_tuner(job,arg1,arg2)
         break
       end
    end
+   
   case 'define' then
     res_x = 240 
     res_y = 180

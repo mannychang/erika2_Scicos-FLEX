@@ -60,55 +60,7 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[0,0],[60,40],%t,0,"1",[],0,0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),[''AMAZING'' ; ''Button: ''+string(gpin_pin)],sz(1),sz(2),''fill'');",..
-                       8),"",[],"E"),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("amazing_button",4),[],[],1,1,[],1,1,[],[],1,..
-                       list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_button",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[90,0],[60,40],%t,0,["240";"180"],[],[],0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),[''AMAZING'';	  ''tuner'' ;	  string(res_x) + ''x'' + string(res_y)],	  sz(1),sz(2),''fill'');",..
-                       8),"",[],[]),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("amazing_tuner",4),[],[],1,[],[],1,1,[],[],1,..
-                       list(),[],[240;180],list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_tuner",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[180,0],[60,40],%t,0,"X",[],0,0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),[''AMAZING'';	  ''touch'' + '' '' + axis],	  sz(1),sz(2),''fill'');",..
-                       8),"",[],"E"),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("amazing_touch",4),[],[],1,1,[],1,1,[],[],[],..
-                       list(),[],88,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_touch",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[270,0],[60,40],%t,0,"1",[],0,0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),[''AMAZING'' ; ''Switch: ''+string(gpin_pin)],sz(1),sz(2),''fill'');",..
-                       8),"",[],"E"),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_daughter_switch",4),[],[],1,1,[],1,1,..
-                       [],[],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_switch",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[360,0],[60,40],%t,0,..
+                       "id","in_implicit","out_implicit"],[0,0],[60,40],%t,0,..
                        ["[10;0.001;1]";
                        "[10;0.001;1]";
                        "[10;0.001;1]";
@@ -128,7 +80,67 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[0,70],[60,40],%t,0,[],0,[],0,[],..
+                       "id","in_implicit","out_implicit"],[90,0],[60,40],%t,0,"1",[],0,0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''AMAZING'' ; ''Switch: ''+string(gpin_pin)],sz(1),sz(2),''fill'');",..
+                       8),"",[],"E"),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("flex_daughter_switch",4),[],[],1,1,[],1,1,..
+                       [],[],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_switch",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[180,0],[60,40],%t,0,"X",[],0,0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''AMAZING'';	  ''touch'' + '' '' + axis],	  sz(1),sz(2),''fill'');",..
+                       8),"",[],"E"),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("amazing_touch",4),[],[],1,1,[],1,1,[],[],[],..
+                       list(),[],88,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_touch",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[270,0],[60,40],%t,0,["240";"180"],[],[],0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''AMAZING'';	  ''tuner'' ;	  string(res_x) + ''x'' + string(res_y)],	  sz(1),sz(2),''fill'');",..
+                       8),"",[],[]),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("amazing_tuner",4),[],[],1,[],[],1,1,[],[],1,..
+                       list(),[],[240;180],list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_tuner",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[360,0],[60,40],%t,0,"1",[],0,0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''AMAZING'' ; ''Button: ''+string(gpin_pin)],sz(1),sz(2),''fill'');",..
+                       8),"",[],"E"),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("amazing_button",4),[],[],1,1,[],1,1,[],[],1,..
+                       list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_button",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[0,70],[60,40],%t,0,"1",0,[],0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''AMAZING'' ; ''LED: ''+string(gpout_pin)],sz(1),sz(2),''fill'');",..
+                       8),"","E",[]),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("flex_daughter_leds",4),1,[],1,[],[],1,1,[],..
+                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_leds",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[90,70],[60,40],%t,0,[],0,[],0,[],..
                        list(..
                        "xstringb(orig(1),orig(2),[''AMAZING'' ;	  ''reset''],	  sz(1),sz(2),''fill'');",..
                        8),"","E",[]),..
@@ -140,7 +152,7 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[90,70],[60,40],%t,0,[],[0;0],[],0,[],..
+                       "id","in_implicit","out_implicit"],[180,70],[60,40],%t,0,[],[0;0],[],0,[],..
                        list(..
                        "xstringb(orig(1),orig(2),[''AMAZING'' ; ''PWM outputs''],sz(1),sz(2),''fill'');",..
                        8),"",["E";"E"],[]),..
@@ -148,19 +160,7 @@ scs_m.objs(1)=scicos_block(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
                        "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
                        "nzcross","nmode","equations"],list("amazing_pwm",4),[1;1],[],1,[],[],1,1,[],[],..
-                       1,list(),[],[],list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_pwm",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[180,70],[60,40],%t,0,"1",0,[],0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),[''AMAZING'' ; ''LED: ''+string(gpout_pin)],sz(1),sz(2),''fill'');",..
-                       8),"","E",[]),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_daughter_leds",4),1,[],1,[],[],1,1,[],..
-                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_leds",list())),"",..
+                       1,list(),[],[],list(),"d",[],[%t,%f],"",0,0,list()),"AMAZING_pwm",list())),"",..
                        list(),..
                        mlist(..
                        ["codegeneration","silent","cblock","rdnom","rpat","libs","opt","enable_debug",..

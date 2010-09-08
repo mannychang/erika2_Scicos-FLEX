@@ -21,6 +21,10 @@ function [x,y,typ] = FLEX_DMB_adcin(job,arg1,arg2)
       ['ADC pin [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
+	  if((adc_pin<1) | (adc_pin>8)) then
+		warning('Accepted values for acc pin are in [1,8]. Keeping previous values.');
+		break;
+	  end
       in=[],
       if exists('outport') then out=ones(outport,1), else out=1, end
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])

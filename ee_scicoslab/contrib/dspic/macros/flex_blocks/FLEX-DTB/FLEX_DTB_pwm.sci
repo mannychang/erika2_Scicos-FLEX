@@ -21,6 +21,10 @@ function [x,y,typ] = FLEX_DTB_pwm(job,arg1,arg2)
       ['PWM Out [1..4] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
+	  if((pwm_pin<1) | (pwm_pin>4)) then
+		warning('Accepted values for pwm pin are in [1,4]. Keeping previous values.');
+		break;
+	  end
       if exists('inport') then in=ones(inport,1), else in=1, end
       out=[]
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])

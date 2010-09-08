@@ -1,16 +1,21 @@
 function [x,y,typ] = FLEX_usb_send(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
+  
   case 'plot' then
     exprs=arg1.graphics.exprs;
     channel=exprs(1)
     standard_draw(arg1)
+	
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
+	
   case 'getoutputs' then
     [x,y,typ]=standard_outputs(arg1)
+	
   case 'getorigin' then
     [x,y]=standard_origin(arg1)
+	
   case 'set' then
     x=arg1
     model=arg1.model;graphics=arg1.graphics;
@@ -18,9 +23,16 @@ function [x,y,typ] = FLEX_usb_send(job,arg1,arg2)
     while %t do
       [ok,channel,exprs]=..
       getvalue('Select Channel Output',..
-      ['Channel Out [0..1] :'],..
+      ['Channel Out [0..15] :'],..
       list('vec',-1),exprs)
-      if ~ok then break,end
+      if ~ok then 
+		warning('Invalid parameters!');
+		break;
+	  end
+	  if((channel<1) | (channel>15)) then
+		warning('Accepted values for channel are in [1,15]. Keeping previous values.');
+		break;
+	  end
       if exists('inport') then in=ones(inport,1), else in=1, end
       out=[]
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
@@ -33,6 +45,7 @@ function [x,y,typ] = FLEX_usb_send(job,arg1,arg2)
         break
       end
     end
+	
   case 'define' then
     channel=1
     model=scicos_model()

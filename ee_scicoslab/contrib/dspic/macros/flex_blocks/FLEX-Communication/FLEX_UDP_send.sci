@@ -28,14 +28,6 @@ function [x,y,typ] = FLEX_UDP_send(job,arg1,arg2)
     x=arg1;
     model=arg1.model;graphics=arg1.graphics;
     exprs=graphics.exprs;
-    old_flex_port_id 	= exprs(1);
-    old_pc_port_id 		= exprs(2);
-	old_flex_ip 		= exprs(3);
-	old_flex_mask 		= exprs(4);
-	old_flex_gate 		= exprs(5);
-	old_flex_prim 		= exprs(6);
-	old_flex_sec 		= exprs(7);
-	old_pc_ip 			= exprs(8);
     while %t do
 	  [ok, flex_port_id, pc_port_id, flex_ip, flex_mask, flex_gate, flex_prim, flex_sec, pc_ip, exprs]=..
       getvalue('UDP Send Parameters:',..
@@ -51,12 +43,10 @@ function [x,y,typ] = FLEX_UDP_send(job,arg1,arg2)
       if ~ok then break,end
       if(flex_port_id<1 | flex_port_id>65535) then
         warning('Invalid range for FLEX Port number. Keeping previous values.');
-        flex_port_id = old_flex_port_id;
         break;
       end
       if(pc_port_id<1 | pc_port_id>65535) then
         warning('Invalid range for PC Port number. Keeping previous values.');
-        pc_port_id = old_pc_port_id;
         break;
       end
       // if exists('inport') then in=ones(inport,1), else in=1, end

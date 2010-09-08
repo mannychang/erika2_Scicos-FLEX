@@ -1,16 +1,21 @@
 function [x,y,typ] = AMAZING_switch(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
+  
   case 'plot' then
     exprs=arg1.graphics.exprs;
     gpin_pin=exprs(1)
     standard_draw(arg1)
+	
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
+	
   case 'getoutputs' then
     [x,y,typ]=standard_outputs(arg1)
+	
   case 'getorigin' then
     [x,y]=standard_origin(arg1)
+	
   case 'set' then
     x=arg1
     model=arg1.model;graphics=arg1.graphics;
@@ -19,8 +24,16 @@ function [x,y,typ] = AMAZING_switch(job,arg1,arg2)
       [ok,gpin_pin,exprs]=..
       getvalue('Select Switch Input',..
       ['Button [1..8] :'],..
-      list('vec',-1),exprs)
-      if ~ok then break,end
+      list('vec',-1),exprs);
+      if ~ok then 
+		warning('Invalid parameters!');
+		break;
+	  end
+	  if((gpin_pin<1) | (gpin_pin>8)) then
+		warning('Accepted values for button are in [1,8]. Keeping previous value.');
+		break;
+	  end
+	  
       in=[],
       if exists('outport') then out=ones(outport,1), else out=1, end
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
@@ -33,6 +46,7 @@ function [x,y,typ] = AMAZING_switch(job,arg1,arg2)
         break
       end
     end
+	
   case 'define' then
     gpin_pin=1
     model=scicos_model()

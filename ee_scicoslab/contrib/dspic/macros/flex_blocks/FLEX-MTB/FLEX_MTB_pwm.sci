@@ -21,6 +21,10 @@ function [x,y,typ] = FLEX_MTB_pwm(job,arg1,arg2)
       ['PWM Out [1..2] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
+	  if((pwm_pin<1) | (pwm_pin>2)) then
+		warning('Accepted values for pwm channel are in [1,2]. Keeping previous values.');
+		break;
+	  end
       if exists('inport') then in=ones(inport,1), else in=1, end
       out=[]
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])

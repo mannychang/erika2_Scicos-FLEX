@@ -40,27 +40,22 @@ function [x,y,typ] = UDP_RECEIVER(job,arg1,arg2)
       if ~ok then break,end
       if(my_addr_b1<0 | my_addr_b1>255) then
         warning('Invalid range for My Address byte 1. Keeping previous values.');
-        my_addr_b1 = exprs(1);
         break;
       end
       if(my_addr_b2<0 | my_addr_b2>255) then
         warning('Invalid range for My Address byte 2. Keeping previous values.');
-        my_addr_b2 = exprs(2);
         break;
       end
       if(my_addr_b3<0 | my_addr_b3>255) then
         warning('Invalid range for My Address byte 3. Keeping previous values.');
-        my_addr_b3 = exprs(3);
         break;
       end
       if(my_addr_b4<0 | my_addr_b4>255) then
         warning('Invalid range for My Address byte 4. Keeping previous values.');
-        my_addr_b4 = exprs(4);
         break;
       end
       if(my_port<1 | my_port>65535) then
         warning('Invalid range for My Port number. Keeping previous values.');
-        my_port = exprs(5);
         break;
       end
       

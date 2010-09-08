@@ -21,7 +21,11 @@ function [x,y,typ] = FLEX_DMB_lbarrier(job,arg1,arg2)
       ['Threshold: [0.01..0.99]'],..
       list('vec',-1),exprs)
       if ~ok then break,end
-			in=ones(8,1)
+	  if((led_threshold<0.01) | (led_threshold>0.99)) then
+		warning('Accepted values for led_threshold are in [0.01,0.99]. Keeping previous values.');
+		break;
+	  end
+	  in=ones(8,1)
       out=[]
       [model,graphics,ok]=check_io(model,graphics,in,out,8,[])
       if ok then

@@ -21,6 +21,10 @@ function [x,y,typ] = FLEX_DMB_gpout(job,arg1,arg2)
       ['Dig.Out. pin [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
+	  if((gpout_pin<1) | (gpout_pin>8)) then
+		warning('Accepted values for output pins are in [1,8]. Keeping previous values.');
+		break;
+	  end
       if exists('inport') then in=ones(inport,1), else in=1, end
       out=[]
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])

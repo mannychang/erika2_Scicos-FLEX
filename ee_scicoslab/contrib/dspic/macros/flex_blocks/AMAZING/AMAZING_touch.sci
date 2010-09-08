@@ -1,16 +1,21 @@
 function [x,y,typ] = AMAZING_touch(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
+  
   case 'plot' then
     exprs=arg1.graphics.exprs;
     axis = exprs(1)
     standard_draw(arg1)
+	
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
+	
   case 'getoutputs' then
     [x,y,typ]=standard_outputs(arg1)
+	
   case 'getorigin' then
     [x,y]=standard_origin(arg1)
+	
   case 'set' then
     x=arg1
     model=arg1.model;graphics=arg1.graphics;
@@ -19,10 +24,12 @@ function [x,y,typ] = AMAZING_touch(job,arg1,arg2)
 	  [ok,axis,exprs] = getvalue('Touch panel parameters interface',..
 	   ['Axis [''X'' or ''Y'']:'],..
 	   list('str',1),exprs)
-      if ~ok then break,end
-        
+      if ~ok then 
+		warning('Invalid parameters!');
+		break;
+	  end 
       if(axis~='X' & axis~='Y') then 
-        warning('Accepted axis values are in [X,Y]. Keeping previous values.');
+        warning('Accepted axis values are in [X,Y]. Keeping previous value.');
         break
       end
        
@@ -39,6 +46,7 @@ function [x,y,typ] = AMAZING_touch(job,arg1,arg2)
         break
       end
    end
+   
   case 'define' then
     axis = 'X'
     model = scicos_model()

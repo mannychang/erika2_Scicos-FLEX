@@ -5,12 +5,16 @@ function [x,y,typ] = FLEX_adcin(job,arg1,arg2)
     exprs=arg1.graphics.exprs;
     adc_pin=exprs(1)
     standard_draw(arg1)
+	
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
+	
   case 'getoutputs' then
     [x,y,typ]=standard_outputs(arg1)
+	
   case 'getorigin' then
     [x,y]=standard_origin(arg1)
+	
   case 'set' then
     x=arg1
     model=arg1.model;graphics=arg1.graphics;
@@ -20,7 +24,14 @@ function [x,y,typ] = FLEX_adcin(job,arg1,arg2)
       getvalue('Set parameters for FLEX ADC input',..
       ['ADC pin [1..8] :'],..
       list('vec',-1),exprs)
-      if ~ok then break,end
+      if ~ok then 
+		warning('Invalid parameters!');
+		break;
+	  end
+	  if((adc_pin<1) | (adc_pin>8)) then
+		warning('Accepted values for adc pin are in [1,8]. Keeping previous value.');
+		break;
+	  end
       in=[],
       if exists('outport') then out=ones(outport,1), else out=1, end
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
@@ -33,6 +44,7 @@ function [x,y,typ] = FLEX_adcin(job,arg1,arg2)
         break
       end
     end
+	
   case 'define' then
     adc_pin=1
     model=scicos_model()

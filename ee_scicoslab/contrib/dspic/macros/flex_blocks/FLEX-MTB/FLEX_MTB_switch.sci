@@ -21,6 +21,10 @@ function [x,y,typ] = FLEX_MTB_switch(job,arg1,arg2)
       ['Button [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then break,end
+	  if((gpin_pin<1) | (gpin_pin>8)) then
+		warning('Accepted values for switches are in [1,8]. Keeping previous values.');
+		break;
+	  end
       in=[],
       if exists('outport') then out=ones(outport,1), else out=1, end
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])

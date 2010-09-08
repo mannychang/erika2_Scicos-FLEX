@@ -1,5 +1,5 @@
-FLEX_adcin
-FLEX_gpin
 FLEX_gpout
-FLEX_lcd
+FLEX_gpin
+FLEX_adcin
 FLEX_led
+FLEX_lcd

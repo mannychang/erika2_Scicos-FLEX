@@ -23,6 +23,14 @@ function [x,y,typ] = FLEX_canin(job,arg1,arg2)
 			 'Number of elements to receive [1,.,16]:'],..
       list('vec',-1,'vec',-1),exprs);
       if ~ok then break,end
+	  if(can_msg_id<0) then
+		warning('Accepted values for id are in [0,+inf]. Keeping previous values.');
+		break;
+	  end
+	  if(n_channels<1 | n_channels>16) then
+		warning('Accepted values for channels are in [1,16]. Keeping previous values.');
+		break;
+	  end
       in = [];
       // if exists('outport') then out=ones(outport,1), else out=1, end
 	  out = ones(16,1);

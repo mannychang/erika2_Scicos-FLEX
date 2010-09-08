@@ -24,6 +24,14 @@ function [x,y,typ] = FLEX_canout(job,arg1,arg2)
 			 'Number of elements to send [1,.,16]:'],..
       list('vec',-1,'vec',-1),exprs);
       if ~ok then break,end
+	  if(can_msg_id<0) then
+		warning('Accepted values for id are in [0,+inf]. Keeping previous values.');
+		break;
+	  end
+	  if(n_channels<1 | n_channels>16) then
+		warning('Accepted values for channels are in [1,16]. Keeping previous values.');
+		break;
+	  end
       // if exists('inport') then in=ones(inport,1), else in=1, end
       in = ones(16,1);
 	  out=[]

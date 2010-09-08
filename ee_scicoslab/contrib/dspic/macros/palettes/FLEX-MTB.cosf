@@ -60,33 +60,45 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[0,0],[60,40],%t,0,"1",[],0,0,[],..
+                       "id","in_implicit","out_implicit"],[0,0],[60,40],%t,0,"0",[],0,0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''Button: ''+string(gpin_pin)],sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''Enc.In : ''+ string(enc_type)],sz(1),sz(2),''fill'');",..
                        8),"",[],"E"),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
                        "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_daughter_button",4),[],[],1,1,[],1,1,..
-                       [],[],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_button",..
+                       "nzcross","nmode","equations"],list("flex_daughter_encoder",4),[],[],1,1,[],1,1,..
+                       [],[],1,list(),[],0,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_encoder",..
                        list()),..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[90,0],[60,40],%t,0,["X","100"],[],0,0,[],..
+                       "id","in_implicit","out_implicit"],[90,0],[60,40],%t,0,"1",0,[],0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),[''MTB touch'' ; ''Axis: ''+ axis;		  ''Resolution:'' + string(res)],		  sz(1),sz(2),''fill'');",..
-                       8),"",[],"E"),..
+                       "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''DCM Pin: ''+string(pwm_pin)],sz(1),sz(2),''fill'');",..
+                       8),"","E",[]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
                        "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_daughter_touch",4),[],[],1,1,[],1,1,[],..
-                       [],[],list(),[],[88;100],list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_touch",..
+                       "nzcross","nmode","equations"],list("flex_daughter_dcm_pwm",4),1,[],1,[],[],1,1,..
+                       [],[],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_dcm_pwm",..
                        list()),..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[180,0],[60,40],%t,0,"1",[],0,0,[],..
+                       "id","in_implicit","out_implicit"],[180,0],[60,40],%t,0,"1",0,[],0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''PWM Pin: ''+string(pwm_pin)],sz(1),sz(2),''fill'');",..
+                       8),"","E",[]),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("flex_daughter_pwm",4),1,[],1,[],[],1,1,[],..
+                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_pwm",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[270,0],[60,40],%t,0,"1",[],0,0,[],..
                        list(..
                        "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''Switch: ''+string(gpin_pin)],sz(1),sz(2),''fill'');",..
                        8),"",[],"E"),..
@@ -99,18 +111,6 @@ scs_m.objs(1)=scicos_block(..
                        mlist(["Block","graphics","model","gui","doc"],..
                        mlist(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
-                       "id","in_implicit","out_implicit"],[270,0],[60,40],%t,0,"1",0,[],0,[],..
-                       list(..
-                       "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''PWM Pin: ''+string(pwm_pin)],sz(1),sz(2),''fill'');",..
-                       8),"","E",[]),..
-                       mlist(..
-                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
-                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
-                       "nzcross","nmode","equations"],list("flex_daughter_pwm",4),1,[],1,[],[],1,1,[],..
-                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_pwm",list()),..
-                       mlist(["Block","graphics","model","gui","doc"],..
-                       mlist(..
-                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
                        "id","in_implicit","out_implicit"],[360,0],[60,40],%t,0,"1",0,[],0,[],..
                        list(..
                        "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''LED: ''+string(gpout_pin)],sz(1),sz(2),''fill'');",..
@@ -119,8 +119,33 @@ scs_m.objs(1)=scicos_block(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
                        "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
                        "nzcross","nmode","equations"],list("flex_daughter_leds",4),1,[],1,[],[],1,1,[],..
-                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_leds",list())),..
-                       "",list(),..
+                       [],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_leds",list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[0,70],[60,40],%t,0,"1",[],0,0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''FLEX-MTB'' ; ''Button: ''+string(gpin_pin)],sz(1),sz(2),''fill'');",..
+                       8),"",[],"E"),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("flex_daughter_button",4),[],[],1,1,[],1,1,..
+                       [],[],1,list(),[],1,list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_button",..
+                       list()),..
+                       mlist(["Block","graphics","model","gui","doc"],..
+                       mlist(..
+                       ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
+                       "id","in_implicit","out_implicit"],[90,70],[60,40],%t,0,["X","100"],[],0,0,[],..
+                       list(..
+                       "xstringb(orig(1),orig(2),[''MTB touch'' ; ''Axis: ''+ axis;		  ''Resolution:'' + string(res)],		  sz(1),sz(2),''fill'');",..
+                       8),"",[],"E"),..
+                       mlist(..
+                       ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
+                       "dstate","odstate","rpar","ipar","opar","blocktype","firing","dep_ut","label",..
+                       "nzcross","nmode","equations"],list("flex_daughter_touch",4),[],[],1,1,[],1,1,[],..
+                       [],[],list(),[],[88;100],list(),"d",[],[%t,%f],"",0,0,list()),"FLEX_MTB_touch",..
+                       list())),"",list(),..
                        mlist(..
                        ["codegeneration","silent","cblock","rdnom","rpat","libs","opt","enable_debug",..
                        "scopes","remove","replace"],0,0,[],[],[],1,0,[],[],[])),..

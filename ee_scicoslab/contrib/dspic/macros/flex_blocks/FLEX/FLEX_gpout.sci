@@ -1,16 +1,21 @@
 function [x,y,typ] = FLEX_gpout(job,arg1,arg2)
   x=[];y=[];typ=[];
   select job
+  
   case 'plot' then
     exprs=arg1.graphics.exprs;
     gpout_pin=exprs(1)
     standard_draw(arg1)
+	
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
+	
   case 'getoutputs' then
     [x,y,typ]=standard_outputs(arg1)
+	
   case 'getorigin' then
     [x,y]=standard_origin(arg1)
+	
   case 'set' then
     x=arg1
     model=arg1.model;graphics=arg1.graphics;
@@ -20,7 +25,14 @@ function [x,y,typ] = FLEX_gpout(job,arg1,arg2)
       getvalue('Set parameters for block FLEX-GPout',..
       ['GPout pin [1..8] :'],..
       list('vec',-1),exprs)
-      if ~ok then break,end
+      if ~ok then 
+		warning('Invalid parameters!');
+		break;
+	  end
+	  if((gpout_pin<1) | (gpout_pin>8)) then
+		warning('Accepted values for pin are in [1,8]. Keeping previous value.');
+		break;
+	  end
       if exists('inport') then in=ones(inport,1), else in=1, end
       out=[]
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
@@ -33,6 +45,7 @@ function [x,y,typ] = FLEX_gpout(job,arg1,arg2)
         break
       end
     end
+	
   case 'define' then
     gpout_pin=1
     model=scicos_model()

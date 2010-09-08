@@ -23,6 +23,14 @@ function [x,y,typ] = FLEX_serial_receive(job,arg1,arg2)
 		'Baudrate [9600,19200,57600,115200]:'],..
 	  list('vec',1,'vec',-1),exprs)
     if ~ok then break,end
+	if((serial_port<1) | (serial_port>2)) then
+		warning('Accepted values for serial port are in [1,2]. Keeping previous values.');
+		break;
+	end
+	if((baudrate<9600) | (baudrate>115200)) then
+		warning('Accepted values for serial port are in [9600,115200]. Keeping previous values.');
+		break;
+	end
     in=[],
     if exists('outport') then out=ones(outport,1), else out=1, end
 	  [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
