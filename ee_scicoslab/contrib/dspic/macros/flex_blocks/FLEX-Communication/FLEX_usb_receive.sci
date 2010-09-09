@@ -28,7 +28,7 @@ function [x,y,typ] = FLEX_usb_receive(job,arg1,arg2)
 		warning('Invalid parameters!');
 		break;
 	  end
-	  if((usb_ch<1) | (gpin_pin>15)) then
+	  if((usb_ch<1) | (usb_ch>15)) then
 		warning('Accepted values for channel are in [1,15]. Keeping previous values.');
 		break;
 	  end
