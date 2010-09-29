@@ -48,7 +48,8 @@ void close_udp(UDPStruct* udp_str);
 /*
 	Send udp data
 */
-int send_udp_data(UDPStruct *udp_str,UDPData *udp_data); 
+//int send_udp_data(UDPStruct *udp_str,UDPData *udp_data); 
+int send_udp_data(UDPStruct *udp_str, UDPData *udp_data, struct sockaddr_in* dest_addr);
 
 /*
 	Receive udp data

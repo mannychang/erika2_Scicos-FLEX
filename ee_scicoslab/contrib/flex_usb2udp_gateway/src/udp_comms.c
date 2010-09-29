@@ -71,23 +71,33 @@ int init_udp_struct(
 			udp_str->sock,
 			(struct sockaddr *)udp_str->addr,
 			sizeof(struct sockaddr_in))<0){
-			fprintf(stderr,"ERROR: bind() error %d\n",errno);
+			fprintf(stderr,"ERROR: UDP_IN bind() error %d\n",errno);
 			return -1;
 		}
 		fcntl(udp_str->sock, F_SETFL, O_NONBLOCK); /*set non blocking*/
-	}else if (dir == UDP_OUT){
+	}
+	else if (dir == UDP_OUT){
 		udp_str->sock = socket(AF_INET, SOCK_DGRAM, 0);
 		if (udp_str->sock < 0){
 			fprintf(stderr,"ERROR: socket() error %d\n",errno);
 			return -1;
 		}
-	}else{
+		if (bind(
+					udp_str->sock,
+					(struct sockaddr *)udp_str->addr,
+					sizeof(struct sockaddr_in))<0){
+			fprintf(stderr,"ERROR: bind() error %d\n",errno);
+			return -1;
+		}
+	}
+	else{
 		fprintf(stderr,"ERROR: bad direction\n");
 		return -1;
 	}	
 	return 1;
 }
 
+/*
 int send_udp_data(UDPStruct *udp_str,UDPData *udp_data)
 {	
 	if (udp_str->initialized != 1){
@@ -102,6 +112,16 @@ int send_udp_data(UDPStruct *udp_str,UDPData *udp_data)
 		0, 
 		(const struct sockaddr *)udp_str->addr, 
 		sizeof(struct sockaddr_in));
+} 
+*/
+int send_udp_data(UDPStruct *udp_str, UDPData *udp_data, struct sockaddr_in* dest_addr)
+{	
+	if (udp_str->initialized != 1){
+		fprintf(stderr,"ERROR: UDPStruct not initialized\n");
+		return -1;
+	}
+
+	return sendto( udp_str->sock, (char *)udp_data->buffer, udp_data->size, 0, (const struct sockaddr *)dest_addr, sizeof(struct sockaddr_in));
 } 
 
 int receive_udp_data(

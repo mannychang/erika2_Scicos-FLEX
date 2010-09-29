@@ -24,6 +24,7 @@ UDPStruct *udp_sender;
 UDPStruct *udp_receiver;
 UDPData *data_sender;
 UDPData *data_receiver;
+struct sockaddr_in udpusb_destaddr;		
 
 static char to_stop = 0;
 unsigned int j = 0;
@@ -71,7 +72,7 @@ int main(int argc, char **argv)
 
 	udp_sender = create_udp_struct();
 	udp_receiver = create_udp_struct();
-	init_udp_struct(udp_sender, "127.0.0.1", UDP_PORT, UDP_OUT);
+	init_udp_struct(udp_sender, "127.0.0.1", UDP_PORT+3, UDP_OUT);
 	init_udp_struct(udp_receiver, "127.0.0.1", UDP_PORT+1, UDP_IN);
 	data_sender = (UDPData *)malloc (sizeof(UDPData));
 	data_receiver = (UDPData *)malloc (sizeof(UDPData));
@@ -83,6 +84,9 @@ int main(int argc, char **argv)
 		((float *)data_sender->buffer)[i] = 0;
 		((float *)data_receiver->buffer)[i] = 0;
 	}	
+	udpusb_destaddr.sin_addr.s_addr = inet_addr("127.0.0.1");	// destination address (scicos receiver block)
+	udpusb_destaddr.sin_family = AF_INET;						// destination address (scicos receiver block)
+	udpusb_destaddr.sin_port = htons(UDP_PORT);					// destination address (scicos receiver block)
 
 	n.sa_handler = close_handler;
 	n.sa_flags=0;
@@ -144,7 +148,8 @@ int main(int argc, char **argv)
 				((float *)data_sender->buffer)[i] = 
 					flex_usbscicos_read(i);			
 			}	
-			sent = send_udp_data(udp_sender,data_sender);
+			//sent = send_udp_data(udp_sender,data_sender);
+			sent = send_udp_data(udp_sender,data_sender,&udpusb_destaddr);
 		    if (sent > 0)
 			{
 			   printf(".");
