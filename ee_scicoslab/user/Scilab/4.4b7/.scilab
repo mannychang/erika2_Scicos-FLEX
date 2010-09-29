@@ -56,6 +56,10 @@ exec("loader.sce");
 cd  ("SCI\contrib\dspic\Flex-PIDtuning") ;
 exec("loader.sce");
 
+//** Load the FLEX roller
+cd  ("SCI\contrib\dspic\Flex-Roller") ;
+exec("loader.sce");
+
 end
 
 cd ("SCI\contrib\dspic");
