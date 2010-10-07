@@ -1078,14 +1078,13 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   if numk<>-1 then
     //## get the model of the sblock
     XX=all_scs_m.objs(numk);
-
     //## get the diagram inside the sblock
     scs_m=XX.model.rpar
   else
     XX=[]
     scs_m=all_scs_m;
   end
-
+  
   //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   //@@ check and set global variables
   if ~exists('ALL') then ALL=%f, end
@@ -1144,7 +1143,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   //@@ get parameter and name of diagram
   par=scs_m.props;
   hname=scs_m.props.title(1)
-
+  
   //***********************************************************
   //Check blocks properties and adapt them if necessary
   //***********************************************************
@@ -1560,26 +1559,32 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
     label2=[rdnom;getcwd()+'/'+rdnom+"_scig";target;template;odefun;odestep];
   
     if x==[] then
-      //** Pure discrete system NO CONTINOUS blocks 
-     
-      [okk, rdnom, rpat,target,template,label1] = getvalue(..
-	            'Embedded Code Generation',..
-		        ['New block''s name :';
-		         'Created files Path:';
-			 'Toolchain: ';
-			 'Target Board: '],..
-		         list('str',1,'str',1,'str',1,'str',1),label1);
+        //** Pure discrete system NO CONTINOUS blocks   
+        if  (atomicflag ~= %f) & (atomicflag ~= %t) then	// use atomicflag to select testcase mode
+            //** Testcases
+            okk=%t;
+            rpat = getcwd() + atomicflag + '_scig';	// set testcases path
+        else
+            //** Standard GUI to set path and other stuff...   
+            [okk, rdnom, rpat,target,template,label1] = getvalue(..
+            'Embedded Code Generation',..
+            ['New block''s name :';
+            'Created files Path:';
+            'Toolchain: ';
+            'Target Board: '],..
+            list('str',1,'str',1,'str',1,'str',1),label1);
+        end
     else
-      //** continous blocks are presents
-      [okk,rdnom,rpat,target,template,odefun,odestep,label2] = getvalue(..
-	            "Embedded Code Generation",..
-		        ["New block''s name: "  ;
-		         "Created files Path: " ;
-			 "Toolchain: "          ;
-			 "Target Board: "       ;
-		         "ODE solver type: "       ;
-		         "ODE solver steps betw. samples: "],..
-		         list('str',1,'str',1,'str',1,'str',1,'str',1,'str',1),label2);
+        //** continous blocks are presents
+        [okk,rdnom,rpat,target,template,odefun,odestep,label2] = getvalue(..
+        "Embedded Code Generation",..
+        ["New block''s name: "  ;
+        "Created files Path: " ;
+        "Toolchain: "          ;
+        "Target Board: "       ;
+        "ODE solver type: "       ;
+        "ODE solver steps betw. samples: "],..
+        list('str',1,'str',1,'str',1,'str',1,'str',1,'str',1),label2);
     end
 
     if okk==%f then
