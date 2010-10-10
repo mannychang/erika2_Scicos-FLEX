@@ -1,0 +1,32 @@
+---------------------------------------------------
+ScicosLab testcases
+---------------------------------------------------
+
+This testcase will compile all the ScicosLab tests
+for all the configuration with a name starting with
+a given prefix.
+
+usage:
+
+make ARCH=prefix
+make clean
+make supported ARCH=prefix
+
+where 
+
+- "DIRS" are the list of examples you want to test
+- "DISTCC=distcc" if not set in your bash_profile, 
+  allows to run tests using distcc
+
+- "prefix" is one of:
+
+  - "flex" - ScicosLab FLEX codegen
+  ... and others
+
+- the "clean" rule removes all the */out* directories
+
+- the "supported" rule prints for each testcase if the particular ARCHitecture
+  is supported
+
+Examples:
+
