@@ -144,7 +144,7 @@ function EE_get_diagram_info(name,XX)
 	if(blocks_list~=[]) then
 
 		// tailing C extension to block_list
-		// blocks_list = 'sci_' + blocks_list + '.c';
+		// blocks_list = blocks_list + '.c';
 		blocks_list = functions_list + '.c';
 		blocks_list_mk = blocks_list;
 		blocks_list_mk(1) = 'EE_SRCS_SCICOS := ' + blocks_list_mk(1);
@@ -194,7 +194,7 @@ function EE_get_diagram_info(name,XX)
 						"EEOPT += " + "MODELNAME=" + name;
 						symbols_list_mk;
 						blocks_list_mk;
-						"APP_SRCS += sci_" + name + ".c";
+						"APP_SRCS += " + name + ".c";
 						"ALLINCPATH += -I" + symbols_aux + SCI + "\routines\scicos" + symbols_aux];
 
 	txt = [txt;
