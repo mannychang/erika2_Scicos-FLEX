@@ -21,12 +21,6 @@ function [x,y,typ] = AMAZING_reset(job,arg1,arg2)
 		
 		exprs=graphics.exprs;
     while %t do
-	  [ok,exprs] = getvalue('Amazing reset',..
-	   [],[],exprs)
-     if ~ok then 
-		warning('Invalid action!');
-		break;
-	  end 	
     out=[],
     if exists('inport') then out=ones(inport,1), else in=1, end
 	  
@@ -38,6 +32,9 @@ function [x,y,typ] = AMAZING_reset(job,arg1,arg2)
         model.dstate=[];
         x.graphics=graphics;x.model=model
         break
+      else 
+		warning('Invalid action!');
+		break;
       end
    end
    

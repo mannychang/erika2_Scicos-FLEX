@@ -26,7 +26,7 @@ function [x,y,typ] = FLEX_MTB_encoder(job,arg1,arg2)
       [' Encoder type [0(hw encoder),1(sw encoder)] :'],..
       list('vec',1),exprs);
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('FLEX_MTB_encoder: Invalid parameters!');
 		break;
 	  end
 	  if((enc_type>1) | (enc_type<0)) then

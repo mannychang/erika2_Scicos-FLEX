@@ -26,7 +26,7 @@ function [x,y,typ] = AMAZING_button(job,arg1,arg2)
       ['Button [1..2] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('AMAZING_button: Invalid parameters!');
 		break;
 	  end 
       if(gpin_pin<1 | gpin_pin>2) then

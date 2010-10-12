@@ -22,14 +22,14 @@ function [x,y,typ] = FLEX_usb_receive(job,arg1,arg2)
     while %t do
       [ok,usb_ch,exprs]=..
       getvalue('Set Channel number',..
-      ['Channel [0..15] :'],..
+      ['Channel [0..14] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('FLEX_usb_receive: Invalid parameters!');
 		break;
 	  end
-	  if((usb_ch<1) | (usb_ch>15)) then
-		warning('Accepted values for channel are in [1,15]. Keeping previous values.');
+	  if((usb_ch<0) | (usb_ch>14)) then
+		warning('Accepted values for channel are in [0,14]. Keeping previous values.');
 		break;
 	  end
       in=[],

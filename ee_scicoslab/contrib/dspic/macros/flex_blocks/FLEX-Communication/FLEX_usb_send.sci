@@ -23,14 +23,14 @@ function [x,y,typ] = FLEX_usb_send(job,arg1,arg2)
     while %t do
       [ok,channel,exprs]=..
       getvalue('Select Channel Output',..
-      ['Channel Out [0..15] :'],..
+      ['Channel Out [0..14] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('FLEX_usb_send: Invalid parameters!');
 		break;
 	  end
-	  if((channel<1) | (channel>15)) then
-		warning('Accepted values for channel are in [1,15]. Keeping previous values.');
+	  if((channel<0) | (channel>14)) then
+		warning('Accepted values for channel are in [0,14]. Keeping previous values.');
 		break;
 	  end
       if exists('inport') then in=ones(inport,1), else in=1, end

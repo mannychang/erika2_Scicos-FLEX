@@ -26,7 +26,7 @@ function [x,y,typ] = FLEX_zigbee_send(job,arg1,arg2)
       ['Channel Out [0..255] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('FLEX_zigbee_send: Invalid parameters!');
 		break;
 	  end
       if exists('inport') then in=ones(inport,1), else in=1, end

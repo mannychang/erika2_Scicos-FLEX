@@ -25,7 +25,7 @@ function [x,y,typ] = FLEX_adcin(job,arg1,arg2)
       ['ADC pin [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('FLEX_adcin: Invalid parameters!');
 		break;
 	  end
 	  if((adc_pin<1) | (adc_pin>8)) then

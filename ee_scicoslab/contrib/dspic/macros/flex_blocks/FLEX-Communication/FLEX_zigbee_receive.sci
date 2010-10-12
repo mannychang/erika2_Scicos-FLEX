@@ -26,7 +26,7 @@ function [x,y,typ] = FLEX_zigbee_receive(job,arg1,arg2)
       ['Channel [0..255] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('FLEX_zigbee_receive: Invalid parameters!');
 		break;
 	  end
       in=[],

@@ -25,7 +25,7 @@ function [x,y,typ] = AMAZING_touch(job,arg1,arg2)
 	   ['Axis [''X'' or ''Y'']:'],..
 	   list('str',1),exprs)
       if ~ok then 
-		warning('Invalid parameters!');
+		warning('AMAZING_touch: Invalid parameters!');
 		break;
 	  end 
       if(axis~='X' & axis~='Y') then 
