@@ -12,9 +12,11 @@ load SCI/macros/scicos/lib;
 exec(loadpallibs,-1);
 
 // set the parameters which are usually asked in the code generator popup window
-// TODO: set all parameters here
 #ifdef BOARDFLEX
-TARGETBOARD='board_flex'
+TARGETBOARD = 'board_flex';
+TARGETARCH = 'dspic_testcase';
+TERGETNAME = 'test';
+TARGETPATH = getcwd()+'/test_scig';
 #endif
 
 // search for the block tagged with the right ID. If found, call the code generator
@@ -27,8 +29,7 @@ for i=1:size(scs_m.objs)
     with_gui = %t; //@@ entire diagram generation with gui
     scs_m_top = obj;
     k = i; 
-    // TODO: pass the parameters to the compilation function
-    do_compile_superblock42(scs_m, k, "/test");
+    do_compile_superblock42(scs_m, k, TARGETBOARD, TARGETARCH, TERGETNAME, TARGETPATH, '', '', 'testcase');
  end
 end
 quit

@@ -1041,7 +1041,7 @@ endfunction
 
 // *******************************************************
 
-function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compile_superblock42(all_scs_m,numk,atomicflag)
+function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compile_superblock42(all_scs_m,numk,user_template,user_target,user_name,user_path,user_odefun,user_odestep,user_flag)
 //Copyright (c) 1989-2009 Metalau project INRIA
 
 //@@ do_compile_superblock42 : transforms a given Scicos discrete and continuous
@@ -1049,7 +1049,13 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 //
 // Input  : all_scs_m     :
 //          numk          :
-//          atomicflag    :
+//          user_template :
+//          user_target   :
+//          user_name     :
+//          user_path     :
+//          user_odefun   :
+//          user_odestep  :
+//          user_flag     :
 //
 // Output : ok            :
 //          XX            :
@@ -1065,8 +1071,6 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   cap = [];
 
   //******************* atomic blk **********
-  [lhs,rhs] = argn(0)
-  if rhs<3 then atomicflag=%f; end
   c_atomic_code=[];
   freof=[];
   flgcdgen=[];
@@ -1524,23 +1528,92 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   // Get the name of the file
   //***********************************
   okk = %f; 
-  rdnom=hname; 
+  
   rpat = getcwd(); 
   archname=''; 
   Tsamp = sci2exp(eval(sTsamp));
   
-  template = 'board_flex'; //** default values for this version 
-  
-  if XX.model.rpar.props.void3 == [] then
-	target = 'dspic'; //** default compilation chain 
-	odefun = 'ode4';  //** default solver 
-	odestep = '10';   //** default continous step size 
-  else
-	target  = XX.model.rpar.props.void3(1); //** user defined parameters 
-	odefun  = XX.model.rpar.props.void3(2);
-	odestep = XX.model.rpar.props.void3(3);
+  [lhs,rhs] = argn(0)
+  if rhs<3 then // Code generation started from user diagram
+    template = 'board_flex'; //** default values for this version 
+    if XX.model.rpar.props.void3 == [] then
+      target = 'dspic'; //** default compilation chain 
+      odefun = 'ode4';  //** default solver 
+      odestep = '10';   //** default continous step size 
+    else
+      target  = XX.model.rpar.props.void3(1); //** user defined parameters 
+      odefun  = XX.model.rpar.props.void3(2);
+      odestep = XX.model.rpar.props.void3(3);
+    end 
+    rdnom=hname; 
+    path = getcwd()+'/'+rdnom+"_scig";
+    spflag = '';
+  else // Code generation started from command line
+    if rhs == 3 then
+      template = user_template;
+      target = 'dspic'; //** default compilation chain 
+      rdnom = hname;    //** default name
+      path = getcwd()+'/'+rdnom+"_scig"; //** default path
+      odefun = 'ode4';  //** default solver
+      odestep = '10';   //** default continous step size
+      spflag = '';
+    end
+    if rhs == 4 then
+      template = user_template;
+      target = user_target;
+      rdnom = hname;    //** default name
+      path = getcwd()+'/'+rdnom+"_scig"; //** default path
+      odefun = 'ode4';  //** default solver
+      odestep = '10';   //** default continous step size
+      spflag = '';
+    end
+    if rhs == 5 then
+      template = user_template;
+      target = user_target;
+      rdnom = user_name;
+      path = getcwd()+'/'+rdnom+"_scig"; //** default path
+      odefun = 'ode4';  //** default solver
+      odestep = '10';   //** default continous step size
+      spflag = '';
+    end
+    if rhs == 6 then
+      template = user_template;
+      target = user_target;
+      rdnom = user_name;
+      path = user_path;
+      odefun = 'ode4';  //** default solver
+      odestep = '10';   //** default continous step size
+      spflag = '';
+    end
+    if rhs == 7 then
+     template = user_template;
+      target = user_target;
+      rdnom = user_name;
+      path = user_path;
+      odefun = user_odefun;
+      odestep = '10';   //** default continous step size
+      spflag = '';
+    end 
+    if rhs == 8 then
+      template = user_template;
+      target = user_target;
+      rdnom = user_name;
+      path = user_path;
+      odefun = user_odefun;
+      odestep = user_odestep;
+      spflag = '';
+    end
+    if rhs == 9 then
+      template = user_template;
+      target = user_target;
+      rdnom = user_name;
+      path = user_path;
+      odefun = user_odefun;
+      odestep = user_odestep;
+      spflag = user_flag;
+    end
   end
-
+  
   ode_x=['ode1';'ode2';'ode4']; //** available continous solver 
   libs='';
 
@@ -1555,16 +1628,16 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
     end
 
     //** dialog box default variables 
-    label1=[rdnom;getcwd()+'/'+rdnom+"_scig";target;template];
-    label2=[rdnom;getcwd()+'/'+rdnom+"_scig";target;template;odefun;odestep];
+    label1=[rdnom;path;target;template];
+    label2=[rdnom;path;target;template;odefun;odestep];
   
-    if x==[] then
-        //** Pure discrete system NO CONTINOUS blocks   
-        if  (atomicflag ~= %f) & (atomicflag ~= %t) then	// use atomicflag to select testcase mode
-            //** Testcases
-            okk=%t;
-            rpat = getcwd() + atomicflag + '_scig';	// set testcases path
-        else
+    if spflag == 'testcase' then
+      //** Testcases
+      okk=%t;
+      rpat = user_path;
+    else
+      if x==[] then
+        //** Pure discrete system NO CONTINOUS blocks  
             //** Standard GUI to set path and other stuff...   
             [okk, rdnom, rpat,target,template,label1] = getvalue(..
             'Embedded Code Generation',..
@@ -1573,8 +1646,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
             'Toolchain: ';
             'Target Board: '],..
             list('str',1,'str',1,'str',1,'str',1),label1);
-        end
-    else
+      else
         //** continous blocks are presents
         [okk,rdnom,rpat,target,template,odefun,odestep,label2] = getvalue(..
         "Embedded Code Generation",..
@@ -1585,14 +1657,14 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
         "ODE solver type: "       ;
         "ODE solver steps betw. samples: "],..
         list('str',1,'str',1,'str',1,'str',1,'str',1,'str',1),label2);
+      end
     end
-
+   
     if okk==%f then
       ok = %f
       return ; //** EXIT point 
     end
     rpat = stripblanks(rpat);
-
 
     //** I put a warning here in order to inform the user
     //** that the name of the superblock will change
