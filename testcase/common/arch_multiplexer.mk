@@ -87,6 +87,23 @@ $(foreach a,$(archs),$(eval $(call all_template,$(a))))
 
 
 
+#
+# Analyze
+#
+
+# parses the diagram_info.sce using the option passed in conf.in
+# then calls ScicosLab to generate the code WITHOUT executing at the end the compile.sh script
+
+analyze:
+	@echo Diagram $(EXPERIMENT)
+	@rm -rf $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze
+	@mkdir -p $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze
+	@cd $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze; cp -f ../test.cos .
+	@cat $(SCIBASE)/testcase/common/flex_codegen/batch_diagram_info.sce | gcc -c - -E -P -DTHEFILENAME="test.cos" -DTESTDIR="`cygpath -ms $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze`" -DTESTCASE="\"$(EXPERIMENT)\"" -o - >$(SCIBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce
+	@$(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce`" >$(SCIBASE)/testcase/$(EXPERIMENT)out_analyze/scicoslab_log.txt
+
+
+
 
 $(MUX):
 	lockfile $(SCIBASE)/testcase/common/confparser/confparser_make.lock

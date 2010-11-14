@@ -55,12 +55,6 @@ CODEGEN_flex            = CODEGEN_flex_source
 COMPILE_flex         	= COMPILE_flex_source
 
 
-CONF_flex            	= CONF_flex_source
-GLOBAL_CONF 		+=
-DIST_flex            	=
-RTDRUID_flex		= RTDRUID_flex_source
-DEBUG_flex           	= DEBUG_flex_source
-
 # -------------------------------------------------------------------
 
 TMPDIR = $(SCIBASE)/testcase/tmp
@@ -107,43 +101,3 @@ COMPILE_flex_source = \
 
 
 # -------------------------------------------------------------------
-
-
-
-# # # These are the commands used by flex_dist_src
-
-# # this simply parses the OIL file and then raises a flag if there is need to generate a source distribution
-# CONF_flex_source = \
-# 	@echo TMPDIR=$(TMPDIR) \
-# 	@echo CONF $$(OUTDIR_PREFIX)$(1); \
-# 	cat $$(OUTDIR_PREFIX)$(1)/appl.oil | gcc -c - -E -P -I$$(EEBASE)/pkg $$(addprefix -D, $$(shell $$(DEMUX2) $(1))) -D$$(thearch) -o - >$$(OUTDIR_PREFIX)$(1)/ee.oil; \
-# 	touch $$(TMPDIR)/flex_dist_src_buildsourcedistribution.flg;
-
-# # if the flag has been raised, generate the source distribution
-# GLOBAL_CONF_flex_source = \
-# 	( if test -e tmp/flex_dist_src_buildsourcedistribution.flg; then \
-# 		make -C $${EEBASE}/dist/source DIST=flex_TESTCASE flex_MOVE=Y >tmp/flex_dist_src_buildsourcedistribution.log 2>&1; \
-# 	fi );
-
-# # Generate the rt-druid files...
-# RTDRUID_flex_source = \
-# 	@echo RTDRUID $$(OUTDIR_PREFIX)$(1); \
-# 	echo \<rtdruid.Oil.Configurator inputfile=\"$$(OUTDIR_PREFIX)$(1)/ee.oil\" outputdir=\"$$(OUTDIR_PREFIX)$(1)/Debug\" /\> >> $$(TMPDIR)/flex_rtdruid_partial.xml;
-
-# # take also a look to GLOBAL_RTDRUID at the top of the file!!!
-
-# COMPILE_flex_source = +if $$(MAKE) $(PARAMETERS) NODEPS=1 -C $$(OUTDIR_PREFIX)$(1)/Debug >$$(OUTDIR_PREFIX)$(1)/compile.log 2>&1; then echo OK $$(EXPERIMENT) $$(OUTDIR_PREFIX)$(1) >>$$(TMPDIR)/ok.log; else echo ERROR $$(EXPERIMENT) $$(OUTDIR_PREFIX)$(1) >>$$(TMPDIR)/errors.log; fi
-
-# DEBUG_flex_source = \
-# 	@cp flex/t32.cmm $$(OUTDIR_PREFIX)$(1); \
-# 	$$(LOCKFILE) $$(FILE_LOCK); \
-# 		echo chdir $$(OUTDIR_PREFIX)$(1) >> $$(TMPDIR)/t32_jobs.cmm; \
-# 		echo "write \#1 \"$$(OUTDIR_PREFIX)$(1)\"" >> $$(TMPDIR)/t32_jobs.cmm; \
-# 		echo area.select Messages >> $$(TMPDIR)/t32_jobs.cmm; \
-# 		echo print >> $$(TMPDIR)/t32_jobs.cmm; \
-# 		echo print \"$$(OUTDIR_PREFIX)$(1)\" >> $$(TMPDIR)/t32_jobs.cmm; \
-# 		echo area.select A000 >> $$(TMPDIR)/t32_jobs.cmm; \
-# 		echo do t32.cmm >> $$(TMPDIR)/t32_jobs.cmm; \
-# 		cp -u flex/t32_quit.cmm $$(TMPDIR)/t32.cmm; \
-# 	rm -f $$(FILE_LOCK);
-

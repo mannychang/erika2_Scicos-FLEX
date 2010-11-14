@@ -116,6 +116,9 @@ $(foreach c,$(confs),$(eval $(call all_template,$(c))))
 
 
 
+
+
+
 $(OUTDIRS):
 	@echo OUT $(notdir $@)
 	@mkdir $@

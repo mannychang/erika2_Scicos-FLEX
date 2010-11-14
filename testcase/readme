@@ -12,6 +12,15 @@ make ARCH=prefix
 make clean
 make supported ARCH=prefix
 
+---
+
+To get a list of which palettes are used in each
+available diagram:
+
+make analyze ARCH=flex 
+
+---
+
 where 
 
 - "DIRS" are the list of examples you want to test
@@ -29,4 +38,6 @@ where
   is supported
 
 Examples:
+
+make analyze ARCH=flex 
 
