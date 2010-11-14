@@ -2,8 +2,7 @@ scs_m=scicos_diagram(..
       version="scicos4.4",..
       props=scicos_params(..
             wpar=[600,450,0,0,600,450],..
-            Title=["FLEX-Communication",..
-            "C:\Programmi\scilab\scicoslab_44b7\contrib\dspic\macros\flex_blocks\FLEX-Communication\"],..
+            Title=["FLEX-Communication","C:/Evidence/scicoslab-44b7/contrib/dspic/macros/palettes/"],..
             tol=[0.000001,0.000001,1.000D-10,31,0,0],..
             tf=30,..
             context=[],..
@@ -35,7 +34,7 @@ scs_m.objs(1)=scicos_block(..
                        in_implicit=[],..
                        out_implicit=[]),..
               model=scicos_model(..
-                       sim="FLEX-Communication",..
+                       sim="palette",..
                        in=[],..
                        in2=[],..
                        intyp=1,..
@@ -51,9 +50,8 @@ scs_m.objs(1)=scicos_block(..
                        tlist(..
                        ["params","wpar","title","tol","tf","context","void1","options","void2","void3",..
                        "doc"],[600,450,0,0,600,450],..
-                       ["FLEX-Communication",..
-                       "C:\Programmi\scilab\scicoslab_44b7\contrib\dspic\macros\flex_blocks\FLEX-Communication\"],..
-                       [0.000001,0.000001,1.000D-10,31,0,0],30,[],[],..
+                       ["FLEX-Communication","C:/Evidence/scicoslab-44b7/contrib/dspic/macros/palettes/"],..
+                       [0.000001,0.000001,1.000D-10,31,0,0],30," ",[],..
                        tlist(["scsopt","3D","Background","Link","ID","Cmap"],list(%t,33),[8,1],[1,5,2],..
                        list([4,1,10,1],[4,1,2,1]),[0.8,0.8,0.8]),[],[],list()),..
                        list(..
@@ -62,7 +60,7 @@ scs_m.objs(1)=scicos_block(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
                        "id","in_implicit","out_implicit"],[0,0],[60,40],%t,0,["1";"115200"],0,[],0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),					[''FLEX Serial'';					''Send Port: '' + string(serial_port);					''Baudrate: '' + string(baudrate)],					sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),     [''FLEX Serial'';     ''Send Port: '' + string(serial_port);     ''Baudrate: '' + string(baudrate)],     sz(1),sz(2),''fill'');",..
                        8),"","E",[]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -74,7 +72,7 @@ scs_m.objs(1)=scicos_block(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
                        "id","in_implicit","out_implicit"],[90,0],[60,40],%t,0,["1","115200"],[],0,0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),[''FLEX Serial'';					''REC Port: ''+ string(serial_port);		  		''Baudrate:'' + string(baudrate)],				  sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),[''FLEX Serial'';     ''REC Port: ''+ string(serial_port);      ''Baudrate:'' + string(baudrate)],      sz(1),sz(2),''fill'');",..
                        8),"",[],"E"),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -123,7 +121,7 @@ scs_m.objs(1)=scicos_block(..
                        "[192,168,10,1]";
                        "[192,168,0,1]"],[0;0;0;0;0;0;0;0;0;0;0;0;0;0;0],[],0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX UDP'';		 ''SEND'';		 ''FLEX PORT: ''+string(flex_port_id);''PC PORT: ''+string(pc_port_id);		 ''FLEX IP: ''+string(flex_ip);		 ''PC IP: ''+string(pc_ip)],		sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),  [''FLEX UDP'';   ''SEND'';   ''FLEX PORT: ''+string(flex_port_id);''PC PORT: ''+string(pc_port_id);   ''FLEX IP: ''+string(flex_ip);   ''PC IP: ''+string(pc_ip)],  sz(1),sz(2),''fill'');",..
                        8),"",["E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E"],[]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -145,7 +143,7 @@ scs_m.objs(1)=scicos_block(..
                        "[192,168,10,1]";
                        "[192,168,0,1]"],[],[0;0;0;0;0;0;0;0;0;0;0;0;0;0;0],0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX UDP'';		 ''RECEIVE'';		 ''FLEX PORT: ''+string(flex_port_id);''PC PORT: ''+string(pc_port_id);		 ''FLEX IP: ''+string(flex_ip);		 ''PC IP: ''+string(pc_ip)],		sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),  [''FLEX UDP'';   ''RECEIVE'';   ''FLEX PORT: ''+string(flex_port_id);''PC PORT: ''+string(pc_port_id);   ''FLEX IP: ''+string(flex_ip);   ''PC IP: ''+string(pc_ip)],  sz(1),sz(2),''fill'');",..
                        8),"",[],["E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E";"E"]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -183,7 +181,7 @@ scs_m.objs(1)=scicos_block(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
                        "id","in_implicit","out_implicit"],[0,220],[60,40],%t,0,["1";"1"],[],0,0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX 802.15.4'';		''RECEIVE'';		''ID:''+string(data_id)+'' SRC:''+string(src_addr)],		sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),  [''FLEX 802.15.4'';  ''RECEIVE'';  ''ID:''+string(data_id)+'' SRC:''+string(src_addr)],  sz(1),sz(2),''fill'');",..
                        8),"",[],"E"),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -196,7 +194,7 @@ scs_m.objs(1)=scicos_block(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
                        "id","in_implicit","out_implicit"],[90,220],[60,40],%t,0,["1";"1";"0"],0,[],0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX 802.15.4'';		 ''SEND'';		 ''ID:''+string(data_id)+'' DST:''+string(dst_addr)],		sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),  [''FLEX 802.15.4'';   ''SEND'';   ''ID:''+string(data_id)+'' DST:''+string(dst_addr)],  sz(1),sz(2),''fill'');",..
                        8),"","E",[]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -221,7 +219,7 @@ scs_m.objs(1)=scicos_block(..
                        ["graphics","orig","sz","flip","theta","exprs","pin","pout","pein","peout","gr_i",..
                        "id","in_implicit","out_implicit"],[270,220],[60,40],%t,0,"1",[],0,0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX'' ; ''ZIGBEE'';		''REC CH ''+string(zigbee_ch)],		sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),  [''FLEX'' ; ''ZIGBEE'';  ''REC CH ''+string(zigbee_ch)],  sz(1),sz(2),''fill'');",..
                        8),"",[],"E"),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -236,7 +234,7 @@ scs_m.objs(1)=scicos_block(..
                        ["1";"1";"24";"6";"6";"[0,0,0,0,0,0,0]";"[0,0,0,0,0,0,0]";"[0,0,0,0,0,0,0]"],[],..
                        [],0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX 802.15.4'';		''COORDINATOR'';		''CONFIG''],		sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),  [''FLEX 802.15.4'';  ''COORDINATOR'';  ''CONFIG''],  sz(1),sz(2),''fill'');",..
                        8),"",[],[]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
@@ -251,7 +249,7 @@ scs_m.objs(1)=scicos_block(..
                        "id","in_implicit","out_implicit"],[0,290],[60,40],%t,0,["2";"1";"24";"1"],[],[],..
                        0,[],..
                        list(..
-                       "xstringb(orig(1),orig(2),		[''FLEX 802.15.4'';		''DEVICE'';		''CONFIG''],		sz(1),sz(2),''fill'');",..
+                       "xstringb(orig(1),orig(2),  [''FLEX 802.15.4'';  ''DEVICE'';  ''CONFIG''],  sz(1),sz(2),''fill'');",..
                        8),"",[],[]),..
                        mlist(..
                        ["model","sim","in","in2","intyp","out","out2","outtyp","evtin","evtout","state",..
