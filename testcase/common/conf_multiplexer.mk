@@ -85,7 +85,7 @@ include $(wildcard */test.mk)
 
 
 
-.PHONY: all conf
+.PHONY: all print conf
 
 
 #
@@ -114,6 +114,44 @@ endef
 
 $(foreach c,$(confs),$(eval $(call all_template,$(c))))
 
+
+
+#
+# print
+#
+
+print_confs := $(addprefix print_, $(confs))
+print: $(print_confs)
+	@echo dummy > /dev/null
+
+define print_template
+.PHONY: print_$(1)
+print_$(1):
+	@echo Checking EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)
+	@if (test -e $(SCIBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/doneflag.txt); then \
+		echo "  <test name=\"$(EXPERIMENT) $(thearch) $(1)\" executed=\"yes\">" >> ../tmp/results.xml;\
+		echo "    <result>"                                                     >> ../tmp/results.xml;\
+		echo "      <success passed=\"yes\" state=\"100\"/>"                    >> ../tmp/results.xml;\
+		echo "    </result>"                                                    >> ../tmp/results.xml;\
+		echo "    <description>"                                                >> ../tmp/results.xml;\
+		echo "      OK EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)"           >> ../tmp/results.xml;\
+		echo "    </description>"                                               >> ../tmp/results.xml;\
+		echo "  </test>"                                                        >> ../tmp/results.xml;\
+		echo ""                                                                 >> ../tmp/results.xml;\
+	else                                                                                                  \
+		echo "  <test name=\"$(EXPERIMENT) $(thearch) $(1)\" executed=\"yes\">" >> ../tmp/results.xml;\
+		echo "    <result>"                                                     >> ../tmp/results.xml;\
+		echo "      <success passed=\"no\" state=\"0\"/>"                       >> ../tmp/results.xml;\
+		echo "    </result>"                                                    >> ../tmp/results.xml;\
+		echo "    <description>"                                                >> ../tmp/results.xml;\
+		echo "      ERROR EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)"        >> ../tmp/results.xml;\
+		echo "    </description>"                                               >> ../tmp/results.xml;\
+		echo "  </test>"                                                        >> ../tmp/results.xml;\
+		echo ""                                                                 >> ../tmp/results.xml;\
+	fi
+endef
+
+$(foreach c,$(confs),$(eval $(call print_template,$(c))))
 
 
 

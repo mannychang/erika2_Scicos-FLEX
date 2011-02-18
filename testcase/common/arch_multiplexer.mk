@@ -67,7 +67,7 @@ archs := $(filter $(ARCH)%,$(worksfor))
 
 MUX = $(SCIBASE)/testcase/common/confparser/confparser_mux
 
-.PHONY: all conf help clean
+.PHONY: all print analyze conf help clean
 
 #
 # All
@@ -85,6 +85,23 @@ all_$(1): $$(MUX)
 endef
 $(foreach a,$(archs),$(eval $(call all_template,$(a))))
 
+
+
+#
+# Print
+#
+
+print_archs := $(addprefix print_, $(archs))
+print: $(print_archs)
+	@echo dummy > /dev/null
+
+define print_template
+.PHONY: print_$(1)
+print_$(1): $$(MUX)
+	+@$$(MAKE) $$(NOPRINTDIR) -f conf_multiplexer.mk thearch=$(1) print
+
+endef
+$(foreach a,$(archs),$(eval $(call print_template,$(a))))
 
 
 #

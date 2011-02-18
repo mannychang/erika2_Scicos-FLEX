@@ -21,5 +21,5 @@
 
 
 #ifdef BOARDFLEX
-./compile.sh board_flex
+./compile.sh board_flex && touch ../doneflag.txt
 #endif

@@ -68,28 +68,37 @@ $(foreach d,$(SDIRS),$(eval $(call all_template,$(d))))
 
 
 #
-# Analyzing the target blocks
+# analyze
+#
+# is the target that is used to analyze the results of the various blocks.
+#
+# the results are:
+#
+# tmp/globalblocklist.txt
+#     contains the pair (test_directory, block_contained)
+#
+# tmp/globalpalettelist.txt
+#     contains the pair (palette, block_contained)
+#
+# tmp/globalcoverage.txt
+#     contains a text report with, for each block, 
+#     the directories containing it and the palettes containing it
 #
 .PHONY: analyze
-analyze_dirs := $(addprefix analyze_, $(SDIRS))
-analyze: $(analyze_dirs) analyze_palettes
+analyze:  analyze_palettes
 	echo ANALYZE ended successfully!		;\
 
-
+# rule used to print the blocks stored in each example
 define analyze_template
 .PHONY: analyze_$(1)
 analyze_$(1): tmp
 	+@$$(MAKE) $$(NOPRINTDIR) -C common -f arch_multiplexer.mk EXPERIMENT=$(1) analyze
-
 endef
 $(foreach d,$(SDIRS),$(eval $(call analyze_template,$(d))))
 
-
-#
-# Palettes analysis
-#
-
-analyze_palettes: tmp
+# this rule prints the palette content for each palette
+analyze_dirs := $(addprefix analyze_, $(SDIRS))
+analyze_palettes: tmp $(analyze_dirs)
 	@echo ANALYZE_PALETTE
 
 # creates tmp/palettelist, which contains all pair (palette_file,block)
@@ -121,14 +130,61 @@ analyze_palettes: tmp
           grep $${x} $(SCIBASE)/testcase/tmp/globalblocklist.txt | awk '{print "    Diagram " $$1}' >> $(SCIBASE)/testcase/tmp/globalcoverage.txt;\
         done
 
+#
+# Hudson
+#
+# this generates a file named tmp/results.xml with the result for each demo compiled
+#
+
+
+
+
+# rule used to print an XML result for each demo that can be compiled
+.PHONY: hudson_print_dirs
+print_dirs := $(addprefix print_, $(SDIRS))
+hudson_print_dirs: $(print_dirs)
+
+define print_template
+.PHONY: print_$(1)
+print_$(1): tmp
+	+@$$(MAKE) $$(NOPRINTDIR) -C common -f arch_multiplexer.mk EXPERIMENT=$(1) print
+endef
+$(foreach d,$(SDIRS),$(eval $(call print_template,$(d))))
+
+.PHONY: hudson
+hudson: tmp
+	@echo "<report name=""regression_tests"" categ=""$(ARCH)"">" >tmp/results.xml
+
+# check each single example
+	@$(MAKE) $(NOPRINTDIR) -C . -f makefile hudson_print_dirs
+
+# add an entry for each block that has no tests
+	@for x in `cat $(SCIBASE)/testcase/tmp/globalpalettelist.txt | awk '{print $$2}'`; do \
+          echo Checking Block $${x}; \
+	  if (test -z "`grep $${x} $(SCIBASE)/testcase/tmp/globalblocklist.txt`") then \
+	    if (test -z "`grep $${x} $(SCIBASE)/testcase/hudson_ignoreblocks.txt`") then \
+		echo "  <test name=\"BLOCK $${x}\" executed=\"yes\">"                   >> tmp/results.xml;\
+		echo "    <result>"                                                     >> tmp/results.xml;\
+		echo "      <success passed=\"no\" state=\"0\"/>"                       >> tmp/results.xml;\
+		echo "    </result>"                                                    >> tmp/results.xml;\
+		echo "    <description>"                                                >> tmp/results.xml;\
+		echo "      BLOCK WITHOUT TESTS $${x}"                                  >> tmp/results.xml;\
+		echo "    </description>"                                               >> tmp/results.xml;\
+		echo "  </test>"                                                        >> tmp/results.xml;\
+		echo ""                                                                 >> tmp/results.xml;\
+            fi \
+          fi \
+        done
+
+	@echo "</report>" >>tmp/results.xml
+
 
 #
 # Generating the TMP dir
 #
 .PHONY: tmp
 tmp:
-	@echo RM tmp directory
-	@rm -rf tmp
+	@echo tmp directory
 	@mkdir -p tmp
 
 
@@ -141,6 +197,14 @@ tmp:
 clean:
 	rm -rf `ls -d */out*` tmp
 
+
+
+#
+# supported
+#
+# makes a list of projects supporting a specific ARCH
+
+
 ifdef ARCH
 supported:
 	@for x in $(wildcard */conf.in); do grep $(ARCH) $${x} | xargs echo $${x} ------; done
@@ -151,6 +215,12 @@ supported:
 	@echo
 	@echo make supported ARCH=pic30
 endif
+
+
+#
+# miscellaneous
+#
+
 
 include $(wildcard common/*/test.mk)
 help::
