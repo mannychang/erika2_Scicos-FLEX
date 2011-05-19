@@ -7,7 +7,7 @@ ieee(2) ; //** NO ERROR in case of division by zero
 lines(0); //** infinite scroll on Scilab console 
 
 //** Load additional Interfacing function library 
-exec("SCI/contrib/dspic/loader.sce"); 
+exec("SCI/contrib/scicos_ee/scicos_flex/dspic/loader.sce"); 
 
 //** update the Scicos palettes 
 
@@ -18,7 +18,7 @@ exec("SCI/contrib/dspic/loader.sce");
 %CmenuTypeOneVector($+1,:)=['FlexCodeGen','Click on a Superblock (without activation output) to obtain a coded block!']
 %CmenuTypeOneVector($+1,:)=['Set Target','Click on a Superblock (without activation output) to set the Target!']
 
-PALETTE_DIR = 'SCI/contrib/dspic/macros/palettes/';
+PALETTE_DIR = 'SCI/contrib/scicos_ee/scicos_flex/dspic/macros/palettes/';
 
 //** Load some FLEX specific palettes
 scicos_pal($+1,:)=['MCHP16-Sources',PALETTE_DIR + 'MCHP16-Sources.cosf'];
@@ -39,30 +39,30 @@ scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
 if MSDOS then
 
 //** Load the FLEX shared library of computational functions for SIMULATION 
-exec("SCI\contrib\dspic\Flex-Sim\loader.sce"); 
+exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Sim\loader.sce"); 
 
 //** Load the shared library of of computational functions for Native Integer Support 
-exec("SCI\contrib\dspic\NativeInteger\loader.sce"); 
+exec("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger\loader.sce"); 
 
 //** Load the library of of interfacing functions for Native Integer Support 
-cd  ("SCI\contrib\dspic\NativeInteger") ;
+cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger") ;
 exec("InterfaceLoader.sci");
 
 //** Load the FLEX UDP support
-cd  ("SCI\contrib\dspic\Flex-UDP") ;
+cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP") ;
 exec("loader.sce");
 
 //** Load the FLEX PID support
-cd  ("SCI\contrib\dspic\Flex-PIDtuning") ;
+cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-PIDtuning") ;
 exec("loader.sce");
 
 //** Load the FLEX roller
-cd  ("SCI\contrib\dspic\Flex-Roller") ;
+cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller") ;
 exec("loader.sce");
 
 end
 
-cd ("SCI\contrib\dspic");
+cd ("SCI\contrib\scicos_ee\scicos_flex\dspic");
 
 //** show some message  
 disp("ScicosLab-FLEX Ready");disp(" ");
