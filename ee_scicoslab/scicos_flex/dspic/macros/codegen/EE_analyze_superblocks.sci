@@ -1,8 +1,8 @@
 function [B_L,F_L,S_L] = EE_analyze_superblocks(XX,B_L,F_L,S_L)
  
 	//disp("We are in " + XX.gui);
-	SYMBOLS_DIR = SCI+'/contrib/dspic';
-	WORK_BLOCKS_DIR = SCI+'/contrib/dspic';
+	SYMBOLS_DIR = SCI+'/contrib/scicos_ee/scicos_flex/dspic';
+	WORK_BLOCKS_DIR = SCI+'/contrib/scicos_ee/scicos_flex/dspic';
 
 	work_blocks = mgetl(WORK_BLOCKS_DIR + '/work_blocks');
 	symbols = mgetl(SYMBOLS_DIR + '/symbols');

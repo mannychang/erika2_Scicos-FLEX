@@ -1708,7 +1708,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 
     //** This comments will be moved in the documentation 
 
-    //** /contrib/RT_templates/pippo.gen
+    //** /contrib/scicos_ee/scicos_flex/RT_templates/pippo.gen
 
     //** 1: pippo.mak 
     //** 2: pippo.cmd
@@ -1721,7 +1721,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
     //** pippo.cmd : sequenza di comandi Scilab 
 
 
-    TARGETDIR = SCI+"/contrib/RT_templates";
+    TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
 
     [fd,ierr] = mopen(TARGETDIR+'/'+target+'.gen','r');
 

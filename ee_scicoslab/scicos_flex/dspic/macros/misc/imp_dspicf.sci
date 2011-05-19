@@ -1,8 +1,8 @@
 function imp_dspicf(folder,templatedir)
-fnamein1 = SCI+'/contrib/dspic/compile.bat';
-fnamein2 = SCI+'/contrib/dspic/compile.sh';
-fnamein3 = SCI+'/contrib/dspic/flash.bat';
-fnamein4 = SCI+'/contrib/dspic/flash.sh';
+fnamein1 = SCI+'/contrib/scicos_ee/scicos_flex/dspic/compile.bat';
+fnamein2 = SCI+'/contrib/scicos_ee/scicos_flex/dspic/compile.sh';
+fnamein3 = SCI+'/contrib/scicos_ee/scicos_flex/dspic/flash.bat';
+fnamein4 = SCI+'/contrib/scicos_ee/scicos_flex/dspic/flash.sh';
 
 fnameout1  = folder+'/compile.bat';
 fnameout2  = folder+'/compile.sh';
@@ -19,7 +19,7 @@ T=mgetl(fnamein4);
 mputl(T,fnameout4);
 
 cd(folder)
-cmd = 'start compile ' + templatedir
+cmd = 'start compile' + ' ' + SCI+'/contrib/scicos_ee/RT-Druid' + ' ' + templatedir
 unix(cmd)
 cd '..'
 endfunction

@@ -1,7 +1,7 @@
 #
 # PLEASE CHANGE THIS VARIABLE BELOW TO THE CORRECT INSTALLATION PATH
 #
-export ECLIPSE_HOME="C:\Evidence\eclipse"
+export RTDRUID_BASEDIR=$1
 
 #########################################################################################
 #
@@ -9,10 +9,10 @@ export ECLIPSE_HOME="C:\Evidence\eclipse"
 #
 #########################################################################################
 
-#export ECLIPSE_HOME_MS=`cygpath -ms ${ECLIPSE_HOME}`
+#export RTDRUID_BASEDIR_MS=`cygpath -ms ${RTDRUID_BASEDIR}`
 
-if test -d ${ECLIPSE_HOME}; then
-  echo ECLIPSE_HOME directory found.
+if test -d ${RTDRUID_BASEDIR}; then
+  echo RTDRUID_BASEDIR directory found.
 else
   echo ---------------------------------------------------------------
   echo WARNING 
@@ -20,8 +20,8 @@ else
   echo Compilation not performed!
   echo
   echo Please change the compile.sh script into the
-  echo contrib/dspic of the Scilab/Scicos installation 
-  echo directory, providing the right value for ECLIPSE_HOME.
+  echo contrib/scicos_ee/scicos_flex/dspic of the Scilab/Scicos installation 
+  echo directory, providing the right value for RTDRUID_BASEDIR.
   echo ---------------------------------------------------------------
   exit 1;
 fi
@@ -32,10 +32,7 @@ echo
 echo RT-Druid is generating the scheleton application which 
 echo will be compiled together with the Scicos generated code
 echo --------------------------------------------------------
-
-`cygpath -ms ${ECLIPSE_HOME}`/Evidence/template_launcher.bat --template $1 --output .
-
-#cat conf_scicos.oil | gcc -c - -E -P -o conf.oil
+`cygpath -ms ${RTDRUID_BASEDIR}`/templates.bat `cygpath -d $1` $2 .
 cat conf_scicos.oil | gcc -c - $(cat scicos_symbols) -E -P -o conf.oil
 
 echo --------------------------------------------------------
@@ -44,7 +41,7 @@ echo
 echo RT-Druid is parsing the OIL file to generate the 
 echo makefiles used for the compilation 
 echo --------------------------------------------------------
-`cygpath -ms ${ECLIPSE_HOME}`/Evidence/rtd_launcher.bat --oil conf.oil
+`cygpath -ms ${RTDRUID_BASEDIR}`/code_generation.bat `cygpath -d $1` conf.oil Debug
 
 echo --------------------------------------------------------
 echo Step 3: Compiling the application

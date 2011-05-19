@@ -10,7 +10,7 @@ if not exist %EE_BASH_PATH% goto error
 
 :ok
 set SHELLOPTS=igncr
-%EE_BASH_PATH% -c "/bin/bash --login -c \"cd `/bin/cygpath/ -ms \"$PWD\"`; ./compile.sh %1\""
+%EE_BASH_PATH% -c "/bin/bash --login -c \"cd `/bin/cygpath/ -ms \"$PWD\"`; ./compile.sh %1 %2\""
 goto end
 
 :error

@@ -15,7 +15,7 @@ function EE_get_diagram_info(name,XX)
 					"Current directory: " + pwd();
 					""];
 
-	FUNCS_DEP_DIR = SCI+'/contrib/dspic';
+	FUNCS_DEP_DIR = SCI+'/contrib/scicos_ee/scicos_flex/dspic';
 
 	txt = [txt;
 				"Loading functions dependencies file from " + FUNCS_DEP_DIR + "/functions_dependencies..."];
@@ -91,7 +91,7 @@ function EE_get_diagram_info(name,XX)
 
 	end
 
-	DYN_MEM_BLOCKS_DIR = SCI+'/contrib/dspic';
+	DYN_MEM_BLOCKS_DIR = SCI+'/contrib/scicos_ee/scicos_flex/dspic';
 
 	txt = [txt;
 				"";

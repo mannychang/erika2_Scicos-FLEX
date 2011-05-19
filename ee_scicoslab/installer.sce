@@ -2,7 +2,7 @@
 // ScicosLab pack installation script
 //###################################
 
-winId_wait=waitbar('EE Scicos pack. Installation may take a few seconds...');
+winId_wait=waitbar('EE Scicos pack. Installation may take several minutes...');
 
 // Set global variables
 EE_DEBUG = 1;
