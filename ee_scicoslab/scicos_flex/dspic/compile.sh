@@ -1,7 +1,7 @@
 #
 # PLEASE CHANGE THIS VARIABLE BELOW TO THE CORRECT INSTALLATION PATH
 #
-export RTDRUID_BASEDIR=$1
+export RTDRUID_BASEDIR=$1/evidence
 
 #########################################################################################
 #
@@ -32,7 +32,7 @@ echo
 echo RT-Druid is generating the scheleton application which 
 echo will be compiled together with the Scicos generated code
 echo --------------------------------------------------------
-`cygpath -ms ${RTDRUID_BASEDIR}`/templates.bat `cygpath -d $1` $2 .
+`cygpath -ms ${RTDRUID_BASEDIR}`/instantiate_template.bat `cygpath -d $1` $2 .
 cat conf_scicos.oil | gcc -c - $(cat scicos_symbols) -E -P -o conf.oil
 
 echo --------------------------------------------------------
@@ -41,7 +41,7 @@ echo
 echo RT-Druid is parsing the OIL file to generate the 
 echo makefiles used for the compilation 
 echo --------------------------------------------------------
-`cygpath -ms ${RTDRUID_BASEDIR}`/code_generation.bat `cygpath -d $1` conf.oil Debug
+`cygpath -ms ${RTDRUID_BASEDIR}`/generate_code.bat `cygpath -d $1` conf.oil Debug
 
 echo --------------------------------------------------------
 echo Step 3: Compiling the application
