@@ -44,12 +44,18 @@ This folder contians the following demo files.
 	and the source files located in the following folder: 
   	- .\contrib\flex_usb2udp_gateway
 
-* pc_pid_udp_tuning.cos
+* PCside_AmazingBall_UDP_PIDtuning.cos
 	With this schematic you can run an almost-real-time simulation in SCICOS environment
 	to watch the behavior of the control system and tune the algorithm coefficients
 	to increase its performance. 
 	The application shows the received UDP data on the multiple scope and sends the new 
-	parameters to the FLEX FULL board. The simulation requires PC ethernet port settings.
+	parameters to the Amazing Ball. The simulation requires PC ethernet port settings.
+
+* PCside_AmazingBall_UDP_Monitor.cos
+	With this schematic you can run an almost-real-time simulation in SCICOS environment
+	to watch the behavior of the control system.
+	The application shows the received UDP data on the multiple scope.
+	The simulation requires PC ethernet port settings.
 
 For other info go to the site: http://www.evidence.eu.com/
 

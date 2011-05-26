@@ -191,10 +191,22 @@ waitbar(0.99, winId_wait);
 cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic");
 exec builder.sce
 
-waitbar(1, winId_wait);
-waitbar('Installation completed successfully!',winId_wait);
+// Create and move Scicos EE pack palettes
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\AMAZING");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-Communication");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-DMB");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-MTB");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-PC");
+
+cd(MYDIR+'scicos_ee\utils');
+cmd = 'start cp_cosf.bat ' + ascii(34)+SCIDIR+ascii(34);
+unix(cmd);
+cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic");
 
 // End
+waitbar(1, winId_wait);
+waitbar('Installation completed successfully!',winId_wait);
 EE_debug_printf('  Installation completed successfully!', 1); 
 EE_debug_printf('  Please, restart ScicosLab for the changes to take effect...', 1);
 EE_debug_printf('### ###', 1);
