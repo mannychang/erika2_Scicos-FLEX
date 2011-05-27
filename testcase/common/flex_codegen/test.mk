@@ -92,7 +92,7 @@ CODEGEN_flex_source = \
 # with the same parameters used by the codegenerator
 # finally runs the compile.sh
 COMPILE_flex_source = \
-	cat $(SCIBASE)/contrib/dspic/compile.sh | dos2unix > $$(OUTDIR_PREFIX)$(1)/test_scig/compile.sh; \
+	cat $(SCIBASE)/contrib/scicos_ee/scicos_flex/dspic/compile.sh | dos2unix > $$(OUTDIR_PREFIX)$(1)/test_scig/compile.sh; \
 	chmod +x $$(OUTDIR_PREFIX)$(1)/test_scig/compile.sh; \
 	cat flex_codegen/run_compile.sh | gcc -c - -E -P $$(addprefix -D, $$(shell $$(DEMUX2) $(1))) -D$$(thearch) -DTESTDIR="`cygpath -ms $$(OUTDIR_PREFIX)$(1)`" -o - >$$(OUTDIR_PREFIX)$(1)/test_scig/run_compile.sh; \
 	chmod +x $$(OUTDIR_PREFIX)$(1)/test_scig/run_compile.sh; \

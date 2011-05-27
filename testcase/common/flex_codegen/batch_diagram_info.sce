@@ -23,8 +23,6 @@ for i=1:size(scs_m.objs)
     functions_list = [];
     txt = [];
 
-    FUNCS_DEP_DIR = SCI+'/contrib/dspic';
-
     [blocks_list,functions_list,symbols_list] = EE_analyze_superblocks(obj,blocks_list,functions_list,symbols_list);
 
     for i=1:size(blocks_list,1)

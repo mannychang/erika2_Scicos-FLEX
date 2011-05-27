@@ -103,7 +103,7 @@ analyze_palettes: tmp $(analyze_dirs)
 
 # creates tmp/palettelist, which contains all pair (palette_file,block)
 	@echo ANALYZE_PALETTE Creating global palette list
-	@for p in `find $(SCIBASE)/contrib/dspic/macros/palettes | grep cosf | grep -v svn`; do \
+	@for p in `find $(SCIBASE)/contrib/scicos_ee/scicos_flex/dspic/macros/palettes | grep cosf | grep -v svn`; do \
           echo Palette $${p}; \
           cd $(SCIBASE)/testcase/tmp; \
 	  cp -f $${p} ./mypalette.cosf; \

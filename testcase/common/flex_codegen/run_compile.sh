@@ -21,5 +21,5 @@
 
 
 #ifdef BOARDFLEX
-./compile.sh board_flex && touch ../doneflag.txt
+./compile.sh ${SCIBASE}/contrib/scicos_ee/RT-Druid board_flex && touch ../doneflag.txt
 #endif
