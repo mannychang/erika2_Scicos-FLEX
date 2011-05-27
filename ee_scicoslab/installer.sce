@@ -53,10 +53,15 @@ end
 // Check MPLAB C30 presence 
 cd(MYDIR+'scicos_ee\utils');
 txt=mgetl('apps.list');
-res = grep(txt,'C30');
+res = grep(txt,'MPLAB C30');
 if res==[]
-  EE_debug_printf('  #warning: C30 compiler for dsPIC not found!', 1);
-  EE_debug_printf('  #warning: Please, install a valid compiler otherwise code generator will not work!', 1);
+  res = grep(txt,'MPLAB C');
+  if res==[]
+    EE_debug_printf('  #warning: C30 compiler for dsPIC not found!', 1);
+    EE_debug_printf('  #warning: Please, install a valid compiler otherwise code generator will not work!', 1);
+  else
+    EE_debug_printf('  C30 compiler found!', 1);
+  end
 else
   EE_debug_printf('  C30 compiler found!', 1);
 end
@@ -163,7 +168,7 @@ if res==[]
   if ierr==0
   EE_debug_printf('  #warning: .scilab will be modified!', 1);
   EE_debug_printf('  We recommend you to get a backup of .scilab file before proceeding...', 1);
-  answ = buttondialog("Do you want to modify .scilab file?","yes|no","question");   
+  answ = buttondialog("The installation should modify the .scilab script? (Yes: to continue, No: to abort)","yes|no","question");   
   end
   if answ=='1'
     [fd,err]=mopen(SCIHOME+'\.scilab', 'a');
