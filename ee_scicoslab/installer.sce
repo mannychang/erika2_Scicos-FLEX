@@ -41,9 +41,9 @@ waitbar(0.2, winId_wait);
 // Check Visual C++ presence
 cd(MYDIR+'scicos_ee\utils');
 txt=mgetl('apps.list');
-res = grep(txt,'Visual C++');
+res = grep(txt,'Visual C++ 2008');
 if res==[]
-  EE_debug_printf('  #error: Visual C++ not found!', 1);
+  EE_debug_printf('  #error: Visual C++ 2008 not found!', 1);
   waitbar('Error: Installation aborted!',winId_wait);
   return;
 else
@@ -142,7 +142,15 @@ while res_utils==%F,
   realtime(i);
   progressionbar(winId_prog);
 
-  end
+  if res_examples==%F & i==10
+      EE_debug_printf('  #Error: Run ScicosLab as administrator to install the package!', 1);
+      EE_debug_printf('  #Error: Installation aborted!', 1);
+      winclose(winId_prog);
+      waitbar('Error: Installation aborted!',winId_wait);
+      return;
+  end  
+
+end
 winclose(winId_prog);
 
 waitbar(0.9, winId_wait);
