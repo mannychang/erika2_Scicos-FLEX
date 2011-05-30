@@ -47,7 +47,19 @@ if res==[]
   waitbar('Error: Installation aborted!',winId_wait);
   return;
 else
-  EE_debug_printf('  Visual C++ found!', 1);
+  EE_debug_printf('  Visual C++ 2008 found!', 1);
+end
+
+// Check Java presence
+cd(MYDIR+'scicos_ee\utils');
+txt=mgetl('apps.list');
+res = grep(txt,'Java(TM)');
+if res==[]
+  EE_debug_printf('  #error: Java not found!', 1);
+  waitbar('Error: Installation aborted!',winId_wait);
+  return;
+else
+  EE_debug_printf('  Java found!', 1);
 end
 
 // Check MPLAB C30 presence 
