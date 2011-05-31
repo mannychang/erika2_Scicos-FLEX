@@ -22,6 +22,7 @@ waitbar(0.2, winId_wait);
 EE_debug_printf('### EE Scicoslab pack uninstaller ###', 1);
 
 // Check .scilab file presence
+EE_debug_printf('  Restoring the initial configuration script...', 1); 
 res = grep(SCIHOME,'4.4.1');
 if res==[]
   cd(MYDIR+'scicos_ee\user\Scilab\4.4b7'); // 4.4b7
@@ -50,12 +51,11 @@ end
 waitbar(0.5, winId_wait);
 
 // Delete scicos_ee folder from contrib
+EE_debug_printf('  Deleting files...', 1); 
 res = isdir(SCIDIR+'\contrib\scicos_ee');
 if res==%T
   cd(SCIDIR+'\contrib');
-  //EE_debug_printf('  EE Scicos pack will be uninstalled!', 1);
   EE_debug_printf('  ...removing Scicos EE folders...', 1); 
-  //rmdir('scicos_ee', 's');
   cmd = 'rmdir /s /q scicos_ee';
   unix(cmd);
   
@@ -77,11 +77,10 @@ if res==%T
   
 else
   EE_debug_printf('  #warning: EE Scicos pack is already uninstalled!', 1);
-  EE_debug_printf('  If you want to install the Scicos EE pack, use the installer.sce script.', 1);
 end
 
 waitbar(1, winId_wait);
-waitbar('Uninstallation successfully completed!',winId_wait);
+waitbar('Uninstallation completed successfully!',winId_wait);
 EE_debug_printf('  Uninstallation completed successfully!', 1); 
 EE_debug_printf('  Please, restart ScicosLab for the changes to take effect...', 1);
 EE_debug_printf('### ###', 1);
