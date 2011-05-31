@@ -17,19 +17,29 @@ cd(MYDIR);
 // Load libraries
 getf scicos_ee\utils\utils.sci 
 
-EE_debug_printf('### EE Scicoslab pack installer ###', 1);
+// Installation Log
+[fd_log, err] = mopen(SCIDIR+'\contrib\ScicosLabPack_install.log', 'w');
+if err ~= 0
+  EE_debug_printf('  #error: Access denied! Is not possible to create the log file!', 0);
+  EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', 0);
+  EE_debug_printf('  Installation aborted!', 0);
+  return;
+end
+  
+EE_debug_printf('### EE Scicoslab pack installer ###', fd_log);
 
 // Check Cygwin presence
-EE_debug_printf('  Check Cygwin presence...', 1);
+EE_debug_printf('  Check Cygwin presence...', fd_log);
 [x,ierr]=fileinfo('C:\cygwin\bin\bash.exe');
 if ierr==0
-  EE_debug_printf('  Cygwin found!', 1);
+  EE_debug_printf('  Cygwin found!', fd_log);
 else
-  EE_debug_printf('  #error: Cygwin not found!', 1);
-  EE_debug_printf('  #error: Cygwin should be installed in C:\', 1);
-  EE_debug_printf('  Installation aborted!', 1);
+  EE_debug_printf('  #error: Cygwin not found!', fd_log);
+  EE_debug_printf('  #error: Cygwin should be installed in C:\', fd_log);
+  EE_debug_printf('  Installation aborted!', fd_log);
   waitbar('Error: Installation aborted!',winId_wait);
-  EE_debug_printf('### ###', 1);
+  EE_debug_printf('### ###', fd_log);
+  mclose(fd_log);
   return;
 end
 
@@ -43,47 +53,48 @@ unix(cmd);
 waitbar(0.2, winId_wait);
 
 // Check Visual C++ presence
-EE_debug_printf('  Check Visual C++ 2008 presence...', 1);
+EE_debug_printf('  Check Visual C++ 2008 presence...', fd_log);
 cd(MYDIR+'scicos_ee\utils');
 txt=mgetl('apps.list');
 res = grep(txt,'Visual C++ 2008');
 if res==[]
-  EE_debug_printf('  #warning: Visual C++ 2008 not found!', 1);
-  EE_debug_printf('  #warning: Installation of Visual C++ 2008 Express Edition is required by the ScicosLab EE pack!', 1);
+  EE_debug_printf('  #warning: Visual C++ 2008 not found!', fd_log);
+  EE_debug_printf('  #warning: Installation of Visual C++ 2008 Express Edition is required by the ScicosLab EE pack!', fd_log);
 else
-  EE_debug_printf('  Visual C++ 2008 found!', 1);
+  EE_debug_printf('  Visual C++ 2008 found!', fd_log);
 end
 
 // Check Java presence
-EE_debug_printf('  Check Java presence...', 1);
+EE_debug_printf('  Check Java presence...', fd_log);
 cd(MYDIR+'scicos_ee\utils');
 txt=mgetl('apps.list');
 res = grep(txt,'Java(TM)');
 if res==[]
-  EE_debug_printf('  #warning: Java not found!', 1);
-  EE_debug_printf('  #warning: Installation of Java is required by the ScicosLab EE pack!', 1);
+  EE_debug_printf('  #warning: Java not found!', fd_log);
+  EE_debug_printf('  #warning: Installation of Java is required by the ScicosLab EE pack!', fd_log);
 else
-  EE_debug_printf('  Java found!', 1);
+  EE_debug_printf('  Java found!', fd_log);
 end
 
 // Check MPLAB C30 presence 
-EE_debug_printf('  Check MPLAB C30 compiler presence...', 1);
+EE_debug_printf('  Check MPLAB C30 compiler presence...', fd_log);
 cd(MYDIR+'scicos_ee\utils');
 txt=mgetl('apps.list');
 res_c30 = grep(txt,'MPLAB C30');
 res_c   = grep(txt,'MPLAB C');
 if res_c30==[] & res_c==[]
-    EE_debug_printf('  #warning: C30 compiler for dsPIC not found!', 1);
+    EE_debug_printf('  #warning: C30 compiler for dsPIC not found!', fd_log);
     answ = buttondialog("The installation requires valid paths for C30 compiler and ASM30 assembler (Yes: to continue, No: to abort)","yes|no","question"); 
     if answ=='2'
-      EE_debug_printf('  #warning: Please, install a valid compiler otherwise code generator will not work!', 1);
-      EE_debug_printf('  Installation aborted!', 1);
+      EE_debug_printf('  #warning: Please, install a valid compiler otherwise code generator will not work!', fd_log);
+      EE_debug_printf('  Installation aborted!', fd_log);
       waitbar('Error: Installation aborted!',winId_wait);
-      EE_debug_printf('### ###', 1);
+      EE_debug_printf('### ###', fd_log);
+      mclose(fd_log);
       return;
     end
 else
-  EE_debug_printf('  C30 compiler found!', 1);
+  EE_debug_printf('  C30 compiler found!', fd_log);
 end
 
 c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 and ASM30 paths [C30_path;ASM30_path]:'],['c:\Programmi\Microchip\MPLAB C30';'c:\Programmi\Microchip\MPLAB ASM30 Suite'])
@@ -91,11 +102,12 @@ c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 and ASM30 paths [C30_pa
 [fd,err] = mopen('common_oil.pref', 'w');
 
 if err ~= 0
-  EE_debug_printf('  #error: Access denied! Is not possible to create a preferences file!', 1);
-  EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', 1);
-  EE_debug_printf('  Installation aborted!', 1);
+  EE_debug_printf('  #error: Access denied! Is not possible to create a preferences file!', fd_log);
+  EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', fd_log);
+  EE_debug_printf('  Installation aborted!', fd_log);
   waitbar('Error: Installation aborted!',winId_wait);
-  EE_debug_printf('### ###', 1);
+  EE_debug_printf('### ###', fd_log);
+  mclose(fd_log);
   return;
 end
 
@@ -115,21 +127,22 @@ mclose(fd);
 waitbar(0.3, winId_wait);
 
 // Check the existence of scicos_ee folder in contrib
-EE_debug_printf('  Check scicos_ee folder presence...', 1);
+EE_debug_printf('  Check scicos_ee folder presence...', fd_log);
 res = isdir(SCIDIR+'\contrib\scicos_ee');
 if res==%F
   cd(SCIDIR+'\contrib');
-  EE_debug_printf('  EE Scicos pack will be installed!', 1);
+  EE_debug_printf('  EE Scicos pack will be installed!', fd_log);
   cmd = 'mkdir scicos_ee';
   unix(cmd);
   cmd = 'start xcopy '+ascii(34)+MYDIR+'scicos_ee'+ascii(34)+' '+ascii(34)+SCIDIR+'\contrib\scicos_ee'+ascii(34)+' /s /e /y /i';
   unix(cmd);
 else
-  EE_debug_printf('  #error: A folder named scicos_ee is already in contrib. Please remove it or rename it before running the installer', 1);
-  EE_debug_printf('  Installation aborted!', 1);
+  EE_debug_printf('  #error: A folder named scicos_ee is already in contrib. Please remove it or rename it before running the installer', fd_log);
+  EE_debug_printf('  Installation aborted!', fd_log);
   waitbar(1, winId_wait);
   waitbar('Installation aborted!',winId_wait);
-  EE_debug_printf('### ###', 1);
+  EE_debug_printf('### ###', fd_log);
+  mclose(fd_log);
   return;
 end
 
@@ -153,18 +166,19 @@ res_utils = isdir(SCIDIR+'\contrib\scicos_ee\utils');
 i = 0;
 
 if res_scicosee==%F
-  EE_debug_printf('  #error: Access denied!', 1);
-  EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', 1);
-  EE_debug_printf('  Installation aborted!', 1);
+  EE_debug_printf('  #error: Access denied!', fd_log);
+  EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', fd_log);
+  EE_debug_printf('  Installation aborted!', fd_log);
   waitbar('Error: Installation aborted!',winId_wait);
   winclose(winId_prog);
-  EE_debug_printf('### ###', 1);
+  EE_debug_printf('### ###', fd_log);
+  mclose(fd_log);
   return;
 end
 
-EE_debug_printf('  ...copying Scicos EE files...', 1); 
-EE_debug_printf('  Please, do not close DOS window.', 1); 
-EE_debug_printf('  It will be closed automatically at the end of the copy.', 1);
+EE_debug_printf('  ...copying Scicos EE files...', fd_log); 
+EE_debug_printf('  Please, do not close DOS window.', fd_log); 
+EE_debug_printf('  It will be closed automatically at the end of the copy.', fd_log);
   
 while res_utils==%F,
   res = 0.4;
@@ -201,7 +215,7 @@ winclose(winId_prog);
 waitbar(0.9, winId_wait);
 
 // Check .scilab file presence
-EE_debug_printf('  Elaborating the initial configuration script...', 1); 
+EE_debug_printf('  Elaborating the initial configuration script...', fd_log); 
 res = grep(SCIHOME,'4.4.1');
 if res==[]
   cd(MYDIR+'scicos_ee\user\Scilab\4.4b7'); // 4.4b7
@@ -210,19 +224,19 @@ else
 end
 [x,ierr]=fileinfo(SCIHOME+'\.scilab');
 if ierr==0
-  EE_debug_printf('  #warning: .scilab file found!', 1);
+  EE_debug_printf('  #warning: .scilab file found!', fd_log);
   txt=mgetl(SCIHOME+'\.scilab');
 else
-  EE_debug_printf('  #warning: .scilab file not found!. The file will be created.', 1);
+  EE_debug_printf('  #warning: .scilab file not found!. The file will be created.', fd_log);
   txt=[];
 end
 res = grep(txt,'### Scicos EE ###');
 if res==[]
   answ = '1';
   if ierr==0
-  EE_debug_printf('  #warning: We recommend you to get a backup of .scilab file before proceeding...', 1);
-  EE_debug_printf('  #warning: Please, if the .scilab file is open, close it before proceeding...', 1);
-  answ = buttondialog("The installation should modify the .scilab script (Yes: to continue, No: to abort)","yes|no","question");   
+    EE_debug_printf('  #warning: We recommend you to get a backup of .scilab file before proceeding...', fd_log);
+    EE_debug_printf('  #warning: Please, if the .scilab file is open, close it before proceeding...', fd_log);
+    answ = buttondialog("The installation should modify the .scilab script (Yes: to continue, No: to abort)","yes|no","question");   
   end
   if answ=='1'
     [fd,err]=mopen(SCIHOME+'\.scilab', 'a');
@@ -241,18 +255,18 @@ if res==[]
     mclose(fd);
   end
 else
-  EE_debug_printf('  #warning: .scilab is already updated!', 1);
+  EE_debug_printf('  #warning: .scilab is already updated!', fd_log);
 end
 
 waitbar(0.99, winId_wait);
 
 // Build Scicos EE pack
-EE_debug_printf('  Building ScicosLab EE pack...', 1);
+EE_debug_printf('  Building ScicosLab EE pack...', fd_log);
 cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic");
 exec builder.sce
 
 // Create and move Scicos EE pack palettes
-EE_debug_printf('  Creating ScicosLab EE palettes...', 1);
+EE_debug_printf('  Creating ScicosLab EE palettes...', fd_log);
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\AMAZING");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-Communication");
@@ -274,9 +288,10 @@ cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic");
 // End
 waitbar(1, winId_wait);
 waitbar('Installation completed successfully!',winId_wait);
-EE_debug_printf('  Installation completed successfully!', 1); 
-EE_debug_printf('  Please, restart ScicosLab for the changes to take effect...', 1);
-EE_debug_printf('### ###', 1);
+EE_debug_printf('  Installation completed successfully!', fd_log); 
+EE_debug_printf('  Please, restart ScicosLab for the changes to take effect...', fd_log);
+EE_debug_printf('### ###', fd_log);
+mclose(fd_log);
 return;
 
 

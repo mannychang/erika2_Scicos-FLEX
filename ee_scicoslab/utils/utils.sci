@@ -9,8 +9,10 @@ function res = EE_debug_printf(msg, on_off)
 if rhs == 1
   on_off = 0;
 end
+disp(msg);
 if on_off > 0
-    disp(msg);
+    mfprintf(on_off, msg);
+	mfprintf(on_off, "\n");
 end
 res = on_off;
 
