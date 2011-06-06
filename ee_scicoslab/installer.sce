@@ -97,10 +97,28 @@ else
   EE_debug_printf('  C30 compiler found!', fd_log);
 end
 
-c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 and ASM30 paths [C30_path;ASM30_path]:'],['c:\Programmi\Microchip\MPLAB C30';'c:\Programmi\Microchip\MPLAB ASM30 Suite'])
+
+CC_path_valid=%F;
+while CC_path_valid==%F
+  c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 and ASM30 paths [C30_path;ASM30_path]:'],['c:\Programmi\Microchip\MPLAB C30';'c:\Programmi\Microchip\MPLAB ASM30 Suite'])
+  CC_path_valid_1 = isdir( c30_asm30_paths(1) )
+  CC_path_valid_2 = isdir( c30_asm30_paths(2) )
+  if CC_path_valid_1 & CC_path_valid_2
+    break;
+  else
+    answ = buttondialog("Inserted paths are not valid! (Yes: to retry, No: to abort)","yes|no","question"); 
+    if answ=='2'
+      EE_debug_printf('  Installation aborted!', fd_log);
+      waitbar('Error: Installation aborted!',winId_wait);
+      EE_debug_printf('### ###', fd_log);
+      mclose(fd_log);
+      return;
+    end
+  end
+end
+
 
 [fd,err] = mopen('common_oil.pref', 'w');
-
 if err ~= 0
   EE_debug_printf('  #error: Access denied! Is not possible to create a preferences file!', fd_log);
   EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', fd_log);
@@ -110,7 +128,6 @@ if err ~= 0
   mclose(fd_log);
   return;
 end
-
 mfprintf(fd,"# Path to the ASM30 Assembler\n");
 mfprintf(fd,"# NOT the assembler distributed with the C30 Compiler!\n");
 mfprintf(fd,"preference_pic30__path_for_asm_compiler = ");
