@@ -16,6 +16,9 @@ ifndef SCIBASE
 missing_scibase::
 endif
 
+ifndef TESTBASE
+missing_testbase::
+endif
 
 ifndef ARCH
 help::
@@ -229,5 +232,10 @@ help::
 
 missing_scibase::
 	@echo ERROR: Missing environment variable SCIBASE
+	@echo ...maybe you can try with the following command:
+	@echo export SCIBASE=/cygdrive/c/Programmi/scilab/scicoslab-4.4.1
+	
+missing_testbase::
+	@echo ERROR: Missing environment variable TESTBASE
 	@echo ...maybe you can try with the following command:
 	@echo export SCIBASE=`pwd`/..

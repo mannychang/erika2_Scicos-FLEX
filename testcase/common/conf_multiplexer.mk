@@ -66,9 +66,9 @@ include ../$(EXPERIMENT)/conf.in
 #
 # PARAMETERS is used inside a template BUT IT DOES NOT NEED A $$, only a $
 
-MUX = $(SCIBASE)/testcase/common/confparser/confparser_mux
-DEMUX = $(SCIBASE)/testcase/common/confparser/confparser_demux
-DEMUX2 = $(SCIBASE)/testcase/common/confparser/confparser_demux2
+MUX = $(TESTBASE)/testcase/common/confparser/confparser_mux
+DEMUX = $(TESTBASE)/testcase/common/confparser/confparser_demux
+DEMUX2 = $(TESTBASE)/testcase/common/confparser/confparser_demux2
 
 # Note: the existence of MUX is checked in arch_multiplexer
 confs := $(shell test -e $(MUX) && $(MUX) $(conf))
@@ -76,7 +76,7 @@ confs := $(shell test -e $(MUX) && $(MUX) $(conf))
 PARAMETERS = $$(shell $$(DEMUX) $(1))
 
 # note: do not use "." in the OUTDIR name...
-OUTDIR_PREFIX = $(SCIBASE)/testcase/$(EXPERIMENT)out_$(thearch)_
+OUTDIR_PREFIX = $(TESTBASE)/testcase/$(EXPERIMENT)out_$(thearch)_
 OUTDIRS = $(addprefix $(OUTDIR_PREFIX), $(confs))
 
 
@@ -128,7 +128,7 @@ define print_template
 .PHONY: print_$(1)
 print_$(1):
 	@echo Checking EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)
-	@if (test -e $(SCIBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/doneflag.txt); then \
+	@if (test -e $(TESTBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/doneflag.txt); then \
 		echo "  <test name=\"$(EXPERIMENT) $(thearch) $(1)\" executed=\"yes\">" >> ../tmp/results.xml;\
 		echo "    <result>"                                                     >> ../tmp/results.xml;\
 		echo "      <success passed=\"yes\" state=\"100\"/>"                    >> ../tmp/results.xml;\

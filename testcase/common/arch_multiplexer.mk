@@ -65,7 +65,7 @@ include ../$(EXPERIMENT)/conf.in
 archs := $(filter $(ARCH)%,$(worksfor))
 #archs := $(filter $(ARCH)%,$(worksfor))
 
-MUX = $(SCIBASE)/testcase/common/confparser/confparser_mux
+MUX = $(TESTBASE)/testcase/common/confparser/confparser_mux
 
 .PHONY: all print analyze conf help clean
 
@@ -113,16 +113,16 @@ $(foreach a,$(archs),$(eval $(call print_template,$(a))))
 
 analyze:
 	@echo Diagram $(EXPERIMENT)
-	@rm -rf $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze
-	@mkdir -p $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze
-	@cd $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze; cp -f ../test.cos .
-	@cat $(SCIBASE)/testcase/common/flex_codegen/batch_diagram_info.sce | gcc -c - -E -P -DTHEFILENAME="test.cos" -DTESTDIR="`cygpath -ms $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze`" -DTESTCASE="\"$(EXPERIMENT)\"" -o - >$(SCIBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce
-	@$(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(SCIBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce`" >$(SCIBASE)/testcase/$(EXPERIMENT)out_analyze/scicoslab_log.txt
+	@rm -rf $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze
+	@mkdir -p $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze
+	@cd $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze; cp -f ../test.cos .
+	@cat $(TESTBASE)/testcase/common/flex_codegen/batch_diagram_info.sce | gcc -c - -E -P -DTHEFILENAME="test.cos" -DTESTDIR="`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze`" -DTESTCASE="\"$(EXPERIMENT)\"" -o - >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce
+	@$(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce`" >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/scicoslab_log.txt
 
 
 
 
 $(MUX):
-	lockfile $(SCIBASE)/testcase/common/confparser/confparser_make.lock
-	+@$(MAKE) -C $(SCIBASE)/testcase/common/confparser
-	rm -f $(SCIBASE)/testcase/common/confparser/confparser_make.lock
+	lockfile $(TESTBASE)/testcase/common/confparser/confparser_make.lock
+	+@$(MAKE) -C $(TESTBASE)/testcase/common/confparser
+	rm -f $(TESTBASE)/testcase/common/confparser/confparser_make.lock

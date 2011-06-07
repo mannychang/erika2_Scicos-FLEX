@@ -57,7 +57,7 @@ COMPILE_flex         	= COMPILE_flex_source
 
 # -------------------------------------------------------------------
 
-TMPDIR = $(SCIBASE)/testcase/tmp
+TMPDIR = $(TESTBASE)/testcase/tmp
 FILE_LOCK = $(TMPDIR)/flex_manual.lock
 RTDRUID_GENERATE_LOCK = $(TMPDIR)/rtdruid_generate_lock.lock
 LOCKFILE= lockfile -1 -r-1
