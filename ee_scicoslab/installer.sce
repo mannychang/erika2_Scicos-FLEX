@@ -101,11 +101,12 @@ end
 CC_path_valid=%F;
 while CC_path_valid==%F
   c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 and ASM30 paths [C30_path;ASM30_path]:'],['c:\Programmi\Microchip\MPLAB C30';'c:\Programmi\Microchip\MPLAB ASM30 Suite'])
-  CC_path_valid_1 = isdir( c30_asm30_paths(1) )
-  CC_path_valid_2 = isdir( c30_asm30_paths(2) )
+  CC_path_valid_1 = isdir( c30_asm30_paths(1) );
+  CC_path_valid_2 = isdir( c30_asm30_paths(2) );
   if CC_path_valid_1 & CC_path_valid_2
     break;
   else
+    EE_debug_printf('  #warning: Inserted paths are not valid!', fd_log);
     answ = buttondialog("Inserted paths are not valid! (Yes: to retry, No: to abort)","yes|no","question"); 
     if answ=='2'
       EE_debug_printf('  Installation aborted!', fd_log);
