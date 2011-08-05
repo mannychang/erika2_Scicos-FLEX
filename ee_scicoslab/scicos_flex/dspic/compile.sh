@@ -49,6 +49,9 @@ echo
 echo The application is now compiled 
 echo --------------------------------------------------------
 cd Debug
+if [ "$EEBASE" ]; then
+    export EEBASE="`cygpath -u "$EEBASE"`"
+fi
 make 2>&1
 
 echo --------------------------------------------------------

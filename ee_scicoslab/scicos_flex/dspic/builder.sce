@@ -10,6 +10,7 @@ libname_fb_MTB='fb_MTB'
 libname_fb_pc='fb_pc'
 libname_amazing='amazing'
 libname_misc='misc'
+libname_easylab='easylab'
 
 //** It is a better function to recover the absolute path information 
 DIR = get_absolute_file_path('builder.sce')
@@ -26,6 +27,7 @@ if ~MSDOS then // Unix Linux
   FB_PC=FB_MACROS+'FLEX-PC/'
   FB_PC=FB_MACROS+'FLEX-PC/'
   FB_AMAZING=FB_MACROS+'AMAZING/'
+  FB_EASYLAB=FB_MACROS+'EASYLAB/'
   MISC=MACROS+'misc/'
   ROUTINES = DIR+'routines/' 
 else  // windows- Visual C++
@@ -39,6 +41,7 @@ else  // windows- Visual C++
   FB_MTB=FB_MACROS+'FLEX-MTB\'
   FB_PC=FB_MACROS+'FLEX-PC\'
   FB_AMAZING=FB_MACROS+'AMAZING\'
+  FB_EASYLAB=FB_MACROS+'EASYLAB/'
   MISC=MACROS+'\misc\'
 end
 
@@ -52,4 +55,4 @@ genlib(libname_fb_MTB,FB_MTB)
 genlib(libname_fb_pc,FB_PC)
 genlib(libname_amazing,FB_AMAZING)
 genlib(libname_misc,MISC)
-
+genlib(libname_easylab,FB_EASYLAB)
