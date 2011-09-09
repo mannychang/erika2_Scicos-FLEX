@@ -4,7 +4,7 @@ function [x,y,typ] = EASYLAB_pwm(job,arg1,arg2)
   case 'plot' then
     exprs=arg1.graphics.exprs;
     pwm_freq=exprs(1)
-    pwm_pin=exprs(1) 
+    pwm_pin=exprs(2) 
     standard_draw(arg1)
   case 'getinputs' then
     [x,y,typ]=standard_inputs(arg1)
@@ -16,8 +16,9 @@ function [x,y,typ] = EASYLAB_pwm(job,arg1,arg2)
     x=arg1
     model=arg1.model;graphics=arg1.graphics;
     exprs=graphics.exprs;
+    error_par = 0;
     while %t do
-        [ok,pwm_pin, pwm_freq,exprs]=..
+        [ok,pwm_freq,pwm_pin,exprs]=..
         getvalue('Select Easylab PWM Output',..
         ['PWM Freq [1000..100000] :';..
         'PWM Out [1..4] :'],..
@@ -25,10 +26,13 @@ function [x,y,typ] = EASYLAB_pwm(job,arg1,arg2)
         if ~ok then break,end
         if((pwm_freq < 1000) | (pwm_freq > 100000)) then
             warning('Accepted values for pwm frequency are in [1000, 100000]. Keeping previous values.');
-            break;
+            error_par = 1;
         end
         if((pwm_pin < 1) | (pwm_pin > 4)) then
             warning('Accepted values for pwm channel are in [1,4]. Keeping previous values.');
+            error_par = 1;
+        end
+        if(error_par)
             break;
         end
         if exists('inport') then in=ones(inport,1), else in=1, end
