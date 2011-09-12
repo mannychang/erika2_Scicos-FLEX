@@ -41,12 +41,14 @@
             System.Windows.Forms.Label UDPReceivingPortLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EasylabSerialUDPGatewayForm));
             this.SerialPortCombo = new System.Windows.Forms.ComboBox();
-            this.ConsoleLikeTextBox = new System.Windows.Forms.RichTextBox();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.UDPSendingPortUpDown = new System.Windows.Forms.NumericUpDown();
             this.SerialUDPNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.DisconnectButton = new System.Windows.Forms.Button();
             this.UDPReceivingPortUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ShowReceivedValues = new System.Windows.Forms.CheckBox();
+            this.ConsoleLikeTextBox = new System.Windows.Forms.TextBox();
+            this.LogValuesOnFile = new System.Windows.Forms.CheckBox();
             SerialPortLabel = new System.Windows.Forms.Label();
             UDPSendingPortLabel = new System.Windows.Forms.Label();
             ReceivedFloatsLabel = new System.Windows.Forms.Label();
@@ -80,7 +82,7 @@
             // ReceivedFloatsLabel
             // 
             ReceivedFloatsLabel.AutoSize = true;
-            ReceivedFloatsLabel.Location = new System.Drawing.Point(11, 124);
+            ReceivedFloatsLabel.Location = new System.Drawing.Point(11, 172);
             ReceivedFloatsLabel.Name = "ReceivedFloatsLabel";
             ReceivedFloatsLabel.Size = new System.Drawing.Size(76, 13);
             ReceivedFloatsLabel.TabIndex = 4;
@@ -104,15 +106,6 @@
             this.SerialPortCombo.Name = "SerialPortCombo";
             this.SerialPortCombo.Size = new System.Drawing.Size(66, 21);
             this.SerialPortCombo.TabIndex = 0;
-            // 
-            // ConsoleLikeTextBox
-            // 
-            this.ConsoleLikeTextBox.Location = new System.Drawing.Point(14, 150);
-            this.ConsoleLikeTextBox.MaxLength = 65536;
-            this.ConsoleLikeTextBox.Name = "ConsoleLikeTextBox";
-            this.ConsoleLikeTextBox.Size = new System.Drawing.Size(198, 121);
-            this.ConsoleLikeTextBox.TabIndex = 2;
-            this.ConsoleLikeTextBox.Text = "";
             // 
             // ConnectButton
             // 
@@ -175,11 +168,44 @@
             0,
             0});
             // 
+            // ShowReceivedValues
+            // 
+            this.ShowReceivedValues.AutoSize = true;
+            this.ShowReceivedValues.Location = new System.Drawing.Point(14, 128);
+            this.ShowReceivedValues.Name = "ShowReceivedValues";
+            this.ShowReceivedValues.Size = new System.Drawing.Size(137, 17);
+            this.ShowReceivedValues.TabIndex = 10;
+            this.ShowReceivedValues.Text = "Show Received Values";
+            this.ShowReceivedValues.UseVisualStyleBackColor = true;
+            // 
+            // ConsoleLikeTextBox
+            // 
+            this.ConsoleLikeTextBox.Location = new System.Drawing.Point(14, 188);
+            this.ConsoleLikeTextBox.Multiline = true;
+            this.ConsoleLikeTextBox.Name = "ConsoleLikeTextBox";
+            this.ConsoleLikeTextBox.ReadOnly = true;
+            this.ConsoleLikeTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ConsoleLikeTextBox.Size = new System.Drawing.Size(198, 83);
+            this.ConsoleLikeTextBox.TabIndex = 12;
+            // 
+            // LogValuesOnFile
+            // 
+            this.LogValuesOnFile.AutoSize = true;
+            this.LogValuesOnFile.Location = new System.Drawing.Point(15, 152);
+            this.LogValuesOnFile.Name = "LogValuesOnFile";
+            this.LogValuesOnFile.Size = new System.Drawing.Size(115, 17);
+            this.LogValuesOnFile.TabIndex = 13;
+            this.LogValuesOnFile.Text = "Log Values On File";
+            this.LogValuesOnFile.UseVisualStyleBackColor = true;
+            // 
             // EasylabSerialUDPGatewayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(235, 308);
+            this.Controls.Add(this.LogValuesOnFile);
+            this.Controls.Add(this.ConsoleLikeTextBox);
+            this.Controls.Add(this.ShowReceivedValues);
             this.Controls.Add(this.UDPReceivingPortUpDown);
             this.Controls.Add(UDPReceivingPortLabel);
             this.Controls.Add(this.DisconnectButton);
@@ -187,7 +213,6 @@
             this.Controls.Add(UDPSendingPortLabel);
             this.Controls.Add(ReceivedFloatsLabel);
             this.Controls.Add(this.ConnectButton);
-            this.Controls.Add(this.ConsoleLikeTextBox);
             this.Controls.Add(SerialPortLabel);
             this.Controls.Add(this.SerialPortCombo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -224,15 +249,18 @@
         private void SerialUDPGatewayForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
             udpCommunicator.Close();
+            DebugLogger.Close();
         }
 
         private System.Windows.Forms.ComboBox SerialPortCombo;
-        private System.Windows.Forms.RichTextBox ConsoleLikeTextBox;
         private System.Windows.Forms.Button ConnectButton;
         private System.Windows.Forms.NumericUpDown UDPSendingPortUpDown;
         private System.Windows.Forms.NotifyIcon SerialUDPNotifyIcon;
         private System.Windows.Forms.Button DisconnectButton;
         private System.Windows.Forms.NumericUpDown UDPReceivingPortUpDown;
+        private System.Windows.Forms.CheckBox ShowReceivedValues;
+        private System.Windows.Forms.TextBox ConsoleLikeTextBox;
+        private System.Windows.Forms.CheckBox LogValuesOnFile;
     }
 }
 

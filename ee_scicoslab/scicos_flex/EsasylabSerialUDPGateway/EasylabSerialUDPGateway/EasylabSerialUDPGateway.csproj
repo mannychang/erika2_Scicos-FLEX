@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockingQueue.cs" />
     <Compile Include="DebugLogger.cs" />
     <Compile Include="UdpCommunicator.cs" />
     <Compile Include="EasylabSerialUDPGateway.cs">

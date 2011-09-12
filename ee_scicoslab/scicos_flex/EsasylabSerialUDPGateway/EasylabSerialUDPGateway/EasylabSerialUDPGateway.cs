@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO.Ports;
+using System.Text;
 using System.Net;
 using System.Windows.Forms;
+
 
 
 namespace EasylabSerialUDPGateway
@@ -65,11 +67,12 @@ namespace EasylabSerialUDPGateway
         {
             try
             {
-                CommPort.Close();
+                if(CommPort != null && CommPort.IsOpen)
+                    CommPort.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error Serial Port", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally 
             {
@@ -110,19 +113,24 @@ namespace EasylabSerialUDPGateway
             {   
                 //read data waiting in the buffer
                 int bytes = LocalPort.BytesToRead;
-                byte[] commBuffer = new byte[bytes];
-                CommPort.Read(commBuffer, 0, bytes);
+                if (bytes > 0)
+                {
+                    byte[] commBuffer = new byte[bytes];
+                    CommPort.Read(commBuffer, 0, bytes);
 
-                //Convert byte received to floats & populate paket to send trought UDP
-                List<float> receivedFloats = CommParserEncoder.ParseBytes(commBuffer);
+                    //Convert byte received to floats & populate paket to send trought UDP
+                    List<float> receivedFloats = CommParserEncoder.ParseBytes(commBuffer);
 
-                //Send packets trought the socket;
-                SendPackets(receivedFloats);
+                    //Send packets trought the socket;
+                    SendPackets(receivedFloats);
 
-                DebugLogger.LogPackets(receivedFloats);
+                    if(this.ShowReceivedValues.Checked)
+                        //print floats on rech text box, in main thread with Action Delegate (best way to implement 'almost anonymous delegate' in .NET 2.0)
+                        this.BeginInvoke(new Action<List<float>>(PrintFloats), new object[] { receivedFloats });
 
-                //print floats on rech text box, in main thread with Action Delegate (best way to implement 'almost anonymous delegate' in .NET 2.0)
-                this.Invoke(new Action<List<float>>(PrintFloats), new object[] { receivedFloats });
+                    if (this.LogValuesOnFile.Checked)
+                        DebugLogger.LogPackets(receivedFloats);
+                }
             }
             catch (Exception ex) 
             {
@@ -132,30 +140,37 @@ namespace EasylabSerialUDPGateway
 
         private void PrintFloats(List<float> receivedFloats)
         {
+
+            StringBuilder floatStringBuilder = new StringBuilder(receivedFloats.Count * 20);
             for (int i = 0; ; i += 2)
             {
-                string floatString;
                 if (i < receivedFloats.Count - 1)
                 {
-                    floatString = receivedFloats[i] + " " + receivedFloats[i + 1] + Environment.NewLine;
+                    floatStringBuilder.AppendLine(receivedFloats[i] + " " + receivedFloats[i + 1]);
                 }
                 else if (i == receivedFloats.Count - 1)
                 {
-                    floatString = receivedFloats[i] + Environment.NewLine;
+                    floatStringBuilder.AppendLine(receivedFloats[i].ToString());
                     break;
                 }
                 else
                 {
                     break;
                 }
+            }
+            string floatString = floatStringBuilder.ToString();
+            if (!String.IsNullOrEmpty(floatString))
+            {
                 //Check se non supero MaxLegth. Se lo faccio rimuovo un numero di caratteri sufficient i dalla testa della stringa
                 if (ConsoleLikeTextBox.Text.Length + floatString.Length > ConsoleLikeTextBox.MaxLength)
+                {
                     ConsoleLikeTextBox.Text = ConsoleLikeTextBox.Text.Remove(0, ConsoleLikeTextBox.MaxLength - floatString.Length);
+                }
 
                 ConsoleLikeTextBox.AppendText(floatString);
+                //Piazza la scroll bar alla fine del testo per visualizzare i nuovi valori.
+                ConsoleLikeTextBox.ScrollToCaret();
             }
-            //Piazza la scroll bar alla fine del testo per visualizzare i nuovi valori.
-            ConsoleLikeTextBox.ScrollToCaret();
         }
 
         private void SendPackets(List<float> receivedFloats)

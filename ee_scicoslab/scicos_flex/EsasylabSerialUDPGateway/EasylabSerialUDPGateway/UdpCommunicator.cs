@@ -42,6 +42,7 @@ namespace EasylabSerialUDPGateway
             {
                 udpSendingClient   = new UdpClient();
                 this.ReceivingEndPoint = ReceivingEndPoint;
+                udpReceivingClient = new UdpClient(ReceivingEndPoint);
                 udpSendingClient.Connect(SendingEndPoint);
             } catch(Exception) {
                 return false;
@@ -99,20 +100,22 @@ namespace EasylabSerialUDPGateway
                     if (udpSendingClient != null)
                     {
                         IPEndPoint tempReceivingEndPoint = this.ReceivingEndPoint;
-                        udpReceivingClient = new UdpClient(tempReceivingEndPoint);
-                        try
-                        {
-                            byte[] udpDatagram = udpReceivingClient.Receive(ref tempReceivingEndPoint);
-                            if (udpReceivingHandler != null)
-                                udpReceivingHandler(this, udpDatagram);
-                        }
-                        catch (Exception)
-                        {
-                        }
-                        finally
-                        {
-                            udpReceivingClient.Close();
-                        }
+                        UdpClient tempUdpReceivingClient = this.udpReceivingClient;
+                        //udpReceivingClient = new UdpClient(tempReceivingEndPoint);
+                        if (tempUdpReceivingClient != null && tempReceivingEndPoint != null)
+                            try
+                            {
+                                byte[] udpDatagram = udpReceivingClient.Receive(ref tempReceivingEndPoint);
+                                if (udpReceivingHandler != null)
+                                    udpReceivingHandler(this, udpDatagram);
+                            }
+                            catch (Exception)
+                            {
+                            }
+                            /*finally
+                            {
+                                udpReceivingClient.Close();
+                            }*/
                     }   
                     else 
                     {
