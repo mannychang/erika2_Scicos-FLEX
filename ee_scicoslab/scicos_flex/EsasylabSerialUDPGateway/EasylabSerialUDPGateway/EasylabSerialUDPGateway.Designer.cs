@@ -18,6 +18,7 @@
             {
                 this.SerialUDPNotifyIcon.Visible = false;
                 this.SerialUDPNotifyIcon.Dispose();
+                this.SerialUDPNotifyIcon = null;
             }
             
             if (disposing && (components != null))
