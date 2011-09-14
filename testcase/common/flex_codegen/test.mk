@@ -48,12 +48,19 @@
 #
 
 # flex
-TESTLIST 		+= flex
+TESTLIST 		       += flex
 OUTDIR_COMMANDS_flex 	= OUTDIR_COMMANDS_flex_source
 CLEAN_flex           	= CLEAN_flex_source
 CODEGEN_flex            = CODEGEN_flex_source
 COMPILE_flex         	= COMPILE_flex_source
 
+# easylab
+TESTLIST                    += easylab
+
+OUTDIR_COMMANDS_easylab      = OUTDIR_COMMANDS_flex_source
+CLEAN_easylab                = CLEAN_flex_source
+CODEGEN_easylab              = CODEGEN_flex_source
+COMPILE_easylab              = COMPILE_flex_source
 
 # -------------------------------------------------------------------
 

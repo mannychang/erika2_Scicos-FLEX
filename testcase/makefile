@@ -12,16 +12,23 @@
 # the idea is to have one directory for each test, which is compiled
 # batch to ensure that everything works fine.
 
-ifndef SCIBASE
-missing_scibase::
-endif
+normalize_path=$(shell cygpath -u "$(shell cygpath -d "$1")")
 
-ifndef TESTBASE
-missing_testbase::
+ifndef SCIBASE
+missing_scibase:
+else
+export SCIBASE:=$(call normalize_path,$(SCIBASE))
 endif
 
 ifndef ARCH
-help::
+help:
+endif
+
+ifndef TESTBASE
+export TESTBASE:=$(SCIBASE)
+warning_missing_testbase: missing_testbase all
+else
+export TESTBASE:=$(call normalize_path,$(TESTBASE))
 endif
 
 NOPRINTDIR = --no-print-directory
@@ -33,7 +40,7 @@ endif
 # remove duplicates and add trailing / if missing
 SDIRS = $(addsuffix /,$(subst /,,$(sort $(DIRS))))
 
-.PHONY: help clean
+.PHONY: help clean missing_scibase missing_testbase
 
 #
 # Compiling the targets
@@ -226,16 +233,21 @@ endif
 
 
 include $(wildcard common/*/test.mk)
-help::
+help:
 	@cat readme
 	@$(foreach t, $(TESTLIST), echo make ARCH=$(t);)
 
-missing_scibase::
+missing_scibase:
 	@echo ERROR: Missing environment variable SCIBASE
+	@echo
 	@echo ...maybe you can try with the following command:
-	@echo export SCIBASE=/cygdrive/c/Programmi/scilab/scicoslab-4.4.1
+	@echo export TESTBASE=`pwd`
 	
-missing_testbase::
-	@echo ERROR: Missing environment variable TESTBASE
+missing_testbase:
+	@echo WARNING: Missing environment variable TESTBASE
+	@echo
 	@echo ...maybe you can try with the following command:
-	@echo export SCIBASE=`pwd`/..
+	@echo export TESTBASE=`pwd`/..
+	@echo
+	@echo for this execution TESTBASE is $(TESTBASE)
+	@echo
