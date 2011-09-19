@@ -249,6 +249,7 @@
 
         private void SerialUDPGatewayForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
+            Disconnect();
             udpCommunicator.Close();
             DebugLogger.Close();
         }

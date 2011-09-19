@@ -13,6 +13,7 @@ namespace EasylabSerialUDPGateway
     {
         public EasylabSerialUDPGatewayForm()
         {
+            CommPortMonitor = new object();
             SendPacket = new byte[StreamParserEncoder.UDP_PACKET_SIZE];
             CommParserEncoder = new StreamParserEncoder();
             CommPort = new SerialPort();
@@ -29,6 +30,24 @@ namespace EasylabSerialUDPGateway
             // Visualizzo il primo trovato
             if (theSerialPortNames.Length > 0)
                 SerialPortCombo.SelectedIndex = 0; 
+        }
+
+        private void Disconnect()
+        {
+            try
+            {
+                if (CommPort != null && CommPort.IsOpen)
+                    CommPort.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Serial Port", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                CommPort = null;
+            }
+            udpCommunicator.Disconnect();
         }
 
         private void ConnectButton_Click(object sender, EventArgs e)
@@ -65,21 +84,7 @@ namespace EasylabSerialUDPGateway
 
         private void DisconnectButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if(CommPort != null && CommPort.IsOpen)
-                    CommPort.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error Serial Port", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally 
-            {
-                CommPort = null;
-            }
-
-            udpCommunicator.Disconnect();
+            Disconnect();
 
             ConnectButton.Enabled = true;
             DisconnectButton.Enabled = false;
@@ -108,33 +113,41 @@ namespace EasylabSerialUDPGateway
         private void commPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
 
-            SerialPort LocalPort = (SerialPort)sender;
-            try
-            {   
-                //read data waiting in the buffer
-                int bytes = LocalPort.BytesToRead;
-                if (bytes > 0)
-                {
-                    byte[] commBuffer = new byte[bytes];
-                    CommPort.Read(commBuffer, 0, bytes);
-
-                    //Convert byte received to floats & populate paket to send trought UDP
-                    List<float> receivedFloats = CommParserEncoder.ParseBytes(commBuffer);
-
-                    //Send packets trought the socket;
-                    SendPackets(receivedFloats);
-
-                    if(this.ShowReceivedValues.Checked)
-                        //print floats on rech text box, in main thread with Action Delegate (best way to implement 'almost anonymous delegate' in .NET 2.0)
-                        this.BeginInvoke(new Action<List<float>>(PrintFloats), new object[] { receivedFloats });
-
-                    if (this.LogValuesOnFile.Checked)
-                        DebugLogger.LogPackets(receivedFloats);
-                }
-            }
-            catch (Exception ex) 
+            lock (CommPortMonitor)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SerialPort LocalPort = (SerialPort)sender;
+                if (LocalPort != null)
+                {
+                    try
+                    {
+                        //read data waiting in the buffer
+                        int bytes = LocalPort.BytesToRead;
+                        if (bytes > 0)
+                        {
+                            byte[] commBuffer = new byte[bytes];
+                            CommPort.Read(commBuffer, 0, bytes);
+
+                            //Convert byte received to floats & populate paket to send trought UDP
+                            byte[] prevRemainig;
+                            byte[] actualRemaning;
+                            List<float> receivedFloats = CommParserEncoder.ParseBytes(commBuffer, out prevRemainig, out actualRemaning);
+
+                            //Send packets trought the socket;
+                            List<byte[]> packetsSent = SendPackets(receivedFloats);
+
+                            if (this.ShowReceivedValues.Checked)
+                                //print floats on rech text box, in main thread with Action Delegate (best way to implement 'almost anonymous delegate' in .NET 2.0)
+                                this.BeginInvoke(new Action<List<float>>(PrintFloats), new object[] { receivedFloats });
+
+                            if (this.LogValuesOnFile.Checked)
+                                DebugLogger.LogPackets(receivedFloats, commBuffer, prevRemainig, actualRemaning, packetsSent);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 
@@ -173,8 +186,9 @@ namespace EasylabSerialUDPGateway
             }
         }
 
-        private void SendPackets(List<float> receivedFloats)
-        { 
+        private List<byte[]> SendPackets(List<float> receivedFloats)
+        {
+            List<byte[]> packetsSentList = new List<byte[]>();
             for (int i = 0; ; i += 2)
             {
                 if (i < receivedFloats.Count - 1)
@@ -198,15 +212,20 @@ namespace EasylabSerialUDPGateway
                 try
                 {
                     udpCommunicator.Send(SendPacket);
+                    byte[] copy = new byte[SendPacket.Length];
+                    SendPacket.CopyTo(copy, 0);
+                    packetsSentList.Add(copy);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            return packetsSentList;
         }
         
         private volatile SerialPort             CommPort;
+        private readonly object                 CommPortMonitor;
         private readonly StreamParserEncoder    CommParserEncoder;
         private readonly UdpCommunicator        udpCommunicator;
         private readonly byte[]                 SendPacket;

@@ -7,73 +7,89 @@ namespace EasylabSerialUDPGateway
 {
     public class DebugLogger
     {
-        
-        private DebugLogger()
-        {
-            receivedFloatsQueue  = new BlockingQueue<List<float>>();
-            asyncWriter = new Thread(writeAsync);
-            asyncWriter.IsBackground = true;
-            asyncWriter.Start();
+
+        private class Container {
+            public Container(List<float> receivedFloats, byte[] commBuffer, byte[] prevRemainig, byte[] actualRemaning, List<byte[]> packetsSent)
+            {
+                // TODO: Complete member initialization
+                this.receivedFloats = receivedFloats;
+                this.commBuffer = commBuffer;
+                this.prevRemainig = prevRemainig;
+                this.actualRemaning = actualRemaning;
+                this.packetsSent = packetsSent;
+                this.now = DateTime.Now;
+            }
+
+            internal readonly List<float> receivedFloats;
+            internal readonly byte[] commBuffer;
+            internal readonly List<byte[]> packetsSent;
+            internal readonly DateTime now;
+            internal readonly byte[] prevRemainig;
+            internal readonly byte[] actualRemaning;
         }
         
-        public static void SetFilePath(string filePath_) {
-            if(instance != null)
-                instance.filePath = filePath_;
+        public static void SetFilePath(string filePath_) 
+        {
+            filePath = filePath_;
+        }
+
+        public static void LogPackets(List<float> receivedFloats, byte[] commBuffer, byte[] prevRemainig, byte[] actualRemaning, List<byte[]> packetsSent)
+        {
+            try
+            {
+                if(writeFile == null)   
+                    writeFile = new FileStream(filePath, FileMode.Append, FileAccess.Write, FileShare.Read);
+                byte[] rows = prepareRows(receivedFloats, commBuffer, prevRemainig, actualRemaning, packetsSent);
+                writeFile.Write(rows, 0, rows.Length);
+            }
+            catch (Exception)
+            {
+                if (writeFile != null) 
+                {
+                    try {
+                        writeFile.Close();
+                    } 
+                    catch(Exception)
+                    {
+                    } finally 
+                    {
+                        writeFile = null;
+                    }
+                }
+            }
         }
 
         public static void Close()
         {
-            if (instance != null) {
-                try
-                {
-                    instance.stop = true;
-                    instance.asyncWriter.Interrupt();
-                }
-                catch (Exception) 
-                { 
-                }
-            }
-        }
-
-        public static void LogPackets(List<float> receivedFloats)
-        {
-            if (instance == null)
-                instance = new DebugLogger();
-            instance.receivedFloatsQueue.Add(receivedFloats);
-
-        }
-
-        private void writeAsync()
-        {
-            while (!stop)
+            if (writeFile != null)
             {
                 try
                 {
-                    List<float> receivedFloats = receivedFloatsQueue.Take();
-                    using (FileStream writeFile = new FileStream(filePath, FileMode.Append))
-                    {
-                        byte[] rows = prepareRows(receivedFloats);
-                        writeFile.Write(rows, 0, rows.Length);
-                    }
+                    writeFile.Close();
                 }
-                catch (Exception) 
-                { 
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    writeFile = null;
                 }
             }
         }
-        
-        private byte[] prepareRows(List<float> receivedFloats)
+
+        private static byte[] prepareRows(List<float> receivedFloats, byte[] commBuffer, byte[] prevRemainig, byte[] actualRemaning, List<byte[]> packetsSent)
         {
-            StringBuilder rowsBuilder = new StringBuilder(receivedFloats.Count * 50);
+            StringBuilder rowsBuilder = new StringBuilder(receivedFloats.Count * 50 + commBuffer.Length + packetsSent.Count * 60 + 20);
+            rowsBuilder.AppendLine("Comm packet Nr: " + ++commCounter + " buffer: " + BitConverter.ToString(commBuffer) + " bytes: " + commBuffer.Length);
             for (int i = 0; ; i += 2)
             {
                 if (i < receivedFloats.Count - 1)
                 {
-                    rowsBuilder.AppendLine("Packet Nr: " + ++staticCounter + " " + receivedFloats[i] + " " + receivedFloats[i + 1] + " Time:" + DateTime.Now);
+                    rowsBuilder.AppendLine("\tEasylab Packet Nr: " + ++easylabCounter + " " + receivedFloats[i] + " " + receivedFloats[i + 1] + " Time:" + DateTime.Now + " ");
                 }
                 else if (i == receivedFloats.Count - 1)
                 {
-                    rowsBuilder.AppendLine("Packet N°:" + ++staticCounter + " " + receivedFloats[i] + "Time:" + DateTime.Now);
+                    rowsBuilder.AppendLine("\tEasylab Wrong Packet Nr:" + ++easylabCounter + " " + receivedFloats[i] + " Time: " + DateTime.Now + " ");
                     break;
                 }
                 else
@@ -81,14 +97,20 @@ namespace EasylabSerialUDPGateway
                     break;
                 }
             }
+            rowsBuilder.AppendLine("\t\tPrev. Remaining Buffer: " + BitConverter.ToString(prevRemainig) + " bytes: " + prevRemainig.Length);
+            rowsBuilder.AppendLine("\t\tActual Remaining Buffer: " + BitConverter.ToString(actualRemaning) + " bytes: " + actualRemaning.Length);
             
+            for (int i = 0; i < packetsSent.Count; ++i) 
+            {
+                rowsBuilder.AppendLine("\t\t\tUDP packet Nr:" + (i + 1) + " " + BitConverter.ToString(packetsSent[i]) + " bytes: " + packetsSent[i].Length);
+            }
+            rowsBuilder.AppendLine();
             return ASCIIEncoding.ASCII.GetBytes(rowsBuilder.ToString());
         }
-        private static volatile DebugLogger instance;
-        private readonly BlockingQueue<List<float>> receivedFloatsQueue;
-        private readonly Thread asyncWriter;
-        private volatile bool stop;
-        private volatile string filePath = @".\PacketsLog.txt";
-        private int staticCounter;
+
+        private static volatile string filePath = @".\PacketsLog.txt";
+        private static volatile FileStream writeFile;
+        private static volatile int easylabCounter;
+        private static volatile int commCounter;
     }
 }

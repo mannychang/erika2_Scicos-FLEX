@@ -12,16 +12,20 @@ namespace EasylabSerialUDPGateway
 
         public StreamParserEncoder()
         {
-            NewFloats = new List<float>();
-            NewPackets = new List<byte[]>();
+            //NewFloats = new List<float>();
+            //NewPackets = new List<byte[]>();
             RemainingBytes = new byte[EASYLAB_PACKET_SIZE - 1];
         }
 
-        public List<float> ParseBytes(byte[] newBytesRead)
+        public List<float> ParseBytes(byte[] newBytesRead, out byte[] prevRemaining, out byte[]  actualRemaning)
         {
             /* reset return list */
-            NewFloats.Clear();
+            //NewFloats.Clear();
+            List<float>  NewFloats = new List<float>();
 
+            prevRemaining = new byte[RemainingLength];
+            Array.Copy(RemainingBytes, prevRemaining, RemainingLength);
+            
             /* Costruisco il buffer da analizzare partendo dagli eventuali bytes rimanenti dell'invocazione precedente */
             byte[] actualPacket = new byte[RemainingLength + newBytesRead.Length];
             Array.Copy(RemainingBytes, actualPacket, RemainingLength);
@@ -37,27 +41,21 @@ namespace EasylabSerialUDPGateway
                     continue;
 
                 /* Parsing inner loop */
-                for (int j = actualIndex; ; ++j)
+                for (int j = actualIndex; j < (actualIndex + EASYLAB_PACKET_SIZE - 2); ++j)
                 {
-                    /* Check end of crc condition (-2 because 'i' is already incremented) */
-                    if (j == (actualIndex + EASYLAB_PACKET_SIZE - 2))
-                    {
-                        if (actualPacket[j] == crc)
-                        {
-                            /* Valid packet read: I populate received variables */
-                            NewFloats.Add(BitConverter.ToSingle(actualPacket, actualIndex));
-                            NewFloats.Add(BitConverter.ToSingle(actualPacket, actualIndex + sizeof(float)));
+                    /* Loop to evaluate crc */
+                    crc ^= actualPacket[j];
+                }
 
-                            /* Valid packet. I restart parsing after this one */
-                            actualIndex = j + 1;
-                        }
-                        break;
-                    }
-                    else
-                    {
-                        /* Loop to evaluate crc */
-                        crc ^= actualPacket[j];
-                    }
+                /* Check end of crc condition (-2 because 'i' is already incremented) */
+                if (actualPacket[actualIndex + EASYLAB_PACKET_SIZE - 2] == crc)
+                {
+                    /* Valid packet read: I populate received variables */
+                    NewFloats.Add(BitConverter.ToSingle(actualPacket, actualIndex));
+                    NewFloats.Add(BitConverter.ToSingle(actualPacket, actualIndex + sizeof(float)));
+
+                    /* Valid packet. I restart parsing after this one */
+                    actualIndex += EASYLAB_PACKET_SIZE - 1;
                 }
             }
 
@@ -65,13 +63,18 @@ namespace EasylabSerialUDPGateway
             if (RemainingLength > 0)
                 Array.Copy(actualPacket, actualIndex, RemainingBytes, 0, RemainingLength);
 
+            actualRemaning = new byte[RemainingLength];
+            Array.Copy(RemainingBytes, actualRemaning, RemainingLength);
+
             return NewFloats;
         }
 
         public List<byte[]> EncodeBytes(byte[] received)
         {
             /* reset return list */
-            NewPackets.Clear();
+            //NewPackets.Clear();
+            List<byte[]> NewPackets = new List<byte[]>();
+
 
             for (int actualIndex = 0; (received.Length - actualIndex) >= UDP_PACKET_SIZE; actualIndex += UDP_PACKET_SIZE)
             {
@@ -80,22 +83,16 @@ namespace EasylabSerialUDPGateway
                 byte[] commPacket = new byte[EASYLAB_PACKET_SIZE];
 
                 /* Crc/filling inner loop */
-                for (int j = 1; ; ++j)
+                for (int j = 1; j < EASYLAB_PACKET_SIZE - 1; ++j)
                 {
-                    if (j < EASYLAB_PACKET_SIZE - 1)
-                    {
-                        /* fill evaluate packet */
-                        commPacket[j] = received[actualIndex + j - 1];
-                        /* evaluate crc */
-                        crc ^= received[actualIndex + j];
-                    }
-                    else
-                    {
-                        /* add crc at the end of the packet */
-                        commPacket[j] = crc;
-                        break;
-                    }
+                    /* fill evaluate packet */
+                    commPacket[j] = received[actualIndex + j - 1];
+                    /* evaluate crc */
+                    crc ^= received[actualIndex + j];
                 }
+
+                /* add crc at the end of the packet */
+                commPacket[EASYLAB_PACKET_SIZE - 1] = crc;
 
                 /* Add new packets to the new  packets list */
                 NewPackets.Add(commPacket);
@@ -106,8 +103,8 @@ namespace EasylabSerialUDPGateway
 
         private int RemainingLength;
         private readonly byte[] RemainingBytes;
-        private readonly List<float> NewFloats;
-        private readonly List<byte[]> NewPackets;
+        //private readonly List<float> NewFloats;
+        //private readonly List<byte[]> NewPackets;
     };
 
 }

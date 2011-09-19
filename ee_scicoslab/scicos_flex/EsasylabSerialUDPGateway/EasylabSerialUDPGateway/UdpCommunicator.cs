@@ -26,6 +26,7 @@ namespace EasylabSerialUDPGateway
         public UdpCommunicator(UdpReceivingHandler udpReceivingHandler)
         {
             ReceivingThread = new Thread(ReceiveMessages);
+            ReceivingThread.IsBackground = true;
             ResumeReceiving = new AutoResetEvent(false);
             this.udpReceivingHandler = udpReceivingHandler;
         }
@@ -62,7 +63,7 @@ namespace EasylabSerialUDPGateway
 
         public void Disconnect()
         {
-                if (udpSendingClient != null)
+            if (udpSendingClient != null)
                 try 
                 {
                     UdpClient udpClient = udpSendingClient;
@@ -82,12 +83,30 @@ namespace EasylabSerialUDPGateway
                 catch (Exception)
                 {
                 }
+            
+            try
+            {
+                ReceivingThread.Interrupt();
+            }
+            catch(Exception)
+            {
+            }
         }
 
         public void Close()
         {
             ReceivingActive = false;
             Disconnect();
+            if (ReceivingThread.IsAlive)
+            {
+                try
+                {
+                    ReceivingThread.Join();
+                }
+                catch (Exception)
+                {
+                }
+            }
             ReceivingClosed = true;
         }
 
