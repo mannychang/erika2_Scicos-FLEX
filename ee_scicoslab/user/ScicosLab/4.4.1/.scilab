@@ -35,6 +35,7 @@ scicos_pal($+1,:)=['FLEX-MotionBoard',PALETTE_DIR + 'FLEX-MTB.cosf'];
 scicos_pal($+1,:)=['FLEX-Communication',PALETTE_DIR + 'FLEX-Communication.cosf'];
 scicos_pal($+1,:)=['FLEX-PC',PALETTE_DIR + 'FLEX-PC.cosf'];
 scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
+scicos_pal($+1,:)=['Easylab',PALETTE_DIR + 'EASYLAB.cosf'];
 
 if MSDOS then
 
