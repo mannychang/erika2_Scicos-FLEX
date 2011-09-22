@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EasylabSerialUDPGateway</RootNamespace>
-    <AssemblyName>SerialUDPGateway</AssemblyName>
+    <AssemblyName>EasylabSerialUDPGateway</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

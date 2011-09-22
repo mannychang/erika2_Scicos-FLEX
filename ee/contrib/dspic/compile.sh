@@ -52,7 +52,18 @@ echo
 echo The application is now compiled 
 echo --------------------------------------------------------
 cd Debug
-make
+if [ "$EEBASE" ]; then
+    export EEBASE="`cygpath -u "$EEBASE"`"
+fi
+make 2>&1
+#Make error check
+if [ "$?" !=  "0" ]; then
+  echo --------------------------------------------------------   
+  echo \!\!\! Compiling ERROR \!\!\!
+  echo --------------------------------------------------------
+  cd ..
+  exit 1
+fi
 
 echo --------------------------------------------------------
 echo --------------------------------------------------------

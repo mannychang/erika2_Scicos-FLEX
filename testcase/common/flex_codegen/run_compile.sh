@@ -26,3 +26,5 @@
 #ifdef BOARDEASYLAB
 ./compile.sh ${SCIBASE}/contrib/scicos_ee/RT-Druid board_easylab && touch ../doneflag.txt
 #endif
+
+exit 0
