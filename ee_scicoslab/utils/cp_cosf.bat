@@ -6,5 +6,5 @@ xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-Communicati
 xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-DMB\FLEX-DMB.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
 xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-MTB\FLEX-MTB.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
 xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-PC\FLEX-PC.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
-xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-PC\EASYLAB.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
+xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\EASYLAB\EASYLAB.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
 exit
