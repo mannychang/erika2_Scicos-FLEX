@@ -37,7 +37,7 @@ for i=1:size(scs_m.objs)
     with_gui = %t; //@@ entire diagram generation with gui
     scs_m_top = obj;
     k = i; 
-    do_compile_superblock42(scs_m, k, TARGETBOARD, TARGETARCH, TERGETNAME, TARGETPATH, '', '', 'testcase');
+    do_compile_superblock42(scs_m, k, TARGETBOARD, TARGETARCH, TERGETNAME, TARGETPATH, 'ode4', '10', 'testcase');
  end
 end
 quit
