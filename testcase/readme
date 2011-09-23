@@ -9,6 +9,7 @@ a given prefix.
 usage:
 
 make ARCH=prefix
+make ARCH=prefix DIRS=<list of examples' dirs you want to test>
 make clean
 make supported ARCH=prefix
 
