@@ -12,7 +12,6 @@
 #include <Winsock2.h>
 #pragma comment(lib,"ws2_32.lib")
 #endif
-#define MAX_CHANNELS 15
 
 extern "C"{
 #include "scicos/scicos_block4.h"
@@ -24,9 +23,39 @@ extern "C"{
 #define UDPR_LIB_API	__declspec(dllimport) 
 #endif
 
+/*** Definitions ***/
+#define SCICOS_BLOCK_INIT          (4) /* Initialization part */
+#define SCICOS_BLOCK_END           (5) /* End part */
+#define SCICOS_BLOCK_OUTPUT_UPDATE (1) /* Output block update (used also to read input) */
+
+/* This macro should be used to read block inputs 
+ * i: is the index to select the line
+ * j: is the index to select the element of the i-th line 
+ */
+#define u(i,j)  ((double *)block->inptr[i])[j]   
+
+/* This macro should be used to write block outputs 
+ * i: is the index to select the line
+ * j: is the index to select the element of the i-th line 
+ */
+#define y(i,j)  ((double *)block->outptr[i])[j]
+
+/* This macro should be used to read integer-type parameters */
+#define ipar(i) (block->ipar[i])
+
+/* Size of a packet */
+#define MAX_CHANNELS 15 /* 15 float, 60 bytes */
+
+
 struct UDPStruct{
 	SOCKET sd;
 	sockaddr_in addr;
 };
+
+/*** Global variables ***/
+extern FILE* fuscrs;                        /* File to be used for debug purpose */
+extern volatile sockaddr_in dest_addr;      /* remote ip address */
+extern volatile UDPStruct UDPrs;            /* socket used to send/receive */
+extern volatile UDPStruct* sock_str_ptr_rs; /* UDP socket pointer */
 
 #endif
