@@ -64,7 +64,7 @@ function [x,y,typ] = FLEX_UDP_send(job,arg1,arg2)
     exprs=[sci2exp(tx_ch_num)];   
     gr_i=['xstringb(orig(1),orig(2),..
         [''FLEX UDP'';..
-         ''Transmit''],..
+         ''Send''],..
         sz(1),sz(2),''fill'');'];
     x=standard_define([4 3],model,exprs,gr_i);
   end
