@@ -1,11 +1,8 @@
 function  SetTarget_()
-//** INRIA / SCILAB / Roberto Bucher / Simone Mannori / Paolo Gai
-//** 16 Jan 2008
-
-//** Note: this code SHOULD be rewritten because respect the organization
-//**       and style now obsolete. Future compatibility is not garantee.
-  
-//** ------------- Preliminary I/O section ___________________________________________________________________________
+//** INRIA / METALAU /Roberto Bucher / Simone Mannori / Paolo Gai
+//** 29 Sept 2011
+ 
+//** ------------- Preliminary I/O section -----------------------
     k = [] ; //** index of the CodeGen source superbloc candidate
 
     xc = %pt(1); //** last valid click position 
@@ -29,51 +26,67 @@ function  SetTarget_()
       
       disablemenus()
       lab = scs_m.objs(k).model.rpar.props.void3;
+      //** field "scs_m.objs(k).model.rpar.props.void3" is used to
+      //** store the proprieties ; 
+      //** <cross compilation chain> 'dspic'
+      //** <fixed step solver>       'ode4'
+      //** <internal steps>          '10'
+      //** <target board template>   'board_flex'
+      
       //** Mark the super-block with a specific propriety
       if lab==[] then
-	      lab = ['dspic','ode4','10'];
+	      lab = ['dspic','ode4','10', 'board_flex'];
       end
 
-      ode_x = ['ode1';'ode2';'ode4'];
+      //** back compatibility with old diagrams
+      if or(size(lab)==[1 3])  then
+	      lab = [lab, 'board_flex'];
+      end
+
+      ode_x      = ['ode1';'ode2';'ode4'];
+      template_x = ['board_flex';'board_easylab'];
 
       //** Open a dialog box and wait user interaction  
       while %t
-        [ok, target, odefun, stp] = getvalue(..
-                   "Embedded Code Generation ",..
-                   ["Toolchain : ";
-	                "ODE cont. function solver: ";
-	                "Step between sampling: "],..
-                    list('str',1,'str',1,'str',1),lab);
+        [ok, target, odefun, stp, template] = getvalue("Embedded Code Generation ",..
+                                   ["Toolchain : ";
+	                              "ODE cont. function solver: ";
+	                              "Step between sampling: ";
+                                    "Target Board: "  ],..
+                                   list('str',1,'str',1,'str',1,'str',1),lab);
+
       if ~ok then
           break ; //** the the case of "cancel" exit 
       end
 
       TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
 
-//      if exists("TARGET_DIR") then
-//        [fd,ierr]=mopen(TARGET_DIR+'/'+target+'.gen','r');
-//        if ierr==0 then
-//	       TARGETDIR = TARGET_DIR;
-//           mclose(fd);
-//        end
-//      end
-
       [fd,ierr] = mopen(TARGETDIR+'/'+target+'.gen','r');
       if ierr==0 then
         mclose(fd);
       else
-        x_message("Target not valid "+target+".gen");
+        message("Target not valid "+target+".gen");
         ok = %f ;
       end
-      
-      if grep(odefun,ode_x) == [] then
-         x_message("Ode function not valid");
+     
+      if grep(odefun, ode_x) == [] then
+         message("ODE function not valid");
          ok = %f;
       end
-        
+
+      if evstr(stp)<3 then
+         message("At least 3 steps are required for minimum ODE convergence");
+         ok = %f;
+      end
+
+      if grep(template, template_x) == [] then
+         message("Target Board not valid");
+         ok = %f;
+      end
+
       if ok then
-         lab = [target,odefun,stp];
-	     scs_m.objs(k).model.rpar.props.void3 = lab;
+         lab = [target, odefun, stp, template];
+	   scs_m.objs(k).model.rpar.props.void3 = lab;
          break ; //** EXIT 
       end
     end

@@ -1535,16 +1535,24 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   
   [lhs,rhs] = argn(0)
   if rhs<3 then // Code generation started from user diagram
-    template = 'board_flex'; //** default values for this version 
     if XX.model.rpar.props.void3 == [] then
-      target = 'dspic'; //** default compilation chain 
-      odefun = 'ode4';  //** default solver 
-      odestep = '10';   //** default continous step size 
+      target   = 'dspic'; //** default compilation chain 
+      odefun   = 'ode4';  //** default solver 
+      odestep  = '10';   //** default continous step size
+      template = 'board_flex'; //** default values for this version  
     else
+      //** back compatibility with old diagrams
+      void3_patch = XX.model.rpar.props.void3 ;
+      if or(size(void3_patch)==[1 3])  then
+	      void3_patch = [void3_patch, 'board_flex'];
+            XX.model.rpar.props.void3 = void3_patch ;
+      end
       target  = XX.model.rpar.props.void3(1); //** user defined parameters 
       odefun  = XX.model.rpar.props.void3(2);
       odestep = XX.model.rpar.props.void3(3);
+      template = XX.model.rpar.props.void3(4);
     end 
+
     rdnom=hname; 
     path = getcwd()+'/'+rdnom+"_scig";
     spflag = '';
