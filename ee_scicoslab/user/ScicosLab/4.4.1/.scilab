@@ -50,16 +50,10 @@ cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger") ;
 exec("InterfaceLoader.sci");
 
 //** Load the FLEX UDP support
-cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP") ;
-exec("loader.sce");
-
-//** Load the FLEX PID support
-//cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-PIDtuning") ;
-//exec("loader.sce");
+exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP\loader.sce");
 
 //** Load the FLEX roller
-cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller") ;
-exec("loader.sce");
+exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller\loader.sce");
 
 end
 
