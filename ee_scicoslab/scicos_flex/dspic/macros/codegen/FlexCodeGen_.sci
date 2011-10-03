@@ -1147,7 +1147,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   //@@ get parameter and name of diagram
   par=scs_m.props;
   hname=scs_m.props.title(1)
-  
+
   //***********************************************************
   //Check blocks properties and adapt them if necessary
   //***********************************************************
@@ -1540,21 +1540,23 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
       odefun   = 'ode4';  //** default solver 
       odestep  = '10';   //** default continous step size
       template = 'board_flex'; //** default values for this version  
+      user_wdir_path = getcwd()+'/'+hname+"_scig";
     else
       //** back compatibility with old diagrams
       void3_patch = XX.model.rpar.props.void3 ;
       if or(size(void3_patch)==[1 3])  then
-	      void3_patch = [void3_patch, 'board_flex'];
+            void3_patch = [void3_patch, 'board_flex'];
             XX.model.rpar.props.void3 = void3_patch ;
       end
       target  = XX.model.rpar.props.void3(1); //** user defined parameters 
       odefun  = XX.model.rpar.props.void3(2);
       odestep = XX.model.rpar.props.void3(3);
       template = XX.model.rpar.props.void3(4);
+      user_wdir_path = XX.model.rpar.props.void3(5);
     end 
 
-    rdnom=hname; 
-    path = getcwd()+'/'+rdnom+"_scig";
+    rdnom = hname;
+    path = user_wdir_path;
     spflag = '';
   else // Code generation started from command line
     if rhs == 3 then
@@ -1672,6 +1674,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
       ok = %f
       return ; //** EXIT point 
     end
+    
     rpat = stripblanks(rpat);
 
     //** I put a warning here in order to inform the user

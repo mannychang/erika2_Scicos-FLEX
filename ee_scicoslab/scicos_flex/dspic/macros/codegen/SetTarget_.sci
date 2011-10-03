@@ -32,15 +32,18 @@ function  SetTarget_()
       //** <fixed step solver>       'ode4'
       //** <internal steps>          '10'
       //** <target board template>   'board_flex'
-      
+      //** <user working-directory path> getcwd()+'\'+'Untitled_scig'
+
+      user_wdir = getcwd()+'\'+'Untitled_scig'
+
       //** Mark the super-block with a specific propriety
       if lab==[] then
-	      lab = ['dspic','ode4','10', 'board_flex'];
+          lab = ['dspic','ode4','10', 'board_flex', user_wdir];
       end
 
       //** back compatibility with old diagrams
       if or(size(lab)==[1 3])  then
-	      lab = [lab, 'board_flex'];
+          lab = [lab, 'board_flex'];
       end
 
       ode_x      = ['ode1';'ode2';'ode4'];
@@ -48,12 +51,13 @@ function  SetTarget_()
 
       //** Open a dialog box and wait user interaction  
       while %t
-        [ok, target, odefun, stp, template] = getvalue("Embedded Code Generation ",..
+        [ok, target, odefun, stp, template, new_user_wdir] = getvalue("Embedded Code Generation ",..
                                    ["Toolchain : ";
-	                              "ODE cont. function solver: ";
-	                              "Step between sampling: ";
-                                    "Target Board: "  ],..
-                                   list('str',1,'str',1,'str',1,'str',1),lab);
+                                    "ODE cont. function solver: ";
+                                    "Step between sampling: ";
+                                    "Target Board: ";
+                                    "Created files Path: "],..
+                                   list('str',1,'str',1,'str',1,'str',1,'str',1), lab);
 
       if ~ok then
           break ; //** the the case of "cancel" exit 
@@ -85,7 +89,7 @@ function  SetTarget_()
       end
 
       if ok then
-         lab = [target, odefun, stp, template];
+         lab = [target, odefun, stp, template, new_user_wdir];
 	   scs_m.objs(k).model.rpar.props.void3 = lab;
          break ; //** EXIT 
       end
