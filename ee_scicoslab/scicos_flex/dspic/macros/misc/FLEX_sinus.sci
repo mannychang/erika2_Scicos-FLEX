@@ -17,7 +17,7 @@ function [x,y,typ] = FLEX_sinus(job,arg1,arg2)
     exprs=graphics.exprs;
     while %t do
       [ok,A,frq,phase,bias,delay,exprs]=..
-      getvalue('Set RTAI-sinus block parameters',..
+      getvalue('Set Sinus block parameters',..
       ['Amplitude:';
        'Frequency:';
        'Phase:';

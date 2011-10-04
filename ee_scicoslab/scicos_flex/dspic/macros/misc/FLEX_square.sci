@@ -16,7 +16,7 @@ function [x,y,typ] = FLEX_square(job,arg1,arg2)
     exprs=graphics.exprs;
     while %t do
       [ok,A,prd,pulse,bias,delay,exprs]=..
-      getvalue('Set RTAI-square block parameters',..
+      getvalue('Set Square block parameters',..
       ['Amplitude:';
        'Period:';
        'Impulse width:';
