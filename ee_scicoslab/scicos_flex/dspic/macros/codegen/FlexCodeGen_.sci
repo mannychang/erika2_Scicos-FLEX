@@ -58,11 +58,57 @@ function FlexCodeGen_()
                              '%pt='+sci2exp(%pt)+';Cmenu='"FlexCodeGen"'';]
 
          else
+            //** Pure discrete system NO CONTINOUS blocks  
+            //** Standard GUI to set path and other stuff... 
+            lab3 = scs_m.objs(k).model.rpar.props.void3;
+            lab2 = scs_m.objs(k).model.rpar.props.void2;
+            if lab3 == [] then
+                 mytarget   = 'dspic'; //** default compilation chain 
+                 mytemplate = 'board_flex'; //** default values for this version  
+                 myodefun   = 'ode4';  //** default solver 
+                 myodestep  = '10';   //** default continous step size
+                 scs_m.objs(k).model.rpar.props.void3(1) = mytarget;
+                 scs_m.objs(k).model.rpar.props.void3(2) = myodefun;
+                 scs_m.objs(k).model.rpar.props.void3(3) = myodestep;
+                 scs_m.objs(k).model.rpar.props.void3(4) = mytemplate;
+            else
+                 void3_patch = scs_m.objs(k).model.rpar.props.void3 ;
+                 if or(size(void3_patch)==[1 3])  then
+                   void3_patch = [void3_patch, 'board_flex'];
+                   scs_m.objs(k).model.rpar.props.void3 = void3_patch ;
+                 end
+                 mytarget  =  scs_m.objs(k).model.rpar.props.void3(1); //** user defined parameters 
+                 myodefun  =  scs_m.objs(k).model.rpar.props.void3(2);
+                 myodestep =  scs_m.objs(k).model.rpar.props.void3(3);
+                 mytemplate = scs_m.objs(k).model.rpar.props.void3(4);
+            end 
+
+            if lab2 == []
+                myrdnom  =   scs_m.objs(k).model.rpar.props.title(1); 
+                mypath =     getcwd()+'/'+myrdnom+"_scig";
+            else
+                myrdnom =    lab2(1);
+                mypath =     lab2(2);
+            end
+
+            label1 = [myrdnom; mypath];
+            [okk, user_name, user_path, label1] = getvalue(..
+                ['Code Generation for Target: ' + mytarget + ', ' + mytemplate; '(Help: Use Set Target from the menu to change device settings)'],..
+                ['New block''s name :';
+                'Created files Path:'],..
+                list('str',1,'str',1), label1);
+            if okk==%f then return; end
+            scs_m.objs(k).model.rpar.props.void2(1) = user_name;
+            scs_m.objs(k).model.rpar.props.void2(2) = user_path;
+            user_template = mytemplate;
+            user_target = mytarget;
+            user_odefun = myodefun;
+            user_odestep = myodestep;
             // Got to target sblock.
             scs_m_top=goto_target_scs_m(scs_m_top)
             //## call do_compile_superblock
-            [ok, XX, gui_path, flgcdgen, szclkINTemp, freof] = ...
-                              do_compile_superblock42(scs_m_top, k);
+            // do_compile_superblock42(all_scs_m,numk,user_template,user_target,user_name,user_path,user_odefun,user_odestep,user_flag)
+            [ok, XX, gui_path, flgcdgen, szclkINTemp, freof] = do_compile_superblock42(scs_m_top, k, user_template, user_target, user_name, user_path, user_odefun, user_odestep);
 
             clearglobal scs_m_top;
 
@@ -1535,28 +1581,12 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   
   [lhs,rhs] = argn(0)
   if rhs<3 then // Code generation started from user diagram
-    if XX.model.rpar.props.void3 == [] then
-      target   = 'dspic'; //** default compilation chain 
-      odefun   = 'ode4';  //** default solver 
-      odestep  = '10';   //** default continous step size
-      template = 'board_flex'; //** default values for this version  
-      user_wdir_path = getcwd()+'/'+hname+"_scig";
-    else
-      //** back compatibility with old diagrams
-      void3_patch = XX.model.rpar.props.void3 ;
-      if or(size(void3_patch)==[1 3])  then
-            void3_patch = [void3_patch, 'board_flex'];
-            XX.model.rpar.props.void3 = void3_patch ;
-      end
-      target  = XX.model.rpar.props.void3(1); //** user defined parameters 
-      odefun  = XX.model.rpar.props.void3(2);
-      odestep = XX.model.rpar.props.void3(3);
-      template = XX.model.rpar.props.void3(4);
-      user_wdir_path = XX.model.rpar.props.void3(5);
-    end 
-
-    rdnom = hname;
-    path = user_wdir_path;
+    template = 'board_flex'; //** default values for this version  
+    target = 'dspic'; //** default compilation chain 
+    rdnom = hname;    //** default name
+    path = getcwd()+'/'+rdnom+"_scig"; //** default path
+    odefun = 'ode4';  //** default solver
+    odestep = '10';   //** default continous step size
     spflag = '';
   else // Code generation started from command line
     if rhs == 3 then
@@ -1626,7 +1656,8 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   
   ode_x=['ode1';'ode2';'ode4']; //** available continous solver 
   libs='';
-
+  rpat = user_path;
+  
   while %t do
     ok=%t  // to avoid infinite loop
 
@@ -1635,44 +1666,6 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
       rdnom = strsubst(rdnom,' ','_');
       rdnom = strsubst(rdnom,'-','_');
       rdnom = strsubst(rdnom,'.','_');
-    end
-
-    //** dialog box default variables 
-    label1=[rdnom;path;target;template];
-    label2=[rdnom;path;target;template;odefun;odestep];
-  
-    if spflag == 'testcase' then
-      //** Testcases
-      okk=%t;
-      rpat = user_path;
-    else
-      if x==[] then
-        //** Pure discrete system NO CONTINOUS blocks  
-            //** Standard GUI to set path and other stuff...   
-            [okk, rdnom, rpat,target,template,label1] = getvalue(..
-            'Embedded Code Generation',..
-            ['New block''s name :';
-            'Created files Path:';
-            'Toolchain: ';
-            'Target Board: '],..
-            list('str',1,'str',1,'str',1,'str',1),label1);
-      else
-        //** continous blocks are presents
-        [okk,rdnom,rpat,target,template,odefun,odestep,label2] = getvalue(..
-        "Embedded Code Generation",..
-        ["New block''s name: "  ;
-        "Created files Path: " ;
-        "Toolchain: "          ;
-        "Target Board: "       ;
-        "ODE solver type: "       ;
-        "ODE solver steps betw. samples: "],..
-        list('str',1,'str',1,'str',1,'str',1,'str',1,'str',1),label2);
-      end
-    end
-   
-    if okk==%f then
-      ok = %f
-      return ; //** EXIT point 
     end
     
     rpat = stripblanks(rpat);
@@ -1758,7 +1751,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
     end
 
     if x ~= [] then
-      if grep(odefun,ode_x) == [] then
+      if vectorfind(ode_x,odefun,'r') == [] then
          message("Ode function not valid");
          ok = %f;
       end

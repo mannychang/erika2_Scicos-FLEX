@@ -20,84 +20,96 @@ function  SetTarget_()
       return
     end
 
+    lab_tool =     ['dspic'];
+    lab_template = ['board_flex', 'board_easylab'];
+    lab_ode =      ['ode1', 'ode2', 'ode4'];
+    lab_step =     ['5', '10', '20'];
+
     //** If the clicked/selected block is really a superblock 
     //**         <k>
     if scs_m.objs(k).model.sim(1)=="super" then
       
       disablemenus()
-      lab = scs_m.objs(k).model.rpar.props.void3;
-      //** field "scs_m.objs(k).model.rpar.props.void3" is used to
-      //** store the proprieties ; 
+      lab3 = scs_m.objs(k).model.rpar.props.void3;
+      lab2 = scs_m.objs(k).model.rpar.props.void2;
+
+      //** field "scs_m.objs(k).model.rpar.props.void3" is used to store the proprieties ; 
       //** <cross compilation chain> 'dspic'
       //** <fixed step solver>       'ode4'
       //** <internal steps>          '10'
       //** <target board template>   'board_flex'
-      //** <user working-directory path> getcwd()+'\'+'Untitled_scig'
-
-      user_wdir = getcwd()+'\'+'Untitled_scig'
-
+      
+      //** field "scs_m.objs(k).model.rpar.props.void2" is used to store the name and the path ; 
+      //** <block_title>             'Superblock'
+      //** <project folder path>     'C:\...'
+      
       //** Mark the super-block with a specific propriety
-      if lab==[] then
-          lab = ['dspic','ode4','10', 'board_flex', user_wdir];
+      if lab3==[] then
+          mytarget   = 'dspic'; //** default compilation chain 
+          mytemplate = 'board_flex'; //** default values for this version  
+          myodefun   = 'ode4';  //** default solver 
+          myodestep  = '10';   //** default continous step size
+      else
+          //** back compatibility with old diagrams
+          if or(size(lab3)==[1 3])  then
+            lab3 = [lab3, 'board_flex'];
+          else
+            mytarget  =  lab3(1); //** user defined parameters 
+            myodefun  =  lab3(2);
+            myodestep =  lab3(3);
+            mytemplate = lab3(4);
+          end
       end
 
-      //** back compatibility with old diagrams
-      if or(size(lab)==[1 3])  then
-          lab = [lab, 'board_flex'];
+      if lab2 == []
+          myrdnom  =   scs_m.objs(k).model.rpar.props.title(1); 
+          mypath =     getcwd()+'/'+myrdnom+"_scig";
+      else
+          myrdnom =    lab2(1);
+          mypath =     lab2(2);
       end
-
-      ode_x      = ['ode1';'ode2';'ode4'];
-      template_x = ['board_flex';'board_easylab'];
+  
+      user_tool =     vectorfind(lab_tool,     mytarget,   'c');
+      user_template = vectorfind(lab_template, mytemplate, 'c');
+      user_ode =      vectorfind(lab_ode,      myodefun,  'c');
+      user_step =     vectorfind(lab_step,     myodestep,  'c');
 
       //** Open a dialog box and wait user interaction  
-      while %t
-        [ok, target, odefun, stp, template, new_user_wdir] = getvalue("Embedded Code Generation ",..
-                                   ["Toolchain : ";
-                                    "ODE cont. function solver: ";
-                                    "Step between sampling: ";
-                                    "Target Board: ";
-                                    "Created files Path: "],..
-                                   list('str',1,'str',1,'str',1,'str',1,'str',1), lab);
+        //  [ok, target, odefun, stp, template, new_user_wdir] = getvalue("Embedded Code Generation ",..
+        //                             ["Toolchain : ";
+        //                              "ODE cont. function solver: ";
+        //                              "Step between sampling: ";
+        //                              "Target Board: ";
+        //                              "Created files Path: "],..
+        //                             list('str',1,'str',1,'str',1,'str',1,'str',1), lab);
+        // if ~ok then
+        //    break ; //** the case of "cancel" exit 
+        // end
 
-      if ~ok then
-          break ; //** the the case of "cancel" exit 
-      end
+        l_tool =     list('Toolchain : ',                                    user_tool,     lab_tool);
+        l_template = list('Target Board : ',                                 user_template, lab_template);
+        l_ode =      list('ODE cont. function solver : ',                    user_ode,      lab_ode);
+        l_step =     list('Step between sampling (for time cont. blocks): ', user_step,     lab_step);
 
-      TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
+        user_choices = x_choices('Code Generation Target Settings', list(l_tool, l_template, l_ode, l_step));
+        if user_choices==[] then return; end
 
-      [fd,ierr] = mopen(TARGETDIR+'/'+target+'.gen','r');
-      if ierr==0 then
-        mclose(fd);
-      else
-        message("Target not valid "+target+".gen");
-        ok = %f ;
-      end
-     
-      if grep(odefun, ode_x) == [] then
-         message("ODE function not valid");
-         ok = %f;
-      end
+        utarget =   lab_tool(user_choices(1));
+        utemplate = lab_template(user_choices(2));
+        uodefun =   lab_ode(user_choices(3));
+        ustp =      lab_step(user_choices(4));
+        
+        scs_m.objs(k).model.rpar.props.void3(1) = utarget;
+        scs_m.objs(k).model.rpar.props.void3(2) = uodefun;
+        scs_m.objs(k).model.rpar.props.void3(3) = ustp;
+        scs_m.objs(k).model.rpar.props.void3(4) = utemplate;
 
-      if evstr(stp)<3 then
-         message("At least 3 steps are required for minimum ODE convergence");
-         ok = %f;
-      end
+        scs_m.objs(k).model.rpar.props.void2(1) = myrdnom;
+        scs_m.objs(k).model.rpar.props.void2(2) = mypath;
+ 
+        edited = %t ;
+        enablemenus()
 
-      if grep(template, template_x) == [] then
-         message("Target Board not valid");
-         ok = %f;
-      end
-
-      if ok then
-         lab = [target, odefun, stp, template, new_user_wdir];
-	   scs_m.objs(k).model.rpar.props.void3 = lab;
-         break ; //** EXIT 
-      end
-    end
-
-    edited = %t ;
-  
-  enablemenus()
   else
    
     message("Generation Code only work for a Super Block ! ");
