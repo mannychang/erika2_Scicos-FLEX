@@ -11,6 +11,7 @@ libname_fb_pc='fb_pc'
 libname_amazing='amazing'
 libname_misc='misc'
 libname_easylab='easylab'
+libname_gif_icons = 'gif_icons'
 
 //** It is a better function to recover the absolute path information 
 DIR = get_absolute_file_path('builder.sce')
@@ -43,6 +44,7 @@ else  // windows- Visual C++
   FB_AMAZING=FB_MACROS+'AMAZING\'
   FB_EASYLAB=FB_MACROS+'EASYLAB/'
   MISC=MACROS+'\misc\'
+  GIF_ICONS=MACROS+'\gif_icons\'
 end
 
 //compile sci files if necessary and build lib file
@@ -56,3 +58,4 @@ genlib(libname_fb_pc,FB_PC)
 genlib(libname_amazing,FB_AMAZING)
 genlib(libname_misc,MISC)
 genlib(libname_easylab,FB_EASYLAB)
+genlib(libname_gif_icons,GIF_ICONS)

@@ -1,3 +1,4 @@
+
 //** Some "alias" variables are re-defined for easy compatibility 
 s  = %s; //** Laplace for continous systems
 z  = %z; //** Z for discrete systems
@@ -17,6 +18,16 @@ exec("SCI/contrib/scicos_ee/scicos_flex/dspic/loader.sce");
 //** add short help line for the menu  
 %CmenuTypeOneVector($+1,:)=['FlexCodeGen','Click on a Superblock (without activation output) to obtain a coded block!']
 %CmenuTypeOneVector($+1,:)=['Set Target','Click on a Superblock (without activation output) to set the Target!']
+
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/amazing/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/easylab/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_com/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_dmb/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_mtb/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_pc/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/misc/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/NativeInteger/"];
 
 PALETTE_DIR = 'SCI/contrib/scicos_ee/scicos_flex/dspic/macros/palettes/';
 
@@ -68,4 +79,3 @@ disp("ScicosLab-FLEX Ready");disp(" ");
 %scicos_short=[%scicos_short; "w" "Identification"]; 
 
 //**===================================================================================
-
