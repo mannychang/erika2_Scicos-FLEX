@@ -19,7 +19,7 @@ if answ=='1'
   // Initial message
 winId_wait = waitbar('                                  \n..
                   EE Scicos pack Setup.                 \n..
-          Installation may take several minutes...      \n..
+          Installation may take several seconds...      \n..
                                                         \n..
                                                         \n..
                                                         ');
@@ -34,7 +34,7 @@ if answ=='2'
   cd(SCIDIR + '\contrib');
 winId_wait = waitbar('                                  \n..
                     EE Scicos pack Setup.               \n..
-          Uninstallation may take several minutes...    \n..
+          Uninstallation may take several seconds...    \n..
                                                         \n..
                                                         \n..
                                                         ');
@@ -296,7 +296,6 @@ while CC_path_valid==%F
     strs_temp = strsplit(c30_asm30_paths,[ind_slash(length(ind_slash))-1, ind_slash(length(ind_slash))-1]);
     c30_asm30_paths = strs_temp(1);
   end
-  c30_asm30_paths
   [x,ierr]=fileinfo(c30_asm30_paths + '/bin/pic30-gcc.exe');  
   if ierr<0
     CC_path_valid = %F;
@@ -448,7 +447,7 @@ waitbar(0.4, winId_wait);
 EE_debug_printf('  ...copying Scicos EE files...', fd_log); 
 waitbar('                                               \n..
                       Copying files...                  \n..
-             (Copy may take several minutes!)           \n..
+             (Copy may take several seconds!)           \n..
           Please, do not close the MSDOS window.        \n..
  It will be closed automatically at the end of the copy.\n..
                                                         ', winId_wait);
