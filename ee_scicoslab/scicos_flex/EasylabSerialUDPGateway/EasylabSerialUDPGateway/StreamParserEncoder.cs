@@ -57,6 +57,10 @@ namespace EasylabSerialUDPGateway
                     /* Valid packet. I restart parsing after this one */
                     actualIndex += EASYLAB_PACKET_SIZE - 1;
                 }
+                else 
+                {
+                    DebugLogger.LogCrcError(actualPacket, actualIndex, crc);
+                }
             }
 
             /* Aggiorno remaining bytes array */

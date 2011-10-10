@@ -7,27 +7,6 @@ namespace EasylabSerialUDPGateway
 {
     public class DebugLogger
     {
-
-        private class Container {
-            public Container(List<float> receivedFloats, byte[] commBuffer, byte[] prevRemainig, byte[] actualRemaning, List<byte[]> packetsSent)
-            {
-                // TODO: Complete member initialization
-                this.receivedFloats = receivedFloats;
-                this.commBuffer = commBuffer;
-                this.prevRemainig = prevRemainig;
-                this.actualRemaning = actualRemaning;
-                this.packetsSent = packetsSent;
-                this.now = DateTime.Now;
-            }
-
-            internal readonly List<float> receivedFloats;
-            internal readonly byte[] commBuffer;
-            internal readonly List<byte[]> packetsSent;
-            internal readonly DateTime now;
-            internal readonly byte[] prevRemainig;
-            internal readonly byte[] actualRemaning;
-        }
-        
         public static void SetFilePath(string filePath_) 
         {
             filePath = filePath_;
@@ -48,10 +27,38 @@ namespace EasylabSerialUDPGateway
                 {
                     try {
                         writeFile.Close();
-                    } 
-                    catch(Exception)
+                    } catch(Exception)
                     {
                     } finally 
+                    {
+                        writeFile = null;
+                    }
+                }
+            }
+        }
+
+        public static void LogCrcError(byte[] actualPacket, int actualIndex, byte crc)
+        {
+            try
+            {
+                if (writeFile == null)
+                    writeFile = new FileStream(filePath, FileMode.Append, FileAccess.Write, FileShare.Read);
+                string errorString = "ERROR: expected crc=" + crc + " in Actual packet:" + BitConverter.ToString(actualPacket) + " index:" + actualIndex + Environment.NewLine;
+                byte[] error = ASCIIEncoding.ASCII.GetBytes(errorString.ToString());
+                writeFile.Write(error, 0, error.Length);
+            }
+            catch (Exception)
+            {
+                if (writeFile != null)
+                {
+                    try
+                    {
+                        writeFile.Close();
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    finally
                     {
                         writeFile = null;
                     }
