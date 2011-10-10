@@ -53,10 +53,10 @@ if MSDOS then
 //** Load the FLEX shared library of computational functions for SIMULATION 
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Sim\loader.sce"); 
 
-//** Load the shared library of of computational functions for Native Integer Support 
+//** Load the shared library of computational functions for Native Integer Support 
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger\loader.sce"); 
 
-//** Load the library of of interfacing functions for Native Integer Support 
+//** Load the library of interfacing functions for Native Integer Support 
 cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger") ;
 exec("InterfaceLoader.sci");
 
