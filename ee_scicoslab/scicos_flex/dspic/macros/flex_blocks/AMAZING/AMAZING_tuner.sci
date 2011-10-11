@@ -27,7 +27,6 @@ function [x,y,typ] = AMAZING_tuner(job,arg1,arg2)
 	   'Y Resolution [100..4096]:'],..
 	   list('vec',-1,'vec',-1),exprs)
       if ~ok then 
-		warning('AMAZING_tuner: Invalid parameters!');
 		break;
 	  end 
       if(res_x<100 | res_x>4096) then

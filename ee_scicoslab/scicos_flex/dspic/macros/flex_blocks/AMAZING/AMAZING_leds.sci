@@ -27,7 +27,6 @@ function [x,y,typ] = AMAZING_leds(job,arg1,arg2)
       list('vec',-1),exprs)
 	  
 	  if ~ok then 
-		warning('AMAZING_leds: Invalid parameters!');
 		break;
 	  end 
       if(gpout_pin<1 | gpout_pin>2) then

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>AMAZING_touch</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="AMAZING_touch">AMAZING palette: AMAZING_touch</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="../../amazing/AMAZING_touch.gif"></IMG></P>
+    <P><VERB>Palette: AMAZING</VERB></P>
+    <P>This block controls the data-acquisition from the Amazing Ball touch screen.</P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Axis: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    The internal parameter specifies the axis ('X' or 'Y'). The block provides the ball coordinate in signed pixels 
+    (example: if the touch panel resolution is 240x180 the coordinate for X will be in the range:-120,119 and for Y:-90,89).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_leds</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_pwm</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_reset</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_switch</LINK>
+    </SEE_ALSO_ITEM>
+    
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_button</LINK>
+    </SEE_ALSO_ITEM>
+    
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_tuner</LINK>
+    </SEE_ALSO_ITEM>
+    
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

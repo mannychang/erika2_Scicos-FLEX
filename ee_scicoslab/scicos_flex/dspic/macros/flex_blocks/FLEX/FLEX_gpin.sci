@@ -26,7 +26,6 @@ function [x,y,typ] = FLEX_gpin(job,arg1,arg2)
       ['GPIN pin [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('FLEX_gpin: Invalid parameters!');
 		break;
 	  end
 	  if((gpin_pin<1) | (gpin_pin>8)) then

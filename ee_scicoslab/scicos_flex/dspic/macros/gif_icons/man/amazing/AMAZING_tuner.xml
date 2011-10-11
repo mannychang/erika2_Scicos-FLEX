@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>AMAZING_tuner</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="AMAZING_tuner">AMAZING palette: AMAZING_tuner</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="../../amazing/AMAZING_tuner.gif"></IMG></P>
+    <P><VERB>Palette: AMAZING</VERB></P>
+    <P>This block enables the tuning/calibration procedure of the Amazing Ball board touch screen.</P>
+  </DESCRIPTION>
+  
+  
+    <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Resolution: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+   The internal parameters specifie the touch panel resolution.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_leds</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_pwm</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_reset</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_switch</LINK>
+    </SEE_ALSO_ITEM>
+    
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_touch</LINK>
+    </SEE_ALSO_ITEM>
+    
+    <SEE_ALSO_ITEM>
+      <LINK>AMAZING_button</LINK>
+    </SEE_ALSO_ITEM>
+    
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

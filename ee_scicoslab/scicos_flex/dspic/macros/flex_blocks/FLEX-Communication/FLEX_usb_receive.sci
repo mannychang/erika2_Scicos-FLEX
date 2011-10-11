@@ -25,7 +25,6 @@ function [x,y,typ] = FLEX_usb_receive(job,arg1,arg2)
       ['Channel [0..14] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('FLEX_usb_receive: Invalid parameters!');
 		break;
 	  end
 	  if((usb_ch<0) | (usb_ch>14)) then

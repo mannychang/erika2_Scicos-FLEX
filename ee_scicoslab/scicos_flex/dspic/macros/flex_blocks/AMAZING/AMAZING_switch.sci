@@ -26,7 +26,6 @@ function [x,y,typ] = AMAZING_switch(job,arg1,arg2)
       ['Button [1..8] :'],..
       list('vec',-1),exprs);
       if ~ok then 
-		warning('AMAZING_switch: Invalid parameters!');
 		break;
 	  end
 	  if((gpin_pin<1) | (gpin_pin>8)) then

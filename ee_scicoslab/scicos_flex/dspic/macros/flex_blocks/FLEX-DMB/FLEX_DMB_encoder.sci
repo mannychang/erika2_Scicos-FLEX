@@ -28,7 +28,6 @@ function [x,y,typ] = FLEX_DMB_encoder(job,arg1,arg2)
 	   ' Encoder gain :'],..
       list('vec',1,'vec',1),exprs);
       if ~ok then 
-		warning('FLEX_DMB_encoder: Invalid parameters!');
 		break;
 	  end
 	  if((enc_type>1) | (enc_type<0)) then

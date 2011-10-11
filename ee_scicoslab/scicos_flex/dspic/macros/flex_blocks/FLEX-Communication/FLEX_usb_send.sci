@@ -26,7 +26,6 @@ function [x,y,typ] = FLEX_usb_send(job,arg1,arg2)
       ['Channel Out [0..14] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('FLEX_usb_send: Invalid parameters!');
 		break;
 	  end
 	  if((channel<0) | (channel>14)) then

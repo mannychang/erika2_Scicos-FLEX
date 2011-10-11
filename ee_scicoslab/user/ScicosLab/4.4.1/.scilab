@@ -66,6 +66,9 @@ exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP\loader.sce");
 //** Load the FLEX roller
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller\loader.sce");
 
+//** Load the documentation of the blocks 
+exec("SCI\contrib\scicos_ee\scicos_flex\dspic\macros\gif_icons\man\loader.sce"); 
+
 end
 
 cd ("SCI\contrib\scicos_ee\scicos_flex\dspic");

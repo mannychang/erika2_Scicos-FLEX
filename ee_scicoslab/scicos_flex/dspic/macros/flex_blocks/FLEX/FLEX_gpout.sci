@@ -26,7 +26,6 @@ function [x,y,typ] = FLEX_gpout(job,arg1,arg2)
       ['GPout pin [1..8] :'],..
       list('vec',-1),exprs)
       if ~ok then 
-		warning('FLEX_gpout: Invalid parameters!');
 		break;
 	  end
 	  if((gpout_pin<1) | (gpout_pin>8)) then

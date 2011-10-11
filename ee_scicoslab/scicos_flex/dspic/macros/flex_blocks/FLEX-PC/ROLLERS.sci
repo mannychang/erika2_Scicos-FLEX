@@ -21,7 +21,6 @@ function [x,y,typ] = ROLLERS(job,arg1,arg2)
 	   ['KPx[max,step,value]:';'TIx[max,step,value]:';'TDx[max,step,value]:';'KPy[max,step,value]:';'TIy[max,step,value]:';'TDy[max,step,value]:'],..
 	   list('vec',3,'vec',3,'vec',3,'vec',3,'vec',3,'vec',3),exprs)
       if ~ok then 
-		warning('ROLLERS: Invalid parameters!');
 		break;
 	  end
 	  
