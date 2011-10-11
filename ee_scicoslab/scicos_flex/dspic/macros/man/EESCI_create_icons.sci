@@ -12,7 +12,7 @@ function EESCI_create_icons()
 OLDDIR = pwd();
 SCIDIR = strsubst(SCI,'/','\');
 MYDIR = SCIDIR + '\contrib\scicos_ee\scicos_flex\dspic';
-GIF_DIR = SCIDIR + '\contrib\scicos_ee\scicos_flex\dspic\macros\gif_icons\';
+GIF_DIR = SCIDIR + '\contrib\scicos_ee\scicos_flex\dspic\macros\man\';
 
 // MISC
 txt = MYDIR + '\macros\misc\FLEX_randm.sci';

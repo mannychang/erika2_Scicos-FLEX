@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE MAN SYSTEM "../../../../../../../../man/manrev.dtd">
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
 <MAN>
   <LANGUAGE>eng</LANGUAGE>
 
-  <TITLE>AMAZING_reset</TITLE>
+  <TITLE>AMAZING_switch</TITLE>
 
   <TYPE>Scicos block</TYPE>
 
   <DATE>October 2011</DATE>
 
-  <SHORT_DESCRIPTION name="AMAZING_reset">AMAZING palette: AMAZING_reset</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="AMAZING_switch">AMAZING palette: AMAZING_switch</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
-    <P><IMG src="../../amazing/AMAZING_reset.gif"></IMG></P>
+    <P><IMG src="AMAZING_switch.gif"></IMG></P>
     <P><VERB>Palette: AMAZING</VERB></P>
-    <P>This block implements a sw reset to restart the application calling a new tuning procedure fo the touch screen.</P>
+    <P>This block controls the switches of the Amazing Ball board (Flex DEMO2 Motion Board).</P>
   </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Switch: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    The internal parameter specifies the switch number(from 1 to 8).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
   
   <SEE_ALSO>
     <SEE_ALSO_ITEM>
@@ -27,11 +38,11 @@
     </SEE_ALSO_ITEM>
 
     <SEE_ALSO_ITEM>
-      <LINK>AMAZING_button</LINK>
+      <LINK>AMAZING_reset</LINK>
     </SEE_ALSO_ITEM>
 
     <SEE_ALSO_ITEM>
-      <LINK>AMAZING_switch</LINK>
+      <LINK>AMAZING_button</LINK>
     </SEE_ALSO_ITEM>
     
     <SEE_ALSO_ITEM>

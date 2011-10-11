@@ -19,15 +19,15 @@ exec("SCI/contrib/scicos_ee/scicos_flex/dspic/loader.sce");
 %CmenuTypeOneVector($+1,:)=['FlexCodeGen','Click on a Superblock (without activation output) to obtain a coded block!']
 %CmenuTypeOneVector($+1,:)=['Set Target','Click on a Superblock (without activation output) to set the Target!']
 
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/amazing/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/easylab/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_com/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_dmb/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_mtb/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/flex_pc/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/misc/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/gif_icons/NativeInteger/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/amazing/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/easylab/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_com/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_dmb/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_mtb/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_pc/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/misc/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/NativeInteger/"];
 
 PALETTE_DIR = 'SCI/contrib/scicos_ee/scicos_flex/dspic/macros/palettes/';
 
@@ -67,7 +67,7 @@ exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP\loader.sce");
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller\loader.sce");
 
 //** Load the documentation of the blocks 
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\macros\gif_icons\man\loader.sce"); 
+exec("SCI\contrib\scicos_ee\scicos_flex\dspic\macros\man\loader.sce"); 
 
 end
 

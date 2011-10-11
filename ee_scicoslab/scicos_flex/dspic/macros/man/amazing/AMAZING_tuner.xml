@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE MAN SYSTEM "../../../../../../../../man/manrev.dtd">
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
 <MAN>
   <LANGUAGE>eng</LANGUAGE>
 
-  <TITLE>AMAZING_button</TITLE>
+  <TITLE>AMAZING_tuner</TITLE>
 
   <TYPE>Scicos block</TYPE>
 
   <DATE>October 2011</DATE>
 
-  <SHORT_DESCRIPTION name="AMAZING_button">AMAZING palette: AMAZING_button</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="AMAZING_tuner">AMAZING palette: AMAZING_tuner</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
-    <P><IMG src="../../amazing/AMAZING_button.gif"></IMG></P>
+    <P><IMG src="AMAZING_tuner.gif"></IMG></P>
     <P><VERB>Palette: AMAZING</VERB></P>
-    <P>This block controls the buttons of the Amazing Ball board (Flex DEMO2 Motion Board).</P>
+    <P>This block enables the tuning/calibration procedure of the Amazing Ball board touch screen.</P>
   </DESCRIPTION>
-
-  <PARAM>
+  
+  
+    <PARAM>
  <PARAM_INDENT>
   <PARAM_ITEM>
-  <PARAM_NAME>Button: </PARAM_NAME>
+  <PARAM_NAME>Resolution: </PARAM_NAME>
   <PARAM_DESCRIPTION>
-    The internal parameter specifies the button number(from 1 to 2).
+   The internal parameters specifie the touch panel resolution.
   </PARAM_DESCRIPTION> 
   </PARAM_ITEM>
  </PARAM_INDENT>
@@ -50,7 +51,7 @@
     </SEE_ALSO_ITEM>
     
     <SEE_ALSO_ITEM>
-      <LINK>AMAZING_tuner</LINK>
+      <LINK>AMAZING_button</LINK>
     </SEE_ALSO_ITEM>
     
   </SEE_ALSO>

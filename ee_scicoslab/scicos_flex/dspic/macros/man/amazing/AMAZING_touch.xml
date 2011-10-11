@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE MAN SYSTEM "../../../../../../../../man/manrev.dtd">
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
 <MAN>
   <LANGUAGE>eng</LANGUAGE>
 
@@ -12,7 +12,7 @@
   <SHORT_DESCRIPTION name="AMAZING_touch">AMAZING palette: AMAZING_touch</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
-    <P><IMG src="../../amazing/AMAZING_touch.gif"></IMG></P>
+    <P><IMG src="AMAZING_touch.gif"></IMG></P>
     <P><VERB>Palette: AMAZING</VERB></P>
     <P>This block controls the data-acquisition from the Amazing Ball touch screen.</P>
   </DESCRIPTION>

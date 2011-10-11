@@ -44,7 +44,7 @@ else  // windows- Visual C++
   FB_AMAZING=FB_MACROS+'AMAZING\'
   FB_EASYLAB=FB_MACROS+'EASYLAB/'
   MISC=MACROS+'\misc\'
-  GIF_ICONS=MACROS+'\gif_icons\'
+  GIF_ICONS=MACROS+'\man\'
 end
 
 //compile sci files if necessary and build lib file

@@ -15,5 +15,5 @@ dspiclib_fb_pc = lib(DIR+'/macros/flex_blocks/FLEX-PC/')
 dspiclib_fb_amazing = lib(DIR+'/macros/flex_blocks/AMAZING/')
 dspiclib_easylab = lib(DIR+'/macros/flex_blocks/EASYLAB/')
 dspiclib_misc = lib(DIR+'/macros/misc/')
-dspiclib_gif_icons = lib(DIR+'/macros/gif_icons/')
+dspiclib_gif_icons = lib(DIR+'/macros/man/')
 
