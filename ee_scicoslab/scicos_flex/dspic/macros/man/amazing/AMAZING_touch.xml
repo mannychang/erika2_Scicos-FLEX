@@ -9,12 +9,12 @@
 
   <DATE>October 2011</DATE>
 
-  <SHORT_DESCRIPTION name="AMAZING_touch">AMAZING palette: AMAZING_touch</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="AMAZING_touch">palette: AMAZING</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
     <P><IMG src="AMAZING_touch.gif"></IMG></P>
     <P><VERB>Palette: AMAZING</VERB></P>
-    <P>This block controls the data-acquisition from the Amazing Ball touch screen.</P>
+    <P>This block controls the data-acquisition from the Amazing Ball touch panel.</P>
   </DESCRIPTION>
 
   <PARAM>

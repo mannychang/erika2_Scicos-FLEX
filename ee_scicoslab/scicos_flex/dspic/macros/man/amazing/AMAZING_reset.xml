@@ -9,12 +9,12 @@
 
   <DATE>October 2011</DATE>
 
-  <SHORT_DESCRIPTION name="AMAZING_reset">AMAZING palette: AMAZING_reset</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="AMAZING_reset">palette: AMAZING</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
     <P><IMG src="AMAZING_reset.gif"></IMG></P>
     <P><VERB>Palette: AMAZING</VERB></P>
-    <P>This block implements a sw reset to restart the application calling a new tuning procedure fo the touch screen.</P>
+    <P>This block implements a sw reset to restart the application calling a new tuning procedure fo the touch panel.</P>
   </DESCRIPTION>
   
   <SEE_ALSO>

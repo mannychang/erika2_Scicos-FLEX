@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>FLEX_randm</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="FLEX_randm">palette: MCHP16-Sources</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="FLEX_randm.gif"></IMG></P>
+    <P><VERB>Palette: MCHP16-Sources</VERB></P>
+    <P>This block generates a random output.</P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Amplitude: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the amplitude of the random output signal.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME>Seed: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the seed of the random numbers generator.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_sinus</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_square</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_step</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

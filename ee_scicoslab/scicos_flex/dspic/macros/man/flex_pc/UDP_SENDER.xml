@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>UDP_SENDER</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="UDP_SENDER">palette: FLEX-PC</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="UDP_SENDER.gif"></IMG></P>
+    <P><VERB>Palette: FLEX-PC</VERB></P>
+    <P>This block send data through a UDP protocol. 
+       It can be used also to send data to the FLEX-FULL USB port. </P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Data lines: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    The internal parameter specifies the number of input lines.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>UDP_CONFIG</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>ROLLERS</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>UDP_RECEIVER</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

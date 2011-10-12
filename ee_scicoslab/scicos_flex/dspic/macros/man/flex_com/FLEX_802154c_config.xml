@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>FLEX_802154c_config</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="FLEX_802154c_config">palette: FLEX-Communication</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="FLEX_802154c_config.gif"></IMG></P>
+    <P><VERB>Palette: FLEX-Communication</VERB></P>
+    <P>This block sets the Coordinator parameters for a 802.15.4 based communication for the FLEX Board.</P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Local address: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Device local address. 
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+    <PARAM_ITEM>
+  <PARAM_NAME>PAN ID: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    PAN identifier
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+    <PARAM_ITEM>
+  <PARAM_NAME>Radio channel: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Zigbee radio channel.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>Beacon Order: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Beacon order (from 3 to 14).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+    <PARAM_ITEM>
+  <PARAM_NAME>Superframe Order: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Superframe order (from 3 to 14).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>GTS device addresses: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Vector of GTS addresses (from 0 to 255).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>GTS lengths: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Vector of GTS lengths (from 0 to 2).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>GTS directions: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Vector of GTS directions (0:tx, 1:rx).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_802154_receive</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_802154d_config</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_802154_send</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

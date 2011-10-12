@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>FLEX_802154_send</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="FLEX_802154_send">palette: FLEX-Communication</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="FLEX_802154_send.gif"></IMG></P>
+    <P><VERB>Palette: FLEX-Communication</VERB></P>
+    <P>This block controls the sending of a packet through the 802.15.4 protocol for the FLEX Board. </P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>ID: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Data ID 
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+    <PARAM_ITEM>
+  <PARAM_NAME>Address: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Destination address
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+    <PARAM_ITEM>
+  <PARAM_NAME>GTS flag: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    Switch flag to enable the GTS.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_802154_receive</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_802154d_config</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_802154c_config</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

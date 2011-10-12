@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>FLEX_canconfig</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="FLEX_canconfig">palette: FLEX-Communication</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="FLEX_canconfig.gif"></IMG></P>
+    <P><VERB>Palette: FLEX-Communication</VERB></P>
+    <P>This block configures the FLEX CAN driver. The internal parameters specify the 
+       message identifiers (only 5 different IDs are supported at the moment). </P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>ID: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    CAN message identifier.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_canin</LINK>
+    </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_canout</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

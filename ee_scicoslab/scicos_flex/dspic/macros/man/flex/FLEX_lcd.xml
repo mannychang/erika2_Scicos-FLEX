@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>FLEX_lcd</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="FLEX_lcd">palette: FLEX</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="FLEX_lcd.gif"></IMG></P>
+    <P><VERB>Palette: FLEX</VERB></P>
+    <P>This block controls the LCD which is attached to the first prototype of the Demo Daughter Board (this hardware is no more available, 
+       and the block is here for historical usage). If used with the Demo Daughter Board, it controls the LCD of that board.</P>
+  </DESCRIPTION>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_adcin</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_led</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_gpin</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_gpout</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

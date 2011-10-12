@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>UDP_CONFIG</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="UDP_CONFIG">palette: FLEX-PC</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="UDP_CONFIG.gif"></IMG></P>
+    <P><VERB>Palette: FLEX-PC</VERB></P>
+    <P> This block configures UDP sockets used to send and receive data. </P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>PC IP address: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies PC IP-address.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+   <PARAM_ITEM>
+  <PARAM_NAME>PC port: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies PC port.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+   <PARAM_ITEM>
+  <PARAM_NAME>REMOTE IP address: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies board IP-address.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>REMOTE port: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies board port.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>UDP_RECEIVER</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>ROLLERS</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>UDP_SENDER</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

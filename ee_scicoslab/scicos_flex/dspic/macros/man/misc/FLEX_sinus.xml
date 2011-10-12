@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>FLEX_sinus</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="FLEX_sinus">palette: MCHP16-Sources</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="FLEX_sinus.gif"></IMG></P>
+    <P><VERB>Palette: MCHP16-Sources</VERB></P>
+    <P>This block generates a sinus signal.</P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Amplitude: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the amplitude of the output signal.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME>Frequency: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the frequency of the output signal.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+
+  <PARAM_ITEM>
+  <PARAM_NAME>Phase: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the phase of the output signal.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME>Bias: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the bias (vertical offset) of the output signal.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME>Delay: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the initial delay of the output signal.
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_randm</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_square</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_step</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>

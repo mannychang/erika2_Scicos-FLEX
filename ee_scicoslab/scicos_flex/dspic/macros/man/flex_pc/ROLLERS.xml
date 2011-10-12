@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>ROLLERS</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="ROLLERS">palette: FLEX-PC</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="ROLLERS.gif"></IMG></P>
+    <P><VERB>Palette: FLEX-PC</VERB></P>
+    <P> This block opens a GUI with rollers. It can be used to tune, in real-time, 
+        the parameters of your algorithm during the program execution. </P>
+  </DESCRIPTION>
+
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>UDP_CONFIG</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>UDP_RECEIVER</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>UDP_SENDER</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>
