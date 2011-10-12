@@ -28,8 +28,8 @@ function [x,y,typ] = UDP_CONFIG(job,arg1,arg2)
     while %t do
       [ok, my_ip_addr_str, my_port, dst_ip_addr_str, dst_port, exprs]=..
       getvalue('UDP Communication Parameters (keep default values for usb)',..
-      ['TX IP ADDRESS:';..
-       'My port number:';..
+      ['PC IP address:';..
+       'PC port:';..
        'REMOTE IP address:';..
        'Remote port:'],.. 
       list('str',-1,'vec',1,'str',-1,'vec',1),exprs);

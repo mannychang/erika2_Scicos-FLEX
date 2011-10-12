@@ -20,7 +20,7 @@ function [x,y,typ] = FLEX_serial_send(job,arg1,arg2)
       [ok,serial_port,baudrate,exprs]=..
       getvalue('Set parameters for FLEX serial send block',..
       ['Serial port [1,2] :';..
-			'Baudrate [9600,19200,57600,115200'],..
+			'Baudrate [9600,19200,57600,115200]'],..
 			list('vec',-1,'vec',-1),exprs)
       if ~ok then break,end
 	  if((serial_port<1) | (serial_port>2)) then
