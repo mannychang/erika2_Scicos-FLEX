@@ -22,7 +22,7 @@
 
 #include "stdafx.h"
 #include <stdlib.h> /* for rand()*/
-#include "machine.h"
+
 #include "flexsim.h"
 
 // Types: Use "float" and not "double". 

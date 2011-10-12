@@ -21,7 +21,7 @@
  */
 
 #include "stdafx.h"
-#include "machine.h"
+
 #include "flexsim.h"
 
 static void init(scicos_block *block)
