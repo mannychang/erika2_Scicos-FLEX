@@ -646,6 +646,9 @@ EE_debug_printf('  Installation completed successfully!', fd_log);
 EE_debug_printf('  Please, restart ScicosLab for the changes to take effect...', fd_log);
 EE_debug_printf('### END ###', fd_log);
 mclose(fd_log);
+cd(SCIDIR+'\contrib');
+cmd = 'ScicosLabPack_install.log';
+unix(cmd);
 cd(OLDDIR); return;
 
 
