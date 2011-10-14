@@ -625,7 +625,7 @@ create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\E
 cd(MYDIR+'scicos_ee\utils');
 cmd = 'start cp_cosf.bat ' + ascii(34)+SCIDIR+ascii(34);
 unix(cmd);
-cmd = 'start xcopy '+ascii(34)+MYDIR+'scicos_ee\utils\common_oil.pref'+ascii(34)+' '+ascii(34)+SCIDIR+'\contrib\scicos_ee\RT-Druid\configuration'+ascii(34)+' /s /e /y /i';
+cmd = 'start xcopy '+ascii(34)+SCIDIR+'\contrib\scicos_ee\utils\common_oil.pref'+ascii(34)+' '+ascii(34)+SCIDIR+'\contrib\scicos_ee\RT-Druid\configuration'+ascii(34)+' /s /e /y /i';
 unix(cmd);
 cmd = 'del apps.list';
 unix(cmd);
