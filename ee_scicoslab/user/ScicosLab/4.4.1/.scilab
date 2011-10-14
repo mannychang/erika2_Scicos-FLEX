@@ -1,4 +1,6 @@
 
+cd ("SCI\contrib\scicos_ee\scicos_flex\dspic");
+
 //** Some "alias" variables are re-defined for easy compatibility 
 s  = %s; //** Laplace for continous systems
 z  = %z; //** Z for discrete systems
@@ -59,6 +61,7 @@ exec("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger\loader.sce");
 //** Load the library of interfacing functions for Native Integer Support 
 cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger") ;
 exec("InterfaceLoader.sci");
+cd ("SCI\contrib\scicos_ee\scicos_flex\dspic");
 
 //** Load the FLEX UDP support
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP\loader.sce");
@@ -70,8 +73,6 @@ exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller\loader.sce");
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\macros\man\loader.sce"); 
 
 end
-
-cd ("SCI\contrib\scicos_ee\scicos_flex\dspic");
 
 //** show some message  
 disp("ScicosLab-FLEX Ready");disp(" ");
