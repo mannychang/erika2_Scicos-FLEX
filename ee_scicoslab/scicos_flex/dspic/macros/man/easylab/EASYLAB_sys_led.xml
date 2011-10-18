@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>EASYLAB_sys_led</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="EASYLAB_sys_led">palette: EASYLAB</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="EASYLAB_sys_led.gif"></IMG></P>
+    <P><VERB>Palette: EASYLAB</VERB></P>
+    <P>This block controls the led of the Microstick board mounted on the Easylab board.</P>
+  </DESCRIPTION>
+
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>EASYLAB_leds</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHORS>
+    <AUTHORS_ITEM>
+    Errico Guidieri, Evidence Srl, 2011.
+    </AUTHORS_ITEM>
+    <AUTHORS_ITEM>
+    Dario Di Stefano, Evidence Srl, 2011.
+    </AUTHORS_ITEM>
+  </AUTHORS>
+  
+</MAN>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>EASYLAB_CPUload_gpout</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="EASYLAB_CPUload_gpout">palette: EASYLAB</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="EASYLAB_CPUload_gpout.gif"></IMG></P>
+    <P><VERB>Palette: EASYLAB</VERB></P>
+    <P>This block generates a binary signal. 
+       The signal remains high during the execution of the diagram so you can measure the calculus time and the CPU load.</P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Pin: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the output pin (from 1 to 8).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>EASYLAB_gpout</LINK>
+    </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM>
+      <LINK>EASYLAB_CPUload_pwm</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHORS>
+    <AUTHORS_ITEM>
+    Errico Guidieri, Evidence Srl, 2011.
+    </AUTHORS_ITEM>
+    <AUTHORS_ITEM>
+    Dario Di Stefano, Evidence Srl, 2011.
+    </AUTHORS_ITEM>
+  </AUTHORS>
+  
+</MAN>

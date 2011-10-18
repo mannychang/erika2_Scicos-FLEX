@@ -30,6 +30,7 @@ exec("SCI/contrib/scicos_ee/scicos_flex/dspic/loader.sce");
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_pc/"];
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/misc/"];
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/NativeInteger/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/easylab/"];
 
 PALETTE_DIR = 'SCI/contrib/scicos_ee/scicos_flex/dspic/macros/palettes/';
 

@@ -9,6 +9,7 @@ add_help_chapter("Flex-MotionBoard Blockset",path+'flex_mtb');
 add_help_chapter("Flex-PC Blockset",path+'flex_pc');
 add_help_chapter("Flex-Communication Blockset",path+'flex_com');
 add_help_chapter("MCHP16-Sources Blockset",path+'misc');
+add_help_chapter("EasyLab Blockset",path+'easylab');
 
 //clear the variable stack
 clear path add_help_chapter get_absolute_file_path

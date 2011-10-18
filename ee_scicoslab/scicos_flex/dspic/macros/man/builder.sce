@@ -7,7 +7,8 @@ myhelps=[path+'amazing', "Amazing Ball Blockset";
          path+'flex_mtb', "Flex-MotionBoard Blockset";
          path+'flex_pc', "Flex-PC Blockset";
          path+'flex_com', "Flex-Communication Blockset";
-         path+'misc', "MCHP16-Sources Blockset"];
+         path+'misc', "MCHP16-Sources Blockset";
+         path+'easylab', "EasyLab Blockset"];
 
 // process the xml files to produce html files 
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>EASYLAB_leds</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="EASYLAB_leds">palette: EASYLAB</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="EASYLAB_leds.gif"></IMG></P>
+    <P><VERB>Palette: EASYLAB</VERB></P>
+    <P>This block controls the leds of the Easylab board.</P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>Led: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the led (1,2,3,4,7,8,9,10).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>Threshold: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    This parameter specifies the threshold (from 0.01 to 0.99).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>EASYLAB_sys_led</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHORS>
+    <AUTHORS_ITEM>
+    Errico Guidieri, Evidence Srl, 2011.
+    </AUTHORS_ITEM>
+    <AUTHORS_ITEM>
+    Dario Di Stefano, Evidence Srl, 2011.
+    </AUTHORS_ITEM>
+  </AUTHORS>
+  
+</MAN>
