@@ -81,7 +81,7 @@
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="../../../../../../bin"
-				ModuleDefinitionFile="./libmcp2200.def"
+				ModuleDefinitionFile=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\Debug/MakeTempFilenameDLL.pdb"
 				RandomizedBaseAddress="1"
@@ -181,7 +181,7 @@
 				AdditionalLibraryDirectories="../../../../../../bin"
 				IgnoreAllDefaultLibraries="false"
 				IgnoreDefaultLibraryNames=""
-				ModuleDefinitionFile="./libmcp2200.def"
+				ModuleDefinitionFile=""
 				ProgramDatabaseFile=".\Release/MakeTempFilenameDLL.pdb"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -221,23 +221,7 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath=".\libmcp2200.def"
-				>
-			</File>
-			<File
 				RelativePath=".\mcp2200.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\mcp2200_cfg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\mcp2200_read.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\mcp2200_write.cpp"
 				>
 			</File>
 			<File
@@ -251,18 +235,6 @@
 			>
 			<File
 				RelativePath=".\mcp2200.h"
-				>
-			</File>
-			<File
-				RelativePath=".\mcp2200_cfg.h"
-				>
-			</File>
-			<File
-				RelativePath=".\mcp2200_read.h"
-				>
-			</File>
-			<File
-				RelativePath=".\mcp2200_write.h"
 				>
 			</File>
 			<File

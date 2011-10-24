@@ -15,13 +15,7 @@
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
 
 #include <windows.h>
-#include <time.h>
-// TODO: reference additional headers your program requires here
-#include <winbase.h>
-#include <winnt.h>
-#include <ctime>
-#include <time.h>
-#include <string>
+#include <stdio.h>
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

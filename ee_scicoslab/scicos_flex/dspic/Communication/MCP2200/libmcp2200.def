@@ -1,5 +1,0 @@
-LIBRARY    libmcp2200.dll
-EXPORTS
-	mcp2200_read
-	mcp2200_write
-	mcp2200_cfg
