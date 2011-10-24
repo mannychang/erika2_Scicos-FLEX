@@ -19,7 +19,7 @@ function [x,y,typ] = EASYLAB_serial_send(job,arg1,arg2)
         [ok,baudrate,exprs]=..
         getvalue('Set parameters for EASYLAB serial send block',..
         ['Baudrate [9600,19200,57600,115200]:'],..
-        list('vec',-1),exprs)
+        list('vec',1),exprs)
         if ~ok then break,end
         if((baudrate <> 9600) & (baudrate <> 19200) & (baudrate <> 57600) & (baudrate <> 115200)) then
             warning('Accepted values for serial port are in [9600,19200,57600,115200]. Keeping previous values.');

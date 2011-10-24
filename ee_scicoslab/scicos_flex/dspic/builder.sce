@@ -7,7 +7,7 @@ libname_fb_FLEX='fb_FLEX'
 libname_fb_communication='fb_communication'
 libname_fb_DMB='fb_DMB'
 libname_fb_MTB='fb_MTB'
-libname_fb_pc='fb_pc'
+libname_RT_Data_Exchange='RT_Data_Exchange'
 libname_amazing='amazing'
 libname_misc='misc'
 libname_easylab='easylab'
@@ -25,8 +25,7 @@ if ~MSDOS then // Unix Linux
   FB_COMMUNICATION=FB_MACROS+'FLEX-Communication/'
   FB_DMB=FB_MACROS+'FLEX-DMB/'
   FB_MTB=FB_MACROS+'FLEX-MTB/'
-  FB_PC=FB_MACROS+'FLEX-PC/'
-  FB_PC=FB_MACROS+'FLEX-PC/'
+  RT_DATA_EXCHANGE=FB_MACROS+'RT-Data-Exchange/'
   FB_AMAZING=FB_MACROS+'AMAZING/'
   FB_EASYLAB=FB_MACROS+'EASYLAB/'
   MISC=MACROS+'misc/'
@@ -40,7 +39,7 @@ else  // windows- Visual C++
   FB_COMMUNICATION=FB_MACROS+'FLEX-Communication\'
   FB_DMB=FB_MACROS+'FLEX-DMB\'
   FB_MTB=FB_MACROS+'FLEX-MTB\'
-  FB_PC=FB_MACROS+'FLEX-PC\'
+  RT_DATA_EXCHANGE=FB_MACROS+'RT-Data-Exchange/'
   FB_AMAZING=FB_MACROS+'AMAZING\'
   FB_EASYLAB=FB_MACROS+'EASYLAB/'
   MISC=MACROS+'\misc\'
@@ -54,7 +53,7 @@ genlib(libname_fb_FLEX,FB_FLEX)
 genlib(libname_fb_communication,FB_COMMUNICATION)
 genlib(libname_fb_DMB,FB_DMB)
 genlib(libname_fb_MTB,FB_MTB)
-genlib(libname_fb_pc,FB_PC)
+genlib(libname_RT_Data_Exchange,RT_DATA_EXCHANGE)
 genlib(libname_amazing,FB_AMAZING)
 genlib(libname_misc,MISC)
 genlib(libname_easylab,FB_EASYLAB)
