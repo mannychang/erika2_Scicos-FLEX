@@ -27,7 +27,7 @@ exec("SCI/contrib/scicos_ee/scicos_flex/dspic/loader.sce");
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_com/"];
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_dmb/"];
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_mtb/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_pc/"];
+%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/rt_data_exchange/"];
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/misc/"];
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/NativeInteger/"];
 %scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/easylab/"];
@@ -47,7 +47,7 @@ scicos_pal($+1,:)=['FLEX-DemoBoard',PALETTE_DIR + 'FLEX-DMB.cosf'];
 scicos_pal($+1,:)=['FLEX-MotionBoard',PALETTE_DIR + 'FLEX-MTB.cosf'];
 //scicos_pal($+1,:)=['FLEX-DoubleTouchBoard',PALETTE_DIR + 'FLEX-DTB.cosf'];
 scicos_pal($+1,:)=['FLEX-Communication',PALETTE_DIR + 'FLEX-Communication.cosf'];
-scicos_pal($+1,:)=['FLEX-PC',PALETTE_DIR + 'FLEX-PC.cosf'];
+scicos_pal($+1,:)=['RT Data Exchange',PALETTE_DIR + 'RT-Data-Exchange.cosf'];
 scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
 scicos_pal($+1,:)=['Easylab',PALETTE_DIR + 'EASYLAB.cosf'];
 
@@ -69,6 +69,9 @@ exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP\loader.sce");
 
 //** Load the FLEX roller
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller\loader.sce");
+
+//** Load the MCP2200
+exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Communication\MCP2200\loader.sce");
 
 //** Load the documentation of the blocks 
 exec("SCI\contrib\scicos_ee\scicos_flex\dspic\macros\man\loader.sce"); 
