@@ -106,6 +106,8 @@ waitbar('                                               \n..
     ulink(flexsim_link_num);
     ulink(nativeinteger_link_num);
     ulink(udp_link_num);
+    ulink(mcp2200_link_num);
+    ulink(simpleIO_link_num);
   end
   // Removing scicos_ee
   res = isdir(SCIDIR+'\contrib\scicos_ee');
@@ -348,7 +350,7 @@ mfprintf(fd, c30_asm30_paths );
 mfprintf(fd,"\n");
 mfprintf(fd,"\n");
 mfprintf(fd,"# Erika Enterprise path\n");
-mfprintf(fd,"eebase=${eclipse_home}/../ee\n");
+mfprintf(fd,"erika_enterprise_location=${eclipse_home}/../ee\n");
 mfprintf(fd,"\n");
 mfprintf(fd,"\n");
 mclose(fd);
@@ -390,6 +392,8 @@ waitbar('                                               \n..
       ulink(flexsim_link_num);
       ulink(nativeinteger_link_num);
       ulink(udp_link_num);
+      ulink(mcp2200_link_num);
+      ulink(simpleIO_link_num);
     end
     
     // Removing scicos_ee
