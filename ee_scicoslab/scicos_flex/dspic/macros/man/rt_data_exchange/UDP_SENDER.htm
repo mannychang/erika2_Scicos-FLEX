@@ -1,52 +1,49 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>FLEX_adcin</title>
+    <title>UDP_SENDER</title>
   </head>
   <body bgcolor="#FFFFFF">
     <center>Scicos block</center>
     <p>
-      <b>FLEX_adcin</b> - palette: FLEX</p>
+      <b>UDP_SENDER</b> - palette: RT Data Exchange</p>
     <h3>
       <font color="blue">Description</font>
     </h3>
-    <p><IMG ALIGN="CENTERED" src="FLEX_adcin.gif"></p>
+    <p><IMG ALIGN="CENTERED" src="UDP_SENDER.gif"></p>
     <p>
       <tt>
-        <b>Palette: FLEX</b>
+        <b>Palette: RT Data Exchange</b>
       </tt>
     </p>
-    <p>This block controls the analog input pins of the FLEX board.</p>
+    <p>This block send data through a UDP protocol. 
+       It can be used also to send data to the FLEX-FULL USB port. </p>
     <h3>
       <font color="blue">Parameters</font>
     </h3>
     <ul>
       <li>
         <tt>
-          <b>PIN: </b>
+          <b>Data lines: </b>
         </tt>
-    The internal parameter specifies the pin(from 1 to 8).
+    The internal parameter specifies the number of input lines.
   </li>
     </ul>
     <h3>
       <font color="blue">See Also</font>
     </h3>
     <p>
-      <a href="FLEX_led.htm">
+      <a href="UDP_CO~1.HTM">
         <tt>
-          <b>FLEX_led</b>
+          <b>UDP_CONFIG</b>
         </tt>
-      </a>,&nbsp;&nbsp;<a href="FLEX_lcd.htm">
+      </a>,&nbsp;&nbsp;<a href="ROLLERS.htm">
         <tt>
-          <b>FLEX_lcd</b>
+          <b>ROLLERS</b>
         </tt>
-      </a>,&nbsp;&nbsp;<a href="FLEX_G~1.HTM">
+      </a>,&nbsp;&nbsp;<a href="UDP_RE~1.HTM">
         <tt>
-          <b>FLEX_gpin</b>
-        </tt>
-      </a>,&nbsp;&nbsp;<a href="FLEX_G~2.HTM">
-        <tt>
-          <b>FLEX_gpout</b>
+          <b>UDP_RECEIVER</b>
         </tt>
       </a>,&nbsp;&nbsp;</p>
     <h3>

@@ -9,11 +9,11 @@
 
   <DATE>October 2011</DATE>
 
-  <SHORT_DESCRIPTION name="UDP_SENDER">palette: FLEX-PC</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="UDP_SENDER">palette: RT Data Exchange</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
     <P><IMG src="UDP_SENDER.gif"></IMG></P>
-    <P><VERB>Palette: FLEX-PC</VERB></P>
+    <P><VERB>Palette: RT Data Exchange</VERB></P>
     <P>This block send data through a UDP protocol. 
        It can be used also to send data to the FLEX-FULL USB port. </P>
   </DESCRIPTION>

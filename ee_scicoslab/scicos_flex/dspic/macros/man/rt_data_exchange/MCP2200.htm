@@ -6,27 +6,48 @@
   <body bgcolor="#FFFFFF">
     <center>Scicos block</center>
     <p>
-      <b>UDP_SENDER</b> - palette: FLEX-PC</p>
+      <b>UDP_SENDER</b> - palette: RT Data Exchange</p>
     <h3>
       <font color="blue">Description</font>
     </h3>
     <p><IMG ALIGN="CENTERED" src="UDP_SENDER.gif"></p>
     <p>
       <tt>
-        <b>Palette: FLEX-PC</b>
+        <b>Palette: RT Data Exchange</b>
       </tt>
     </p>
-    <p>This block send data through a UDP protocol. 
-       It can be used also to send data to the FLEX-FULL USB port. </p>
+    <p>This block communicate with an microchip MCP2200 chip, to set serial communication parameter and for read and write GPIO.</p>
     <h3>
       <font color="blue">Parameters</font>
     </h3>
     <ul>
       <li>
         <tt>
-          <b>Data lines: </b>
+          <b>Baudrate: </b>
         </tt>
-    The internal parameter specifies the number of input lines.
+    Set serial commincation baudrate.
+  </li>
+    </ul>
+    <h3>
+      <font color="blue">Parameters</font>
+    </h3>
+    <ul>
+      <li>
+        <tt>
+          <b>Input Pins: </b>
+        </tt>
+    used to specify the MCP2200 vector of input pins.
+  </li>
+    </ul>
+    <h3>
+      <font color="blue">Parameters</font>
+    </h3>
+    <ul>
+      <li>
+        <tt>
+          <b>Output Pins: </b>
+        </tt>
+    used to specify the MCP2200 vector of output pins.
   </li>
     </ul>
     <h3>
@@ -41,7 +62,7 @@
         <tt>
           <b>ROLLERS</b>
         </tt>
-      </a>,&nbsp;&nbsp;<a href="../../../../../../../../../../Programmi/scilab/scicoslab-4.4.1/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_pc/UDP_RECEIVER.htm">
+      </a>,&nbsp;&nbsp;<a href="UDP_RE~1.HTM">
         <tt>
           <b>UDP_RECEIVER</b>
         </tt>
