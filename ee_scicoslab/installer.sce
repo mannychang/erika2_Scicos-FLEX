@@ -103,10 +103,20 @@ waitbar('                                               \n..
   // ulink of DLLs
   if exists('roller_link_num')
     ulink(roller_link_num);
+  end
+  if exists('flexsim_link_num')
     ulink(flexsim_link_num);
+  end
+  if exists('nativeinteger_link_num')
     ulink(nativeinteger_link_num);
+  end
+  if exists('udp_link_num')
     ulink(udp_link_num);
+  end
+  if exists('mcp2200_link_num')
     ulink(mcp2200_link_num);
+  end
+  if exists('simpleIO_link_num')
     ulink(simpleIO_link_num);
   end
   // Removing scicos_ee
@@ -389,10 +399,20 @@ waitbar('                                               \n..
     // ulink of DLLs
     if exists('roller_link_num')
       ulink(roller_link_num);
+    end
+    if exists('flexsim_link_num')
       ulink(flexsim_link_num);
+    end
+    if exists('nativeinteger_link_num')
       ulink(nativeinteger_link_num);
+    end
+    if exists('udp_link_num')
       ulink(udp_link_num);
+    end
+    if exists('mcp2200_link_num')
       ulink(mcp2200_link_num);
+    end
+    if exists('simpleIO_link_num')
       ulink(simpleIO_link_num);
     end
     
