@@ -38,7 +38,9 @@ winId_wait = waitbar('                                  \n..
                                                         \n..
                                                         \n..
                                                         ');
-  [fd_test, err] = mopen(SCIDIR+'\contrib\__EESCI_test__.log', 'w');
+  cmd = 'dir > test.x';
+  unix(cmd);
+  [x,err] = fileinfo('test.x');
   if err ~= 0
 waitbar('                                               \n..
                  # Uninstallation Error #               \n..
@@ -48,8 +50,7 @@ waitbar('                                               \n..
                                                         ', winId_wait);
     cd(OLDDIR); return;
   else
-    mclose(fd_test);
-    cmd = 'del /Q __EESCI_test__.log';
+    cmd = 'del /Q test.x';
     unix(cmd);
   end
 
@@ -119,16 +120,17 @@ waitbar('                                               \n..
   if exists('simpleIO_link_num')
     ulink(simpleIO_link_num);
   end
+  // Removing ScicosLabPack_install.log
+  [loginfo,ierr]=fileinfo('ScicosLabPack_install.log');
+  if ierr==0
+    cmd = 'del /Q ScicosLabPack_install.log';
+    unix(cmd);
+  end
   // Removing scicos_ee
   res = isdir(SCIDIR+'\contrib\scicos_ee');
   cd(SCIDIR + '\contrib');
   if res==%T
     cmd = 'rmdir /s /q scicos_ee';
-    unix(cmd);
-  end
-  [loginfo,ierr]=fileinfo('ScicosLabPack_install.log');
-  if ierr==0
-    cmd = 'del /Q ScicosLabPack_install.log';
     unix(cmd);
   end
   // 100%
@@ -147,7 +149,25 @@ if answ=='3' | answ=='0'
   cd(OLDDIR); return;
 end
 
-// Installation Log
+// Installation test
+cd(SCIDIR + '\contrib');
+cmd = 'dir > test.x';
+unix(cmd);
+[x,err] = fileinfo('test.x')
+if err ~= 0
+waitbar('                                               \n..
+                   # Installation Error #               \n..
+                       Access denied!                   \n..
+   Please, run ScicosLab with administrator privileges. \n..
+                      Installation aborted!             \n..
+                                                        ', winId_wait);
+    cd(OLDDIR); return;
+else
+  cmd = 'del /Q test.x';
+  unix(cmd);
+end
+cd(MYDIR);
+ // Installation log
 [fd_log, err] = mopen(SCIDIR+'\contrib\ScicosLabPack_install.log', 'w');
 if err ~= 0
 waitbar('                                               \n..
@@ -521,8 +541,6 @@ while res_utils==%F,
   res = res + res_flex_dspic*0.2;
   res_flex_gw = isdir(SCIDIR+'\contrib\scicos_ee\scicos_flex\flex_usb2udp_gateway');
   res = res + res_flex_gw*0.05;
-  res_flex_msvc = isdir(SCIDIR+'\contrib\scicos_ee\scicos_flex\MSVC2008_Patch');
-  res = res + res_flex_msvc*0.02;
   res_flex_rttemp = isdir(SCIDIR+'\contrib\scicos_ee\scicos_flex\RT_templates');
   res = res + res_flex_rttemp*0.02;
   res_user = isdir(SCIDIR+'\contrib\scicos_ee\user');
@@ -643,7 +661,7 @@ create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\F
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-Communication");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-DMB");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-MTB");
-create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-PC");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\RT-Data-Exchange");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\EASYLAB");
 
 cd(MYDIR+'scicos_ee\utils');

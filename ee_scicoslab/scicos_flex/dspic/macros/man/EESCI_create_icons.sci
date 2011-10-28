@@ -62,7 +62,7 @@ EESCI_gen_gif(GIF_DIR+'flex_mtb');
 // flex_blocks: FLEX-PC
 fpath = MYDIR + '\macros\flex_blocks\FLEX-PC';
 cd(fpath);
-EESCI_gen_gif(GIF_DIR+'flex_pc');
+EESCI_gen_gif(GIF_DIR+'rt_data_exchange');
 
 cd(OLDDIR)
 
