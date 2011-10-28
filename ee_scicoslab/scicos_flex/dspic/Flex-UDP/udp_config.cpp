@@ -26,6 +26,7 @@ UDP_LIB_API void udp_config(scicos_block *block,int flag){
 				if(WSAStartup((short)0x0202, &WSAData) != 0) {
 					fprintf(fuscrs,"udp_config: WSAStartup failed!\n");
 					fprintf(fuscrs,"#error: %d\n",WSAGetLastError());
+					break;
 				}
 				else
 					fprintf(fuscrs,"udp_config: WSAStartup configured successfully!\n");
@@ -51,6 +52,26 @@ UDP_LIB_API void udp_config(scicos_block *block,int flag){
 					break;
 				}
 
+				int rxbufsize = 60; 
+				err = setsockopt(sock_str_ptr_rs->sd, SOL_SOCKET, SO_RCVBUF, (char *)&rxbufsize, (int)sizeof(rxbufsize));
+				fprintf(fuscrs,"setsockopt return value:%d\n", err);
+				if(err == SOCKET_ERROR) {
+					fprintf(fuscrs,"setsockopt failed.\n");
+					fprintf(fuscrs,"#error: %d\n",WSAGetLastError());
+					WSACleanup();
+					break;
+				}
+				int sockbufsize, size = sizeof(int); 
+				err = getsockopt(sock_str_ptr_rs->sd, SOL_SOCKET, SO_RCVBUF, (char *)&sockbufsize, &size);
+				fprintf(fuscrs,"getsockopt return value:%d\n", err);
+				fprintf(fuscrs,"getsockopt sockbufsize:%d\n", sockbufsize);
+				if(err == SOCKET_ERROR) {
+					fprintf(fuscrs,"getsockopt failed.\n");
+					fprintf(fuscrs,"#error: %d\n",WSAGetLastError());
+					WSACleanup();
+					break;
+				}
+				
 				/*set non blocking*/
 				err = ioctlsocket(sock_str_ptr_rs->sd, FIONBIO, &noblock);
 

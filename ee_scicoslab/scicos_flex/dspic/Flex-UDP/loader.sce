@@ -4,7 +4,7 @@
 
 udp_receiver_path = get_absolute_file_path('loader.sce');
 
-udp_link_num = link(udp_receiver_path+'libFlexUDPComms.dll',['udp_config','udp_receiver','udp_sender'],'c');
+udp_link_num = link(udp_receiver_path+'Release\libFlexUDPComms.dll',['udp_config','udp_receiver','udp_sender'],'c');
 // remove temp. variables on stack
 clear udp_receiver_path;
 clear get_file_path;
