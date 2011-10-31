@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="MCP2200"
+	Name="SerialGateway"
 	ProjectGUID="{AAAAA17E-0551-4FFD-A3A1-CF97D89E31D2}"
 	RootNamespace="MakeTempFilenameDLL"
 	TargetFrameworkVersion="0"
@@ -50,7 +50,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../../../../../routines/scicos"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;MCP2200_LIB_EXPORTS"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SERIAL_GATEWAY_LIB_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -77,7 +77,8 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile=".\Debug/libmcp2200.dll"
+				AdditionalDependencies="Psapi.lib"
+				OutputFile=".\Debug/lib_serial_gateway.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories=""
@@ -149,7 +150,7 @@
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="../../../../../../routines/scicos"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_USRDLL;MCP2200_LIB_EXPORTS"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_USRDLL;SERIAL_GATEWAY_LIB_EXPORTS"
 				StringPooling="true"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
@@ -175,10 +176,11 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile=".\Release/libmcp2200.dll"
+				AdditionalDependencies="Psapi.lib"
+				OutputFile=".\Release/lib_serial_gateway.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="../../../../../../bin"
+				AdditionalLibraryDirectories=""
 				IgnoreAllDefaultLibraries="false"
 				IgnoreDefaultLibraryNames=""
 				ModuleDefinitionFile=""
@@ -221,11 +223,11 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath=".\mcp2200.cpp"
+				RelativePath=".\SerialGateway.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\StdAfx.cpp"
+				RelativePath=".\stdafx.cpp"
 				>
 			</File>
 		</Filter>
@@ -234,11 +236,11 @@
 			Filter="h;hpp;hxx;hm;inl"
 			>
 			<File
-				RelativePath=".\mcp2200.h"
+				RelativePath=".\SerialGateway.h"
 				>
 			</File>
 			<File
-				RelativePath="StdAfx.h"
+				RelativePath="stdafx.h"
 				>
 			</File>
 		</Filter>

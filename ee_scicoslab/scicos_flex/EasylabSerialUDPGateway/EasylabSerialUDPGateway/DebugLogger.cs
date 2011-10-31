@@ -12,12 +12,48 @@ namespace EasylabSerialUDPGateway
             filePath = filePath_;
         }
 
+        public static void LogUDPPackets(List<byte[]> udpPackets) 
+        {
+            try
+            {
+                if (udpWriteFile == null)
+                    udpWriteFile = new FileStream(udpFilePath, FileMode.Create, FileAccess.Write, FileShare.Read);
+                StringBuilder rowsBuilder = new StringBuilder();
+                foreach(byte[] p in udpPackets)
+                {
+                    /* Valid packet read: I populate received variables */
+                    float f1 = BitConverter.ToSingle(p, 1);
+                    float f2 = BitConverter.ToSingle(p, 1 + sizeof(float));
+                    rowsBuilder.AppendLine(f1 + " " + f2);
+                }
+                byte[] rows = ASCIIEncoding.ASCII.GetBytes(rowsBuilder.ToString());
+                udpWriteFile.Write(rows, 0, rows.Length);
+            }
+            catch (Exception)
+            {
+                if (writeFile != null)
+                {
+                    try
+                    {
+                        writeFile.Close();
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    finally
+                    {
+                        writeFile = null;
+                    }
+                }
+            }
+        }
+
         public static void LogPackets(List<float> receivedFloats, byte[] commBuffer, byte[] prevRemainig, byte[] actualRemaning, List<byte[]> packetsSent)
         {
             try
             {
                 if(writeFile == null)   
-                    writeFile = new FileStream(filePath, FileMode.Append, FileAccess.Write, FileShare.Read);
+                    writeFile = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.Read);
                 byte[] rows = prepareRows(receivedFloats, commBuffer, prevRemainig, actualRemaning, packetsSent);
                 writeFile.Write(rows, 0, rows.Length);
             }
@@ -68,18 +104,22 @@ namespace EasylabSerialUDPGateway
 
         public static void Close()
         {
-            if (writeFile != null)
+            CloseFile(writeFile);
+            CloseFile(udpWriteFile);
+            writeFile = null;
+            udpWriteFile = null;
+        }
+
+        private static void CloseFile(FileStream file) 
+        {
+            if (file != null)
             {
                 try
                 {
-                    writeFile.Close();
+                    file.Close();
                 }
                 catch (Exception)
                 {
-                }
-                finally
-                {
-                    writeFile = null;
                 }
             }
         }
@@ -116,7 +156,9 @@ namespace EasylabSerialUDPGateway
         }
 
         private static volatile string filePath = @".\PacketsLog.txt";
+        private static volatile string udpFilePath = @".\UdpPacketsLog.txt";
         private static volatile FileStream writeFile;
+        private static volatile FileStream udpWriteFile;
         private static volatile int easylabCounter;
         private static volatile int commCounter;
     }

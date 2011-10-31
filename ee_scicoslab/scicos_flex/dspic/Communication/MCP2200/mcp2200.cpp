@@ -1,7 +1,7 @@
 /*
  * ERIKA Enterprise Basic - a tiny RTOS for small microcontrollers
  *
- * Copyright (C) 2002-2007  Evidence Srl
+ * Copyright (C) 2002-2011  Evidence Srl
  *
  * This file is part of ERIKA Enterprise Basic.
  *
@@ -25,7 +25,9 @@
 
 #include <stdio.h> 
 #include <stdlib.h> 
-#include <iostream> 
+#include <iostream>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -48,6 +50,8 @@ typedef bool (__stdcall * pICFUNC1)(unsigned int);
 typedef bool (__stdcall * pICFUNC2)(unsigned int, unsigned int *);
 typedef bool (__stdcall * pICFUNC3)(unsigned char, unsigned long, unsigned int, unsigned int, bool, bool, bool);
 typedef bool (__stdcall * pICFUNC4)(void);
+typedef bool (__stdcall * pICFUNC5)(unsigned char);
+typedef bool (__stdcall * pICFUNC6)(unsigned long);
 
 static HMODULE DLL_handle;
 static bool correct_init;
@@ -58,50 +62,99 @@ static pICFUNC1 DLL_SetPin;
 static pICFUNC1 DLL_ClearPin;
 static pICFUNC2 DLL_ReadPin;
 static pICFUNC3 DLL_ConfigureMCP2200;
+static pICFUNC5 DLL_ConfigureIO;
+static pICFUNC6 DLL_fnSetBaudRate;
+static pICFUNC1 DLL_fnRxLED;
+static pICFUNC1 DLL_fnTxLED;
 
-static bool init_mcp2200()
+static enum MCP2200_Init_Result
+{
+    INIT_FAIL,
+    NOT_CONNECTED_INIT,
+    COMPLETE_INIT
+};
+
+static enum MCP2200_Init_Result init_mcp2200()
 {
     //STEP 1: Get handle to DLL– Path and name (Ex. C:\\SimpleIO-UM.dll) or just name
     // if in working directory (put this in the quotes) 
-	DLL_handle = (HMODULE)LoadLibrary(TEXT("SimpleIO-UM.dll")); 
-	
+    DLL_handle = (HMODULE)::GetModuleHandle(TEXT("SimpleIO-UM.dll"));
+
     //Print result of LoadLibrary call 
 	if( DLL_handle == NULL ) //If it is null, LoadLibrary call failed 
 	{ 
-		DWORD error = GetLastError(); 
+		DWORD error = ::GetLastError(); 
 		print_debug("Loading of the DLL failed\n"); 
 		print_debug("The error was: %d%s", error, "\n\n");
         flush_debug();
-		return false; 
+		return INIT_FAIL; 
 	} 
-	else { 
+	else 
+    { 
 		print_debug("DLL has been loaded\n\n"); 
 	} 
 
 	//STEP 2: Get pointer to the function in the DLL 
-	DLL_InitMCP2200      = (pICFUNC0)GetProcAddress(DLL_handle, "InitMCP2200");
-    DLL_IsConnected      = (pICFUNC4)GetProcAddress(DLL_handle, "IsConnected");
-    DLL_ConfigureMCP2200 = (pICFUNC3)GetProcAddress(DLL_handle, "ConfigureMCP2200");
-	DLL_SetPin           = (pICFUNC1)GetProcAddress(DLL_handle, "SetPin"); 
-	DLL_ClearPin         = (pICFUNC1)GetProcAddress(DLL_handle, "ClearPin");
-    DLL_ReadPin          = (pICFUNC2)GetProcAddress(DLL_handle, "ReadPin");
+    DLL_InitMCP2200      = (pICFUNC0)::GetProcAddress(DLL_handle, "InitMCP2200");
+    DLL_IsConnected      = (pICFUNC4)::GetProcAddress(DLL_handle, "IsConnected");
+    DLL_ConfigureMCP2200 = (pICFUNC3)::GetProcAddress(DLL_handle, "ConfigureMCP2200");
+    DLL_ConfigureIO      = (pICFUNC5)::GetProcAddress(DLL_handle, "ConfigureIO");
+	DLL_SetPin           = (pICFUNC1)::GetProcAddress(DLL_handle, "SetPin"); 
+	DLL_ClearPin         = (pICFUNC1)::GetProcAddress(DLL_handle, "ClearPin");
+    DLL_ReadPin          = (pICFUNC2)::GetProcAddress(DLL_handle, "ReadPin");
+    DLL_fnSetBaudRate    = (pICFUNC6)::GetProcAddress(DLL_handle, "fnSetBaudRate");
+    DLL_fnRxLED          = (pICFUNC1)::GetProcAddress(DLL_handle, "fnRxLED");   
+    DLL_fnTxLED          = (pICFUNC1)::GetProcAddress(DLL_handle, "fnTxLED");
     
-    //STEP 4: Call the DLL function through the prototype name given in step 3 
+
+    //STE5 3: Call the DLL function through the prototype name given in step 3 
 	//Initialize the MCP2200 – NOTE: Must be plugged in when program is ran 
 	DLL_InitMCP2200(mcp2200_VID, mcp2200_PID);
 	print_debug("The MCP2200 was successfully initialized.\n");
 
     //Check connection status. 
 	bool connected = DLL_IsConnected();
-    if(correct_init)
+    if(connected)
     {
-		print_debug("The device is CONNECTED\n\n");
-    } else 
+        print_debug("The device is CONNECTED\n\n");
+    } 
+    else 
     {
         print_debug("The device is DISCONNECTED\n\n");
     }
     flush_debug();
-    return connected;
+    return (connected)? COMPLETE_INIT: NOT_CONNECTED_INIT;
+}
+
+static void reset_gateway()
+{
+    HMODULE DLL_searial_handle = (HMODULE)::GetModuleHandle(TEXT("lib_serial_gateway.dll"));
+    if(!DLL_searial_handle)
+    {
+        print_debug("lib_easylab_gateway.dll not found. Nothing to do");
+        return;
+    }
+    typedef HWND (__stdcall * pGetGatewayHwnd)(void);
+    pGetGatewayHwnd DLL_GetGatewayHwnd = (pGetGatewayHwnd)::GetProcAddress(DLL_searial_handle, "GetGatewayHwnd");
+    
+    if(!DLL_GetGatewayHwnd){
+        print_debug("Invalid get gateway function name!");
+        return;
+    }
+
+    HWND GatewayHwnd = DLL_GetGatewayHwnd();
+    if(!GatewayHwnd){
+        print_debug("No Gateway actived. nothing to do.");
+        return;
+    }
+    
+    UINT resetMsgId = ::RegisterWindowMessage("Reset Easylab Gateway");
+    if (!resetMsgId)
+    {
+        print_debug("Invalid Reset Easylab Gateway message ID!");
+        return;
+    }
+    ::PostMessage(GatewayHwnd, resetMsgId, 0, 0);
 }
 
 static void init(scicos_block *block)
@@ -109,11 +162,12 @@ static void init(scicos_block *block)
 	//Enable Debug File if neeeded;
     start_debug();
     //init mcp2200 component
-    correct_init = init_mcp2200();
-    if(correct_init){
-        unsigned long baudrate = (unsigned long)rpar(block, 0);
+    enum MCP2200_Init_Result init_result = init_mcp2200();
+    correct_init = (init_result == COMPLETE_INIT);
 
+    if(correct_init){
         //Init MCP2200 input pins (consequently output pins)
+        unsigned long baudrate = (unsigned long)rpar(block, 0);
         unsigned char ioMap = 0;
         const int nPinIn = GetNout(block);
         for(int i = 0; i < nPinIn; ++i)
@@ -130,6 +184,8 @@ static void init(scicos_block *block)
         correct_init = DLL_ConfigureMCP2200(ioMap, baudrate, BLINKSLOW, 
             BLINKSLOW, OFF, OFF, OFF);
     }
+    if(correct_init)
+        reset_gateway();
 }
 
 static void inout(scicos_block *block)
@@ -175,7 +231,6 @@ static void inout(scicos_block *block)
 
 static void end(scicos_block *block)
 {
-    FreeLibrary(DLL_handle);
 	/* End the debug if needed */
     stop_debug();
     correct_init = false;

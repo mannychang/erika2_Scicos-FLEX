@@ -3,9 +3,6 @@
 #ifndef _MCP2200_H_
 #define _MCP2200_H_
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #ifdef MCP2200_LIB_EXPORTS
 #define MCP2200_LIB_API	__declspec(dllexport) 
 #else

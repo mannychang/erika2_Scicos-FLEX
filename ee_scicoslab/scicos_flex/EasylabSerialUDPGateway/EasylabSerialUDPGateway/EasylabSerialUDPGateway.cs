@@ -4,11 +4,14 @@ using System.IO.Ports;
 using System.Text;
 using System.Net;
 using System.Windows.Forms;
+//For Dll Import
+using System.Runtime.InteropServices;
 
 
 
 namespace EasylabSerialUDPGateway
 {
+    
     public partial class EasylabSerialUDPGatewayForm : Form
     {
         public EasylabSerialUDPGatewayForm()
@@ -22,6 +25,35 @@ namespace EasylabSerialUDPGateway
             InitializeCoponentUser();
         }
 
+        public EasylabSerialUDPGatewayForm(string commPort, decimal receivingPort, decimal sendingPort): this()
+        {
+            SerialPortCombo.Text         = commPort;
+            UDPReceivingPortUpDown.Value = receivingPort;
+            UDPSendingPortUpDown.Value   = sendingPort;
+            Connect();
+        }
+
+        /*
+         * Imported win32 API to register a message
+         */
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        public static extern uint RegisterWindowMessage(string lpString);
+        
+        /*
+         * Overriding WndProc to handle reset message.
+         */
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == resetMsgId)
+            {
+                /* Reset connection */
+                this.Disconnect();
+                System.Threading.Thread.Sleep(50);
+                this.Connect();
+            }
+            base.WndProc(ref m);
+        }
+
         private void InitializeCoponentUser() 
         {
             //Popolo la Combo box con i valori delle porte comm rilevate.
@@ -32,53 +64,61 @@ namespace EasylabSerialUDPGateway
                 SerialPortCombo.SelectedIndex = 0; 
         }
 
-        private void Disconnect()
+        private void Connect()
         {
             try
             {
-                if (CommPort != null && CommPort.IsOpen)
-                    CommPort.Close();
+                CommPort = new SerialPort(SerialPortCombo.Text, 115200, Parity.None, 8, StopBits.One);
+                //RTS-CTS policy
+                CommPort.Handshake = Handshake.None;
+                //Data Receiver handler
+                CommPort.DataReceived += new SerialDataReceivedEventHandler(commPort_DataReceived);
+
+                //Initialize end-points
+                IPEndPoint  SendingEndPoint = new IPEndPoint(IPAddress.Loopback, (int)UDPSendingPortUpDown.Value);
+                IPEndPoint  ReceivingEndPoint = new IPEndPoint(IPAddress.Loopback, (int)UDPReceivingPortUpDown.Value);
+
+                udpCommunicator.Connect(SendingEndPoint, ReceivingEndPoint);
+
+                //Open communications
+                CommPort.Open();
+
+                //Disable Connect/Enable Disconnect Buttons
+                ConnectButton.Enabled = false;
+                DisconnectButton.Enabled = true;
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message, "Error Serial Port", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Connect Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
+        }
+
+        private void Disconnect()
+        {
+            if (DisconnectButton.Enabled)
             {
-                CommPort = null;
+                try
+                {
+                    if (CommPort != null && CommPort.IsOpen)
+                        CommPort.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Disconnect Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    CommPort = null;
+                }
+                udpCommunicator.Disconnect();
             }
-            udpCommunicator.Disconnect();
         }
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
             if ((CommPort == null || !CommPort.IsOpen) && !String.IsNullOrEmpty(SerialPortCombo.Text))
             {
-                try
-                {
-                    CommPort = new SerialPort(SerialPortCombo.Text, 115200, Parity.None, 8, StopBits.One);
-                    //RTS-CTS policy
-                    CommPort.Handshake = Handshake.None;
-                    //Data Receiver handler
-                    CommPort.DataReceived += new SerialDataReceivedEventHandler(commPort_DataReceived);
-
-                    //Initialize end-points
-                    IPEndPoint  SendingEndPoint = new IPEndPoint(IPAddress.Loopback, (int)UDPSendingPortUpDown.Value);
-                    IPEndPoint  ReceivingEndPoint = new IPEndPoint(IPAddress.Loopback, (int)UDPReceivingPortUpDown.Value);
-
-                    udpCommunicator.Connect(SendingEndPoint, ReceivingEndPoint);
-
-                    //Open communications
-                    CommPort.Open();
-
-                    //Disable Connect/Enable Disconnect Buttons
-                    ConnectButton.Enabled = false;
-                    DisconnectButton.Enabled = true;
-                }
-                catch (Exception ex) 
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Connect();
             }
         }
 
@@ -92,11 +132,22 @@ namespace EasylabSerialUDPGateway
 
         private void udpReceivingHandler(object sender, byte[] udpDatagram)
         {
-            //Echo received bytes on Comm port
+            //Create Easylab packets from UDP dataghram
             List<byte[]> packets = CommParserEncoder.EncodeBytes(udpDatagram);
+
+            if (this.ShowReceivedUDPPackets.Checked)
+                //print UDP packet in UDP text box, in main thread with Action Delegate (best way to implement 'almost anonymous delegate' in .NET 2.0)
+                this.BeginInvoke(new Action<List<byte[]>>(PrintUDP), new object[] { packets });
+
+            if (this.LogUDPFloatsOnFile.Checked)
+                DebugLogger.LogUDPPackets(packets);
+
+            //Echo received bytes on Comm port
             SerialPort LocalPort = CommPort;
-            if(LocalPort != null)
+            if (LocalPort != null)
+            {
                 foreach (byte[] p in packets)
+                {
                     try
                     {
                         if (LocalPort.IsOpen)
@@ -104,10 +155,12 @@ namespace EasylabSerialUDPGateway
                         else
                             break;
                     }
-                    catch (Exception ex) 
+                    catch (Exception /*ex*/)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //MessageBox.Show(ex.Message, "UDP Receiving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+            }
        }
 
         private void commPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -135,17 +188,17 @@ namespace EasylabSerialUDPGateway
                             //Send packets trought the socket;
                             List<byte[]> packetsSent = SendPackets(receivedFloats);
 
-                            if (this.ShowReceivedValues.Checked)
-                                //print floats on rech text box, in main thread with Action Delegate (best way to implement 'almost anonymous delegate' in .NET 2.0)
+                            if (this.ShowReceivedSerialValues.Checked)
+                                //print floats on serial text box, in main thread with Action Delegate (best way to implement 'almost anonymous delegate' in .NET 2.0)
                                 this.BeginInvoke(new Action<List<float>>(PrintFloats), new object[] { receivedFloats });
 
-                            if (this.LogValuesOnFile.Checked)
+                            if (this.LogSerialValuesOnFile.Checked)
                                 DebugLogger.LogPackets(receivedFloats, commBuffer, prevRemainig, actualRemaning, packetsSent);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "COM Port Receiving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -175,15 +228,25 @@ namespace EasylabSerialUDPGateway
             if (!String.IsNullOrEmpty(floatString))
             {
                 //Check se non supero MaxLegth. Se lo faccio rimuovo un numero di caratteri sufficient i dalla testa della stringa
-                if (ConsoleLikeTextBox.Text.Length + floatString.Length > ConsoleLikeTextBox.MaxLength)
+                if (SerialTextBox.Text.Length + floatString.Length > SerialTextBox.MaxLength)
                 {
-                    ConsoleLikeTextBox.Text = ConsoleLikeTextBox.Text.Remove(0, ConsoleLikeTextBox.MaxLength - floatString.Length);
+                    SerialTextBox.Text = SerialTextBox.Text.Remove(0, SerialTextBox.MaxLength - floatString.Length);
                 }
 
-                ConsoleLikeTextBox.AppendText(floatString);
+                SerialTextBox.AppendText(floatString);
                 //Piazza la scroll bar alla fine del testo per visualizzare i nuovi valori.
-                ConsoleLikeTextBox.ScrollToCaret();
+                SerialTextBox.ScrollToCaret();
             }
+        }
+
+        private void PrintUDP(List<byte[]> udpPackets) {
+            StringBuilder stringBuilder = new StringBuilder(udpPackets.Count * 60);
+            foreach (byte[] p in udpPackets)
+            {
+                stringBuilder.AppendLine(BitConverter.ToString(p));
+            }
+            UdpTextBox.AppendText(stringBuilder.ToString());
+            UdpTextBox.ScrollToCaret();
         }
 
         private List<byte[]> SendPackets(List<float> receivedFloats)
@@ -218,12 +281,14 @@ namespace EasylabSerialUDPGateway
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "UDP Send Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             return packetsSentList;
         }
-        
+
+        public static readonly uint resetMsgId = RegisterWindowMessage("Reset Easylab Gateway");
+
         private volatile SerialPort             CommPort;
         private readonly object                 CommPortMonitor;
         private readonly StreamParserEncoder    CommParserEncoder;

@@ -41,10 +41,10 @@ namespace EasylabSerialUDPGateway
             
             try
             {
+                this.SendingEndPoint = SendingEndPoint;
                 udpSendingClient   = new UdpClient();
                 this.ReceivingEndPoint = ReceivingEndPoint;
                 udpReceivingClient = new UdpClient(ReceivingEndPoint);
-                udpSendingClient.Connect(SendingEndPoint);
             } catch(Exception) {
                 return false;
             }
@@ -64,16 +64,20 @@ namespace EasylabSerialUDPGateway
         public void Disconnect()
         {
             if (udpSendingClient != null)
-                try 
+            {
+                try
                 {
                     UdpClient udpClient = udpSendingClient;
                     udpSendingClient = null;
                     udpClient.Close();
-                } 
-                catch (Exception) 
+                }
+                catch (Exception)
                 {
                 }
+            }
+            
             if (udpReceivingClient != null)
+            {
                 try
                 {
                     UdpClient udpClient = udpReceivingClient;
@@ -83,7 +87,8 @@ namespace EasylabSerialUDPGateway
                 catch (Exception)
                 {
                 }
-            
+            }
+
             try
             {
                 ReceivingThread.Interrupt();
@@ -149,8 +154,10 @@ namespace EasylabSerialUDPGateway
 
         public void Send(byte[] SendPacket)
         {
-            if (udpSendingClient != null)
-                udpSendingClient.Send(SendPacket, SendPacket.Length);
+            UdpClient localUdpSendingClient = udpSendingClient;
+            IPEndPoint localSendingEndPoint = SendingEndPoint;
+            if (udpSendingClient != null && localSendingEndPoint != null)
+                udpSendingClient.Send(SendPacket, SendPacket.Length, SendingEndPoint);
         }
 
         private readonly Thread ReceivingThread;
@@ -159,6 +166,7 @@ namespace EasylabSerialUDPGateway
         private volatile UdpClient udpSendingClient;
         private volatile UdpClient udpReceivingClient;
         private volatile IPEndPoint ReceivingEndPoint;
+        private volatile IPEndPoint SendingEndPoint;
         private volatile bool ReceivingActive;
         private volatile bool ReceivingClosed;
     }
