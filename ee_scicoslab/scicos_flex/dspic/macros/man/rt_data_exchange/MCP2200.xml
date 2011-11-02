@@ -9,12 +9,12 @@
 
   <DATE>October 2011</DATE>
 
-  <SHORT_DESCRIPTION name="UDP_SENDER">palette: RT Data Exchange</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="MCP2200">palette: RT Data Exchange</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
-    <P><IMG src="UDP_SENDER.gif"></IMG></P>
+    <P><IMG src="MCP2200.gif"></IMG></P>
     <P><VERB>Palette: RT Data Exchange</VERB></P>
-    <P>This block communicate with an microchip MCP2200 chip, to set serial communication parameter and for read and write GPIO.</P>
+    <P>This block communicate with an microchip MCP2200 chip, to set serial communication parameters and for read and write GPIO.</P>
   </DESCRIPTION>
 
   <PARAM>
@@ -22,13 +22,11 @@
   <PARAM_ITEM>
   <PARAM_NAME>Baudrate: </PARAM_NAME>
   <PARAM_DESCRIPTION>
-    Set serial commincation baudrate.
+    Set serial communication baudrate.
   </PARAM_DESCRIPTION> 
   </PARAM_ITEM>
  </PARAM_INDENT>
-  </PARAM>
   
-    <PARAM>
  <PARAM_INDENT>
   <PARAM_ITEM>
   <PARAM_NAME>Input Pins: </PARAM_NAME>
@@ -37,9 +35,7 @@
   </PARAM_DESCRIPTION> 
   </PARAM_ITEM>
  </PARAM_INDENT>
-  </PARAM>
       
-    <PARAM>
  <PARAM_INDENT>
   <PARAM_ITEM>
   <PARAM_NAME>Output Pins: </PARAM_NAME>
@@ -49,21 +45,13 @@
   </PARAM_ITEM>
  </PARAM_INDENT>
   </PARAM>
-
       
   <SEE_ALSO>
     <SEE_ALSO_ITEM>
-      <LINK>UDP_CONFIG</LINK>
-    </SEE_ALSO_ITEM>
-
-    <SEE_ALSO_ITEM>
-      <LINK>ROLLERS</LINK>
-    </SEE_ALSO_ITEM>
-
-    <SEE_ALSO_ITEM>
-      <LINK>UDP_RECEIVER</LINK>
-    </SEE_ALSO_ITEM>
+      <LINK>SERIAL_GATEWAY</LINK>
+    </SEE_ALSO_ITEM>  
   </SEE_ALSO>
-
+  
+  <AUTHOR>Errico Guidieri, Evidence Srl, 2011</AUTHOR>
   <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
 </MAN>

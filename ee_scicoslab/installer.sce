@@ -117,6 +117,9 @@ waitbar('                                               \n..
   if exists('mcp2200_link_num')
     ulink(mcp2200_link_num);
   end
+  if exists('serial_gateway_link_num')
+    ulink(serial_gateway_link_num);
+  end
   if exists('simpleIO_link_num')
     ulink(simpleIO_link_num);
   end
@@ -432,6 +435,9 @@ waitbar('                                               \n..
     if exists('mcp2200_link_num')
       ulink(mcp2200_link_num);
     end
+    if exists('serial_gateway_link_num')
+        ulink(serial_gateway_link_num);
+    end 
     if exists('simpleIO_link_num')
       ulink(simpleIO_link_num);
     end
