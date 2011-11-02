@@ -10,4 +10,3 @@ comp_fun   = ['mcp2200_block'];
 
 // Link to import the selected modules of the library
 mcp2200_link_num = link(mcp2200lib_path + 'Release\libmcp2200.dll', comp_fun, 'c');
-simpleIO_link_num = link(mcp2200lib_path + 'SimpleIO-UM.dll');

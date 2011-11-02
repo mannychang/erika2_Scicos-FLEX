@@ -74,20 +74,35 @@ static enum MCP2200_Init_Result
     COMPLETE_INIT
 };
 
+static HMODULE LoadSimpleIODll()
+{
+    HMODULE me = (HMODULE)::GetModuleHandle(TEXT("libmcp2200.dll"));
+    if(!me) {
+    	DWORD error = ::GetLastError(); 
+		print_debug("Loading of the DLL failed\n"); 
+		print_debug("The error was: %d%s", error, "\n\n");
+        flush_debug();
+		return NULL; 
+    }
+    TCHAR pathToMe[MAX_PATH] ={};
+    ::GetModuleFileName(me, pathToMe, MAX_PATH);
+    std::basic_string<TCHAR> pathToSimpleIO(pathToMe);
+    pathToSimpleIO = pathToSimpleIO.substr(0, pathToSimpleIO.find_last_of('\\'));
+    pathToSimpleIO = pathToSimpleIO.substr(0, pathToSimpleIO.find_last_of('\\') + 1);
+    pathToSimpleIO += TEXT("SimpleIO-UM.dll");
+    return ::LoadLibrary(pathToSimpleIO.c_str());
+}
+
 static enum MCP2200_Init_Result init_mcp2200()
 {
     //STEP 1: Get handle to DLL– Path and name (Ex. C:\\SimpleIO-UM.dll) or just name
     // if in working directory (put this in the quotes) 
-    DLL_handle = (HMODULE)::GetModuleHandle(TEXT("SimpleIO-UM.dll"));
+    DLL_handle = LoadSimpleIODll();
 
     //Print result of LoadLibrary call 
 	if( DLL_handle == NULL ) //If it is null, LoadLibrary call failed 
 	{ 
-		DWORD error = ::GetLastError(); 
-		print_debug("Loading of the DLL failed\n"); 
-		print_debug("The error was: %d%s", error, "\n\n");
-        flush_debug();
-		return INIT_FAIL; 
+        return INIT_FAIL;
 	} 
 	else 
     { 
@@ -232,6 +247,7 @@ static void inout(scicos_block *block)
 static void end(scicos_block *block)
 {
 	/* End the debug if needed */
+    ::FreeLibrary(DLL_handle);
     stop_debug();
     correct_init = false;
 }

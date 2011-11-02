@@ -120,9 +120,6 @@ waitbar('                                               \n..
   if exists('serial_gateway_link_num')
     ulink(serial_gateway_link_num);
   end
-  if exists('simpleIO_link_num')
-    ulink(simpleIO_link_num);
-  end
   // Removing ScicosLabPack_install.log
   [loginfo,ierr]=fileinfo('ScicosLabPack_install.log');
   if ierr==0
@@ -438,9 +435,6 @@ waitbar('                                               \n..
     if exists('serial_gateway_link_num')
         ulink(serial_gateway_link_num);
     end 
-    if exists('simpleIO_link_num')
-      ulink(simpleIO_link_num);
-    end
     
     // Removing scicos_ee
     cd(SCIDIR+'\contrib');
