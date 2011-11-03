@@ -120,6 +120,10 @@ waitbar('                                               \n..
   if exists('serial_gateway_link_num')
     ulink(serial_gateway_link_num);
   end
+  if exists('rs232_link_num')
+    ulink(rs232_link_num);
+  end
+  
   // Removing ScicosLabPack_install.log
   [loginfo,ierr]=fileinfo('ScicosLabPack_install.log');
   if ierr==0
@@ -153,7 +157,7 @@ end
 cd(SCIDIR + '\contrib');
 cmd = 'dir > test.x';
 unix(cmd);
-[x,err] = fileinfo('test.x')
+[x,err] = fileinfo('test.x');
 if err ~= 0
 waitbar('                                               \n..
                    # Installation Error #               \n..
@@ -435,6 +439,9 @@ waitbar('                                               \n..
     if exists('serial_gateway_link_num')
         ulink(serial_gateway_link_num);
     end 
+	if exists('rs232_link_num')
+        ulink(rs232_link_num);
+    end
     
     // Removing scicos_ee
     cd(SCIDIR+'\contrib');
