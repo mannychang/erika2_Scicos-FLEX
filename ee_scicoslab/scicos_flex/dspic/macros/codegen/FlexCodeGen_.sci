@@ -92,18 +92,114 @@ function FlexCodeGen_()
             end
 
             label1 = [myrdnom; mypath];
-            [okk, user_name, user_path, label1] = getvalue(..
+			user_template = mytemplate;
+            user_target = mytarget;
+            user_odefun = myodefun;
+            user_odestep = myodestep;
+			
+			// -----------------------------------------------------------------------------------------------------
+			// Check of user_name and user_path ...
+			// -----------------------------------------------------------------------------------------------------
+			while %t do
+				[okk, user_name, user_path, label1] = getvalue(..
                 ['Code Generation for Target: ' + mytarget + ', ' + mytemplate; '(Help: Use Set Target from the menu to change device settings)'],..
                 ['New block''s name :';
                 'Created files Path:'],..
                 list('str',1,'str',1), label1);
-            if okk==%f then return; end
-            scs_m.objs(k).model.rpar.props.void2(1) = user_name;
-            scs_m.objs(k).model.rpar.props.void2(2) = user_path;
-            user_template = mytemplate;
-            user_target = mytarget;
-            user_odefun = myodefun;
-            user_odestep = myodestep;
+				if okk==%f then return; end
+				
+				ok=%t  // to avoid infinite loop
+
+				//** I put a warning here in order to inform the user
+				//** that the name of the superblock will change
+				//** because the space char in name isn't allowed.
+				if grep(user_name," ")<>[] then
+				  message(['Superblock name cannot contains space characters.';
+						   'space chars will be automatically substituted by ""_"" '])
+				end
+				user_name = strsubst(user_name,' ','_');
+
+				//** Put a warning here in order to inform the user
+				//** that the name of the superblock will change
+				//** because the "-" char could generate GCC problems
+				//** (the C functions contains the name of the superblock).
+				if grep(user_name,"-")<>[] then
+				  message(['For full C compiler compatibility ';
+						   'Superblock name cannot contains ""-"" characters';
+						   '""-"" chars will be automatically substituted by ""_"" '])
+				end
+				user_name = strsubst(user_name,'-','_'); 
+
+				if grep(user_name,".")<>[] then
+				  message(['For full C compiler compatibility ';
+						   'Superblock name cannot contains ""."" characters';
+						   '""."" chars will be automatically substituted by ""_"" '])
+
+				end
+				user_name = strsubst(user_name,'.','_');
+				
+				if stripblanks(user_name)==emptystr() then 
+				  ok = %f;
+				  message("Sorry: C file name not defined");
+				end
+				
+				user_path = stripblanks(user_path);
+				dirinfo = fileinfo(user_path)
+				
+				if dirinfo==[] then
+				  [pathrp, fnamerp, extensionrp] = fileparts(user_path); 
+				  okdir = mkdir(pathrp, fnamerp+extensionrp) ; 
+				  if ~okdir then 
+					message("Directory '+user_path+' cannot be created");
+					ok = %f;
+				  end
+				elseif filetype(dirinfo(2))<>'Directory' then
+				  ok = %f;
+				  message(user_path+" is not a directory");
+				end
+
+				//** This comments will be moved in the documentation 
+				//** /contrib/scicos_ee/scicos_flex/RT_templates/pippo.gen
+				//** 1: pippo.mak 
+				//** 2: pippo.cmd
+				//** pippo.mak : scheletro del Makefile 
+				//**             - GNU/Linux : Makefile template
+				//**             - Windows/Erika : conf.oil
+				//**                               erika.cmd
+				//** pippo.cmd : sequenza di comandi Scilab 
+
+				TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
+
+				[fd,ierr] = mopen(TARGETDIR+'/'+user_target+'.gen','r');
+				if ierr==0 then
+				  mclose(fd);
+				else
+				  ok = %f;
+				  message("Target not valid " + user_target + ".gen");
+				end
+				
+				if ok then
+				  target_t = mgetl(TARGETDIR+'/'+user_target+'.gen');
+				  makfil = target_t(1);
+				  cmdfil = target_t(2);
+				  [fd,ierr]=mopen(TARGETDIR+'/'+makfil,'r');
+				  if ierr==0 then
+					mclose(fd);
+				  else
+					ok = %f ;
+					message("Makefile not valid " + makfil);
+				  end
+				end
+
+				scs_m.objs(k).model.rpar.props.void2(1) = user_name;
+				scs_m.objs(k).model.rpar.props.void2(2) = user_path;
+				label1 = [user_name; user_path];
+					
+				if ok then break,end
+			  end
+			// -----------------------------------------------------------------------------------------------------
+			
+            
             // Got to target sblock.
             scs_m_top=goto_target_scs_m(scs_m_top)
             //## call do_compile_superblock
@@ -1654,112 +1750,10 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
     end
   end
   
-  ode_x=['ode1';'ode2';'ode4']; //** available continous solver 
+ 
   libs='';
   rpat = user_path;
   
-  while %t do
-    ok=%t  // to avoid infinite loop
-
-    //@@ check name of block for space,'-','_'
-    if grep(rdnom," ")<>[] | grep(rdnom,"-")<>[]  | grep(rdnom,".")<>[] then
-      rdnom = strsubst(rdnom,' ','_');
-      rdnom = strsubst(rdnom,'-','_');
-      rdnom = strsubst(rdnom,'.','_');
-    end
-    
-    rpat = stripblanks(rpat);
-
-    //** I put a warning here in order to inform the user
-    //** that the name of the superblock will change
-    //** because the space char in name isn't allowed.
-    if grep(rdnom," ")<>[] then
-      message(['Superblock name cannot contains space characters.';
-               'space chars will be automatically substituted by ""_"" '])
-    end
-    rdnom = strsubst(rdnom,' ','_');
-
-    //** Put a warning here in order to inform the user
-    //** that the name of the superblock will change
-    //** because the "-" char could generate GCC problems
-    //** (the C functions contains the name of the superblock).
-    if grep(rdnom,"-")<>[] then
-      message(['For full C compiler compatibility ';
-               'Superblock name cannot contains ""-"" characters';
-               '""-"" chars will be automatically substituted by ""_"" '])
-    end
-
-    rdnom = strsubst(rdnom,'-','_'); 
-
-    dirinfo = fileinfo(rpat)
-    
-    if dirinfo==[] then
-      [pathrp, fnamerp, extensionrp] = fileparts(rpat); 
-      ok = mkdir(pathrp, fnamerp+extensionrp) ; 
-      if ~ok then 
-        message("Directory '+rpat+' cannot be created");
-      end
-    elseif filetype(dirinfo(2))<>'Directory' then
-      ok = %f;
-      message(rpat+" is not a directory");
-    end
-
-    if stripblanks(rdnom)==emptystr() then 
-      ok = %f;
-      message("Sorry: C file name not defined");
-    end
-
-
-    //** This comments will be moved in the documentation 
-
-    //** /contrib/scicos_ee/scicos_flex/RT_templates/pippo.gen
-
-    //** 1: pippo.mak 
-    //** 2: pippo.cmd
-
-    //** pippo.mak : scheletro del Makefile 
-    //**             - GNU/Linux : Makefile template
-    //**             - Windows/Erika : conf.oil
-    //**                               erika.cmd
- 
-    //** pippo.cmd : sequenza di comandi Scilab 
-
-
-    TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
-
-    [fd,ierr] = mopen(TARGETDIR+'/'+target+'.gen','r');
-
-    if ierr==0 then
-      mclose(fd);
-    else
-      ok = %f;
-      message("Target not valid " + target + ".gen");
-    end
-    
-    if ok then
-      target_t = mgetl(TARGETDIR+'/'+target+'.gen');
-      makfil = target_t(1);
-      cmdfil = target_t(2);
-
-      [fd,ierr]=mopen(TARGETDIR+'/'+makfil,'r');
-      if ierr==0 then
-        mclose(fd);
-      else
-        ok = %f ;
-        message("Makefile not valid " + makfil);
-      end
-    end
-
-    if x ~= [] then
-      if vectorfind(ode_x,odefun,'r') == [] then
-         message("Ode function not valid");
-         ok = %f;
-      end
-    end
-
-    if ok then break,end
-  end
-
 //------------------ The real code generation is here ------------------------------------
 
   //************************************************************************

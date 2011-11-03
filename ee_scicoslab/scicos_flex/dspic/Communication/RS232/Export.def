@@ -1,0 +1,6 @@
+LIBRARY libFlexRS232Comms
+EXPORTS
+	rs232_receiver
+	rs232_sender
+	rs232_config
+	
