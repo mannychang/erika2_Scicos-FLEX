@@ -55,6 +55,7 @@ comp_fun_flexcomm       =['flex_simple802154_coordinator_config',..
                           'flex_can_out',..
                           'flex_serial_receive',..
                           'flex_serial_send',..
+						  'flex_serial_config',..
                           'flex_udp_config',..
                           'flex_udp_receive',..
                           'flex_udp_send',..

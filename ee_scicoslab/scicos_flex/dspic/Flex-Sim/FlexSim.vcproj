@@ -381,6 +381,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\flex_serial_config.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\flex_serial_receive.cpp"
 				>
 			</File>
