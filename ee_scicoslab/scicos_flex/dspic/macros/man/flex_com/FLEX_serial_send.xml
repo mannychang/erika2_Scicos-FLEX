@@ -14,30 +14,15 @@
   <DESCRIPTION>
     <P><IMG src="FLEX_serial_send.gif"></IMG></P>
     <P><VERB>Palette: FLEX-Communication</VERB></P>
-    <P>This block controls the serial sending through the RS-232 protocol for the FLEX Board. 
-       The internal parameters specify the serial port and the baud-rate. </P>
+    <P>This block controls the serial sending of characters through the UART controller for the FLEX Board. </P>
   </DESCRIPTION>
-
-  <PARAM>
- <PARAM_INDENT>
-  <PARAM_ITEM>
-  <PARAM_NAME>Port: </PARAM_NAME>
-  <PARAM_DESCRIPTION>
-    UART port (1,2).
-  </PARAM_DESCRIPTION> 
-  </PARAM_ITEM>
-  <PARAM_ITEM>
-  <PARAM_NAME>Baud-rate: </PARAM_NAME>
-  <PARAM_DESCRIPTION>
-    UART baud-rate (9600, 19200, 57600, 115200).
-  </PARAM_DESCRIPTION> 
-  </PARAM_ITEM>
- </PARAM_INDENT>
-  </PARAM>
   
   <SEE_ALSO>
     <SEE_ALSO_ITEM>
       <LINK>FLEX_serial_receive</LINK>
+    </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_serial_config</LINK>
     </SEE_ALSO_ITEM>
   </SEE_ALSO>
 

@@ -14,33 +14,17 @@
   <DESCRIPTION>
     <P><IMG src="EASYLAB_serial_receive.gif"></IMG></P>
     <P><VERB>Palette: EASYLAB</VERB></P>
-    <P>This block controls data reception through the serial interface of the Easylab board.</P>
+    <P>This block controls the serial reception of characters through UART controller for the EASYLAB Board. </P>
   </DESCRIPTION>
-
-  <PARAM>
- <PARAM_INDENT>
-  <PARAM_ITEM>
-  <PARAM_NAME>Baudrate: </PARAM_NAME>
-  <PARAM_DESCRIPTION>
-    The internal parameter specifies the UART baudrate (accepted values: 9600, 19200, 57600, 115200).
-  </PARAM_DESCRIPTION> 
-  </PARAM_ITEM>
- </PARAM_INDENT>
-  </PARAM>
   
   <SEE_ALSO>
     <SEE_ALSO_ITEM>
       <LINK>EASYLAB_serial_send</LINK>
     </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM>
+      <LINK>EASYLAB_serial_config</LINK>
+    </SEE_ALSO_ITEM>
   </SEE_ALSO>
 
-  <AUTHORS>
-    <AUTHORS_ITEM>
-    Errico Guidieri, Evidence Srl, 2011.
-    </AUTHORS_ITEM>
-    <AUTHORS_ITEM>
-    Dario Di Stefano, Evidence Srl, 2011.
-    </AUTHORS_ITEM>
-  </AUTHORS>
-  
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
 </MAN>

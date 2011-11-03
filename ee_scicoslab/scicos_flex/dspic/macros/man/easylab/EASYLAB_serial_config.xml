@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>EASYLAB_serial_config</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>October 2011</DATE>
+
+  <SHORT_DESCRIPTION name="EASYLAB_serial_config">palette: EASYLAB</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="EASYLAB_serial_config.gif"></IMG></P>
+    <P><VERB>Palette: EASYLAB</VERB></P>
+    <P>This block controls the UART interface for the EASYLAB Board. 
+       The internal parameter specifies the baud-rate. </P>
+  </DESCRIPTION>
+
+  <PARAM>
+ <PARAM_INDENT>
+   <PARAM_ITEM>
+  <PARAM_NAME>Baud-rate: </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+    UART baud-rate (9600, 19200, 57600, 115200).
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>EASYLAB_serial_receive</LINK>
+    </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM>
+      <LINK>EASYLAB_serial_send</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2011</AUTHOR>
+</MAN>
