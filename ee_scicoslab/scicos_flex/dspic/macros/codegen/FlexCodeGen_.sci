@@ -142,54 +142,6 @@ function FlexCodeGen_()
 				  ok = %f;
 				  message("Sorry: C file name not defined");
 				end
-				
-				user_path = stripblanks(user_path);
-				dirinfo = fileinfo(user_path)
-				
-				if dirinfo==[] then
-				  [pathrp, fnamerp, extensionrp] = fileparts(user_path); 
-				  okdir = mkdir(pathrp, fnamerp+extensionrp) ; 
-				  if ~okdir then 
-					message("Directory '+user_path+' cannot be created");
-					ok = %f;
-				  end
-				elseif filetype(dirinfo(2))<>'Directory' then
-				  ok = %f;
-				  message(user_path+" is not a directory");
-				end
-
-				//** This comments will be moved in the documentation 
-				//** /contrib/scicos_ee/scicos_flex/RT_templates/pippo.gen
-				//** 1: pippo.mak 
-				//** 2: pippo.cmd
-				//** pippo.mak : scheletro del Makefile 
-				//**             - GNU/Linux : Makefile template
-				//**             - Windows/Erika : conf.oil
-				//**                               erika.cmd
-				//** pippo.cmd : sequenza di comandi Scilab 
-
-				TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
-
-				[fd,ierr] = mopen(TARGETDIR+'/'+user_target+'.gen','r');
-				if ierr==0 then
-				  mclose(fd);
-				else
-				  ok = %f;
-				  message("Target not valid " + user_target + ".gen");
-				end
-				
-				if ok then
-				  target_t = mgetl(TARGETDIR+'/'+user_target+'.gen');
-				  makfil = target_t(1);
-				  cmdfil = target_t(2);
-				  [fd,ierr]=mopen(TARGETDIR+'/'+makfil,'r');
-				  if ierr==0 then
-					mclose(fd);
-				  else
-					ok = %f ;
-					message("Makefile not valid " + makfil);
-				  end
-				end
 
 				scs_m.objs(k).model.rpar.props.void2(1) = user_name;
 				scs_m.objs(k).model.rpar.props.void2(2) = user_path;
@@ -1787,6 +1739,56 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   // Scilab and C files generation
   //***********************************
 
+  if exists('TARGETDIR')==0,  
+	TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
+  end     
+  
+  user_path = stripblanks(user_path);
+  dirinfo = fileinfo(user_path)
+				
+  if dirinfo==[] then
+	[pathrp, fnamerp, extensionrp] = fileparts(user_path); 
+	okdir = mkdir(pathrp, fnamerp+extensionrp) ; 
+	if ~okdir then 
+		message("Directory '+user_path+' cannot be created");
+		ok = %f;
+	end
+  elseif filetype(dirinfo(2))<>'Directory' then
+	ok = %f;
+	message(user_path+" is not a directory");
+  end
+
+	//** This comments will be moved in the documentation 
+	//** /contrib/scicos_ee/scicos_flex/RT_templates/pippo.gen
+	//** 1: pippo.mak 
+	//** 2: pippo.cmd
+	//** pippo.mak : scheletro del Makefile 
+	//**             - GNU/Linux : Makefile template
+	//**             - Windows/Erika : conf.oil
+	//**                               erika.cmd
+	//** pippo.cmd : sequenza di comandi Scilab 
+
+	[fd,ierr] = mopen(TARGETDIR+'/'+user_target+'.gen','r');
+	if ierr==0 then
+	  mclose(fd);
+    else
+	  ok = %f;
+	  message("Target not valid " + user_target + ".gen");
+	end
+				
+	if ok then
+	  target_t = mgetl(TARGETDIR+'/'+user_target+'.gen');
+	  makfil = target_t(1);
+	  cmdfil = target_t(2);
+	  [fd,ierr]=mopen(TARGETDIR+'/'+makfil,'r');
+		if ierr==0 then
+			mclose(fd);
+		else
+			ok = %f ;
+			message("Makefile not valid " + makfil);
+		end
+	end
+ 
   cmdseq = mgetl(TARGETDIR+'/' + cmdfil);
   n_cmd = size(cmdseq,1);
 
@@ -5887,7 +5889,6 @@ endfunction
 // *******************************************************
 
 function [files]=write_code(Code,CCode,FCode,Code_common)
-
 // Original file from Project Metalau - INRIA
 // Modified for RT purposes by Roberto Bucher - RTAI Team
 // roberto.bucher@supsi.ch
