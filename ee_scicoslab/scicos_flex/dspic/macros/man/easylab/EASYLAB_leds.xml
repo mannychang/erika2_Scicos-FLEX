@@ -22,7 +22,7 @@
   <PARAM_ITEM>
   <PARAM_NAME>Led: </PARAM_NAME>
   <PARAM_DESCRIPTION>
-    This parameter specifies the led (1,2,3,4,7,8,9,10).
+    This parameter specifies the led [1-8].
   </PARAM_DESCRIPTION> 
   </PARAM_ITEM>
   <PARAM_ITEM>

@@ -20,15 +20,15 @@ function [x,y,typ] = EASYLAB_leds(job,arg1,arg2)
         [ok,led_threshold, gpout_pin,exprs]=..
         getvalue('Select Easylab Led Number',..
         ['Threshold: [0.01..0.99]';..
-        'LED [1,2,3,4,7,8,9,10] :'],..
+        'LED [1-8] :'],..
         list('vec',-1,'vec',-1),exprs)
         if ~ok then break,end
         if((led_threshold < 0.01) | (led_threshold > 0.99)) then
             warning('Accepted values for led_threshold are in [0.01,0.99]. Keeping previous values.');
             break;
         end
-        if((gpout_pin < 1) | (gpout_pin > 10) | (gpout_pin == 5) | (gpout_pin == 6)) then
-            warning('Accepted values for led are in [1,2,3,4,7,8,9,10]. Keeping previous values.');
+        if((gpout_pin < 1) | (gpout_pin > 8)) then
+            warning('Accepted values for led are in [1-8]. Keeping previous values.');
             break;
         end
         if exists('inport') then in=ones(inport,1), else in=1, end
