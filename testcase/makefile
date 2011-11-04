@@ -115,29 +115,29 @@ analyze_palettes: tmp $(analyze_dirs)
 	@echo ANALYZE_PALETTE Creating global palette list
 	@for p in `find $(SCIBASE)/contrib/scicos_ee/scicos_flex/dspic/macros/palettes | grep cosf | grep -v svn`; do \
           echo Palette $${p}; \
-          cd $(SCIBASE)/testcase/tmp; \
+          cd $(TESTBASE)/tmp; \
 	  cp -f $${p} ./mypalette.cosf; \
 	  chmod +r ./mypalette.cosf; \
-	  echo ---------- >>$(SCIBASE)/testcase/tmp/scicoslab_log.txt ;\
-          cat $(SCIBASE)/testcase/common/flex_codegen/batch_palette_info.sce | gcc -c - -E -P -DTESTDIR="`cygpath -ms $(SCIBASE)/testcase/tmp`" -o - >$(SCIBASE)/testcase/tmp/batch_palette_info_parsed.sce; \
-          $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(SCIBASE)/testcase/tmp/batch_palette_info_parsed.sce`" >>$(SCIBASE)/testcase/tmp/scicoslab_log.txt; \
+	  echo ---------- >>$(TESTBASE)/tmp/scicoslab_log.txt ;\
+          cat $(TESTBASE)/common/flex_codegen/batch_palette_info.sce | gcc -c - -E -P -DTESTDIR="`cygpath -ms $(TESTBASE)/tmp`" -o - >$(TESTBASE)/tmp/batch_palette_info_parsed.sce; \
+          $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/tmp/batch_palette_info_parsed.sce`" >>$(TESTBASE)/tmp/scicoslab_log.txt; \
           export myscilabfile=$${p}; \
-          cat $(SCIBASE)/testcase/tmp/blocklist.txt | awk '{ print ENVIRON["myscilabfile"], $$1}' >> $(SCIBASE)/testcase/tmp/globalpalettelist.txt; \
+          cat $(TESTBASE)/tmp/blocklist.txt | awk '{ print ENVIRON["myscilabfile"], $$1}' >> $(TESTBASE)/tmp/globalpalettelist.txt; \
         done
 
 # creates tmp/globalblocklist, which contains all pair (diagram_file,block)
 	@echo ANALYZE_PALETTE Creating global block list
-	@cat */*/blocklist.txt | sort | uniq > $(SCIBASE)/testcase/tmp/globalblocklist.txt
+	@cat */*/blocklist.txt | sort | uniq > $(TESTBASE)/tmp/globalblocklist.txt
 
 # creates coverage
 	@echo ANALYZE_PALETTE Creating global block coverage
-	@rm -f $(SCIBASE)/testcase/tmp/globalcoverage.txt
-	@for x in `cat $(SCIBASE)/testcase/tmp/globalpalettelist.txt | awk '{print $$2}'`; do \
-          echo ------------ >> $(SCIBASE)/testcase/tmp/globalcoverage.txt; \
-          echo $${x} >> $(SCIBASE)/testcase/tmp/globalcoverage.txt; \
-          echo >> $(SCIBASE)/testcase/tmp/globalcoverage.txt; \
-          grep $${x} $(SCIBASE)/testcase/tmp/globalpalettelist.txt | awk '{print "  Palette " $$1}' >> $(SCIBASE)/testcase/tmp/globalcoverage.txt;\
-          grep $${x} $(SCIBASE)/testcase/tmp/globalblocklist.txt | awk '{print "    Diagram " $$1}' >> $(SCIBASE)/testcase/tmp/globalcoverage.txt;\
+	@rm -f $(TESTBASE)/tmp/globalcoverage.txt
+	@for x in `cat $(TESTBASE)/tmp/globalpalettelist.txt | awk '{print $$2}'`; do \
+          echo ------------ >> $(TESTBASE)/tmp/globalcoverage.txt; \
+          echo $${x} >> $(TESTBASE)/tmp/globalcoverage.txt; \
+          echo >> $(TESTBASE)/tmp/globalcoverage.txt; \
+          grep $${x} $(TESTBASE)/tmp/globalpalettelist.txt | awk '{print "  Palette " $$1}' >> $(TESTBASE)/tmp/globalcoverage.txt;\
+          grep $${x} $(TESTBASE)/tmp/globalblocklist.txt | awk '{print "    Diagram " $$1}' >> $(TESTBASE)/tmp/globalcoverage.txt;\
         done
 
 #
@@ -169,10 +169,10 @@ hudson: tmp
 	@$(MAKE) $(NOPRINTDIR) -C . -f makefile hudson_print_dirs
 
 # add an entry for each block that has no tests
-	@for x in `cat $(SCIBASE)/testcase/tmp/globalpalettelist.txt | awk '{print $$2}'`; do \
+	@for x in `cat $(TESTBASE)/tmp/globalpalettelist.txt | awk '{print $$2}'`; do \
           echo Checking Block $${x}; \
-	  if (test -z "`grep $${x} $(SCIBASE)/testcase/tmp/globalblocklist.txt`") then \
-	    if (test -z "`grep $${x} $(SCIBASE)/testcase/hudson_ignoreblocks.txt`") then \
+	  if (test -z "`grep $${x} $(TESTBASE)/tmp/globalblocklist.txt`") then \
+	    if (test -z "`grep $${x} $(TESTBASE)/hudson_ignoreblocks.txt`") then \
 		echo "  <test name=\"BLOCK $${x}\" executed=\"yes\">"                   >> tmp/results.xml;\
 		echo "    <result>"                                                     >> tmp/results.xml;\
 		echo "      <success passed=\"no\" state=\"0\"/>"                       >> tmp/results.xml;\
