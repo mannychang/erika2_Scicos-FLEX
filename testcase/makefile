@@ -241,7 +241,7 @@ missing_scibase:
 	@echo ERROR: Missing environment variable SCIBASE
 	@echo
 	@echo ...maybe you can try with the following command:
-	@echo export TESTBASE=`pwd`
+	@echo export SCIBASE=`pwd`
 	
 missing_testbase:
 	@echo WARNING: Missing environment variable TESTBASE
