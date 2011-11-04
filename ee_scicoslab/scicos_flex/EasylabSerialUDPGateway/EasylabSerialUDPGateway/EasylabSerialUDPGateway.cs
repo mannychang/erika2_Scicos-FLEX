@@ -30,6 +30,8 @@ namespace EasylabSerialUDPGateway
             SerialPortCombo.Text         = commPort;
             UDPReceivingPortUpDown.Value = receivingPort;
             UDPSendingPortUpDown.Value   = sendingPort;
+            this.LogSerialValuesOnFile.Visible = false;
+            this.LogUDPFloatsOnFile.Visible = false;
             Connect();
         }
 

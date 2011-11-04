@@ -37,7 +37,7 @@ namespace EasylabSerialUDPGateway
             {
                 byte crc = 0;
                 /* Start byte check.  I need 'actualIndex' incremented after this point */
-                if (actualPacket[actualIndex++] != 0)
+                if (actualPacket[actualIndex++] != 0xAA)
                     continue;
 
                 /* Parsing inner loop */
@@ -85,6 +85,7 @@ namespace EasylabSerialUDPGateway
                 /* crc byte (start with actualIndex value) */
                 byte crc = received[actualIndex];
                 byte[] commPacket = new byte[EASYLAB_PACKET_SIZE];
+                commPacket[0] = 0xAA;
 
                 /* Crc/filling inner loop */
                 for (int j = 1; j < EASYLAB_PACKET_SIZE - 1; ++j)
