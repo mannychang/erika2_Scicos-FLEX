@@ -14,8 +14,11 @@ MYDIR = get_absolute_file_path('installer.sce');
 OLDDIR = pwd();
 SCIDIR = strsubst(SCI,'/','\');
 
-answ = buttondialog("ScicosLab pack Setup utility.\nChoose if install or uninstall the toolbox. ","Install|Uninstall|Exit","question"); 
-if answ=='1'
+
+if exists('answ_install_dialog')==0
+	answ_install_dialog = buttondialog("ScicosLab pack Setup utility.\nChoose if install or uninstall the toolbox. ","Install|Uninstall|Exit","question"); 
+end
+if answ_install_dialog=='1'
   // Initial message
 winId_wait = waitbar('                                  \n..
                   EE Scicos pack Setup.                 \n..
@@ -28,7 +31,7 @@ winId_wait = waitbar('                                  \n..
   // Load libraries
   getf scicos_ee\utils\utils.sci 
 end
-if answ=='2'
+if answ_install_dialog=='2'
   // Uninstaller section: exec('unistaller.sce');
   // TEST if user is Admin
   cd(SCIDIR + '\contrib');
@@ -149,7 +152,7 @@ waitbar('                                               \n..
   EE_debug_printf('  Please, restart ScicosLab for the changes to take effect...', 0);
   cd(home); return;
 end
-if answ=='3' | answ=='0'
+if answ_install_dialog=='3' | answ_install_dialog=='0'
   cd(OLDDIR); return;
 end
 
@@ -217,141 +220,160 @@ end
 // 10%
 waitbar(0.1, winId_wait);
 
-// Create apps.list (installed applications list) 
-cd(MYDIR+'scicos_ee\utils');
-cmd = 'installed_win_apps_list.bat > apps.list';
-unix(cmd);
-cd(MYDIR+'scicos_ee\utils');
-txt=mgetl('apps.list');
+if exists('NO_APPS_CHECK')==0
+	// Create apps.list (installed applications list) 
+	cd(MYDIR+'scicos_ee\utils');
+	cmd = 'installed_win_apps_list.bat > apps.list';
+	unix(cmd);
+	cd(MYDIR+'scicos_ee\utils');
+	txt=mgetl('apps.list');
 
-// 20 %
-waitbar(0.2, winId_wait);
+	// 20 %
+	waitbar(0.2, winId_wait);
 
-// Check Visual C++ presence
-waitbar('                                               \n..
-             Check Visual C++ 2008 presence...          \n..
-                                                        \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
-res = grep(txt,'Visual C++ 2008');
-if res==[]
-  EE_debug_printf('  #warning: Visual C++ 2008 not found!', fd_log);
-  EE_debug_printf('  #warning: Installation of Visual C++ 2008 Express Edition is required by the ScicosLab EE pack!', fd_log);
-waitbar('                                               \n..
-                # Installation Warning #                \n..
-                 Visual C++ not found!                  \n..
-    Installation of Visual C++ 2008 Express Edition     \n..
-          is required by the ScicosLab EE pack!         \n..
-                                                        ', winId_wait);
-else
-waitbar('                                               \n..
-        Check Visual C++ 2008 presence...found!         \n..
-                                                        \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
-end
+	// Check Visual C++ presence
+	waitbar('                                               \n..
+				 Check Visual C++ 2008 presence...          \n..
+															\n..
+															\n..
+															\n..
+															', winId_wait);
+	res = grep(txt,'Visual C++ 2008');
+	if res==[]
+	  EE_debug_printf('  #warning: Visual C++ 2008 not found!', fd_log);
+	  EE_debug_printf('  #warning: Installation of Visual C++ 2008 Express Edition is required by the ScicosLab EE pack!', fd_log);
+	waitbar('                                               \n..
+					# Installation Warning #                \n..
+					 Visual C++ not found!                  \n..
+		Installation of Visual C++ 2008 Express Edition     \n..
+			  is required by the ScicosLab EE pack!         \n..
+															', winId_wait);
+	else
+	waitbar('                                               \n..
+			Check Visual C++ 2008 presence...found!         \n..
+															\n..
+															\n..
+															\n..
+															', winId_wait);
+	end
 
-// Check Java presence
-waitbar('                                               \n..
-                Check Java presence...                  \n..
-                                                        \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
-res = grep(txt,'Java(TM)');
-if res==[]
-  EE_debug_printf('  #warning: Java not found!', fd_log);
-  EE_debug_printf('  #warning: Installation of Java is required by the ScicosLab EE pack!', fd_log);
-waitbar('                                               \n..
-               # Installation Warning #                 \n..
-                   Java not found!                      \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
-else
-waitbar('                                               \n..
-             Check Java presence...found!               \n..
-                                                        \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
-end
+	// Check Java presence
+	waitbar('                                               \n..
+					Check Java presence...                  \n..
+															\n..
+															\n..
+															\n..
+															', winId_wait);
+	res = grep(txt,'Java(TM)');
+	if res==[]
+	  EE_debug_printf('  #warning: Java not found!', fd_log);
+	  EE_debug_printf('  #warning: Installation of Java is required by the ScicosLab EE pack!', fd_log);
+	waitbar('                                               \n..
+				   # Installation Warning #                 \n..
+					   Java not found!                      \n..
+															\n..
+															\n..
+															', winId_wait);
+	else
+	waitbar('                                               \n..
+				 Check Java presence...found!               \n..
+															\n..
+															\n..
+															\n..
+															', winId_wait);
+	end
 
-// Check MPLAB C30 presence 
-waitbar('                                               \n..
-         Check MPLAB C30 compiler presence...           \n..
-                                                        \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
-res_c30 = grep(txt,'MPLAB C30');
-res_c   = grep(txt,'MPLAB C');
-if res_c30==[] & res_c==[]
-    EE_debug_printf('  #warning: C30 compiler for dsPIC not found!', fd_log);
-waitbar('                                               \n..
-              # Installation Warning #                  \n..
-          C30 compiler for dsPIC not found!             \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
-    answ = buttondialog("The installation requires valid paths for C30 compiler and ASM30 assembler (Yes: to continue, No: to abort)","yes|no","question"); 
-    if answ=='2'
-waitbar('                                               \n..
-              # Installation Warning #                  \n..
-          Please, install a valid compiler              \n..
-       otherwise code generator will not work!          \n..
-               Installation aborted!                    \n..
-                                                        ', winId_wait);
-      EE_debug_printf('  #warning: Please, install a valid C30 compiler otherwise code generator will not work!', fd_log);
-      EE_debug_printf('  Installation aborted!', fd_log);
-      EE_debug_printf('### END ###', fd_log);
-      mclose(fd_log);
-      cd(OLDDIR); return;
-    end
-else
-waitbar('                                               \n..
-                  C30 compiler settings...              \n..
-                                                        \n..
-                                                        \n..
-                                                        \n..
-                                                        ', winId_wait);
+	// Check MPLAB C30 presence 
+	waitbar('                                               \n..
+			 Check MPLAB C30 compiler presence...           \n..
+															\n..
+															\n..
+															\n..
+															', winId_wait);
+	res_c30 = grep(txt,'MPLAB C30');
+	res_c   = grep(txt,'MPLAB C');
+	if res_c30==[] & res_c==[]
+		EE_debug_printf('  #warning: C30 compiler for dsPIC not found!', fd_log);
+	waitbar('                                               \n..
+				  # Installation Warning #                  \n..
+			  C30 compiler for dsPIC not found!             \n..
+															\n..
+															\n..
+															', winId_wait);
+		answ = buttondialog("The installation requires valid paths for C30 compiler and ASM30 assembler (Yes: to continue, No: to abort)","yes|no","question"); 
+		if answ=='2'
+	waitbar('                                               \n..
+				  # Installation Warning #                  \n..
+			  Please, install a valid compiler              \n..
+		   otherwise code generator will not work!          \n..
+				   Installation aborted!                    \n..
+															', winId_wait);
+		  EE_debug_printf('  #warning: Please, install a valid C30 compiler otherwise code generator will not work!', fd_log);
+		  EE_debug_printf('  Installation aborted!', fd_log);
+		  EE_debug_printf('### END ###', fd_log);
+		  mclose(fd_log);
+		  cd(OLDDIR); return;
+		end
+	else
+	waitbar('                                               \n..
+					  C30 compiler settings...              \n..
+															\n..
+															\n..
+															\n..
+															', winId_wait);
+	end
 end
 
 // C30 path
 CC_path_valid=%F;
-c30_asm30_paths='c:/Programmi/Microchip/MPLAB C30';
-while CC_path_valid==%F
-  c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 installation directory path:'],[c30_asm30_paths]);
-  //CC_path_valid = isdir( c30_asm30_paths );
-  c30_asm30_paths = strsubst(c30_asm30_paths,'\','/');
-  ind_slash = strindex(c30_asm30_paths,'/');
-  len_path = length(c30_asm30_paths);
-  if ind_slash(length(ind_slash)) ==  len_path
-    strs_temp = strsplit(c30_asm30_paths,[ind_slash(length(ind_slash))-1, ind_slash(length(ind_slash))-1]);
-    c30_asm30_paths = strs_temp(1);
-  end
-  [x,ierr]=fileinfo(c30_asm30_paths + '/bin/pic30-gcc.exe');  
-  if ierr<0
-    CC_path_valid = %F;
-    answ = buttondialog("Inserted path is not valid! (Yes: to retry, No: to abort)","yes|no","question"); 
-    if answ=='2'
-waitbar('                                               \n..
-                   # Installation Error #               \n..
-              Please, install a valid compiler          \n..
-            otherwise code generator will not work!     \n..
-             path + /bin/pic30-gcc.exe NOT FOUND!       \n..
-                   Installation aborted!               ', winId_wait);
-      EE_debug_printf('  Installation aborted!', fd_log);
-      EE_debug_printf('### END ###', fd_log);
-      mclose(fd_log);
-      cd(OLDDIR); return;
-    end
-  else
-    CC_path_valid = %T;
-  end
+
+if exists('c30_asm30_paths')==0
+	c30_asm30_paths='c:/Programmi/Microchip/MPLAB C30';
+	if exists('INSTALLER_BATCH_MODE')==1
+		EE_debug_printf('  Installation in batch mode aborted!', fd_log);
+		EE_debug_printf('### END ###', fd_log);
+		mclose(fd_log);
+		cd(OLDDIR); return;
+	end
 end
+
+while CC_path_valid==%F
+	  if exists('INSTALLER_BATCH_MODE')==0
+		c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 installation directory path:'],[c30_asm30_paths]);
+	  end
+	  //CC_path_valid = isdir( c30_asm30_paths );
+	  c30_asm30_paths = strsubst(c30_asm30_paths,'\','/');
+	  ind_slash = strindex(c30_asm30_paths,'/');
+	  len_path = length(c30_asm30_paths);
+	  if ind_slash(length(ind_slash)) ==  len_path
+		strs_temp = strsplit(c30_asm30_paths,[ind_slash(length(ind_slash))-1, ind_slash(length(ind_slash))-1]);
+		c30_asm30_paths = strs_temp(1);
+	  end
+	  [x,ierr]=fileinfo(c30_asm30_paths + '/bin/pic30-gcc.exe');  
+	  if ierr<0
+		CC_path_valid = %F;
+		if exists('INSTALLER_BATCH_MODE')==0
+			answ = buttondialog("Inserted path is not valid! (Yes: to retry, No: to abort)","yes|no","question"); 
+		else
+			answ = '2';
+		end
+		if answ=='2'
+		  waitbar('                                               \n..
+					   # Installation Error #               \n..
+				  Please, install a valid compiler          \n..
+				otherwise code generator will not work!     \n..
+				 path + /bin/pic30-gcc.exe NOT FOUND!       \n..
+					   Installation aborted!               ', winId_wait);
+		  EE_debug_printf('  Installation aborted!', fd_log);
+		  EE_debug_printf('### END ###', fd_log);
+		  mclose(fd_log);
+		  cd(OLDDIR); return;
+		end
+	  else
+		CC_path_valid = %T;
+	  end
+end
+
 
 // COMMON_OIL.PREF file is created 
 [fd,err] = mopen('common_oil.pref', 'w');
@@ -409,8 +431,10 @@ waitbar('                                               \n..
                                                         ', winId_wait);
   EE_debug_printf('  An old version of the ScicosLab pack was found!', fd_log);
   
-  answ = buttondialog("The old version of the ScicosLab pack will be removed.\nDo you want to continue? (Yes: to continue, No: to abort)","yes|no","question");
-  if answ=='1'
+  if exists('answ_old_inst_removing')==0
+	answ_old_inst_removing = buttondialog("The old version of the ScicosLab pack will be removed.\nDo you want to continue? (Yes: to continue, No: to abort)","yes|no","question");
+  end
+  if answ_old_inst_removing=='1'
   
     // UNINSTALLER: Delete scicos_ee folder from contrib
 waitbar('                                               \n..
@@ -463,8 +487,11 @@ waitbar('                                               \n..
 end
 
 // ask if the user wants to proceed
-answ = buttondialog("The ScicosLab pack will be installed.\nDo you want to continue? (Yes: to continue, No: to abort)","yes|no","question");
-  if answ=='1'
+
+if exists('answ_inst_continue')==0
+	answ_inst_continue = buttondialog("The ScicosLab pack will be installed.\nDo you want to continue? (Yes: to continue, No: to abort)","yes|no","question");
+end
+if answ_inst_continue=='1'
 waitbar('                                               \n..
         The ScicosLab pack for FLEX and Easylab         \n..
                  will be installed...                   \n..
@@ -577,26 +604,24 @@ else
 end
 [x,ierr]=fileinfo(SCIHOME+'\.scilab');
 if ierr==0
-  // EE_debug_printf('  #warning: .scilab file found!', fd_log);
-  txt=mgetl(SCIHOME+'\.scilab');
-else
-  // EE_debug_printf('  #warning: .scilab file not found!. The file will be created.', fd_log);
-  txt=[];
-end
-
-answ = '1';
-if ierr==0
-waitbar('                                               \n..
+  waitbar('                                               \n..
                 # Installation Warning #                \n..
    The installation should modify the .scilab script    \n..
           Please, if the .scilab file is open,          \n..
                close it before proceeding...            \n..
                                                         ', winId_wait);
   EE_debug_printf('  #warning: Please, if the .scilab file is open, close it before proceeding...', fd_log);
-  answ = buttondialog("The installation should modify the .scilab script (Yes: to continue, No: to abort)","yes|no","question");   
+  if exists('answ_dot_scilab')==0
+	answ_dot_scilab = buttondialog("The installation should modify the .scilab script (Yes: to continue, No: to abort)","yes|no","question"); 
+  end
+  // EE_debug_printf('  #warning: .scilab file found!', fd_log);
+  txt=mgetl(SCIHOME+'\.scilab');
+else
+  // EE_debug_printf('  #warning: .scilab file not found!. The file will be created.', fd_log);
+  txt=[];
+  answ_dot_scilab = '1';
 end
-
-if answ=='1'
+if answ_dot_scilab=='1'
 
     res = grep(txt,'### Scicos EE ###');
 
@@ -606,7 +631,7 @@ if answ=='1'
       res_begin = grep(txt,'### Scicos EE ###');
       res_end = grep(txt,'### Scicos EE - end ###');
       if res_end==[]
-waitbar('                                               \n..
+	waitbar('                                               \n..
                    # Installation Error #               \n..
                  .scilab file is corrupted!             \n..
          Please, delete the .scilab file and retry...   \n..
@@ -676,10 +701,15 @@ cmd = 'start cp_cosf.bat ' + ascii(34)+SCIDIR+ascii(34);
 unix(cmd);
 cmd = 'start xcopy '+ascii(34)+SCIDIR+'\contrib\scicos_ee\utils\common_oil.pref'+ascii(34)+' '+ascii(34)+SCIDIR+'\contrib\scicos_ee\RT-Druid\configuration'+ascii(34)+' /s /e /y /i';
 unix(cmd);
-cmd = 'del apps.list';
-unix(cmd);
-cmd = 'del common_oil.pref';
-unix(cmd);
+if exists('NO_APPS_CHECK')==0
+	cmd = 'del apps.list';
+	unix(cmd);
+end
+[x,err] = fileinfo('common_oil.pref');
+if err == 0
+	cmd = 'del common_oil.pref';
+	unix(cmd);
+end
 cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic");
 
 // End
@@ -695,9 +725,6 @@ EE_debug_printf('  Installation completed successfully!', fd_log);
 EE_debug_printf('  Please, restart ScicosLab for the changes to take effect...', fd_log);
 EE_debug_printf('### END ###', fd_log);
 mclose(fd_log);
-cd(SCIDIR+'\contrib');
-cmd = 'ScicosLabPack_install.log';
-unix(cmd);
 cd(OLDDIR); return;
 
 
