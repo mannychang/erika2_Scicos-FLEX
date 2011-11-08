@@ -376,7 +376,7 @@ end
 
 
 // COMMON_OIL.PREF file is created 
-[fd,err] = mopen('common_oil.pref', 'w');
+[fd,err] = mopen(MYDIR+'scicos_ee\utils\common_oil.pref', 'w');
 if err ~= 0
 waitbar('                                               \n..
                    # Installation Error #               \n..
