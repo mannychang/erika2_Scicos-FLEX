@@ -11,7 +11,7 @@ if [ -z "$SCIBASE" ]; then
   echo WARNING: Missing environment variable SCIBASE
   exit 1;
 else
-  cp silent_installer.sce $ZIPBASE
+  cp $ZIPBASE/scicos_ee/utils/batch_installer/silent_installer.sce $ZIPBASE
   $SCIBASE/bin/cscilex.exe -nw -nb -f $ZIPBASE/silent_installer.sce > inst_batch.log
 fi
 
