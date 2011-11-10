@@ -33,14 +33,14 @@ function [x,y,typ] = FLEX_DMB_encoder(job,arg1,arg2)
 		break;
 	  end
       in=[];
-      out = 1;
+      out = ones(2,1);
       [model,graphics,ok] = check_io(model,graphics,in,out,1,[]);
       if ok then
         graphics.exprs = exprs;
         model.ipar = [enc_type];
         model.dstate = [1];
         x.graphics = graphics;
-		x.model = model;
+        x.model = model;
         break
       end
     end
@@ -49,7 +49,7 @@ function [x,y,typ] = FLEX_DMB_encoder(job,arg1,arg2)
     model = scicos_model();
     model.sim = list('flex_daughter_encoder',4);
     model.in = [];
-    model.out = 1;
+    model.out = ones(2,1);
     model.evtin = 1;
     model.ipar = [enc_type];
     model.dstate = [1];

@@ -33,7 +33,7 @@ function [x,y,typ] = FLEX_MTB_encoder(job,arg1,arg2)
 		break;
 	  end
       in=[];
-      out = 1;
+      out = ones(2,1);
       [model,graphics,ok] = check_io(model,graphics,in,out,1,[]);
       if ok then
         graphics.exprs = exprs;
@@ -50,7 +50,7 @@ function [x,y,typ] = FLEX_MTB_encoder(job,arg1,arg2)
     model = scicos_model();
     model.sim = list('flex_daughter_encoder',4);
     model.in = [];
-    model.out = 1;
+    model.out = ones(2,1);
     model.evtin = 1;
     model.rpar = [];
     model.ipar = [enc_type];
