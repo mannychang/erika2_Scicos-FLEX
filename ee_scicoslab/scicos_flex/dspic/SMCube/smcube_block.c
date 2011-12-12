@@ -200,9 +200,6 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		   the read operation is from the block output       */
 		build_channel(channel, output_data->size_, input_data->size_,
 						 channel_name);
-		/*TODO: the next operation blocks the calling thread until the client
-		  is connected or an error occurs. A different approach shall be used 
-		  in order to avoid application freeze in case of unexpected errors*/
 		if (open_channel(channel) == -1)
 		{
 			*engine_exists = 0;
@@ -226,6 +223,9 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 				process->last_error_code_);
 			goto init_error;
 		}
+		/*TODO: the next operation blocks the calling thread until the client
+		  is connected or an error occurs. A different approach shall be used 
+		  in order to avoid application freeze in case of unexpected errors*/
 		if (wait_for_connect(channel) == -1)
 		{
 			*engine_exists = 0;
