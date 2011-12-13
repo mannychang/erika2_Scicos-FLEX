@@ -12,7 +12,7 @@
 #endif
 
 
-struct process_data 
+typedef struct process_data
 {
 	HANDLE handle_;
 	char* name_;
@@ -20,7 +20,7 @@ struct process_data
 	int nparameters_;
 	int last_error_code_;
 	char* last_error_str_;
-};
+}process_data;
 
 void init_process(struct process_data* proc);
 

@@ -7,8 +7,6 @@
 #include <signal.h>
 #include <stdio.h>
 
-#define INVALID_HANDLE_VALUE -1
-
 static struct sigaction old_sa;
 
 static void build_error(struct process_data* proc)
@@ -55,7 +53,7 @@ static int unregister_handler()
 
 void init_process(struct process_data* proc)
 {
-	proc->handle_ = INVALID_HANDLE_VALUE;
+	proc->handle_ = 0;
 	proc->last_error_code_ = -1;
 	proc->last_error_str_ = 0;
 	proc->name_ = 0;
@@ -89,7 +87,7 @@ void clean_process(struct process_data *proc)
 	HANDLE child_pid;
 	int status;
 	clean_error(proc);
-	if (proc->handle_ != INVALID_HANDLE_VALUE)
+	if (proc->handle_)
 	{
 		if (kill(proc->handle_, SIGTERM) < 0)
 		{
