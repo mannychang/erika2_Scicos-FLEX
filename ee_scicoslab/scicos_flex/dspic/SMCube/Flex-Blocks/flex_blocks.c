@@ -107,9 +107,9 @@ void EXPORT_SHARED_LIB flex_blocks(scicos_block *block,int flag)
 {
 	char* engine_path = 0;
 #ifdef WIN32
-	const char* base_channel_name = "engine_channel";
+	const char* base_channel_name = "flex_blocks_channel";
 #else
-	const char* base_channel_name = "/tmp/engine_channel";
+	const char* base_channel_name = "/tmp/flex_blocks_channel";
 #endif
 	char* channel_name = 0;
 	char* sblock_index = 0;

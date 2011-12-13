@@ -90,9 +90,9 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 	int par_engine_file_length;
 	unsigned char* inout_types=0;
 #ifdef WIN32
-	const char* base_channel_name = "engine_channel";
+	const char* base_channel_name = "smcube_channel";
 #else
-	const char* base_channel_name = "/tmp/engine_channel";
+	const char* base_channel_name = "/tmp/smcube_channel";
 #endif
 	char* channel_name = 0;
 	char* sblock_index = 0;
