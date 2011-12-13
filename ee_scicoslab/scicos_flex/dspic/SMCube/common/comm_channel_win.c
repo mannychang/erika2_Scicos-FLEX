@@ -165,19 +165,46 @@ int write_to_channel(struct comm_channel* channel, const char* data, int size)
 	return 0;
 }
 
-int read_from_channel(struct comm_channel* channel, char* data, int size)
+int read_from_channel(struct comm_channel* channel, char* data, int max_size)
 {
 	BOOL res = FALSE;
 	DWORD read = 0;
-
+	DWORD to_read = (DWORD)max_size;
 	do
 	{
 		res = ReadFile(channel->handle_,
-					   (LPVOID)(data+read),
-					   (DWORD)size,
+					   (LPVOID)(data+max_size-to_read),
+					   to_read,
 					   &read,
 					   NULL);
-	}while(res && read < (DWORD)size);
+		to_read -= read;
+	}while(res && to_read > 0);
+	if (!res)
+	{
+		build_error(channel);
+		if (channel->last_error_code_ != ERROR_MORE_DATA)
+		{
+			return -1;
+		}
+	}
+	return 0;
+}
+
+int read_from_channel_size(struct comm_channel* channel, int size, char* data, int max_size)
+{
+	BOOL res = FALSE;
+	DWORD read = 0;
+	DWORD real_size = (size > max_size ? max_size:size);
+	DWORD to_read = (DWORD)real_size;
+	do
+	{
+		res = ReadFile(channel->handle_,
+					   (LPVOID)(data + real_size - to_read),
+					   to_read,
+					   &read,
+					   NULL);
+		to_read -= read;
+	}while(res && to_read > 0);
 	if (!res)
 	{
 		build_error(channel);

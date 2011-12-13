@@ -10,7 +10,7 @@
 	#define HANDLE int
 #endif
 
-struct comm_channel 
+typedef struct comm_channel
 {
 	HANDLE handle_;
 	char* name_;
@@ -19,7 +19,7 @@ struct comm_channel
 	int disconnection_needed_;
 	int last_error_code_;
 	char* last_error_str_;
-};
+}comm_channel;
 
 void init_channel(struct comm_channel* channel);
 
@@ -40,6 +40,8 @@ int close_channel(struct comm_channel* channel);
 int write_to_channel(struct comm_channel* channel, const char* data, int size);
 
 int read_from_channel(struct comm_channel* channel, char* data, int max_size);
+
+int read_from_channel_size(struct comm_channel* channel, int size, char* data, int max_size);
 
 #endif
 

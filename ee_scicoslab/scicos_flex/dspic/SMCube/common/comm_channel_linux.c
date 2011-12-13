@@ -235,3 +235,32 @@ int read_from_channel(struct comm_channel *channel, char *data, int max_size)
 	}
 	return 0;
 }
+
+int read_from_channel_size(struct comm_channel *channel, int size, char *data, int max_size)
+{
+	int read;
+	int to_read = size;
+	if (size > channel->in_buff_size_ || size > max_size)
+	{
+		clean_error(channel);
+		return -1;
+	}
+	do
+	{
+		read = recv(channel->handle_,
+					  (char*)data + size - to_read, to_read, 0);
+		if (read == -1 || read == 0)
+		{
+			break;
+		}
+		to_read -= read;
+	}while(to_read > 0);
+	if (read == -1)
+	{
+		build_error(channel);
+		return -1;
+	}
+	return 0;
+}
+
+
