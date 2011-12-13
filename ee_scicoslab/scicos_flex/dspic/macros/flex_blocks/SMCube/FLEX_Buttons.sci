@@ -133,6 +133,15 @@ case 'define' then      //** the standard define
 
   x = standard_define([4 4],model,label,gr_i)
 
+case 'compile' then
+  flex_path = getenv("FLEXPATH","");
+  if isempty(flex_path) == %T then
+    error("Please set the environment variable FLEXPATH");
+  end
+  [info_file,ierr] = fileinfo(flex_path);
+  if ierr <> 0 then
+    error("Flex file " + flex_file + " not found!");
+  end
 end
 endfunction
 
