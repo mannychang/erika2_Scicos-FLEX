@@ -1,3 +1,18 @@
+function [result] = _getFileName(path)
+  result = " ";
+  tmp=strsubst(path,"\","/");
+  indexes=[strindex(tmp,"/")];
+  if isempty(indexes) == %F then
+    strs=strsplit(tmp,indexes);
+    strs_size=size(strs);
+    if strs_size(1) > 0 then
+      result=strs(strs_size(1), 1);
+    end
+  else
+    result=path;
+  end
+endfunction
+
 function [x,y,typ] = SMCube(job,arg1,arg2)
 
 //** ------------------------------------ INPUT ---------------------------------
@@ -10,6 +25,7 @@ case 'plot' then  //** plot the object
   graphics = arg1.graphics;
   exprs = graphics.exprs;
   name  = exprs(1)(4);
+  smcube_filename = exprs(1)(5);
   standard_draw(arg1)
 
 case 'getinputs' then //** inputs
@@ -160,9 +176,11 @@ case 'set' then //** set parameters
         if length(engine_file) == 0
           engine_file = ' ';
         end
+	smcube_filename=_getFileName(engine_file);
         label(1)(1) = indata;
         label(1)(2) = outdata;
         label(1)(3) = engine_file;
+	label(1)(5) = smcube_filename;
         model.sim = list(funam,funtyp) ; //** computation function
         model.in  = i(:,1);
         model.in2  = i(:,2);
@@ -193,9 +211,11 @@ case 'set' then //** set parameters
       if length(engine_file) == 0
         engine_file = ' ';
       end
+      smcube_filename=_getFileName(engine_file);
       label(1)(1) = indata;
       label(1)(2) = outdata;
       label(1)(3) = engine_file;
+      label(1)(5) = smcube_filename;
       model.sim = list(funam,funtyp) ; //** computation function
       model.in  = i(:,1);
       model.in2  = i(:,2);
@@ -251,10 +271,12 @@ case 'define' then      //** the standard define
   model.firing = [] ;
   model.dep_ut = [%t %f];
   model.nzcross = 0 ;
+  
+  smcube_filename=_getFileName(engine_file);
 
-  label = list( [indata outdata engine_file name], [] ) ;
- 
-  gr_i=['xstringb(orig(1),orig(2),[name;],sz(1),sz(2),''fill'');']
+  label = list( [indata outdata engine_file name smcube_filename], [] ) ;
+
+  gr_i=['xstringb(orig(1),orig(2),[name;smcube_filename],sz(1),sz(2),''fill'');']
   x = standard_define([4 2],model,label,gr_i)
 
 case 'compile' then
