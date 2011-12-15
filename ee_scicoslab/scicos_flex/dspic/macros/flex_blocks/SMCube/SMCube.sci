@@ -60,7 +60,7 @@ case 'set' then //** set parameters
     end
     [info_file,ierr] = fileinfo(sengine_file);
     if ierr <> 0 then
-      message("SMCube file " + sengine_file + " not found!");
+      message("SMCube file " + sengine_file + " not found, an empty state machine will be created.")
     end
     if MSDOS == %T then
       sengine_path = msprintf("""%s""",sengine_path);
