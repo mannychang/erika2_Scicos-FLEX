@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include <ctype.h>
 #include "scicos/scicos_block4.h"
 
 #define SNPRINTF snprintf
@@ -51,30 +52,32 @@ static int erase_blocks = 0;
 
 BLOCK_INSTANCE(blocks_data);
 
-int assign_current_block(int block_index);
+static int assign_current_block(int block_index);
 
-void initialize_block_data(block_data* bd);
+static void initialize_block_data(block_data* bd);
 
-char* build_block_index_str(int block_index);
+static char* build_block_index_str(int block_index);
 
-char* build_channel_name(const char* base_channel_name, const char* block_index);
+static char* build_channel_name(const char* base_channel_name, const char* block_index);
 
 /**/
-char** build_engine_parameters(const char *engine_file, int background,
+static char** build_engine_parameters(const char *engine_file, int background,
 							   const char *channel_name, const char* block_index,
 							   int* size);
 
-void clean_engine_parameters(char** parameters, int size);
+static void clean_engine_parameters(char** parameters, int size);
 /* Parse input*/
-void assign_input_data(struct dm_elem* input, scicos_block* block);
+static void assign_input_data(struct dm_elem* input, scicos_block* block);
 
 /* Parse output*/
-void assign_output_data(struct dm_elem* output, scicos_block* block);
+static void assign_output_data(struct dm_elem* output, scicos_block* block);
 
 /* Parse string block parameters */
-char* get_string(scicos_block* block, int base, int length);
+static char* get_string(scicos_block* block, int base, int length);
 
-int file_exists(const char* file_name, const char* perm);
+static char* trim_string(const char* str);
+
+static int file_exists(const char* file_name, const char* perm);
 
 void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 {
@@ -103,6 +106,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
  	/* Init */
 	case 4:{
 		block_data new_block_data;
+		char* str_tmp;
 		initialize_block_data(&new_block_data);
 		/*INITIALIZE BLOCK DATA*/
 		if (erase_blocks)
@@ -167,13 +171,18 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		}
 
 		/*INITIALIZE INPUT DATA STRUCTURE*/
+		str_tmp = trim_string(input_descr);
+		free(input_descr);
+		input_descr = str_tmp;
 		dm_create_types(&inout_types, input_descr, strlen(input_descr));
-		dm_create_elem(input_data, inout_types, ipar(PAR_INPUT_DESCR_LENGTH));
+		dm_create_elem(input_data, inout_types, strlen(input_descr));
 		dm_erase_types(&inout_types);
 		/*INITIALIZE OUTPUT DATA STRUCTURE*/
+		str_tmp = trim_string(output_descr);
+		free(output_descr);
+		output_descr = str_tmp;
 		dm_create_types(&inout_types, output_descr, strlen(output_descr));
-		dm_create_elem(output_data, inout_types,
-					   ipar(par_output_descr_length));
+		dm_create_elem(output_data, inout_types, strlen(output_descr));
 		dm_erase_types(&inout_types);
 		/*CHECK FOR ENGINE PARAMETERS*/
 		*engine_exists = 1;
@@ -252,7 +261,8 @@ init_error:
 		clean_channel(channel);
 		}break;
 	/* output update */
-	case 1:
+	case 1:{
+		char dummy = 1;
 		if (assign_current_block(iwork(PAR_INTERNAL_BLOCK_INDEX)) == 0)
 		{
 			break;
@@ -262,19 +272,28 @@ init_error:
 			break;
 		/* INPUT DATA INITIALIZATION */
 		assign_input_data(input_data, block);
-		if (write_to_channel(channel, input_data->data_, input_data->size_) == -1)
+		if (write_to_channel(channel, &dummy, sizeof(dummy)) == -1)
 		{
 			*engine_exists = 0;
 			break;
 		}
-		if (read_from_channel(channel, output_data->data_, output_data->size_) == -1)
+		if (input_data->size_ && 
+			write_to_channel(channel, input_data->data_, input_data->size_) == -1)
 		{
 			*engine_exists = 0;
 			break;
 		}
-		/*BUILD OUTPUT */
-		assign_output_data(output_data, block);
-		break;
+		if (output_data->size_)
+		{
+			if (read_from_channel(channel, output_data->data_, output_data->size_) == -1)
+			{
+				*engine_exists = 0;
+				break;
+			}
+			/*BUILD OUTPUT */
+			assign_output_data(output_data, block);
+		}
+		}break;
 	/* ending */
 	case 5:
 		/*CLEAN SIMULATION*/
@@ -433,6 +452,40 @@ char* get_string(scicos_block* block, int base, int length)
                 strncat(string,&c,1);
 	}
         return string;
+}
+
+char* trim_string(const char* str)
+{
+	int size;
+	int l, r;
+	char* res = 0;
+	if (str == 0)
+	{
+		return 0;
+	}
+	size = strlen(str);
+	l = 0;
+	r = size-1;
+	while(l < size && isspace(str[l]))
+	{
+		++l;
+	}
+	while(r >= 0 && isspace(str[r]))
+	{
+		--r;
+	}
+	if (l <= r+1)
+	{
+		res = (char*)malloc(r-l+2);
+		res[r-l+1] = '\0';
+		strncpy(res, str+l, r-l+1);
+	}
+	else
+	{
+		res = (char*)malloc(1);
+		res[0] = '\0';
+	}
+	return res;
 }
 
 int file_exists(const char* file_name, const char* perm)

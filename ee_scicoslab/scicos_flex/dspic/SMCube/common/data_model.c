@@ -85,9 +85,12 @@ void dm_set_value(struct dm_elem *data, int index, const void *value, int size)
 void dm_create_elem_descr(struct dm_elem_descr* descr, unsigned char* types,
 						   int size)
 {
-	descr->types_ = malloc(size);
-	descr->size_ = size;
-	memcpy(descr->types_, types, size);
+	if (types)
+	{
+		descr->types_ = malloc(size);
+		descr->size_ = size;
+		memcpy(descr->types_, types, size);
+	}
 }
 
 void dm_erase_elem_descr(struct dm_elem_descr* descr)
