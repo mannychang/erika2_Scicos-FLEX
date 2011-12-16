@@ -262,7 +262,7 @@ init_error:
 		}break;
 	/* output update */
 	case 1:{
-		char dummy = 1;
+		int inevents = GetNevIn(block);
 		if (assign_current_block(iwork(PAR_INTERNAL_BLOCK_INDEX)) == 0)
 		{
 			break;
@@ -272,7 +272,7 @@ init_error:
 			break;
 		/* INPUT DATA INITIALIZATION */
 		assign_input_data(input_data, block);
-		if (write_to_channel(channel, &dummy, sizeof(dummy)) == -1)
+		if (write_to_channel(channel, (char*)&inevents, sizeof(inevents)) == -1)
 		{
 			*engine_exists = 0;
 			break;
