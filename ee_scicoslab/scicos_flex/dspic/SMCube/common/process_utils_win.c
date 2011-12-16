@@ -34,7 +34,6 @@ void init_process(struct process_data* proc)
 	proc->name_ = 0;
 	proc->nparameters_ = 0;
 	proc->parameters_ = 0;
-	proc->private_TerminationSignal = INVALID_HANDLE_VALUE;
 }
 
 void build_process(struct process_data* proc, const char* name, 
@@ -62,23 +61,6 @@ void build_process(struct process_data* proc, const char* name,
 void clean_process(struct process_data* proc)
 {
 	int i;
-	DWORD res;
-	if (proc->private_TerminationSignal != INVALID_HANDLE_VALUE)
-	{
-		ReleaseSemaphore(proc->private_TerminationSignal, 1, 0);
-		if (proc->handle_ != INVALID_HANDLE_VALUE)
-		{
-			res = WaitForSingleObject(proc->handle_, 2000);
-			if (res != WAIT_OBJECT_0)
-			{
-				if (!TerminateProcess(proc->handle_, 0))
-				{
-					build_error(proc);
-				}
-			}
-		}
-		CloseHandle(proc->private_TerminationSignal);
-	}
 	if (proc->handle_ != INVALID_HANDLE_VALUE)
 	{
 		CloseHandle(proc->handle_);
@@ -102,17 +84,6 @@ int launch_process(struct process_data* proc)
 	memset(&process_info, 0, sizeof(process_info));
 	startup_info.cb = sizeof(startup_info);
 	parameters = build_parameters(proc);
-	if (!SetEnvironmentVariable("TerminateSignal","terminate_signal"))
-	{
-		build_error(proc);
-		return -1;
-	}
-	proc->private_TerminationSignal = CreateSemaphore(0,0,1,"terminate_signal");
-	if (proc->private_TerminationSignal == NULL)
-	{
-		build_error(proc);
-		return -1;
-	}
 	res = CreateProcess(0,//(LPTSTR)proc->name_, 
 						(LPTSTR)parameters,
 						0,

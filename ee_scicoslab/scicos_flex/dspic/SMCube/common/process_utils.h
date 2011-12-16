@@ -20,9 +20,6 @@ typedef struct process_data
 	int nparameters_;
 	int last_error_code_;
 	char* last_error_str_;
-#if defined(WIN32)
-	HANDLE private_TerminationSignal;
-#endif
 }process_data;
 
 void init_process(struct process_data* proc);
