@@ -78,6 +78,53 @@ int wait_for_connect(struct comm_channel* channel)
 	return 0;
 }
 
+
+int wait_for_connect_timeout(struct comm_channel* channel, int secs)
+{
+	BOOL res = FALSE;
+	DWORD mode = PIPE_READMODE_MESSAGE | PIPE_NOWAIT;
+	int attempts = secs > 0 ? secs : 1;
+	res = SetNamedPipeHandleState(channel->handle_, &mode, NULL, NULL);
+	if (!res)
+	{
+		build_error(channel);
+		return -1;
+	}
+	do 
+	{
+		res = ConnectNamedPipe(channel->handle_, NULL);
+		if (!res)
+		{
+			build_error(channel);
+			if (channel->last_error_code_ == ERROR_PIPE_LISTENING)
+			{
+				if (--attempts == 0)
+				{
+					return -1;
+				}
+				Sleep(1000);
+			}
+			else if (channel->last_error_code_ == ERROR_PIPE_CONNECTED)
+			{
+				break;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+	}while(!res);
+	mode = PIPE_READMODE_MESSAGE | PIPE_WAIT;
+	res = SetNamedPipeHandleState(channel->handle_, &mode, NULL, NULL);
+	if (!res)
+	{
+		build_error(channel);
+		return -1;
+	}
+	channel->disconnection_needed_ = 1;
+	return 0;
+}
+
 int connect_channel(struct comm_channel* channel)
 {
 	BOOL   res = FALSE; 

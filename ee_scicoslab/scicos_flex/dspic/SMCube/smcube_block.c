@@ -232,10 +232,11 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 				process->last_error_code_);
 			goto init_error;
 		}
-		/*TODO: the next operation blocks the calling thread until the client
-		  is connected or an error occurs. A different approach shall be used 
-		  in order to avoid application freeze in case of unexpected errors*/
+#if defined(_WIN32)
+		if (wait_for_connect_timeout(channel, 5))
+#else
 		if (wait_for_connect(channel) == -1)
+#endif
 		{
 			*engine_exists = 0;
 			fprintf(stderr,"Channel wait for connection failed: %d."
@@ -257,8 +258,6 @@ init_error:
 		free(sblock_index);
 		dm_erase_elem(input_data);
 		dm_erase_elem(output_data);
-		clean_process(process);
-		clean_channel(channel);
 		}break;
 	/* output update */
 	case 1:{

@@ -110,6 +110,12 @@ int wait_for_connect(struct comm_channel *channel)
 	return 0;
 }
 
+int wait_for_connect_timeout(struct comm_channel *channel, int secs)
+{
+	/*TODO*/
+	return -1;
+}
+
 int connect_channel(struct comm_channel *channel)
 {
 	struct sockaddr_un s_un;

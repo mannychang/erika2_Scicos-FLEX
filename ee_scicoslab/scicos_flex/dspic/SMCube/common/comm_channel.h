@@ -31,6 +31,8 @@ int open_channel(struct comm_channel* channel);
 
 int wait_for_connect(struct comm_channel* channel);
 
+int wait_for_connect_timeout(struct comm_channel* channel, int secs);
+
 int connect_channel(struct comm_channel* channel);
 
 int wait_for_open(struct comm_channel* channel, int timeout);
