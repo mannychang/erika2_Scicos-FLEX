@@ -4,8 +4,6 @@
 #define STR_TERM_SIZE 1
 #define STR_SPACE_SIZE 1
 
-static HANDLE private_TerminationSignal;
-
 static void build_error(struct process_data* proc)
 {
 	proc->last_error_code_ = GetLastError();
@@ -36,7 +34,7 @@ void init_process(struct process_data* proc)
 	proc->name_ = 0;
 	proc->nparameters_ = 0;
 	proc->parameters_ = 0;
-	private_TerminationSignal = INVALID_HANDLE_VALUE;
+	proc->private_TerminationSignal = INVALID_HANDLE_VALUE;
 }
 
 void build_process(struct process_data* proc, const char* name, 
@@ -65,9 +63,9 @@ void clean_process(struct process_data* proc)
 {
 	int i;
 	DWORD res;
-	if (private_TerminationSignal != INVALID_HANDLE_VALUE)
+	if (proc->private_TerminationSignal != INVALID_HANDLE_VALUE)
 	{
-		ReleaseSemaphore(private_TerminationSignal, 1, 0);
+		ReleaseSemaphore(proc->private_TerminationSignal, 1, 0);
 		if (proc->handle_ != INVALID_HANDLE_VALUE)
 		{
 			res = WaitForSingleObject(proc->handle_, 2000);
@@ -79,7 +77,7 @@ void clean_process(struct process_data* proc)
 				}
 			}
 		}
-		CloseHandle(private_TerminationSignal);
+		CloseHandle(proc->private_TerminationSignal);
 	}
 	if (proc->handle_ != INVALID_HANDLE_VALUE)
 	{
@@ -109,8 +107,8 @@ int launch_process(struct process_data* proc)
 		build_error(proc);
 		return -1;
 	}
-	private_TerminationSignal = CreateSemaphore(0,0,1,"terminate_signal");
-	if (private_TerminationSignal == NULL)
+	proc->private_TerminationSignal = CreateSemaphore(0,0,1,"terminate_signal");
+	if (proc->private_TerminationSignal == NULL)
 	{
 		build_error(proc);
 		return -1;
