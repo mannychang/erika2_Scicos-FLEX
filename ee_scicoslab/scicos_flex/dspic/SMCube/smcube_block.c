@@ -117,26 +117,30 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		block_index = BLOCK_PUSH(blocks_data, new_block_data);
 		if (block_index < 0)
 		{
-			fprintf(stderr,"Block initialization failed");
+			Coserror("Block initialization failed, internal error"
+				"(BLOCK_PUSH).");
 			goto init_error;
 		}
 		*block->work = scicos_malloc(sizeof(int));
 		iwork(PAR_INTERNAL_BLOCK_INDEX) = block_index;
 		if (assign_current_block(block_index) == 0)
 		{
-			fprintf(stderr,"Block initialization failed");
+			Coserror("Block initialization failed, internal error"
+				"(bad block_index).");
 			goto init_error;
 		}
 		sblock_index = build_block_index_str(block_index);
 		if (!sblock_index)
 		{
-			fprintf(stderr,"Block initialization failed");
+			Coserror("Block initialization failed, internal error"
+				"(build_block_index_str).");
 			goto init_error;
 		}
 		channel_name = build_channel_name(base_channel_name, sblock_index);
 		if (!channel_name)
 		{
-			fprintf(stderr,"Block initialization failed");
+			Coserror("Block initialization failed, internal error"
+				"(build_channel_name).");
 			goto init_error;
 		}
 		/*SIMULATION MODE*/
@@ -165,8 +169,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		if (!engine_path)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"\"SMCUBEPATH\" environment variable not set, "
-					"cannot run the simulation");
+			Coserror("\"SMCUBEPATH\" environment variable not set.");
 			goto init_error;
 		}
 
@@ -189,16 +192,14 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		if (file_exists(engine_path, "r") == 0)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"SMCube application binary file %s "
-			    "error: %s.\ncannot run the simulation properly.",
-				engine_path,strerror(errno));
+			Coserror("SMCube application binary file %s "
+			    "error: %s.", engine_path, strerror(errno));
 		}
 		if (file_exists(engine_file, "r+") == 0)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"SMCube application binary file %s "
-			    "error: %s.\ncannot run the simulation properly.",
-				engine_file,strerror(errno));
+			Coserror("SMCube xml file %s error: %s.", 
+				engine_file, strerror(errno));
 		}
 		if (*engine_exists == 0)
 		{
@@ -212,9 +213,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		if (open_channel(channel) == -1)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"Channel open failed: %d."
-				"\nCannot run the simulation properly.",
-				channel->last_error_code_);
+			Coserror("Channel open failed: %d.", channel->last_error_code_);
 			goto init_error;
 		}
 
@@ -227,9 +226,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		if (launch_process(process) == -1)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"SMCube launch failed: %d."
-				"\nCannot run the simulation properly.",
-				process->last_error_code_);
+			Coserror("SMCube launch failed: %d.", process->last_error_code_);
 			goto init_error;
 		}
 #if defined(_WIN32)
@@ -239,8 +236,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 #endif
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"Channel wait for connection failed: %d."
-				"\nCannot run the simulation properly.",
+			Coserror("Channel wait for connection failed: %d." ,
 				channel->last_error_code_);
 			goto init_error;
 		}
@@ -264,6 +260,8 @@ init_error:
 		int inevents = GetNevIn(block);
 		if (assign_current_block(iwork(PAR_INTERNAL_BLOCK_INDEX)) == 0)
 		{
+			Coserror("Block initialization failed, internal error"
+				"(bad block_index from scicos_block, case 1).");
 			break;
 		}
 		/* CHECK IF ENGINE EXISTS */
@@ -273,12 +271,14 @@ init_error:
 		assign_input_data(input_data, block);
 		if (write_to_channel(channel, (char*)&inevents, sizeof(inevents)) == -1)
 		{
+			Coserror("Write to channel failed: %d.", channel->last_error_code_);
 			*engine_exists = 0;
 			break;
 		}
 		if (input_data->size_ && 
 			write_to_channel(channel, input_data->data_, input_data->size_) == -1)
 		{
+			Coserror("Write to channel failed: %d.", channel->last_error_code_);
 			*engine_exists = 0;
 			break;
 		}
@@ -286,6 +286,7 @@ init_error:
 		{
 			if (read_from_channel(channel, output_data->data_, output_data->size_) == -1)
 			{
+				Coserror("Read from channel failed: %d.", channel->last_error_code_);
 				*engine_exists = 0;
 				break;
 			}
@@ -298,6 +299,8 @@ init_error:
 		/*CLEAN SIMULATION*/
 		if (assign_current_block(iwork(PAR_INTERNAL_BLOCK_INDEX)) == 0)
 		{
+			Coserror("Block initialization failed, internal error"
+				"(bad block_index from scicos_block, case 5).");
 			break;
 		}
 		dm_erase_elem(input_data);
