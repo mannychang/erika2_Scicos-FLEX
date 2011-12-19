@@ -70,16 +70,18 @@ case 'set' then //** set parameters
   end
   
   reserved = model.ipar(1);
+  seventsin = string(length(model.evtin));
   ssimmode = string(model.ipar(2));
   sindata = stripblanks(label(1)(1));
   soutdata = stripblanks(label(1)(2));
   sengine_file = stripblanks(label(1)(3));
   while %t do
     dialog_box_banner = "SMCube Parameters";
-    [ok, simmode, indata, outdata, engine_file, lab] = getvalue(dialog_box_banner,...
-     ['Mode (1:interactive, 2:background)';'Input_Description (''d'':double,''i'':int32)';'Output_Description (''d'':double,''i'':int32)';'SMCube File'],...
-     list('vec',1,'str',1,'str',1,'str',1),...
-     [ssimmode;sindata;soutdata;sengine_file]);                                                
+    [ok, eventsin, simmode, indata, outdata, engine_file, lab] = getvalue(dialog_box_banner,...
+     ['Number of input events';'Mode (1:interactive, 2:background)';'Input_Description (''d'':double,''i'':int32)';...
+      'Output_Description (''d'':double,''i'':int32)';'SMCube File'],...
+     list('vec',1,'vec',1,'str',1,'str',1,'str',1),...
+     [seventsin;ssimmode;sindata;soutdata;sengine_file]);                                                
     if ~ok then break, end //** in case of error
     
     ng = [];
@@ -87,10 +89,13 @@ case 'set' then //** set parameters
     nx = 0;
     nz = 0;
     nin = 1;
-    ci  = 1;
-    nevin = 1;
+    if eventsin > 32 then
+      eventsin = 32;
+    elseif eventsin < 0 then
+      eventsin = 0;
+    end
+    ci  = ones(eventsin,1);
     co = [];
-    nevout = 0;
     depu = %t; dept = %f;
     dep_ut = [depu dept];
     funam = 'smcube_block';
@@ -157,7 +162,7 @@ case 'set' then //** set parameters
       end
       
       out_descr = new_descr;
-      [model, graphics, ok] = set_io(model, graphics, list(i,it), list(o, ot), ones(ci,1), []);
+      [model, graphics, ok] = set_io(model, graphics, list(i,it), list(o, ot), ci, co);
       if ~ok then
         result = 1;  
       end
@@ -260,7 +265,7 @@ case 'define' then      //** the standard define
   model.in2 = [];
   model.out = [] ;
   model.out2 = [];
-  model.evtin = 1 ;
+  model.evtin = [] ;
   model.evtout = [] ;
   model.state = [] ;
   model.dstate = [] ;
