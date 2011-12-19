@@ -56,7 +56,7 @@ static int assign_current_block(int block_index);
 
 static void initialize_block_data(block_data* bd);
 
-static char* build_block_index_str(int block_index);
+static char* int_to_string(int val);
 
 static char* build_channel_name(const char* base_channel_name, const char* block_index);
 
@@ -129,7 +129,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 				"(bad block_index).");
 			goto init_error;
 		}
-		sblock_index = build_block_index_str(block_index);
+		sblock_index = int_to_string(block_index);
 		if (!sblock_index)
 		{
 			Coserror("Block initialization failed, internal error"
@@ -340,17 +340,17 @@ void initialize_block_data(block_data* bd)
 	dm_init(&bd->output_);
 }
 
-char* build_block_index_str(int block_index)
+char* int_to_string(int val)
 {
 	char* sdigits = 0;
 	int digits = 0;
-	int val = block_index;
+	int tmp = val;
 	do {
 		++digits;
-		val /= 10;
-	} while(val != 0);
+		tmp /= 10;
+	} while(tmp != 0);
 	sdigits = (char*)malloc(digits + 1);
-	SNPRINTF(sdigits, digits + 1, "%d", block_index);
+	SNPRINTF(sdigits, digits + 1, "%d", val);
 	return sdigits;
 }
 
