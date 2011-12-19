@@ -132,24 +132,28 @@ void EXPORT_SHARED_LIB flex_blocks(scicos_block *block,int flag)
 		res = BLOCK_PUSH(blocks_data, new_block_data);
 		if (res < 0)
 		{
-			fprintf(stderr,"Block initialization failed");
+			Coserror("Block initialization failed, internal error"
+				"(BLOCK_PUSH).");
 			goto init_error;
 		}
 		if (assign_current_block(block_index) == 0)
 		{
-			fprintf(stderr,"Block initialization failed");
+			Coserror("Block initialization failed, internal error"
+				"(bad block_index).");
 			goto init_error;
 		}
 		sblock_index = int_to_string(block_index);
 		if (!sblock_index)
 		{
-			fprintf(stderr,"Block index string conversion error\n");
+			Coserror("Block initialization failed, internal error"
+				"(build_block_index_str).");
 			goto init_error;
 		}
 		channel_name = build_channel_name(base_channel_name, sblock_index);
 		if (!channel_name)
 		{
-			fprintf(stderr,"Channel name initialization failed\n");
+			Coserror("Block initialization failed, internal error"
+				"(build_channel_name).");
 			goto init_error;
 		}
 		/*ENGINE FILE*/
@@ -157,8 +161,7 @@ void EXPORT_SHARED_LIB flex_blocks(scicos_block *block,int flag)
 		if (!engine_path)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"\"FLEX_ENV_PATH\" environment variable not set, "
-					"cannot run the simulation");
+			Coserror("\"FLEXPATH\" environment variable not set.");
 			goto init_error;
 		}
 		/*CHECK FOR ENGINE PARAMETERS*/
@@ -166,9 +169,8 @@ void EXPORT_SHARED_LIB flex_blocks(scicos_block *block,int flag)
 		if (file_exists(engine_path, "r") == 0)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"SMCube application binary file %s "
-			    "error: %s.\ncannot run the simulation properly.",
-				engine_path,strerror(errno));
+			Coserror("FlexDemoBoard application binary file %s "
+			    "error: %s.", engine_path, strerror(errno));
 		}
 		if (*engine_exists == 0)
 		{
@@ -179,9 +181,7 @@ void EXPORT_SHARED_LIB flex_blocks(scicos_block *block,int flag)
 		if (open_channel(channel) == -1)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"Channel open failed: %d."
-				"\nCannot run the simulation properly.",
-				channel->last_error_code_);
+			Coserror("Channel open failed: %d.", channel->last_error_code_);
 			goto init_error;
 		}
 
@@ -193,19 +193,16 @@ void EXPORT_SHARED_LIB flex_blocks(scicos_block *block,int flag)
 		if (launch_process(process) == -1)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"FLEX launch failed: %d."
-				"\nCannot run the simulation properly.",
-				process->last_error_code_);
+			Coserror("FlexDemoBoard launch failed: %d.", process->last_error_code_);
 			goto init_error;
 		}
 		/*TODO: the next operation blocks the calling thread until the client
 		  is connected or an error occurs. A different approach shall be used
 		  in order to avoid application freeze in case of unexpected errors*/
-		if (wait_for_connect(channel) == -1)
+		if (wait_for_connect_timeout(channel, 5) == -1)
 		{
 			*engine_exists = 0;
-			fprintf(stderr,"Channel wait for connection failed: %d."
-				"\nCannot run the simulation properly.",
+			Coserror("Channel wait for connection failed: %d." ,
 				channel->last_error_code_);
 			goto init_error;
 		}
@@ -223,6 +220,8 @@ init_error:
 		int block_type = ipar(PAR_BLOCK_TYPE);
 		if (assign_current_block(ipar(PAR_BLOCK_INDEX)) == 0)
 		{
+			Coserror("Block initialization failed, internal error"
+				"(bad block_index from scicos_block, case 1).");
 			break;
 		}
 		if (*engine_exists == 0)
@@ -366,11 +365,15 @@ void do_buttons_update(scicos_block *block)
 	msg.cmd = BUTTONS_CMD;
 	if (write_to_channel(channel, (const char*)&msg, sizeof(msg)) < 0)
 	{
+		Coserror("Write to channel failed for buttons: %d.", 
+			channel->last_error_code_);
 		*engine_exists = 0;
 		return;
 	}
 	if (read_from_channel_size(channel, sizeof(data), (char*)&data, sizeof(data)) < 0)
 	{
+		Coserror("Read from channel failed for buttons: %d.", 
+			channel->last_error_code_);
 		*engine_exists = 0;
 		return;
 	}
@@ -404,6 +407,8 @@ void do_ledslcd_update(scicos_block *block)
 	}
 	if (write_to_channel(channel, (const char*)&msg, sizeof(msg)) < 0)
 	{
+		Coserror("Write to channel failed for ledslcd: %d.", 
+			channel->last_error_code_);
 		*engine_exists = 0;
 		return;
 	}

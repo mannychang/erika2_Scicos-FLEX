@@ -61,7 +61,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="LibScilab.lib"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="..\..\..\..\..\..\..\bin"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -134,7 +136,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="LibScilab.lib"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="..\..\..\..\..\..\..\bin"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
