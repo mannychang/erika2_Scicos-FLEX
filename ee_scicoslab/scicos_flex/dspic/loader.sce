@@ -17,3 +17,8 @@ dspiclib_easylab = lib(DIR+'/macros/flex_blocks/EASYLAB/')
 dspiclib_misc = lib(DIR+'/macros/misc/')
 dspiclib_gif_icons = lib(DIR+'/macros/man/')
 
+setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin/SMCube.exe');
+setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+dspiclib_gif_icons = lib(DIR+'/macros/flex_blocks/SMCube/')
+
+

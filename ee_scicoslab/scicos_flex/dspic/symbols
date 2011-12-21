@@ -40,6 +40,8 @@ FLEX_DMB_button,__USE_DEMOBOARD__
 FLEX_DMB_button,__USE_BUTTONS__
 FLEX_DMB_lcd,__USE_DEMOBOARD__
 FLEX_DMB_lcd,__USE_LCD__
+FLEX_DMB_lcd_ascii,__USE_DEMOBOARD__
+FLEX_DMB_lcd_ascii,__USE_LCD__
 FLEX_MTB_pwm,__USE_MOTIONBOARD__
 FLEX_MTB_pwm,__USE_PWM__
 FLEX_MTB_encoder,__USE_MOTIONBOARD__
@@ -113,3 +115,9 @@ EASYLAB_serial_rx_gw,__RECEIVING_FROM_UART__
 EASYLAB_serial_send,__USE_UART__
 EASYLAB_serial_receive,__USE_UART__
 EASYLAB_serial_config,__USE_UART__
+SMCube,__SCICOS_SMCUBE__
+FLEX_LedsLcd,__USE_DEMOBOARD__
+FLEX_LedsLcd,__USE_LEDS__
+FLEX_LedsLcd,__USE_LCD__
+FLEX_Buttons,__USE_DEMOBOARD__
+FLEX_Buttons,__USE_BUTTONS__

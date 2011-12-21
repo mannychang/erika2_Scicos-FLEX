@@ -1,5 +1,6 @@
 
-cd ("SCI\contrib\scicos_ee\scicos_flex\dspic");
+EESCI_DSPIC_PATH = SCI+"/contrib/scicos_ee/scicos_flex/dspic";
+cd (EESCI_DSPIC_PATH);
 
 //** Some "alias" variables are re-defined for easy compatibility 
 s  = %s; //** Laplace for continous systems
@@ -10,7 +11,7 @@ ieee(2) ; //** NO ERROR in case of division by zero
 lines(0); //** infinite scroll on Scilab console 
 
 //** Load additional Interfacing function library 
-exec("SCI/contrib/scicos_ee/scicos_flex/dspic/loader.sce"); 
+exec(EESCI_DSPIC_PATH + "/loader.sce"); 
 
 //** update the Scicos palettes 
 
@@ -21,18 +22,18 @@ exec("SCI/contrib/scicos_ee/scicos_flex/dspic/loader.sce");
 %CmenuTypeOneVector($+1,:)=['FlexCodeGen','Click on a Superblock (without activation output) to obtain a coded block!']
 %CmenuTypeOneVector($+1,:)=['Set Target','Click on a Superblock (without activation output) to set the Target!']
 
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/amazing/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/easylab/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_com/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_dmb/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/flex_mtb/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/rt_data_exchange/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/misc/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/NativeInteger/"];
-%scicos_gif($+1)=[SCI+"/contrib/scicos_ee/scicos_flex/dspic/macros/man/easylab/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/amazing/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/easylab/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/flex/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/flex_com/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/flex_dmb/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/flex_mtb/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/rt_data_exchange/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/misc/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/NativeInteger/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/easylab/"];
 
-PALETTE_DIR = 'SCI/contrib/scicos_ee/scicos_flex/dspic/macros/palettes/';
+PALETTE_DIR = EESCI_DSPIC_PATH + "/macros/palettes/";
 
 //** Load some FLEX specific palettes
 scicos_pal($+1,:)=['MCHP16-Sources',PALETTE_DIR + 'MCHP16-Sources.cosf'];
@@ -50,37 +51,40 @@ scicos_pal($+1,:)=['FLEX-Communication',PALETTE_DIR + 'FLEX-Communication.cosf']
 scicos_pal($+1,:)=['RT Data Exchange',PALETTE_DIR + 'RT-Data-Exchange.cosf'];
 scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
 scicos_pal($+1,:)=['Easylab',PALETTE_DIR + 'EASYLAB.cosf'];
+scicos_pal($+1,:)=['SMCube',PALETTE_DIR + 'SMCube.cosf'];
 
 if MSDOS then
 
-//** Load the FLEX shared library of computational functions for SIMULATION 
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Sim\loader.sce"); 
+	//** Load the FLEX shared library of computational functions for SIMULATION 
+	exec(EESCI_DSPIC_PATH + "/Flex-Sim/loader.sce"); 
 
-//** Load the shared library of computational functions for Native Integer Support 
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger\loader.sce"); 
+	//** Load the shared library of computational functions for Native Integer Support 
+	exec(EESCI_DSPIC_PATH + "/NativeInteger/loader.sce"); 
 
-//** Load the library of interfacing functions for Native Integer Support 
-cd  ("SCI\contrib\scicos_ee\scicos_flex\dspic\NativeInteger") ;
-exec("InterfaceLoader.sci");
-cd ("SCI\contrib\scicos_ee\scicos_flex\dspic");
+	//** Load the library of interfacing functions for Native Integer Support 
+	exec(EESCI_DSPIC_PATH + "/NativeInteger/InterfaceLoader.sci");
 
-//** Load the UDP dll
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-UDP\loader.sce");
+	//** Load the UDP dll
+	exec(EESCI_DSPIC_PATH + "/Flex-UDP/loader.sce");
 
-//** Load the Roller dll
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Flex-Roller\loader.sce");
+	//** Load the Roller dll
+	exec(EESCI_DSPIC_PATH + "/Flex-Roller/loader.sce");
 
-//** Load the MCP2200 dll
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Communication\MCP2200\loader.sce");
+	//** Load the MCP2200 dll
+	exec(EESCI_DSPIC_PATH + "/Communication/MCP2200/loader.sce");
 
-//** Load the Serial Gateway
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Communication\SerialGateway\loader.sce");
+	//** Load the Serial Gateway
+	exec(EESCI_DSPIC_PATH + "/Communication/SerialGateway/loader.sce");
 
-//** Load the RS232 dll
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\Communication\RS232\loader.sce");
+	//** Load the RS232 dll
+	exec(EESCI_DSPIC_PATH + "/Communication/RS232/loader.sce");
 
-//** Load the documentation of the blocks 
-exec("SCI\contrib\scicos_ee\scicos_flex\dspic\macros\man\loader.sce"); 
+	//** Load the documentation of the blocks 
+	exec(EESCI_DSPIC_PATH + "/macros/man/loader.sce"); 
+
+	//** Load SMCube dll
+	exec(EESCI_DSPIC_PATH + "/SMCube/Flex-Blocks/win_loader.sce");
+	exec(EESCI_DSPIC_PATH + "/SMCube/win_loader.sce");
 
 end
 

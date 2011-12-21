@@ -1,4 +1,4 @@
 //** ... a very crude temp solution ...
-exec("NAT_GAINBLK.sci");
-exec("NAT_SUMMATION.sci");
+exec(EESCI_DSPIC_PATH + "/NativeInteger/NAT_GAINBLK.sci");
+exec(EESCI_DSPIC_PATH + "/NativeInteger/NAT_SUMMATION.sci");
 

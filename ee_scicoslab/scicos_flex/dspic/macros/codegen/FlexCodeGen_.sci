@@ -85,7 +85,7 @@ function FlexCodeGen_()
 
             if lab2 == []
                 myrdnom  =   scs_m.objs(k).model.rpar.props.title(1); 
-                mypath =     getcwd()+'/'+myrdnom+"_scig";
+                mypath =     getcwd()+'\'+myrdnom+"_scig";
             else
                 myrdnom =    lab2(1);
                 mypath =     lab2(2);
@@ -1161,6 +1161,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 //          cpr           :
 //
 
+  EESCI_OLDDIR = pwd();
   act = [];
   cap = [];
 
@@ -1632,7 +1633,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
     template = 'board_flex'; //** default values for this version  
     target = 'dspic'; //** default compilation chain 
     rdnom = hname;    //** default name
-    path = getcwd()+'/'+rdnom+"_scig"; //** default path
+    path = getcwd()+'\'+rdnom+"_scig"; //** default path
     odefun = 'ode4';  //** default solver
     odestep = '10';   //** default continous step size
     spflag = '';
@@ -1641,7 +1642,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
       template = user_template;
       target = 'dspic'; //** default compilation chain 
       rdnom = hname;    //** default name
-      path = getcwd()+'/'+rdnom+"_scig"; //** default path
+      path = getcwd()+'\'+rdnom+"_scig"; //** default path
       odefun = 'ode4';  //** default solver
       odestep = '10';   //** default continous step size
       spflag = '';
@@ -1650,7 +1651,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
       template = user_template;
       target = user_target;
       rdnom = hname;    //** default name
-      path = getcwd()+'/'+rdnom+"_scig"; //** default path
+      path = getcwd()+'\'+rdnom+"_scig"; //** default path
       odefun = 'ode4';  //** default solver
       odestep = '10';   //** default continous step size
       spflag = '';
@@ -1659,7 +1660,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
       template = user_template;
       target = user_target;
       rdnom = user_name;
-      path = getcwd()+'/'+rdnom+"_scig"; //** default path
+      path = getcwd()+'\'+rdnom+"_scig"; //** default path
       odefun = 'ode4';  //** default solver
       odestep = '10';   //** default continous step size
       spflag = '';
@@ -1757,7 +1758,103 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 	ok = %f;
 	message(user_path+" is not a directory");
   end
+  
+  // Now the directory exists...
+  user_path = getshortpathname(user_path);
+  user_path = strsubst(user_path,'\','/');
 
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// $$$ Other actions related to the blocks before to start the Scios code generator should be here... $$$
+  
+	// ------------------------------------------
+	// ------------- SMCUBE section -------------
+	[xml_fd,err] = mopen(user_path+'/xml.list', 'w');
+	[xml_list_res,err] = fileinfo(user_path+'/xml.list');
+	if err ~= 0 then
+		disp("#CodeGen error:  The selected path requires Administrator privileges! Code Generation aborted!");
+		return
+	end
+	
+	[smb_fd,err] = mopen(user_path+'/smb.list', 'w');
+	[smb_list_res,err] = fileinfo(user_path+'/smb.list');
+	if err ~= 0 then
+		disp("#CodeGen error: The selected path requires Administrator privileges! Code Generation aborted!");
+		mclose(xml_fd);
+		unix('del xml.list');
+		return
+	end
+	
+	xml_list = [];            // XML files list
+	smb_id = 0;
+	for i=1:size(scs_m.objs)
+		//** Search SMCUBE blocks and find out the name of the XMLs
+		//disp(typeof(scs_m.objs(i)))
+		if typeof(scs_m.objs(i))=="Block" then              // check if it is a block
+			iblock_exprs = scs_m.objs(i).graphics.exprs(1); // take the exprs field
+			//disp(iblock_exprs)
+			ib_exp_size = size(iblock_exprs);
+			if ib_exp_size(2) ~= 5 then
+				continue;
+			end
+			if iblock_exprs(4) == "SMCube" then               // check if is a SMCube block
+				[info_file,ierr] = fileinfo(iblock_exprs(3)); // Check if the XML file exists
+				if ierr <> 0 then 
+					disp("#CodeGen error: SMCube file " + iblock_exprs(3) + " not found!");
+					mclose(xml_fd);
+					mclose(smb_fd);
+					unix('del xml.list');
+					unix('del smb.list');
+					return;
+				else
+					if grep(xml_list, iblock_exprs(3))==[] then  // Check if this XML file is already in the list
+						xml_list = [xml_list; iblock_exprs(3)];  // push the XML file in the list
+						mfprintf(xml_fd,"%d %s\n", size(xml_list), iblock_exprs(3));  // Write on the text-file the number and the XML file name.
+					end
+					smb_id = smb_id + 1;
+					mfprintf(smb_fd,"%d %d\n", smb_id, grep(xml_list, iblock_exprs(3)));  // Write on the text-file the id and the number of the XML file.
+					scs_m.objs(i).model.ipar(1) = smb_id; // write on the local copy
+					
+					[row_size_ipar_i, col_size_ipar_i] = size(scs_m.objs(i).model.ipar);
+					[row_size_ipar, col_size_ipar] = size(cpr.sim.ipar);
+					
+					// Find where to write the smb_id in the ipar vector 
+					loop_ok = 0;
+					for k = 1:row_size_ipar
+						if cpr.sim.ipar(k) == scs_m.objs(i).model.ipar(2) then
+							for w = 1:(row_size_ipar_i - 2)
+								if cpr.sim.ipar(k+w) == scs_m.objs(i).model.ipar(2+w)
+									loop_ok = 1;
+								else
+									loop_ok = 0;
+									break;
+								end
+							end
+						end
+						if loop_ok == 1
+							cpr.sim.ipar(k-1) = smb_id;      // write on the global copy, the pre-compiled structure of the scicos diagram ( used by make_standalonert() )
+							break;
+						end
+					end
+				end
+			end
+		end
+	end
+	mclose(xml_fd); // Close the XML file
+	mclose(smb_fd); // Close the SMB file
+	
+	if smb_id > 0 then
+		disp("SMCube is parsing the XML file to generate the FSM source files used for the compilation.");
+		smc_engine_path = getenv("SMCUBEPATH","");
+		cmd = smc_engine_path + ' -target -descr ' + user_path + '/xml.list ' + user_path + '/smb.list ' + '-path ' + user_path + ' -output smcube_block';
+		unix(cmd);
+		disp("Please, wait...Done!")
+	end
+	
+	// ------------------------------------------
+	
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+  
+  
 	//** This comments will be moved in the documentation 
 	//** /contrib/scicos_ee/scicos_flex/RT_templates/pippo.gen
 	//** 1: pippo.mak 
@@ -1803,6 +1900,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   end
 
   disp("----> Target generation terminated!");
+  cd(EESCI_OLDDIR);
 
 endfunction
 
@@ -2386,22 +2484,22 @@ Code_common= []
 
           if stripblanks(OO.model.label)~=emptystr() then
             Code=[Code;
-                  '  '+cformatline(' * Label: '+strcat(string(OO.model.label)),70)];
+                  '  '+cformatline(' * Label: '+strcat(string(OO.model.label)),128)];
           end
           if stripblanks(OO.graphics.exprs(1))~=emptystr() then
             Code=[Code;
-                  '  '+cformatline(' * Exprs: '+strcat(OO.graphics.exprs(1),","),70)];
+                  '  '+cformatline(' * Exprs: '+strcat(OO.graphics.exprs(1),","),128)];
           end
           if stripblanks(OO.graphics.id)~=emptystr() then
             Code=[Code;
-                  '  '+cformatline(' * Identification: '+strcat(string(OO.graphics.id)),70)];
+                  '  '+cformatline(' * Identification: '+strcat(string(OO.graphics.id)),128)];
           end
           //txt=[txt;' * rpar='];
           Code($+1)='   */';
         end
         //******************//
 
-        txt=cformatline(strcat(msprintf('%.16g,\n',rpar(rpptr(i):rpptr(i+1)-1))),70);
+        txt=cformatline(strcat(msprintf('%.16g,\n',rpar(rpptr(i):rpptr(i+1)-1))),128);
 
         txt(1)='static double rpar_'+string(i)+'[]={'+txt(1);
         for j=2:size(txt,1)
@@ -2455,24 +2553,24 @@ Code_common= []
           Code($+1)='   * Compiled structure index: '+strcat(string(i));
           if stripblanks(OO.model.label)~=emptystr() then
             Code=[Code;
-                  '  '+cformatline(' * Label: '+strcat(string(OO.model.label)),70)];
+                  '  '+cformatline(' * Label: '+strcat(string(OO.model.label)),128)];
           end
 
           if stripblanks(OO.graphics.exprs(1))~=emptystr() then
             Code=[Code;
-                  '  '+cformatline(' * Exprs: '+strcat(OO.graphics.exprs(1),","),70)];
+                  '  '+cformatline(' * Exprs: '+strcat(OO.graphics.exprs(1),","),128)];
           end
           if stripblanks(OO.graphics.id)~=emptystr() then
             Code=[Code;
-                  '  '+cformatline(' * Identification: '+strcat(string(OO.graphics.id)),70)];
+                  '  '+cformatline(' * Identification: '+strcat(string(OO.graphics.id)),128)];
           end
           Code=[Code;
-                '  '+cformatline(' * ipar= {'+strcat(string(ipar(ipptr(i):ipptr(i+1)-1)),",")+'};',70)];
+                '  '+cformatline(' * ipar= {'+strcat(string(ipar(ipptr(i):ipptr(i+1)-1)),",")+'};',128)];
           Code($+1)='   */';
         end
         //******************//
 
-        txt=cformatline(strcat(string(ipar(ipptr(i):ipptr(i+1)-1))+','),70);
+        txt=cformatline(strcat(string(ipar(ipptr(i):ipptr(i+1)-1))+','),128);
 
         txt(1)='static int ipar_'+string(i)+'[]={'+txt(1);
         for j=2:size(txt,1)
@@ -2534,11 +2632,11 @@ Code = [Code;
           Code_opar($+1)='   * Compiled structure index: '+strcat(string(i));
           if stripblanks(OO.model.label)~=emptystr() then
             Code_opar=[Code_opar;
-                  '  '+cformatline(' * Label: '+strcat(string(OO.model.label)),70)];
+                  '  '+cformatline(' * Label: '+strcat(string(OO.model.label)),128)];
           end
           if stripblanks(OO.graphics.id)~=emptystr() then
             Code_opar=[Code_opar;
-                  '  '+cformatline(' * Identification: '+strcat(string(OO.graphics.id)),70)];
+                  '  '+cformatline(' * Identification: '+strcat(string(OO.graphics.id)),128)];
           end
           Code_opar($+1)='   */';
         end
@@ -2550,13 +2648,13 @@ Code = [Code;
           Code_opar =[Code_opar;
                  '  __CONST__ '+cformatline(mat2c_typ(opar(opptr(i)+j-1)) +...
                          ' opar_'+string(opptr(i)+j-1) + '[]={'+...
-                             strcat(string(opar(opptr(i)+j-1)),',')+'};',70)]
+                             strcat(string(opar(opptr(i)+j-1)),',')+'};',128)]
         else //** cmplx test
           Code_opar =[Code_opar;
                  '  __CONST__ '+cformatline(mat2c_typ(opar(opptr(i)+j-1)) +...
                          ' opar_'+string(opptr(i)+j-1) + '[]={'+...
                              strcat(string([real(opar(opptr(i)+j-1)(:));
-                                            imag(opar(opptr(i)+j-1)(:))]),',')+'};',70)]
+                                            imag(opar(opptr(i)+j-1)(:))]),',')+'};',128)]
         end
       end
 
@@ -2572,7 +2670,7 @@ Code = [Code;
         Code_oparsz=[Code_oparsz
                      string(size(opar(opptr(i)+j-1),2))]
       end
-      Code_tooparsz=cformatline(strcat(Code_oparsz,','),70);
+      Code_tooparsz=cformatline(strcat(Code_oparsz,','),128);
       Code_tooparsz(1)='__CONST__ int oparsz_'+string(i)+'[]={'+Code_tooparsz(1);
       for j=2:size(Code_tooparsz,1)
         Code_tooparsz(j)=get_blank('__CONST__ int oparsz_'+string(i)+'[]')+Code_tooparsz(j);
@@ -2587,7 +2685,7 @@ Code = [Code;
         Code_opartyp=[Code_opartyp
                       mat2scs_c_typ(opar(opptr(i)+j-1))]
       end
-      Code_toopartyp=cformatline(strcat(Code_opartyp,','),70);
+      Code_toopartyp=cformatline(strcat(Code_opartyp,','),128);
       Code_toopartyp(1)='__CONST__ int opartyp_'+string(i)+'[]={'+Code_toopartyp(1);
       for j=2:size(Code_toopartyp,1)
         Code_toopartyp(j)=get_blank('__CONST__ int opartyp_'+string(i)+'[]')+Code_toopartyp(j);
@@ -2597,7 +2695,7 @@ Code = [Code;
                      Code_toopartyp];
 
       //## ptr
-      Code_tooparptr=cformatline(strcat(string(zeros(1,nopar)),','),70);
+      Code_tooparptr=cformatline(strcat(string(zeros(1,nopar)),','),128);
       Code_tooparptr(1)='static void *oparptr_'+string(i)+'[]={'+Code_tooparptr(1);
       for j=2:size(Code_tooparptr,1)
         Code_tooparptr(j)=get_blank('static void *oparptr_'+string(i)+'[]')+Code_tooparptr(j);
@@ -2630,20 +2728,20 @@ Code = [Code;
    if impl_blk then
      Code=[Code;
            '  /* Continuous states declaration */'
-           cformatline('  static double x[]={'+strcat(string(x(1:nX)),',')+'};',70)
-           cformatline('  static double xd[]={'+strcat(string(zeros(nX/2+1:nX)),',')+'};',70)
-           cformatline('  static double res[]={'+strcat(string(zeros(1,nX/2)),',')+'};',70)
+           cformatline('  static double x[]={'+strcat(string(x(1:nX)),',')+'};',128)
+           cformatline('  static double xd[]={'+strcat(string(zeros(nX/2+1:nX)),',')+'};',128)
+           cformatline('  static double res[]={'+strcat(string(zeros(1,nX/2)),',')+'};',128)
            ''
            '/* def xproperty */'
-           cformatline('     static int xprop[]={'+strcat(string(ones(1:nX/2)),',')+'};',70)
+           cformatline('     static int xprop[]={'+strcat(string(ones(1:nX/2)),',')+'};',128)
            '']
 
    //## explicit block
    else
      Code=[Code;
            '  /* Continuous states declaration */'
-           cformatline('  static double x[]={'+strcat(string(x),',')+'};',70)
-           cformatline('  static double xd[]={'+strcat(string(zeros(1,nX)),',')+'};',70)
+           cformatline('  static double x[]={'+strcat(string(x),',')+'};',128)
+           cformatline('  static double xd[]={'+strcat(string(zeros(1,nX)),',')+'};',128)
            '']
    end
   end
@@ -2686,23 +2784,23 @@ Code = [Code;
             Code($+1)='     Compiled structure index: '+strcat(string(i));
             if stripblanks(OO.model.label)~=emptystr() then
               Code=[Code;
-                    cformatline('     Label: '+strcat(string(OO.model.label)),70)]
+                    cformatline('     Label: '+strcat(string(OO.model.label)),128)]
             end
             if stripblanks(OO.graphics.exprs(1))~=emptystr() then
               Code=[Code;
-                    cformatline('     Exprs: '+strcat(OO.graphics.exprs(1),","),70)]
+                    cformatline('     Exprs: '+strcat(OO.graphics.exprs(1),","),128)]
             end
             if stripblanks(OO.graphics.id)~=emptystr() then
               Code=[Code;
                     cformatline('     Identification: '+..
-                       strcat(string(OO.graphics.id)),70)]
+                       strcat(string(OO.graphics.id)),128)]
             end
           end
         end
         Code($+1)='  */';
         Code=[Code;
               cformatline('  static double z_'+string(i)+'[]={'+...
-              strcat(string(z(zptr(i):zptr(i+1)-1)),",")+'};',70)]
+              strcat(string(z(zptr(i):zptr(i+1)-1)),",")+'};',128)]
         Code($+1)='';
       end
       //******************//
@@ -2743,13 +2841,13 @@ Code = [Code;
           Code_oz=[Code_oz;
                    cformatline('  static '+mat2c_typ(oz(ozptr(i)+j-1))+...
                                ' oz_'+string(ozptr(i)+j-1)+'[]={'+...
-                               strcat(string(oz(ozptr(i)+j-1)(:)),',')+'};',70)]
+                               strcat(string(oz(ozptr(i)+j-1)(:)),',')+'};',128)]
         else //** cmplx test
           Code_oz=[Code_oz;
                    cformatline('  static '+mat2c_typ(oz(ozptr(i)+j-1))+...
                                ' oz_'+string(ozptr(i)+j-1)+'[]={'+...
                                strcat(string([real(oz(ozptr(i)+j-1)(:));
-                                              imag(oz(ozptr(i)+j-1)(:))]),',')+'};',70)]
+                                              imag(oz(ozptr(i)+j-1)(:))]),',')+'};',128)]
         end
       end
 
@@ -2765,7 +2863,7 @@ Code = [Code;
         Code_ozsz=[Code_ozsz
                      string(size(oz(ozptr(i)+j-1),2))]
       end
-      Code_toozsz=cformatline(strcat(Code_ozsz,','),70);
+      Code_toozsz=cformatline(strcat(Code_ozsz,','),128);
       Code_toozsz(1)='static int ozsz_'+string(i)+'[]={'+Code_toozsz(1);
       for j=2:size(Code_toozsz,1)
         Code_toozsz(j)=get_blank('static int ozsz_'+string(i)+'[]')+Code_toozsz(j);
@@ -2780,7 +2878,7 @@ Code = [Code;
         Code_oztyp=[Code_oztyp
                       mat2scs_c_typ(oz(ozptr(i)+j-1))]
       end
-      Code_tooztyp=cformatline(strcat(Code_oztyp,','),70);
+      Code_tooztyp=cformatline(strcat(Code_oztyp,','),128);
       Code_tooztyp(1)='static int oztyp_'+string(i)+'[]={'+Code_tooztyp(1);
       for j=2:size(Code_tooztyp,1)
         Code_tooztyp(j)=get_blank('static int oztyp_'+string(i)+'[]')+Code_tooztyp(j);
@@ -2790,7 +2888,7 @@ Code = [Code;
                      Code_tooztyp];
 
       //## ptr
-      Code_toozptr=cformatline(strcat(string(zeros(1,noz)),','),70);
+      Code_toozptr=cformatline(strcat(string(zeros(1,noz)),','),128);
       Code_toozptr(1)='static void *ozptr_'+string(i)+'[]={'+Code_toozptr(1);
       for j=2:size(Code_toozptr,1)
         Code_toozptr(j)=get_blank('static void *ozptr_'+string(i)+'[]')+Code_toozptr(j);
@@ -2822,13 +2920,13 @@ Code = [Code;
       Code_outtb=[Code_outtb;
                   cformatline('  static '+mat2c_typ(outtb(i))+...
                               ' outtb_'+string(i)+'[]={'+...
-                              strcat(string_to_c_string(outtb(i)(:)),',')+'};',70)]
+                              strcat(string_to_c_string(outtb(i)(:)),',')+'};',128)]
     else //** cmplx test
       Code_outtb=[Code_outtb;
                   cformatline('  static '+mat2c_typ(outtb(i))+...
                               ' outtb_'+string(i)+'[]={'+...
                               strcat(string_to_c_string([real(outtb(i)(:));
-                                             imag(outtb(i)(:))]),',')+'};',70)]
+                                             imag(outtb(i)(:))]),',')+'};',128)]
     end
   end
 
@@ -2886,7 +2984,7 @@ Code = [Code;
       end
     end
     if Code_insz<>[] then
-      Code_toinsz=cformatline(strcat(Code_insz,','),70);
+      Code_toinsz=cformatline(strcat(Code_insz,','),128);
       Code_toinsz(1)='static int insz_'+string(kf)+'[]={'+Code_toinsz(1);
       for j=2:size(Code_toinsz,1)
         Code_toinsz(j)=get_blank('static int insz_'+string(kf)+'[]')+Code_toinsz(j);
@@ -2906,7 +3004,7 @@ Code = [Code;
                   'static void *inptr_'+string(kf)+'[]={0};';]
     //## other blocks ##//
     elseif nin<>0 then
-      Code_toinptr=cformatline(strcat(string(zeros(1,nin)),','),70);
+      Code_toinptr=cformatline(strcat(string(zeros(1,nin)),','),128);
       Code_toinptr(1)='static void *inptr_'+string(kf)+'[]={'+Code_toinptr(1);
       for j=2:size(Code_toinptr,1)
         Code_toinptr(j)=get_blank('static void *inptr_'+string(kf)+'[]')+Code_toinptr(j);
@@ -2949,7 +3047,7 @@ Code = [Code;
       end
     end
     if Code_outsz<>[] then
-      Code_tooustz=cformatline(strcat(Code_outsz,','),70);
+      Code_tooustz=cformatline(strcat(Code_outsz,','),128);
       Code_tooustz(1)='static int outsz_'+string(kf)+'[]={'+Code_tooustz(1);
       for j=2:size(Code_tooustz,1)
         Code_tooustz(j)=get_blank('static int outsz_'+string(kf)+'[]')+Code_tooustz(j);
@@ -2969,7 +3067,7 @@ Code = [Code;
                    'static void *outptr_'+string(kf)+'[]={0};';]
     //## other blocks ##//
     elseif nout<>0 then
-      Code_tooutptr=cformatline(strcat(string(zeros(1,nout)),','),70);
+      Code_tooutptr=cformatline(strcat(string(zeros(1,nout)),','),128);
       Code_tooutptr(1)='static void *outptr_'+string(kf)+'[]={'+Code_tooutptr(1);
       for j=2:size(Code_tooutptr,1)
         Code_tooutptr(j)=get_blank('static void *outptr_'+string(kf)+'[]')+Code_tooutptr(j);
@@ -3010,7 +3108,7 @@ Code = [Code;
     if funs(kf)<>'bidon' then
       nevout=clkptr(kf+1)-clkptr(kf);
       if nevout <> 0 then
-        Code_toevout=cformatline(strcat(string(cpr.state.evtspt((clkptr(kf):clkptr(kf+1)-1))),','),70);
+        Code_toevout=cformatline(strcat(string(cpr.state.evtspt((clkptr(kf):clkptr(kf+1)-1))),','),128);
         Code_toevout(1)='static double evout_'+string(kf)+'[]={'+Code_toevout(1);
         for j=2:size(Code_toevout,1)
           Code_toevout(j)=get_blank('static double evout_'+string(kf)+'[]')+Code_toevout(j);

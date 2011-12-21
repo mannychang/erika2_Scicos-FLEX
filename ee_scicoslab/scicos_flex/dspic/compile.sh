@@ -27,7 +27,7 @@ else
 fi
 
 echo --------------------------------------------------------
-echo Step 1: Template Generation
+echo Step 1: Template Generation by RT-Druid 
 echo
 echo RT-Druid is generating the scheleton application which 
 echo will be compiled together with the Scicos generated code
@@ -36,7 +36,7 @@ echo --------------------------------------------------------
 cat conf_scicos.oil | gcc -c - $(cat scicos_symbols) -E -P -o conf.oil
 
 echo --------------------------------------------------------
-echo Step 2: Parsing OIL File
+echo Step 2: Parsing OIL File by RT-Druid 
 echo
 echo RT-Druid is parsing the OIL file to generate the 
 echo makefiles used for the compilation 
@@ -44,9 +44,9 @@ echo --------------------------------------------------------
 `cygpath -ms ${RTDRUID_BASEDIR}`/generate_code.bat `cygpath -d $1` conf.oil Debug
 
 echo --------------------------------------------------------
-echo Step 3: Compiling the application
+echo Step 3: Building the Scicos project with Erika RTOS
 echo
-echo The application is now compiled 
+echo The application is now compiled with GNU make 
 echo --------------------------------------------------------
 cd Debug
 if [ "$EEBASE" ]; then

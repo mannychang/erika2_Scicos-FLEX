@@ -126,7 +126,13 @@ waitbar('                                               \n..
   if exists('rs232_link_num')
     ulink(rs232_link_num);
   end
-  
+  if exists('lib_SMCflex_link_num')
+    ulink(lib_SMCflex_link_num);
+  end
+  if exists('libsmcube_link_num')
+    ulink(libsmcube_link_num);
+  end
+
   // Removing ScicosLabPack_install.log
   [loginfo,ierr]=fileinfo('ScicosLabPack_install.log');
   if ierr==0
@@ -466,7 +472,13 @@ waitbar('                                               \n..
 	if exists('rs232_link_num')
         ulink(rs232_link_num);
     end
-    
+    if exists('lib_SMCflex_link_num')
+      ulink(lib_SMCflex_link_num);
+    end
+    if exists('libsmcube_link_num')
+      ulink(libsmcube_link_num);
+    end
+  
     // Removing scicos_ee
     cd(SCIDIR+'\contrib');
     cmd = 'rmdir /s /q scicos_ee';
