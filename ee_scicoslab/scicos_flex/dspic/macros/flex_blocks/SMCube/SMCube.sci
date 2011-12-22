@@ -13,6 +13,21 @@ function [result] = _getFileName(path)
   end
 endfunction
 
+function [result] = _buildPath(path)
+  folderSeparator = "/";
+  if MSDOS == %T then
+    folderSeparator = "\";
+  end
+  path = stripblanks(path);
+  while length(path) > 0 & part(path,length(path)) == folderSeparator then
+    path = part(path, 1:length(path)-1);
+  end
+  if isempty(path) == %F then
+    result = path + folderSeparator;
+  end
+endfunction
+
+
 function [x,y,typ] = SMCube(job,arg1,arg2)
 
 //** ------------------------------------ INPUT ---------------------------------
@@ -43,7 +58,12 @@ case 'set' then //** set parameters
   graphics = arg1.graphics;
   label    = graphics.exprs;
   sengine_file = stripblanks(label(1)(3));
+  sengine_exe_name = "SMCube";
+  if MSDOS == %T then
+    sengine_exe_name = sengine_exe_name + ".exe";
+  end
   sengine_path = getenv("SMCUBEPATH","");
+  sengine_path = _buildPath(sengine_path) + sengine_exe_name;
   [info_file,ierr] = fileinfo(sengine_path);
   if ierr <> 0 then
     message("SMCube application binary file " + sengine_path + " not found!");
@@ -305,7 +325,22 @@ case 'compile' then
   if isempty(sengine_path) == %T then
     error("Please set the environment variable SMCUBEPATH");
   end
-  
+  sengine_exe_name = "SMCube";
+  sengine_conf_name = "Configuration.ini";
+  sengine_path = _buildPath(sengine_path);
+  if MSDOS == %T then
+    sengine_exe_name = sengine_exe_name + ".exe";
+  end
+  sengine_binary_file = sengine_path + sengine_exe_name;
+  [info_file,ierr] = fileinfo(sengine_binary_file);
+  if ierr <> 0 then
+    error("SMCube application binary file " + sengine_binary_file + " not found!");
+  end
+  sengine_conf_file = sengine_path + sengine_conf_name;
+  [info_file,ierr] = fileinfo(sengine_conf_file);
+  if ierr <> 0 then
+    error("Cannot open the configuration file.");
+  end
  
 
 end

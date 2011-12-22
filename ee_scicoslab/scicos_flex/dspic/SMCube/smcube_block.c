@@ -14,8 +14,12 @@
 
 #ifdef _WIN32
 #define EXPORT_SHARED_LIB __declspec(dllexport)
+static const char* executable_name = "SMCube.exe";
+static const char* folder_separator = "\\";
 #else
 #define EXPORT_SHARED_LIB
+static const char* executable_name = "SMCube";
+static const char* folder_separator = "/";
 #endif
 
 #if defined(_WIN32) && defined(_MSC_VER)
@@ -79,6 +83,8 @@ static char* trim_string(const char* str);
 
 static int file_exists(const char* file_name, const char* perm);
 
+static char* get_engine_exe(const char* path, const char* exe_name, const char* folder_sep);
+
 void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 {
 	int block_index;
@@ -86,6 +92,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 	char* input_descr = 0;
 	char* output_descr = 0;
 	char* engine_path = 0;
+	char* engine_exe = 0;
 	char* engine_file = 0;
 	int par_output_descr_base;
 	int par_output_descr_length;
@@ -172,7 +179,13 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 			Coserror("\"SMCUBEPATH\" environment variable not set.");
 			goto init_error;
 		}
-
+		engine_exe = get_engine_exe(engine_path, executable_name, folder_separator);
+		if (!engine_exe)
+		{
+			*engine_exists = 0;
+			Coserror("Error while building executable name of SMCube.");
+			goto init_error;		
+		}
 		/*INITIALIZE INPUT DATA STRUCTURE*/
 		str_tmp = trim_string(input_descr);
 		free(input_descr);
@@ -189,11 +202,11 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		dm_erase_types(&inout_types);
 		/*CHECK FOR ENGINE PARAMETERS*/
 		*engine_exists = 1;
-		if (file_exists(engine_path, "r") == 0)
+		if (file_exists(engine_exe, "r") == 0)
 		{
 			*engine_exists = 0;
 			Coserror("SMCube application binary file %s "
-			    "error: %s.", engine_path, strerror(errno));
+			    "error: %s.", engine_exe, strerror(errno));
 		}
 		if (file_exists(engine_file, "r+") == 0)
 		{
@@ -221,7 +234,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		parameters = build_engine_parameters(engine_file, background,
 											 channel_name,sblock_index,
 											 &nparameters);
-		build_process(process, engine_path, (const char**)parameters, nparameters);
+		build_process(process, engine_exe, (const char**)parameters, nparameters);
 		clean_engine_parameters(parameters, nparameters);
 		if (launch_process(process) == -1)
 		{
@@ -240,6 +253,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 				channel->last_error_code_);
 			goto init_error;
 		}
+		free(engine_exe);
 		free(engine_file);
 		free(input_descr);
 		free(output_descr);
@@ -247,6 +261,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		free(sblock_index);
 		break;
 init_error:
+		free(engine_exe);
 		free(engine_file);
 		free(input_descr);
 		free(output_descr);
@@ -499,4 +514,25 @@ int file_exists(const char* file_name, const char* perm)
 		return 1;
 	}
 	return 0;
+}
+
+char* get_engine_exe(const char* path, const char* exe_name, const char* folder_sep)
+{
+	char* res = 0;
+	int end = strlen(path)-1;
+	int len = strlen(exe_name) + 2;/*folder separator + end string*/
+	while (end >= 0 && (path[end] == '/' || path[end] == '\\'))
+	{
+		--end;
+	}
+	len += end + 1;
+	res = (char*) malloc(len);
+	if (res)
+	{
+		strncpy(res, path, end+1);
+		strncpy(res+end+1, folder_sep, 1);
+		strncpy(res+end+2, exe_name, strlen(exe_name));
+		res[len-1] = '\0';
+	}
+	return res;
 }
