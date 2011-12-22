@@ -39,7 +39,8 @@ void init_process(struct process_data* proc)
 void build_process(struct process_data* proc, const char* name, 
 				  const char** parameters, int npars)
 {
-	int i, name_size;
+	int i, name_size, param_size;
+	char* param = 0;
 	name_size = strlen(name) + STR_TERM_SIZE + 2; /*"+2" for the quoted strings*/
 	proc->name_ = malloc(name_size); 
 	strncpy(proc->name_, "\"", 1);
@@ -53,8 +54,13 @@ void build_process(struct process_data* proc, const char* name,
 	strcpy(proc->parameters_[0], proc->name_);
 	for(i = 0; i < npars; ++i)
 	{
-		proc->parameters_[i+1] = malloc(strlen(parameters[i]) + STR_TERM_SIZE);
-		strcpy(proc->parameters_[i+1], parameters[i]);
+		param_size = strlen(parameters[i]) + STR_TERM_SIZE + 2;/*"+2" for the quoted strings*/
+		param = malloc(param_size);
+		strncpy(param, "\"", 1);
+		strcpy(param + 1, parameters[i]);
+		param[param_size-2] = '\"';
+		param[param_size-1] = '\0';
+		proc->parameters_[i+1] = param;
 	}
 }
 
