@@ -26,14 +26,30 @@ case 'set' then //** set parameters
   model    = arg1.model;
   graphics = arg1.graphics;
   label    = graphics.exprs;
-
   block_type = model.ipar(1);
   sblock_id = string(model.ipar(2));
+  
+  // lcd_intyp
+  lcd_intyp = 'dd';
+  if model.ipar(3)==1 then
+    if model.ipar(4)==1 then
+      lcd_intyp = 'dd';
+    else
+      lcd_intyp = 'di';
+    end
+  else
+    if model.ipar(4)==1 then
+      lcd_intyp = 'id';
+    else
+      lcd_intyp = 'ii';
+    end
+  end
+  
   while %t do
     dialog_box_banner = "Flex LEDs/LCD Parameters";
-    [ok, new_block_id] = getvalue(dialog_box_banner,...
-      ['Flex Identifier'], list('vec',1), [sblock_id]);
-	
+    [ok, new_block_id, new_lcd_intyp] = getvalue(dialog_box_banner,...
+      ['Flex Identifier';'LCD input type [d:real, i:int8] '], list('vec',1,'str',1), [sblock_id; lcd_intyp]);
+
     if ~ok then break, end //** in case of error
 
     label(1)(1) = 'Flex_'+string(new_block_id);
@@ -52,12 +68,39 @@ case 'set' then //** set parameters
     funam = 'flex_blocks';
     funtyp = 4 ;
     input_leds_type = 5;//int8
-    input_lcd_type = 1;//real
 
-    i = [1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1];
+    new_lcd_intyp = ascii(new_lcd_intyp);
+    if new_lcd_intyp(1)==ascii('d') then
+      if new_lcd_intyp(2)==ascii('d') then
+        input_lcd_type = [1;1]; //real,real
+        i = [1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1];
+      else if new_lcd_intyp(2)==ascii('i') then
+             input_lcd_type = [1;5]; //real,int8
+             i = [1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 0];
+           else
+             message("Error: unknown type for LCD port 2");
+           end
+      end
+    else if new_lcd_intyp(1)==ascii('i') then
+           if new_lcd_intyp(2)==ascii('d') then
+             input_lcd_type = [5;1]; //int8,real
+             i = [1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 0;1 1];
+           else if new_lcd_intyp(2)==ascii('i') then
+                  input_lcd_type = [5;5]; //int8,int8
+             i = [1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 0;1 0];
+                else
+                  message("Error: unknown type for LCD port 2");
+                end
+           end
+         else
+           message("Error: unknown type for LCD port 1");
+         end
+    end
+
+    ipar = [block_type;new_block_id;input_lcd_type];
     it = [input_leds_type;input_leds_type;input_leds_type;input_leds_type;...
           input_leds_type;input_leds_type;input_leds_type;input_leds_type;...
-          input_lcd_type;input_lcd_type];
+          input_lcd_type(1);input_lcd_type(2)];
     o = [];
     ot = [];
     [model, graphics, ok] = set_io(model, graphics, list(i,it), list(o, ot), ones(ci,1), []);
@@ -75,7 +118,7 @@ case 'set' then //** set parameters
     model.state = [];
     model.dstate = 0 ;
     model.rpar = [];
-    model.ipar = [block_type;new_block_id];
+    model.ipar = ipar;
     model.firing = [];
     model.dep_ut = dep_ut;
     model.nzcross = 0 ;
@@ -98,9 +141,15 @@ case 'define' then      //** the standard define
   funtyp = 4 ;
   model.sim=list(funam, funtyp) //** simulating function
 
-  i = [1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1];
+  i = [1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 1;1 0;1 0];
   model.in = i(:,1);
   model.in2 = i(:,2);
+  input_leds_type = 5;//int8
+  input_lcd_type = [5;5]; //int8,int8
+  it = [input_leds_type;input_leds_type;input_leds_type;input_leds_type;...
+        input_leds_type;input_leds_type;input_leds_type;input_leds_type;...
+        input_lcd_type(1);input_lcd_type(2)];
+  model.intyp = it;
   model.out = [] ;
   model.out2 = [];
   model.evtin = 1 ;
@@ -108,7 +157,7 @@ case 'define' then      //** the standard define
   model.state = [] ;
   model.dstate = [] ;
   model.rpar = [];
-  model.ipar = [block_type;block_id];
+  model.ipar = [block_type;block_id;5;5];
   model.blocktype = 'c';
   model.firing = [] ;
   model.dep_ut = [%t %f];
