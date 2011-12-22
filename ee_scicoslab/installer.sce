@@ -707,6 +707,7 @@ create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\F
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-MTB");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\RT-Data-Exchange");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\EASYLAB");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube");
 
 cd(MYDIR+'scicos_ee\utils');
 cmd = 'start cp_cosf.bat ' + ascii(34)+SCIDIR+ascii(34);
