@@ -44,9 +44,12 @@
 #define LED_6 6
 #define LED_7 7
 #define LEDS_SIZE 8
-#define LCD_1 0
-#define LCD_2 1
-#define LCD_SIZE 2
+#define LCD_MAX_SIZE 16 /*in case of array of uint8_t*/
+#define LCD_INPORT_1 9
+#define LCD_INPORT_2 10
+
+#define MSG_REAL_TYPE 0
+#define MSG_UINT8_TYPE 1
 
 #define BUTTONS_CMD 0
 #define LEDSLCD_CMD 1
@@ -56,21 +59,30 @@ typedef struct flex_buttons_data_ {
 	unsigned char buttons[BUTTONS_SIZE];
 }flex_buttons_data;
 
-typedef struct flex_ledslcd_data_
+typedef struct header_msg_ 
 {
-	unsigned char leds[LEDS_SIZE];
-	double lcd[LCD_SIZE];
-}flex_ledslcd_data;
+	unsigned char cmd;
+}header_msg;
 
 typedef struct buttons_req_msg_
 {
-	unsigned char cmd;
+	header_msg header;
 }buttons_req_msg;
+
+typedef struct lcd_data_
+{
+	unsigned char type;
+	unsigned char size;
+	unsigned char data[LCD_MAX_SIZE];
+	double value;
+}lcd_data;
 
 typedef struct ledslcd_msg_
 {
-	unsigned char cmd;
-	flex_ledslcd_data data;
+	header_msg header;
+	unsigned char leds[LEDS_SIZE];
+	lcd_data lcd1;
+	lcd_data lcd2;
 }ledslcd_msg;
 #pragma pack(pop)
 
@@ -196,9 +208,6 @@ void EXPORT_SHARED_LIB flex_blocks(scicos_block *block,int flag)
 			Coserror("FlexDemoBoard launch failed: %d.", process->last_error_code_);
 			goto init_error;
 		}
-		/*TODO: the next operation blocks the calling thread until the client
-		  is connected or an error occurs. A different approach shall be used
-		  in order to avoid application freeze in case of unexpected errors*/
 		if (wait_for_connect_timeout(channel, 5) == -1)
 		{
 			*engine_exists = 0;
@@ -362,7 +371,7 @@ void do_buttons_update(scicos_block *block)
 	buttons_req_msg msg;
 	flex_buttons_data data;
 	int i;
-	msg.cmd = BUTTONS_CMD;
+	msg.header.cmd = BUTTONS_CMD;
 	if (write_to_channel(channel, (const char*)&msg, sizeof(msg)) < 0)
 	{
 		Coserror("Write to channel failed for buttons: %d.", 
@@ -390,21 +399,63 @@ void do_ledslcd_update(scicos_block *block)
 {
 	ledslcd_msg msg;
 	int i;
-	msg.cmd = LEDSLCD_CMD;
+	msg.header.cmd = LEDSLCD_CMD;
 	for(i = 0; i < LEDS_SIZE; ++i)
 	{
 		if (Getint8InPortPtrs(block,i+1))
 		{
-			msg.data.leds[i] = *Getint8InPortPtrs(block,i+1);
+			msg.leds[i] = *Getint8InPortPtrs(block,i+1);
 		}
 	}
-	for(i = 0; i < LCD_SIZE; ++i)
+	if (GetInType(block, LCD_INPORT_1) == SCSREAL_N)
 	{
-		if (GetRealInPortPtrs(block,LEDS_SIZE+i+1))
-		{
-			msg.data.lcd[i] = *GetRealInPortPtrs(block,LEDS_SIZE+i+1);
-		}
+		msg.lcd1.type = MSG_REAL_TYPE;
+		msg.lcd1.size = sizeof(SCSREAL_COP);
+		msg.lcd1.value = *GetRealInPortPtrs(block,LCD_INPORT_1);
 	}
+	else if (GetInType(block, LCD_INPORT_1) == SCSUINT8_N)
+	{
+		msg.lcd1.type = MSG_UINT8_TYPE;
+		msg.lcd1.size = (GetInPortSize(block, LCD_INPORT_1, 1) * 
+			GetInPortSize(block, LCD_INPORT_1, 2)) * sizeof(SCSUINT8_COP);
+		if (msg.lcd1.size > LCD_MAX_SIZE)
+		{
+			Coserror("Bad port size for LCD1: %d (greater then %d).", 
+				msg.lcd1.size, LCD_MAX_SIZE);
+			return;	
+		}
+		memcpy(msg.lcd1.data, GetInPortPtrs(block, LCD_INPORT_1), msg.lcd1.size);
+	}
+	else
+	{
+		Coserror("Bad port type for LCD1: %d.", GetInType(block, LCD_INPORT_1));
+		return;
+	}
+	if (GetInType(block, LCD_INPORT_2) == SCSREAL_N)
+	{
+		msg.lcd2.type = MSG_REAL_TYPE;
+		msg.lcd2.size = sizeof(SCSREAL_COP);
+		msg.lcd2.value = *GetRealInPortPtrs(block,LCD_INPORT_2);
+	}
+	else if (GetInType(block, LCD_INPORT_2) == SCSUINT8_N)
+	{
+		msg.lcd2.type = MSG_UINT8_TYPE;
+		msg.lcd2.size = (GetInPortSize(block, LCD_INPORT_2, 1) * 
+			GetInPortSize(block, LCD_INPORT_2, 2)) * sizeof(SCSUINT8_COP);
+		if (msg.lcd2.size > LCD_MAX_SIZE)
+		{
+			Coserror("Bad port size for LCD2: %d (greater then %d).", 
+				msg.lcd2.size, LCD_MAX_SIZE);
+			return;	
+		}
+		memcpy(msg.lcd2.data, GetInPortPtrs(block, LCD_INPORT_2), msg.lcd2.size);
+	}
+	else
+	{
+		Coserror("Bad port type for LCD2: %d.", GetInType(block, LCD_INPORT_2));
+		return;
+	}
+
 	if (write_to_channel(channel, (const char*)&msg, sizeof(msg)) < 0)
 	{
 		Coserror("Write to channel failed for ledslcd: %d.", 
