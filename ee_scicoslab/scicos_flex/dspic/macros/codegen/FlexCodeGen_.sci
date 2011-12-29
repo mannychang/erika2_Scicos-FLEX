@@ -1845,7 +1845,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 	if smb_id > 0 then
 		disp("SMCube is parsing the XML file to generate the FSM source files used for the compilation.");
 		smc_engine_path = getenv("SMCUBEPATH","");
-		cmd = smc_engine_path + ' -target -descr ' + user_path + '/xml.list ' + user_path + '/smb.list ' + '-path ' + user_path + ' -output smcube_block';
+		cmd = smc_engine_path + '/SMCube.exe' + ' -target -descr ' + user_path + '/xml.list ' + user_path + '/smb.list ' + '-path ' + user_path + ' -output smcube_block';
 		unix(cmd);
 		disp("Please, wait...Done!")
 	end

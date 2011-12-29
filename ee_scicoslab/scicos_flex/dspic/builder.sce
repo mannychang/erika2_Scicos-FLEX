@@ -51,6 +51,6 @@ genlib(libname_misc,MISC)
 genlib(libname_easylab,FB_EASYLAB)
 genlib(libname_gif_icons,GIF_ICONS)
 
-setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin/SMCube.exe');
+setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin');
 setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
 genlib(libname_smcube,SMCUBE)
