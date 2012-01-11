@@ -13,6 +13,7 @@ typedef struct block_data_
 	int exists_;
 	struct dm_elem input_;
 	struct dm_elem output_;
+	unsigned int output_events_;
 }block_data;
 
 #define TYPE block_data

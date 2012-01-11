@@ -91,17 +91,18 @@ case 'set' then //** set parameters
   
   reserved = model.ipar(1);
   seventsin = string(length(model.evtin));
+  seventsout = string(length(model.evtout));
   ssimmode = string(model.ipar(2));
   sindata = stripblanks(label(1)(1));
   soutdata = stripblanks(label(1)(2));
   sengine_file = stripblanks(label(1)(3));
   while %t do
     dialog_box_banner = "SMCube Parameters";
-    [ok, eventsin, simmode, indata, outdata, engine_file, lab] = getvalue(dialog_box_banner,...
-     ['Number of input event ports';'Mode (1:interactive, 2:background)';'Input Description (''d'':double,''i'':int32)';...
-      'Output Description (''d'':double,''i'':int32)';'SMCube File'],...
-     list('vec',1,'vec',1,'str',1,'str',1,'str',1),...
-     [seventsin;ssimmode;sindata;soutdata;sengine_file]);                                                
+    [ok, eventsin, eventsout, simmode, indata, outdata, engine_file, lab] = getvalue(dialog_box_banner,...
+     ['Number of input event ports';'Number of output event ports';'Mode (1:interactive, 2:background)';...
+      'Input Description (''d'':double,''i'':int32)';'Output Description (''d'':double,''i'':int32)';'SMCube File'],...
+     list('vec',1,'vec',1,'vec',1,'str',1,'str',1,'str',1),...
+     [seventsin;seventsout;ssimmode;sindata;soutdata;sengine_file]);                                                
     if ~ok then break, end //** in case of error
     
     ng = [];
@@ -114,8 +115,13 @@ case 'set' then //** set parameters
     elseif eventsin < 0 then
       eventsin = 0;
     end
+    if eventsout > 32 then
+      eventsout = 32;
+    elseif eventsin < 0 then
+      eventsout = 0;
+    end
     ci  = ones(eventsin,1);
-    co = [];
+    co = ones(eventsout,1);
     depu = %t; dept = %f;
     dep_ut = [depu dept];
     funam = 'smcube_block';
@@ -212,13 +218,13 @@ case 'set' then //** set parameters
         model.out = o(:,1);
         model.out2 = o(:,2);
         model.evtin = ci;
-        model.evtout = [];
+        model.evtout = co;
         model.state = [];
         model.dstate = 0 ;
         model.rpar = [];
         model.ipar = [reserved;simmode;length(indata);ascii(indata)';length(outdata);ascii(outdata)';...
           length(engine_file);ascii(engine_file)'];
-        model.firing = [];
+        model.firing = -co;
         model.dep_ut = dep_ut;
         model.nzcross = 0 ;
         x.model = model ;
@@ -247,13 +253,13 @@ case 'set' then //** set parameters
       model.out = o(:,1);
       model.out2 = o(:,2); 
       model.evtin = ci;
-      model.evtout = [];
+      model.evtout = co;
       model.state = [];
       model.dstate = 0 ;
       model.rpar = [];
       model.ipar = [reserved;simmode;length(indata);ascii(indata)';length(outdata);ascii(outdata)';...
         length(engine_file);ascii(engine_file)'];
-      model.firing = [];
+      model.firing = -co;
       model.dep_ut = dep_ut;
       model.nzcross = 0 ;
       x.model = model ;

@@ -45,6 +45,8 @@ static const char* folder_separator = "/";
 #define ipar(i) (block->ipar[i])
 #define iwork(i) (((int*)(*block->work))[0])
 
+#define CHECK_OUTPUT_EVENT(events, evt) \
+	( events & ((unsigned int)1 << evt) )
 
 /*BLOCK DATA*/
 struct process_data* process = 0;
@@ -57,6 +59,10 @@ static int erase_blocks = 0;
 BLOCK_INSTANCE(blocks_data);
 
 static int assign_current_block(int block_index);
+
+static int get_output_events(int block_index, unsigned int* evtout);
+
+static int set_output_events(int block_index, unsigned int evtout);
 
 static void initialize_block_data(block_data* bd);
 
@@ -273,6 +279,7 @@ init_error:
 	/* output update */
 	case 1:{
 		int inevents = GetNevIn(block);
+		unsigned int evtout = 0;
 		if (assign_current_block(iwork(PAR_INTERNAL_BLOCK_INDEX)) == 0)
 		{
 			Coserror("Block initialization failed, internal error"
@@ -307,6 +314,37 @@ init_error:
 			}
 			/*BUILD OUTPUT */
 			assign_output_data(output_data, block);
+		}
+		if (read_from_channel(channel, (char*)&evtout, sizeof(evtout)) == -1)
+		{
+			Coserror("Read from channel failed: %d.", channel->last_error_code_);
+			*engine_exists = 0;
+			break;
+		}
+		if (!set_output_events(iwork(PAR_INTERNAL_BLOCK_INDEX), evtout))
+		{
+			Coserror("Internal error(on set_output_events): unknown block %d", 
+				iwork(PAR_INTERNAL_BLOCK_INDEX));
+			*engine_exists = 0;
+			break;		
+		}
+		}break;
+	/* output events update */
+	case 3:{
+		unsigned int evtsout = 0;
+		int i;
+		if (!get_output_events(iwork(PAR_INTERNAL_BLOCK_INDEX), &evtsout))
+		{
+			Coserror("Internal error(on set_output_events): unknown block %d", 
+				iwork(PAR_INTERNAL_BLOCK_INDEX));
+			break;
+		}
+		for (i = 0; i < block->nevout; ++i)
+		{
+			if (CHECK_OUTPUT_EVENT(evtsout, i))
+			{
+				block->evout[i] = 0;
+			}
 		}
 		}break;
 	/* ending */
@@ -346,6 +384,29 @@ int assign_current_block(int block_index)
 	return 1;
 }
 
+int get_output_events(int block_index, unsigned int* evtout)
+{
+	block_data* bd = BLOCK_AT_PTR(blocks_data, block_index);
+	if (bd == 0)
+	{
+		return 0;
+	}
+	*evtout = bd->output_events_;
+	return 1;
+}
+
+int set_output_events(int block_index, unsigned int evtout)
+{
+	block_data* bd = BLOCK_AT_PTR(blocks_data, block_index);
+	if (bd == 0)
+	{
+		return 0;
+	}
+	bd->output_events_ = evtout;
+	return 1;
+}
+
+
 void initialize_block_data(block_data* bd)
 {
 	bd->exists_ = 0;
@@ -353,6 +414,7 @@ void initialize_block_data(block_data* bd)
 	init_process(&bd->process_);
 	dm_init(&bd->input_);
 	dm_init(&bd->output_);
+	bd->output_events_ = 0;
 }
 
 char* int_to_string(int val)
