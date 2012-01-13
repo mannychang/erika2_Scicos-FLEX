@@ -1,7 +1,7 @@
-#include "common/process_utils.h"
-#include "common/comm_channel.h"
-#include "common/data_model.h"
-#include "common/block_data.h"
+#include "../common/process_utils.h"
+#include "../common/comm_channel.h"
+#include "../common/data_model.h"
+#include "../common/block_data.h"
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>

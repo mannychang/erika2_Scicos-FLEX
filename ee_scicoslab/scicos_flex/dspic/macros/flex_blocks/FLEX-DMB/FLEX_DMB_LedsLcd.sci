@@ -1,4 +1,4 @@
-function [x,y,typ] = FLEX_LedsLcd(job,arg1,arg2)
+function [x,y,typ] = FLEX_DMB_LedsLcd(job,arg1,arg2)
 
 //** ------------------------------------ INPUT ---------------------------------
 

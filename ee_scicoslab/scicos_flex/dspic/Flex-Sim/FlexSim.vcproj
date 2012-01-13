@@ -2,10 +2,11 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="FlexSim"
-	ProjectGUID="{AAAAA17E-0551-4FFD-A3A1-CF97D89E31D2}"
-	RootNamespace="MakeTempFilenameDLL"
-	TargetFrameworkVersion="0"
+	Name="Flex-Sim"
+	ProjectGUID="{D010109B-1C97-4308-9E11-71544C44FAE8}"
+	RootNamespace="FlexBlocksDLL"
+	Keyword="Win32Proj"
+	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
 		<Platform
@@ -18,12 +19,9 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory=".\Debug"
-			IntermediateDirectory=".\Debug"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			CharacterSet="2"
+			CharacterSet="0"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -39,29 +37,17 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="_DEBUG"
-				MkTypLibCompatible="true"
-				SuppressStartupBanner="true"
-				TargetEnvironment="1"
-				TypeLibraryName=".\Debug/MakeTempFilenameDLL.tlb"
-				HeaderFileName=""
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../../../../routines/scicos"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;FLEXSIM_LIB_EXPORTS"
+				AdditionalIncludeDirectories="..\..\..\..\..\routines\scicos"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;FLEXSIM_LIB_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="1"
-				UsePrecompiledHeader="1"
-				PrecompiledHeaderThrough="stdafx.h"
-				PrecompiledHeaderFile=".\Debug/MakeTempFilenameDLL.pch"
-				AssemblerListingLocation=".\Debug/"
-				ObjectFile=".\Debug/"
-				ProgramDataBaseFileName=".\Debug/"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				SuppressStartupBanner="true"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -69,24 +55,19 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG"
-				Culture="1033"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile=".\Debug/libflexsim.dll"
+				AdditionalDependencies="LibScilab.lib"
+				OutputFile="$(OutDir)\libflexsim.dll"
 				LinkIncremental="2"
-				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="../../../../../bin"
-				ModuleDefinitionFile="./libflexsim.def"
+				AdditionalLibraryDirectories="..\..\..\..\..\bin"
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile=".\Debug/MakeTempFilenameDLL.pdb"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
-				ImportLibrary=".\Debug/libflexsim.lib"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)\libflexsim.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -100,8 +81,6 @@
 			/>
 			<Tool
 				Name="VCBscMakeTool"
-				SuppressStartupBanner="true"
-				OutputFile=".\Debug/MakeTempFilenameDLL.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -116,12 +95,10 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory=".\Release"
-			IntermediateDirectory=".\Release"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
-			UseOfMFC="0"
-			ATLMinimizesCRunTimeLibraryUsage="false"
-			CharacterSet="2"
+			CharacterSet="0"
+			WholeProgramOptimization="1"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -137,55 +114,39 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				PreprocessorDefinitions="NDEBUG"
-				MkTypLibCompatible="true"
-				SuppressStartupBanner="true"
-				TargetEnvironment="1"
-				TypeLibraryName=".\Release/MakeTempFilenameDLL.tlb"
-				HeaderFileName=""
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="2"
-				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="../../../../../routines/scicos"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_USRDLL;FLEXSIM_LIB_EXPORTS"
-				StringPooling="true"
-				RuntimeLibrary="0"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="..\..\..\..\..\routines\scicos"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;FLEXSIM_LIB_EXPORTS;_CRT_SECURE_NO_WARNINGS"
+				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
-				UsePrecompiledHeader="1"
-				PrecompiledHeaderThrough="stdafx.h"
-				PrecompiledHeaderFile=".\Release/MakeTempFilenameDLL.pch"
-				AssemblerListingLocation=".\Release/"
-				ObjectFile=".\Release/"
-				ProgramDataBaseFileName=".\Release/"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				SuppressStartupBanner="true"
+				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG"
-				Culture="1033"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile=".\Release/libflexsim.dll"
+				AdditionalDependencies="LibScilab.lib"
+				OutputFile="$(OutDir)\libflexsim.dll"
 				LinkIncremental="1"
-				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="../../../../../bin"
-				IgnoreAllDefaultLibraries="false"
-				IgnoreDefaultLibraryNames=""
-				ModuleDefinitionFile="./libflexsim.def"
-				ProgramDatabaseFile=".\Release/MakeTempFilenameDLL.pdb"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
-				ImportLibrary=".\Release/libflexsim.lib"
+				AdditionalLibraryDirectories="..\..\..\..\..\bin"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				ImportLibrary="$(OutDir)\libflexsim.lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -199,8 +160,6 @@
 			/>
 			<Tool
 				Name="VCBscMakeTool"
-				SuppressStartupBanner="true"
-				OutputFile=".\Release/MakeTempFilenameDLL.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -218,267 +177,282 @@
 	<Files>
 		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\amazing_button.cpp"
+				RelativePath=".\amazing_button.c"
 				>
 			</File>
 			<File
-				RelativePath=".\amazing_pwm.cpp"
+				RelativePath=".\amazing_pwm.c"
 				>
 			</File>
 			<File
-				RelativePath=".\amazing_reset.cpp"
+				RelativePath=".\amazing_reset.c"
 				>
 			</File>
 			<File
-				RelativePath=".\amazing_touch.cpp"
+				RelativePath=".\amazing_touch.c"
 				>
 			</File>
 			<File
-				RelativePath=".\amazing_tuner.cpp"
+				RelativePath=".\amazing_tuner.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_adc.cpp"
+				RelativePath="..\common\comm_channel_win.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_buzzer.cpp"
+				RelativePath=".\easylab_adc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_gpin.cpp"
+				RelativePath=".\easylab_buzzer.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_gpout.cpp"
+				RelativePath=".\easylab_gpin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_leds.cpp"
+				RelativePath=".\easylab_gpout.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_pwm.cpp"
+				RelativePath=".\easylab_leds.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_serial_receive.cpp"
+				RelativePath=".\easylab_pwm.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_serial_send.cpp"
+				RelativePath=".\easylab_serial_receive.c"
 				>
 			</File>
 			<File
-				RelativePath=".\easylab_sys_led.cpp"
+				RelativePath=".\easylab_serial_send.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_adcin.cpp"
+				RelativePath=".\easylab_sys_led.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_can_config.cpp"
+				RelativePath=".\flex_adcin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_can_in.cpp"
+				RelativePath=".\flex_blocks.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_can_out.cpp"
+				RelativePath=".\flex_can_config.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_acc.cpp"
+				RelativePath=".\flex_can_in.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_adc.cpp"
+				RelativePath=".\flex_can_out.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_button.cpp"
+				RelativePath=".\flex_daughter_acc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_buzzer.cpp"
+				RelativePath=".\flex_daughter_adc.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_dac.cpp"
+				RelativePath=".\flex_daughter_button.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_dcm_pwm.cpp"
+				RelativePath=".\flex_daughter_buzzer.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_encoder.cpp"
+				RelativePath=".\flex_daughter_dac.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_gpin.cpp"
+				RelativePath=".\flex_daughter_dcm_pwm.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_gpout.cpp"
+				RelativePath=".\flex_daughter_encoder.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_lcd.cpp"
+				RelativePath=".\flex_daughter_gpin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_ldr.cpp"
+				RelativePath=".\flex_daughter_gpout.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_leds.cpp"
+				RelativePath=".\flex_daughter_lcd.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_leds_barrier.cpp"
+				RelativePath=".\flex_daughter_ldr.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_pwm.cpp"
+				RelativePath=".\flex_daughter_leds.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_switch.cpp"
+				RelativePath=".\flex_daughter_leds_barrier.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_therm.cpp"
+				RelativePath=".\flex_daughter_pwm.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_touch.cpp"
+				RelativePath=".\flex_daughter_switch.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_daughter_trimmer.cpp"
+				RelativePath=".\flex_daughter_therm.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_gpin.cpp"
+				RelativePath=".\flex_daughter_touch.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_gpout.cpp"
+				RelativePath=".\flex_daughter_trimmer.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_lcd.cpp"
+				RelativePath=".\flex_gpin.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_led.cpp"
+				RelativePath=".\flex_gpout.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_serial_config.cpp"
+				RelativePath=".\flex_lcd.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_serial_receive.cpp"
+				RelativePath=".\flex_led.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_serial_send.cpp"
+				RelativePath=".\flex_serial_config.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_simple802154_coordinator_config.cpp"
+				RelativePath=".\flex_serial_receive.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_simple802154_device_config.cpp"
+				RelativePath=".\flex_serial_send.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_simple802154_receive.cpp"
+				RelativePath=".\flex_simple802154_coordinator_config.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_simple802154_send.cpp"
+				RelativePath=".\flex_simple802154_device_config.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_udp_config.cpp"
+				RelativePath=".\flex_simple802154_receive.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_udp_receive.cpp"
+				RelativePath=".\flex_simple802154_send.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_udp_send.cpp"
+				RelativePath=".\flex_udp_config.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_usb_receive.cpp"
+				RelativePath=".\flex_udp_receive.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flex_usb_send.cpp"
+				RelativePath=".\flex_udp_send.c"
 				>
 			</File>
 			<File
-				RelativePath=".\flexsim.cpp"
+				RelativePath=".\flex_usb_receive.c"
 				>
 			</File>
 			<File
-				RelativePath=".\libflexsim.def"
+				RelativePath=".\flex_usb_send.c"
 				>
 			</File>
 			<File
-				RelativePath=".\rt_randm.cpp"
+				RelativePath=".\flexsim.c"
 				>
 			</File>
 			<File
-				RelativePath=".\rt_sinus.cpp"
+				RelativePath="..\common\process_utils_win.c"
 				>
 			</File>
 			<File
-				RelativePath=".\rt_square.cpp"
+				RelativePath=".\rt_randm.c"
 				>
 			</File>
 			<File
-				RelativePath=".\rt_step.cpp"
+				RelativePath=".\rt_sinus.c"
 				>
 			</File>
 			<File
-				RelativePath=".\StdAfx.cpp"
+				RelativePath=".\rt_square.c"
+				>
+			</File>
+			<File
+				RelativePath=".\rt_step.c"
 				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl"
+			Filter="h;hpp;hxx;hm;inl;inc;xsd"
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\common\array_container.h"
+				>
+			</File>
+			<File
+				RelativePath=".\block_data.h"
+				>
+			</File>
+			<File
+				RelativePath="..\common\comm_channel.h"
+				>
+			</File>
 			<File
 				RelativePath=".\flexsim.h"
 				>
 			</File>
 			<File
-				RelativePath="StdAfx.h"
+				RelativePath="..\common\process_utils.h"
 				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
-			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
-		<File
-			RelativePath="ReadMe.txt"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>

@@ -1,4 +1,4 @@
-function [x,y,typ] = FLEX_Buttons(job,arg1,arg2)
+function [x,y,typ] = FLEX_DMB_Buttons(job,arg1,arg2)
 
 //** ------------------------------------ INPUT ---------------------------------
 

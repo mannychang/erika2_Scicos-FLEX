@@ -12,7 +12,6 @@ libname_amazing='amazing'
 libname_misc='misc'
 libname_easylab='easylab'
 libname_gif_icons = 'gif_icons'
-libname_smcube = 'smcube'
 
 //** It is a better function to recover the absolute path information 
 DIR = get_absolute_file_path('builder.sce')
@@ -34,7 +33,6 @@ FB_MTB =           FB_MACROS+'FLEX-MTB/'
 RT_DATA_EXCHANGE = FB_MACROS+'RT-Data-Exchange/'
 FB_AMAZING =       FB_MACROS+'AMAZING/'
 FB_EASYLAB =       FB_MACROS+'EASYLAB/'
-SMCUBE =           FB_MACROS+'SMCUBE/'
 MISC =             MACROS+'misc/'
 GIF_ICONS =        MACROS+'man/'
   
@@ -51,6 +49,17 @@ genlib(libname_misc,MISC)
 genlib(libname_easylab,FB_EASYLAB)
 genlib(libname_gif_icons,GIF_ICONS)
 
-setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin');
+// Flex Demo Board simulation (QT executable)
 setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
-genlib(libname_smcube,SMCUBE)
+
+// SMCube
+SCIDIR = strsubst(SCI,'/','\');
+[x,err] = fileinfo(SCIDIR + "\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube\SMCube.sci");
+if err == 0
+	setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin');
+	SMCUBE =           FB_MACROS+'SMCUBE/'
+	libname_smcube = 'smcube'
+	genlib(libname_smcube,SMCUBE)
+end
+
+
