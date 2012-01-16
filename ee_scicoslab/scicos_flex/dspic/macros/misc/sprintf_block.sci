@@ -1,4 +1,4 @@
-function [res] = _remove_djolly(str,jolly)
+function [res] = _spf_remove_djolly(str,jolly)
   res = str;
   subindexes = [];
   i=1;
@@ -31,7 +31,7 @@ function [res] = _remove_djolly(str,jolly)
 endfunction
   
 
-function [ok, errstr, types] = _get_types(sl)
+function [ok, errstr, types] = _spf_get_types(sl)
   types = [];
   ok = %T;
   errstr = "";
@@ -47,7 +47,7 @@ function [ok, errstr, types] = _get_types(sl)
       errstr = "Invalid list item type, string expected";
       return;
     end
-    str = _remove_djolly(str, "%");
+    str = _spf_remove_djolly(str, "%");
     idx = strindex(str, "%");
     n = length(idx);
     if n == 0 then
@@ -78,12 +78,12 @@ function [ok, errstr, types] = _get_types(sl)
   end
 endfunction
 
-function res = _get_max_out_size()
+function res = _spf_get_max_out_size()
   res = 64;    
 endfunction
   
 
-function [x,y,typ] = sprintf(job,arg1,arg2)
+function [x,y,typ] = sprintf_block(job,arg1,arg2)
 
 //** ------------------------------------ INPUT ---------------------------------
 
@@ -134,7 +134,7 @@ case 'set' then //** set parameters
     [ok, fmts, sizes, outsize] = getvalue(dialog_box_banner,...
       ['Formats (must be list(""fmt1"", ""fmt2"", ...) and each ""fmt"" supports up to one parameter)';...
         'Sizes (The length of each ""fmt"" not including the null-terminator)';...
-        'Output size (Max '+sci2exp(_get_max_out_size())+' including the null-terminator)'],...
+        'Output size (Max '+sci2exp(_spf_get_max_out_size())+' including the null-terminator)'],...
       list('lis',-1,'vec',-1,'vec',1), [sfmts; ssizes; soutsize]);
     if ~ok then break, end //** in case of error
     
@@ -144,8 +144,8 @@ case 'set' then //** set parameters
        opar = lstcat(opar, int8([ascii(str) 0]));
     end
     //parse formats to find out the inputs types
-    [valid, errstr, intypes] = _get_types(fmts);   
-    if valid == %F | outsize > _get_max_out_size() then 
+    [valid, errstr, intypes] = _spf_get_types(fmts);   
+    if valid == %F | outsize > _spf_get_max_out_size() then 
         model.opar = opar;
         s = size(sizes);
         if s(1) < s(2) then
@@ -240,7 +240,7 @@ case 'define' then      //** the standard define
   it = [];
   model.intyp = it;
   model.out = 1;
-  model.out2 = _get_max_out_size();
+  model.out2 = _spf_get_max_out_size();
   model.evtin = 1 ;
   model.evtout = [] ;
   model.state = [] ;
