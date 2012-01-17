@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>FLEX_DMB_LedsLcd</title>
+  </head>
+  <body bgcolor="#FFFFFF">
+    <center>Scicos block</center>
+    <p>
+      <b>FLEX_DMB_LedsLcd</b> - palette: FLEX-DemoBoard</p>
+    <h3>
+      <font color="blue">Description</font>
+    </h3>
+    <p><IMG ALIGN="CENTERED" src="FLEX_DMB_LedsLcd_big.gif"></p>
+    <p>
+      <tt>
+        <b>palette: FLEX-DemoBoard</b>
+      </tt>
+    </p>
+    <p>This block controls LEDs (8) and LCD of the FLEX DEMO board.</p>
+    <p>Simulation: This block is fully supported in simulation. During the simulation, an image of the
+    FLEX DEMO board is shown and the status of LEDs and LCD updated. Qt framework has been used to develop this application.</p>
+    <p>Code Generation: This block is fully supported by the code generator.</p>
+    <h3>
+      <font color="blue">Parameters</font>
+    </h3>
+    <ul>
+      <li>
+        <tt>
+          <b>Flex Identifier: </b>
+        </tt>
+        <p> This parameter can be used to specify an identifier for the board. </p>
+        <p> In simulation you can use more than one board. </p>
+        <p> This feature is not supported by the code generator. </p>
+      </li>
+      <li>
+        <tt>
+          <b>LCD input type: </b>
+        </tt>
+        <p> This parameter can be used to specify the type of the 2 LCD lines [d: real, u: UINT8]. </p>
+        <p> For example du (without blank spaces) means that the block accepts: </p>
+        <p> - a real number on the first LCD input, </p>
+        <p> - an array of UINT8 digits, in ascii format, for the second input. </p>
+        <p> If the input type is 'real', the input accepts only a real number, not an array. </p>
+        <p> If the input type is 'UINT8', the input accepts an array of UINT8 digits, in ascii format. </p>
+        <p> Note: LCD can display only 16 digits for line. </p>
+      </li>
+    </ul>
+    <h3>
+      <font color="blue">See Also</font>
+    </h3>
+    <p>
+      <a href="FLEX_D~3.HTM">
+        <tt>
+          <b> FLEX_DMB_button </b>
+        </tt>
+      </a>,&nbsp;&nbsp;<a href="FL87C4~1.HTM">
+        <tt>
+          <b> FLEX_DMB_Buttons </b>
+        </tt>
+      </a>,&nbsp;&nbsp;<a href="FL7D12~1.HTM">
+        <tt>
+          <b> FLEX_DMB_lcd </b>
+        </tt>
+      </a>,&nbsp;&nbsp;<a href="FL42D3~1.HTM">
+        <tt>
+          <b> FLEX_DMB_lcd_ascii </b>
+        </tt>
+      </a>,&nbsp;&nbsp;<a href="FL0690~1.HTM">
+        <tt>
+          <b>FLEX_DMB_leds</b>
+        </tt>
+      </a>,&nbsp;&nbsp;</p>
+    <h3>
+      <font color="blue">Author</font>
+    </h3>
+    <p>Giuseppe Arturi, Evidence Srl, 2012</p>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>SMCube</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>January 2012</DATE>
+
+  <SHORT_DESCRIPTION name="SMCube">palette: SMCube</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="SMCube.gif"></IMG></P>
+    <P><VERB>palette: SMCube</VERB></P>
+    <P>This block represents an instance of a state machine designed with SMCube (see references for details about SMCube usage).</P>
+  </DESCRIPTION>
+  
+    <PARAM>
+	
+ <PARAM_ITEM>
+ <PARAM_NAME>Dialog Box: </PARAM_NAME>
+ <PARAM_DESCRIPTION> 
+     <P> <IMG src="smcube_dialog1.gif"></IMG> </P> 
+     <P> Click the Editor button to open the SMCube editor (see references for details about SMCube usage). </P>
+     <P> Click the Properties button to open/set the block preferences. </P>
+     <P><IMG src="smcube_dialog2.gif"></IMG></P>
+     <P>   </P> 
+ </PARAM_DESCRIPTION>
+ </PARAM_ITEM>
+ 
+ <PARAM_INDENT>
+ 
+  <PARAM_ITEM>
+  <PARAM_NAME> Number of input event ports </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+      <P> This integer controls the number of activation (event) ports.  </P>
+      <P> "0" : the state machine inherit the activation from the input(s); each time one of the input is updated the state machine is evaluated. </P>
+      <P> "1" to "32" : the state machine is explicitly activated by an external (synchronous, asynchronous or combination of the two types) event. </P>
+      <P></P>  
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME> Number of output event ports </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+      <P> This integer controls the length of the output event register (from "0" to "32"). </P>
+      <P></P>
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME> Mode (1:interactive, 2:background) </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+      <P> This parameter control the execution mode of the state machine at simulation time. </P>
+      <P> If "1" is selected the SMCube simulation dialog will be opened to control the execution of the simulation; </P>
+      <P> if "2" is selected insteed the SMCube will run in background. </P>
+      <P></P>
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+
+  <PARAM_ITEM>
+  <PARAM_NAME> Input Description ('d':double, 'i':int32) </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+      <P> This parameter specify the number and type of the inputs using a synthetic notation. </P>
+      <P> "ddd" three double inputs; </P>
+      <P> "id" two inputs, one integer, one double, etc... </P>
+      <P></P>
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME> Output Description ('d':double, 'i':int32) </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+      <P> This parameter specify the number and type of the outputs using the same synthetic notation of the inputs. </P>
+      <P></P>
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME> SMCube File </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+      <P>The state machine is stored in an external XML file; you can specify just the file name (e.g. "example.xml") 
+         or the file name with path information (e.g. "C:\SMCube\Demo\example.xml") </P> 
+      <P></P>
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+ </PARAM_INDENT>
+  </PARAM>
+
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK> link_sito </LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Giuseppe Arturi, Evidence Srl, 2012</AUTHOR>
+
+</MAN>

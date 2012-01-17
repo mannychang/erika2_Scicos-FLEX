@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>sprintf_block</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>January 2012</DATE>
+
+  <SHORT_DESCRIPTION name="sprintf_block">palette: Utils</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="sprintf_block.gif"></IMG></P>
+    <P><VERB>palette: Utils</VERB></P>
+    <P> Emulator of C language sprintf function. According to the format tags of the sprintf function %[flags][width][.precision][length]specifier this implementation: </P>
+    <P>     - Does not support the [length] sub-specifier; </P>
+    <P>     - Supports only the following specifiers: d(int32), u(uint32), f(real), c(int8); </P>
+    <P> The output is an int8 vector representing the ASCII codes of the whole string; </P>
+  </DESCRIPTION>
+  
+    <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME> Formats </PARAM_NAME>
+  <PARAM_DESCRIPTION> Must be list("fmt1", "fmt2", ...) and each ""fmt"" supports up to one parameter. </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME> Sizes </PARAM_NAME>
+  <PARAM_DESCRIPTION> The length of each ""fmt"" not including the null-terminator. </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME> Output size </PARAM_NAME>
+  <PARAM_DESCRIPTION> The size of output including the null-terminator. The maximum size is 64. </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+
+  <AUTHORS>
+    <AUTHORS_ITEM>
+    Giuseppe Arturi, Evidence Srl, 2012
+    </AUTHORS_ITEM>
+    <AUTHORS_ITEM>
+    Dario Di Stefano, Evidence Srl, 2012.
+    </AUTHORS_ITEM>
+  </AUTHORS>
+
+</MAN>

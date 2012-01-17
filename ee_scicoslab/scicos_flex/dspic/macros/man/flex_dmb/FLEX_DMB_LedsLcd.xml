@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>FLEX_DMB_LedsLcd</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>January 2012</DATE>
+
+  <SHORT_DESCRIPTION name="FLEX_DMB_LedsLcd">palette: FLEX-DemoBoard</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="FLEX_DMB_LedsLcd_big.gif"></IMG></P>
+    <P><VERB>palette: FLEX-DemoBoard</VERB></P>
+    <P>This block controls LEDs (8) and LCD of the FLEX DEMO board.</P>
+    <P>Simulation: This block is fully supported in simulation. During the simulation, an image of the
+    FLEX DEMO board is shown and the status of LEDs and LCD updated. Qt framework has been used to develop this application.</P>
+    <P>Code Generation: This block is fully supported by the code generator.</P>
+  </DESCRIPTION>
+  
+    <PARAM>
+ <PARAM_INDENT>
+ 
+  <PARAM_ITEM>
+  <PARAM_NAME>Flex Identifier: </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+  <P> This parameter can be used to specify an identifier for the board. </P>
+  <P> In simulation you can use more than one board. </P>
+  <P> This feature is not supported by the code generator. </P>
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+  <PARAM_ITEM>
+  <PARAM_NAME>LCD input type: </PARAM_NAME>
+  <PARAM_DESCRIPTION> 
+  <P> This parameter can be used to specify the type of the 2 LCD lines [d: real, u: UINT8]. </P>
+  <P> For example du (without blank spaces) means that the block accepts: </P>
+  <P> - a real number on the first LCD input, </P>
+  <P> - an array of UINT8 digits, in ascii format, for the second input. </P>
+  <P> If the input type is 'real', the input accepts only a real number, not an array. </P>
+  <P> If the input type is 'UINT8', the input accepts an array of UINT8 digits, in ascii format. </P>
+  <P> Note: LCD can display only 16 digits for line. </P>
+  </PARAM_DESCRIPTION>
+  </PARAM_ITEM>
+  
+ </PARAM_INDENT>
+  </PARAM>
+
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK> FLEX_DMB_button </LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK> FLEX_DMB_Buttons </LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK> FLEX_DMB_lcd </LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK> FLEX_DMB_lcd_ascii </LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>FLEX_DMB_leds</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Giuseppe Arturi, Evidence Srl, 2012</AUTHOR>
+
+</MAN>

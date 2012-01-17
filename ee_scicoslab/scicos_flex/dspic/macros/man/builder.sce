@@ -1,14 +1,18 @@
 mode(-1)
 path=get_absolute_file_path('builder.sce');
 
-myhelps=[path+'amazing', "Amazing Ball Blockset";
-         path+'flex', "Flex Blockset";
-         path+'flex_dmb', "Flex-DemoBoard Blockset";
-         path+'flex_mtb', "Flex-MotionBoard Blockset";
-         path+'rt_data_exchange', "RT Data Exchange Blockset";
-         path+'flex_com', "Flex-Communication Blockset";
-         path+'misc', "MCHP16-Sources Blockset";
-         path+'easylab', "EasyLab Blockset"];
+//myhelps=[path+'amazing', "Amazing Ball Blockset";
+//         path+'flex', "Flex Blockset";
+//         path+'flex_dmb', "Flex-DemoBoard Blockset";
+//         path+'flex_mtb', "Flex-MotionBoard Blockset";
+//         path+'rt_data_exchange', "RT Data Exchange Blockset";
+//         path+'flex_com', "Flex-Communication Blockset";
+//         path+'misc', "MCHP16-Sources Blockset";
+//         path+'easylab', "EasyLab Blockset"];
+
+//myhelps=[path+'flex_dmb', "Flex-DemoBoard Blockset"];
+myhelps=[path+'smcube', "SMCube Blockset"];
+//myhelps=[path+'misc', "MCHP16-Sources Blockset"];
 
 // process the xml files to produce html files 
 
