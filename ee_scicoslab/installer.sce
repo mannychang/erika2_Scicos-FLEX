@@ -128,7 +128,10 @@ waitbar("                                                        " + "\n" + ..
   if exists('libsmcube_link_num')
     ulink(libsmcube_link_num);
   end
-
+  if exists('libsprintf_link_num')
+    ulink(libsprintf_link_num);
+  end
+  
   cd(SCIDIR + '\contrib');
   // Removing ScicosLabPack_install.log
   [loginfo,ierr]=fileinfo('ScicosLabPack_install.log');
@@ -420,10 +423,10 @@ end
 //	end
 
 	waitbar("                                                        " + "\n" + ..
-			"                C30 compiler settings...                " + "\n" + ..
-			"                                                        " + "\n" + ..
-			"                                                        " + "\n" + ..
-			"                                                        " + "\n" + ..
+			"                C30 compiler settings:                  " + "\n" + ..
+			"    - Recommended version: v3.30 or later               " + "\n" + ..
+			"    - Bad version: v3.25, sprintf_block can't compile!  " + "\n" + ..
+			"    For further info visit: http://www.microchip.com/   " + "\n" + ..
 			"                                                        ", winId_wait);
 
 
@@ -616,6 +619,9 @@ waitbar("                                                        " + "\n" + ..
     end
     if exists('libsmcube_link_num')
       ulink(libsmcube_link_num);
+    end
+    if exists('libsprintf_link_num')
+      ulink(libsprintf_link_num);
     end
   
     // Removing scicos_ee
@@ -858,6 +864,7 @@ create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\F
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-MTB");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\RT-Data-Exchange");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\EASYLAB");
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\MISC");
 // SMCube palette
 [x,err] = fileinfo(SCIDIR + "\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube\SMCube.sci");
 if err == 0

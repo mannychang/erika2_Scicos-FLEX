@@ -51,6 +51,7 @@ scicos_pal($+1,:)=['FLEX-Communication',PALETTE_DIR + 'FLEX-Communication.cosf']
 scicos_pal($+1,:)=['RT Data Exchange',PALETTE_DIR + 'RT-Data-Exchange.cosf'];
 scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
 scicos_pal($+1,:)=['Easylab',PALETTE_DIR + 'EASYLAB.cosf'];
+scicos_pal($+1,:)=['Utils',PALETTE_DIR + 'MISC.cosf'];
 [x,err] = fileinfo(PALETTE_DIR + 'SMCube.cosf');
 if err == 0
 	scicos_pal($+1,:)=['SMCube',PALETTE_DIR + 'SMCube.cosf'];
@@ -84,6 +85,9 @@ if MSDOS then
 
 	//** Load the documentation of the blocks 
 	exec(EESCI_DSPIC_PATH + "/macros/man/loader.sce"); 
+
+	//** Load Sprintf block dll
+	exec(EESCI_DSPIC_PATH + "/Misc/misc_loader.sce"); 
 
 	//** Load SMCube dll
 	[x,err] = fileinfo(EESCI_DSPIC_PATH + "/SMCube/win_loader.sce");

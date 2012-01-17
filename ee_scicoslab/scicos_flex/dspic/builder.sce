@@ -10,6 +10,7 @@ libname_fb_MTB='fb_MTB'
 libname_RT_Data_Exchange='RT_Data_Exchange'
 libname_amazing='amazing'
 libname_misc='misc'
+libname_fb_misc='fb_misc'
 libname_easylab='easylab'
 libname_gif_icons = 'gif_icons'
 
@@ -34,6 +35,7 @@ RT_DATA_EXCHANGE = FB_MACROS+'RT-Data-Exchange/'
 FB_AMAZING =       FB_MACROS+'AMAZING/'
 FB_EASYLAB =       FB_MACROS+'EASYLAB/'
 MISC =             MACROS+'misc/'
+FB_MISC =          FB_MACROS+'MISC/'
 GIF_ICONS =        MACROS+'man/'
   
 //compile sci files if necessary and build lib file
@@ -46,6 +48,7 @@ genlib(libname_fb_MTB,FB_MTB)
 genlib(libname_RT_Data_Exchange,RT_DATA_EXCHANGE)
 genlib(libname_amazing,FB_AMAZING)
 genlib(libname_misc,MISC)
+genlib(libname_fb_misc,FB_MISC)
 genlib(libname_easylab,FB_EASYLAB)
 genlib(libname_gif_icons,GIF_ICONS)
 
@@ -53,11 +56,10 @@ genlib(libname_gif_icons,GIF_ICONS)
 setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
 
 // SMCube
-SCIDIR = strsubst(SCI,'/','\');
-[x,err] = fileinfo(SCIDIR + "\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube\SMCube.sci");
+SMCUBE = FB_MACROS+'SMCube/';
+[x,err] = fileinfo(FB_MACROS+'SMCube/SMCube.sci');
 if err == 0
 	setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin');
-	SMCUBE =           FB_MACROS+'SMCUBE/'
 	libname_smcube = 'smcube'
 	genlib(libname_smcube,SMCUBE)
 end
