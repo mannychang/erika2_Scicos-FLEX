@@ -1803,7 +1803,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 				continue;
 			end
 			if iblock_exprs(4) == "SMCube" then               // check if is a SMCube block
-				if scs_m.objs(i).model.evtin ~= [] | scs_m.objs(i).model.evtout ~= []
+				if (scs_m.objs(i).model.evtin ~= [] & scs_m.objs(i).model.evtin > 1) | scs_m.objs(i).model.evtout ~= []
 					mclose(xml_fd);
 					mclose(smb_fd);
 					unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
