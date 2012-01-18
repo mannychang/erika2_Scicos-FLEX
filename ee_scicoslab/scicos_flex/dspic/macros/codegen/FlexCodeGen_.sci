@@ -1259,7 +1259,8 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
                    "RFILE_f","Read block";
                    "READC_f","Read_block";
                    "WFILE_f","Write block";
-                   "WRITEC_f","Write block"]
+                   "WRITEC_f","Write block";
+                   "AFFICH_m","AFFICH_m display block"]
 
   clkIN = [];
   
@@ -1430,6 +1431,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   //## Detect synchro block and type1
   funs_save   = cpr.sim.funs;
   funtyp_save = cpr.sim.funtyp;
+
   with_work   = zeros(cpr.sim.nb,1)
   with_synchro = %f
   with_nrd     = %f
@@ -1771,16 +1773,20 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 	[xml_fd,err] = mopen(user_path+'/xml.list', 'w');
 	[xml_list_res,err] = fileinfo(user_path+'/xml.list');
 	if err ~= 0 then
-		disp("#CodeGen error:  The selected path requires Administrator privileges! Code Generation aborted!");
+		my_errstr = "#CodeGen error:  The selected path requires Administrator privileges! Code Generation aborted!"; 
+		disp(my_errstr);
+		message(my_errstr);
 		return
 	end
 	
 	[smb_fd,err] = mopen(user_path+'/smb.list', 'w');
 	[smb_list_res,err] = fileinfo(user_path+'/smb.list');
 	if err ~= 0 then
-		disp("#CodeGen error: The selected path requires Administrator privileges! Code Generation aborted!");
 		mclose(xml_fd);
-		unix('del xml.list');
+		unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
+		my_errstr = "#CodeGen error: The selected path requires Administrator privileges! Code Generation aborted!"; 
+		disp(my_errstr);
+		message(my_errstr);
 		return
 	end
 	
@@ -1797,13 +1803,25 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 				continue;
 			end
 			if iblock_exprs(4) == "SMCube" then               // check if is a SMCube block
-				[info_file,ierr] = fileinfo(iblock_exprs(3)); // Check if the XML file exists
-				if ierr <> 0 then 
-					disp("#CodeGen error: SMCube file " + iblock_exprs(3) + " not found!");
+				if scs_m.objs(i).model.evtin ~= [] | scs_m.objs(i).model.evtout ~= []
 					mclose(xml_fd);
 					mclose(smb_fd);
-					unix('del xml.list');
-					unix('del smb.list');
+					unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
+					unix('del ' + strsubst(user_path,'/','\') + '\smb.list');
+					my_errstr = "#CodeGen error: Sorry, SMCube input/output event ports are not supported by the code generator!"; 
+					disp(my_errstr);
+					message(my_errstr);
+					return;
+				end
+				[info_file,ierr] = fileinfo(iblock_exprs(3)); // Check if the XML file exists
+				if ierr <> 0 then 
+					mclose(xml_fd);
+					mclose(smb_fd);
+					unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
+					unix('del ' + strsubst(user_path,'/','\') + '\smb.list');
+					my_errstr = "#CodeGen error: SMCube file " + iblock_exprs(3) + " not found!"; 
+					disp(my_errstr);
+					message(my_errstr);
 					return;
 				else
 					if grep(xml_list, iblock_exprs(3))==[] then  // Check if this XML file is already in the list
@@ -1812,21 +1830,23 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 					end
 					smb_id = smb_id + 1;
 					mfprintf(smb_fd,"%d %d\n", smb_id, grep(xml_list, iblock_exprs(3)));  // Write on the text-file the id and the number of the XML file.
+
+					// Find the index to write the smb_id in the ipar vector 
 					scs_m.objs(i).model.ipar(1) = smb_id; // write on the local copy
-					
 					[row_size_ipar_i, col_size_ipar_i] = size(scs_m.objs(i).model.ipar);
 					[row_size_ipar, col_size_ipar] = size(cpr.sim.ipar);
-					
-					// Find where to write the smb_id in the ipar vector 
-					loop_ok = 0;
-					for k = 1:row_size_ipar
+					for k = 1:row_size_ipar // Start the loop to find the index....
+						loop_ok = 0;
 						if cpr.sim.ipar(k) == scs_m.objs(i).model.ipar(2) then
-							for w = 1:(row_size_ipar_i - 2)
-								if cpr.sim.ipar(k+w) == scs_m.objs(i).model.ipar(2+w)
-									loop_ok = 1;
-								else
-									loop_ok = 0;
-									break;
+							if row_size_ipar_i >= 5 				// 5 is the minimun length of ipar vector for a SMCube block
+								for w = 1:(row_size_ipar_i - 2) 	// Check if there is a part of the pre-compiled ipar that is equivalent of block ipar
+																	// In case of SMCube block it should happen. In this case we put the smb_id overwriting on cpr.sim.ipar(k-1)
+									if cpr.sim.ipar(k+w) == scs_m.objs(i).model.ipar(2+w)
+										loop_ok = 1;				// Index found!
+									else
+										loop_ok = 0;				// Index wrong! trying with the next...
+										break;
+									end
 								end
 							end
 						end
