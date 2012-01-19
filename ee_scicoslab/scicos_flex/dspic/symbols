@@ -7,8 +7,6 @@ FLEX_802154_receive,__USE_SIMPLE802154__
 FLEX_serial_send,__USE_UART__
 FLEX_serial_receive,__USE_UART__
 FLEX_serial_config,__USE_UART__
-FLEX_led,__USE_LEDS__
-FLEX_lcd,__USE_LCD__
 FLEX_zigbee_send,__USE_DEMOBOARD__
 FLEX_zigbee_send,__USE_ZIGBEE__
 FLEX_zigbee_receive,__USE_DEMOBOARD__
@@ -59,6 +57,7 @@ FLEX_MTB_touch,__USE_TOUCH__
 FLEX_MTB_touch,__USE_LEDS__
 FLEX_lcd,__USE_DEMOBOARD__
 FLEX_lcd,__USE_LCD__
+FLEX_led,__USE_LEDS__
 FLEX_usb_send,__USE_USB__
 FLEX_usb_receive,__USE_USB__
 FLEX_serial_tx_gw,__USE_UART__
