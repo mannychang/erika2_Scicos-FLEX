@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>RS232_CONFIG</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>January 2012</DATE>
+
+  <SHORT_DESCRIPTION name="RS232_CONFIG">palette: RT Data Exchange</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="RS232_CONFIG.gif"></IMG></P>
+    <P><VERB>Palette: RT Data Exchange</VERB></P>
+    <P>This block configures the RS232 port. </P>
+  </DESCRIPTION>
+  
+  <PARAM>
+    <PARAM_INDENT>
+      <PARAM_ITEM>
+        <PARAM_NAME>PC COM port: </PARAM_NAME>
+        <PARAM_DESCRIPTION>
+        The number of the COM port.
+        </PARAM_DESCRIPTION> 
+      </PARAM_ITEM>
+      <PARAM_ITEM>
+        <PARAM_NAME>Baudrate: </PARAM_NAME>
+        <PARAM_DESCRIPTION>
+        The baudrate used to configure the RS232 port.
+        </PARAM_DESCRIPTION> 
+      </PARAM_ITEM>
+    </PARAM_INDENT>
+  </PARAM>
+  
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>RS232_RECEIVER</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>RS232_SENDER</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2012</AUTHOR>
+</MAN>

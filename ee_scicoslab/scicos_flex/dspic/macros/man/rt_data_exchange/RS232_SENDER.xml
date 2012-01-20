@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MAN SYSTEM "../../../../../../../man/manrev.dtd">
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+
+  <TITLE>RS232_SENDER</TITLE>
+
+  <TYPE>Scicos block</TYPE>
+
+  <DATE>January 2012</DATE>
+
+  <SHORT_DESCRIPTION name="RS232_SENDER">palette: RT Data Exchange</SHORT_DESCRIPTION>
+
+  <DESCRIPTION>
+    <P><IMG src="RS232_SENDER.gif"></IMG></P>
+    <P><VERB>Palette: RT Data Exchange</VERB></P>
+    <P>This block sends a character using the RS232 interface. </P>
+  </DESCRIPTION>
+  
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM>
+      <LINK>RS232_CONFIG</LINK>
+    </SEE_ALSO_ITEM>
+
+    <SEE_ALSO_ITEM>
+      <LINK>RS232_RECEIVER</LINK>
+    </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+
+  <AUTHOR>Dario Di Stefano, Evidence Srl, 2012</AUTHOR>
+</MAN>
