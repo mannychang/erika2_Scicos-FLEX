@@ -96,10 +96,13 @@ case 'define' then      //** the standard define
   model.sim=list(funam, funtyp) //** simulating function
 
   o = [1 1; 1 1; 1 1; 1 1];
+  output_type = 5;//int8
+  ot = [output_type;output_type;output_type;output_type];
   model.in = [] ;
   model.in2 = [];
   model.out = o(:,1);
   model.out2 = o(:,2);
+  model.outtyp = ot;
   model.evtin = 1 ;
   model.evtout = [] ;
   model.state = [] ;
