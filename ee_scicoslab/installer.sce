@@ -272,115 +272,6 @@ if exists('NO_APPS_CHECK')==0
 			EE_debug_printf('### END ###', fd_log);
 			mclose(fd_log);
 			cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
-	else
-		waitbar("                                                        " + "\n" + ..
-				"           Check Visual C++ 2008 settings...            " + "\n" + ..
-				"                                                        " + "\n" + ..
-				"                                                        " + "\n" + ..
-				"                                                        " + "\n" + ..
-				"                                                        ", winId_wait);
-
-		VC_path_valid = %F;
-		if exists('visualc_path')==0
-			visualc_path = 'C:\Programmi\Microsoft Visual Studio 9.0\VC';
-		end
-
-		while VC_path_valid==%F
-			if exists('INSTALLER_BATCH_MODE')==0 // in batch mode do not display the dialog window
-				visualc_path = x_dialog(['Set preferences';'Enter Visual C++ directory path:'],[visualc_path]);
-				visualc_path_up = 1;
-			else
-				if exists('INSTALLER_BATCH_MODE')==1
-					EE_debug_printf(' #warning: Installation in batch mode is using the default Visual C++ path!', fd_log);
-				end
-			end
-
-			if visualc_path == []
-					waitbar("                                                        " + "\n" + ..
-							"                  # Installation Error #                " + "\n" + ..
-							"        Please, install a valid Visual C++ compiler     " + "\n" + ..
-							"         otherwise code generator will not work!        " + "\n" + ..
-							"                                                        " + "\n" + ..
-							"                  Installation aborted!                 ", winId_wait);
-					EE_debug_printf('  Installation aborted!', fd_log);
-					EE_debug_printf('### END ###', fd_log);
-					mclose(fd_log);
-					cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
-			end
-			visualc_path = visualc_path(1); // to avoid problems in case of multi-string array.
-			visualc_path = strsubst(visualc_path,'/','\');
-			ind_slash = strindex(visualc_path,'\');
-			len_path = length(visualc_path);
-			if ind_slash(length(ind_slash)) ==  len_path
-				strs_temp = strsplit(visualc_path,[ind_slash(length(ind_slash))-1, ind_slash(length(ind_slash))-1]);
-				visualc_path = strs_temp(1);
-			end
-			[x,ierr]=fileinfo(visualc_path + '\bin\cl.exe');  
-			if ierr<0 // path is wrong!!!
-				VC_path_valid = %F;
-				if exists('INSTALLER_BATCH_MODE')==0 & exists('vcansw_retry')==0
-					vcansw_retry = buttondialog("Inserted path is not valid! (Yes: to retry, No: to abort)","yes|no","question"); 
-					vcansw_retry_up = 1;
-				else
-					if exists('vcansw_retry')==0
-						answ_retry = '2'; // error in case of batch_mode - installer...
-					end
-				end
-				if vcansw_retry=='2'
-					waitbar("                                                        " + "\n" + ..
-							"                  # Installation Error #                " + "\n" + ..
-							"        Please, install a valid Visual C++ compiler     " + "\n" + ..
-							"         otherwise code generator will not work!        " + "\n" + ..
-							"               path + /bin/cl.exe NOT FOUND!            " + "\n" + ..
-							"                  Installation aborted!                 ", winId_wait);
-					EE_debug_printf('  Installation aborted!', fd_log);
-					EE_debug_printf('### END ###', fd_log);
-					mclose(fd_log);
-					cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
-				end
-				if vcansw_retry == '0'
-					VC_path_valid = %T; // ignore wrong paths...
-				end
-			else
-				VC_path_valid = %T; // path is OK...
-			end
-			if exists('vcansw_retry_up')==1
-				clear vcansw_retry vcansw_retry_up
-			end
-		end
-		
-		[x,err] = fileinfo(MYDIR + "scicos_ee\bin\SMCube.exe");
-		if err == 0
-			// CONFIGURATION.INI file is created 
-			[fd,err] = mopen(MYDIR+'scicos_ee\utils\configuration.ini', 'w');
-			
-			if err ~= 0
-				waitbar("                                                        " + "\n" + ..
-						"                 # Installation Error #                 " + "\n" + ..
-						" Access denied! Is not possible to create a pref file!  " + "\n" + ..
-						"   Please, run ScicosLab with administrator privileges. " + "\n" + ..
-						"                 Installation aborted!                  " + "\n" + ..
-						"                                                        ", winId_wait);
-				EE_debug_printf('  #error: Access denied! Is not possible to create a configuration file!', fd_log);
-				EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', fd_log);
-				EE_debug_printf('  Installation aborted!', fd_log);
-				EE_debug_printf('### END ###', fd_log);
-				mclose(fd_log);
-				cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
-			end
-
-			mfprintf(fd,"##Compiler path, including the executable file name\n");
-			mfprintf(fd,"Compiler=");
-			mfprintf(fd, strsubst(visualc_path,'\','\\'));
-			mfprintf(fd,"\\bin\\cl.exe\n");
-			mclose(fd);
-			waitbar("                                                        " + "\n" + ..
-					"  Creating preferences file configuration.ini ... Done! " + "\n" + ..
-					"                                                        " + "\n" + ..
-					"                                                        " + "\n" + ..
-					"                                                        " + "\n" + ..
-					"                                                        ", winId_wait);
-		end
 	end
 
 	// Check Java presence
@@ -402,6 +293,115 @@ if exists('NO_APPS_CHECK')==0
 			"                                                        ", winId_wait);
 	end
 end
+
+	waitbar("                                                        " + "\n" + ..
+		"           Check Visual C++ 2008 settings...            " + "\n" + ..
+		"                                                        " + "\n" + ..
+		"                                                        " + "\n" + ..
+		"                                                        " + "\n" + ..
+		"                                                        ", winId_wait);
+
+VC_path_valid = %F;
+if exists('visualc_path')==0
+	visualc_path = 'C:\Programmi\Microsoft Visual Studio 9.0\VC';
+end
+while VC_path_valid==%F
+	if exists('INSTALLER_BATCH_MODE')==0 // in batch mode do not display the dialog window
+		visualc_path = x_dialog(['Set preferences';'Enter Visual C++ directory path:'],[visualc_path]);
+		visualc_path_up = 1;
+	else
+		if exists('INSTALLER_BATCH_MODE')==1
+			EE_debug_printf(' #warning: Installation in batch mode is using the default Visual C++ path!', fd_log);
+		end
+	end
+
+	if visualc_path == []
+			waitbar("                                                        " + "\n" + ..
+					"                  # Installation Error #                " + "\n" + ..
+					"        Please, install a valid Visual C++ compiler     " + "\n" + ..
+					"         otherwise code generator will not work!        " + "\n" + ..
+					"                                                        " + "\n" + ..
+					"                  Installation aborted!                 ", winId_wait);
+			EE_debug_printf('  Installation aborted!', fd_log);
+			EE_debug_printf('### END ###', fd_log);
+			mclose(fd_log);
+			cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+	end
+	visualc_path = visualc_path(1); // to avoid problems in case of multi-string array.
+	visualc_path = strsubst(visualc_path,'/','\');
+	ind_slash = strindex(visualc_path,'\');
+	len_path = length(visualc_path);
+	if ind_slash(length(ind_slash)) ==  len_path
+		strs_temp = strsplit(visualc_path,[ind_slash(length(ind_slash))-1, ind_slash(length(ind_slash))-1]);
+		visualc_path = strs_temp(1);
+	end
+	[x,ierr]=fileinfo(visualc_path + '\bin\cl.exe');  
+	if ierr<0 // path is wrong!!!
+		VC_path_valid = %F;
+		if exists('INSTALLER_BATCH_MODE')==0 & exists('vcansw_retry')==0
+			vcansw_retry = buttondialog("Inserted path is not valid! (Yes: to retry, No: to abort)","yes|no","question"); 
+			vcansw_retry_up = 1;
+		else
+			if exists('vcansw_retry')==0
+				vcansw_retry = '2'; // error in case of batch_mode - installer...
+			end
+		end
+		if vcansw_retry=='2'
+			waitbar("                                                        " + "\n" + ..
+					"                  # Installation Error #                " + "\n" + ..
+					"        Please, install a valid Visual C++ compiler     " + "\n" + ..
+					"         otherwise code generator will not work!        " + "\n" + ..
+					"               path + /bin/cl.exe NOT FOUND!            " + "\n" + ..
+					"                  Installation aborted!                 ", winId_wait);
+			EE_debug_printf('  Installation aborted!', fd_log);
+			EE_debug_printf('### END ###', fd_log);
+			mclose(fd_log);
+			cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+		end
+		if vcansw_retry == '0'
+			VC_path_valid = %T; // ignore wrong paths...
+		end
+	else
+		VC_path_valid = %T; // path is OK...
+	end
+	if exists('vcansw_retry_up')==1
+		clear vcansw_retry vcansw_retry_up
+	end
+end
+
+[x,err] = fileinfo(MYDIR + "scicos_ee\bin\SMCube.exe");
+if err == 0
+	// CONFIGURATION.INI file is created 
+	[fd,err] = mopen(MYDIR+'scicos_ee\utils\configuration.ini', 'w');
+	
+	if err ~= 0
+		waitbar("                                                        " + "\n" + ..
+				"                 # Installation Error #                 " + "\n" + ..
+				" Access denied! Is not possible to create a pref file!  " + "\n" + ..
+				"   Please, run ScicosLab with administrator privileges. " + "\n" + ..
+				"                 Installation aborted!                  " + "\n" + ..
+				"                                                        ", winId_wait);
+		EE_debug_printf('  #error: Access denied! Is not possible to create a configuration file!', fd_log);
+		EE_debug_printf('  #error: Please, run ScicosLab with administrator privileges to install the toolbox', fd_log);
+		EE_debug_printf('  Installation aborted!', fd_log);
+		EE_debug_printf('### END ###', fd_log);
+		mclose(fd_log);
+		cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+	end
+
+	mfprintf(fd,"##Compiler path, including the executable file name\n");
+	mfprintf(fd,"Compiler=");
+	mfprintf(fd, strsubst(visualc_path,'\','\\'));
+	mfprintf(fd,"\\bin\\cl.exe\n");
+	mclose(fd);
+	waitbar("                                                        " + "\n" + ..
+			"  Creating preferences file configuration.ini ... Done! " + "\n" + ..
+			"                                                        " + "\n" + ..
+			"                                                        " + "\n" + ..
+			"                                                        " + "\n" + ..
+			"                                                        ", winId_wait);
+end
+
 
 //	// Check MPLAB C30 presence 
 //	waitbar('                                               \n..
@@ -425,7 +425,7 @@ end
 	waitbar("                                                        " + "\n" + ..
 			"                C30 compiler settings:                  " + "\n" + ..
 			"    - Recommended version: v3.30 or later               " + "\n" + ..
-			"    - Bad version: v3.25, sprintf_block can't compile!  " + "\n" + ..
+			"    - Bad version: v3.25, sprintf_block cannot compile!  " + "\n" + ..
 			"    For further info visit: http://www.microchip.com/   " + "\n" + ..
 			"                                                        ", winId_wait);
 
