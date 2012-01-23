@@ -48,6 +48,8 @@ static const char* folder_separator = "/";
 #define CHECK_OUTPUT_EVENT(events, evt) \
 	( events & ((unsigned int)1 << evt) )
 
+#define CONNECTION_TIMEOUT 30
+
 /*BLOCK DATA*/
 struct process_data* process = 0;
 struct comm_channel* channel = 0;
@@ -249,7 +251,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 			goto init_error;
 		}
 #if defined(_WIN32)
-		if (wait_for_connect_timeout(channel, 5))
+		if (wait_for_connect_timeout(channel, CONNECTION_TIMEOUT))
 #else
 		if (wait_for_connect(channel) == -1)
 #endif
