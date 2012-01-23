@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SMCube version="1.0" name="StateMachine">
+ <States>
+  <State entryAction="" whileAction="" type="initial" id="1" name="" exitAction="">
+   <Hmi width="12" radius="6" height="12">
+    <Position>
+     <Point x="169" y="72"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="2" name="STOPPED" exitAction="">
+   <Hmi width="186" radius="8" height="104">
+    <Position>
+     <Point x="268" y="164"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="LocVar(counter) += LocVar(tick); OutPort(min) = LocVar(counter) / 60000;OutPort(sec) = (LocVar(counter) - ( OutPort(min) * 60000))/1000; OutPort(msec) = LocVar(counter) - OutPort(min) * 60000 - OutPort(sec) * 1000;" type="regular" id="3" name="RUNNING" exitAction="">
+   <Hmi width="209" radius="8" height="109">
+    <Position>
+     <Point x="633.5" y="164.5"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+ </States>
+ <Transitions>
+  <Transition guard="" srcStateId="1" action="LocVar(tick) = 100;" priority="1" events="" id="1" dstStateId="2">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="40" y="141"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="113" y="141"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="175" y="154.3999999999997"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="177" y="113"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="8.90070286343755e-308" y="8.900702863567067e-308"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="74" y="63"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition guard="InPort(start)" srcStateId="2" action="" priority="1" events="" id="2" dstStateId="3">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="399.5" y="95.75"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="448" y="75.5"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="529" y="139.9750000000003"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="393.5" y="79.25"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="360" y="128"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="361" y="132.7999999999996"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition guard="InPort(stop)" srcStateId="3" action="" priority="1" events="" id="3" dstStateId="2">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="483.25" y="193.5"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="447.5" y="222"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="361" y="193.8999999999999"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="399.25" y="192.5"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="530" y="177"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="529" y="202.6499999999998"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition guard="InPort(clear)" srcStateId="2" action="LocVar(counter) = 0;OutPort(min) = OutPort(sec) = OutPort(msec) =  0;" priority="2" events="" id="4" dstStateId="2">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="350.25" y="36.25"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="298.5" y="30.5"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="285.271428571429" y="112"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="262.25" y="36.25"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="276" y="111"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="248.0714285714286" y="112"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+ </Transitions>
+ <DataModel>
+  <Input>
+   <Attribute position="0" multiplicity="1" alias="start" type="int32_t"/>
+   <Attribute position="1" multiplicity="1" alias="stop" type="int32_t"/>
+   <Attribute position="2" multiplicity="1" alias="clear" type="int32_t"/>
+  </Input>
+  <Output>
+   <Attribute position="0" multiplicity="1" alias="min" type="int32_t"/>
+   <Attribute position="1" multiplicity="1" alias="sec" type="int32_t"/>
+   <Attribute position="2" multiplicity="1" alias="msec" type="int32_t"/>
+  </Output>
+  <LocalVariables>
+   <Attribute position="0" multiplicity="1" alias="tick" type="int32_t"/>
+   <Attribute position="1" multiplicity="1" alias="counter" type="int32_t"/>
+  </LocalVariables>
+  <EventsIn/>
+  <EventsOut/>
+ </DataModel>
+</SMCube>
