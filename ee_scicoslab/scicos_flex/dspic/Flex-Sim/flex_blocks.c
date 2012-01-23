@@ -65,6 +65,8 @@
 #define BUTTONS_CMD 0
 #define LEDSLCD_CMD 1
 
+#define CONNECTION_TIMEOUT 30
+
 #pragma pack(push,1)
 typedef struct flex_buttons_data_ {
 	unsigned char buttons[BUTTONS_SIZE];
@@ -219,7 +221,7 @@ void FLEXSIM_LIB_API flex_blocks(scicos_block *block,int flag)
 			Coserror("FlexDemoBoard launch failed: %d.", process->last_error_code_);
 			goto init_error;
 		}
-		if (wait_for_connect_timeout(channel, 5) == -1)
+		if (wait_for_connect_timeout(channel, CONNECTION_TIMEOUT) == -1)
 		{
 			*engine_exists = 0;
 			Coserror("Channel wait for connection failed: %d." ,
