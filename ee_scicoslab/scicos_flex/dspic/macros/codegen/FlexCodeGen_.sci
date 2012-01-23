@@ -148,9 +148,8 @@ function FlexCodeGen_()
 				label1 = [user_name; user_path];
 					
 				if ok then break,end
-			  end
+			end
 			// -----------------------------------------------------------------------------------------------------
-			
             
             // Got to target sblock.
             scs_m_top=goto_target_scs_m(scs_m_top)
@@ -1741,29 +1740,44 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   //***********************************
   // Scilab and C files generation
   //***********************************
+	user_path = stripblanks(user_path);
 
-  if exists('TARGETDIR')==0,  
-	TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
-  end     
+	if exists('TARGETDIR')==0,  
+		TARGETDIR = SCI+"/contrib/scicos_ee/scicos_flex/RT_templates";
+	end     
   
-  user_path = stripblanks(user_path);
-  dirinfo = fileinfo(user_path)
-				
-  if dirinfo==[] then
-	[pathrp, fnamerp, extensionrp] = fileparts(user_path); 
-	okdir = mkdir(pathrp, fnamerp+extensionrp) ; 
-	if ~okdir then 
-		message("Directory '+user_path+' cannot be created");
+	dirinfo = fileinfo(user_path)		
+	if dirinfo==[] then
+		[pathrp, fnamerp, extensionrp] = fileparts(user_path); 
+		okdir = mkdir(pathrp, fnamerp+extensionrp) ; 
+		if ~okdir then 
+			message("#Codegen error: " + "Directory " + user_path + " cannot be created!");
+			message("Please, change the destination path or run ScicosLab with administrator privileges!");
+			ok = %f;
+			return;
+		end
+	elseif filetype(dirinfo(2))<>'Directory' then
 		ok = %f;
+		message(user_path+" is not a directory");
+		return;
 	end
-  elseif filetype(dirinfo(2))<>'Directory' then
-	ok = %f;
-	message(user_path+" is not a directory");
-  end
-  
-  // Now the directory exists...
-  user_path = getshortpathname(user_path);
-  user_path = strsubst(user_path,'\','/');
+	
+	// Test user privileges for the entered project path
+	cmd = 'dir > ' + ascii(34) + user_path + '\test_admin.x' + ascii(34);
+	unix(cmd); // if you aren't ADMINISTRATOR the access will be denied...
+	
+	[x,err] = fileinfo(user_path + '\test_admin.x');
+	if err ~= 0
+		message("#Codegen error: Access denied! Please, change the project path or run ScicosLab with administrator privileges!");
+		return;
+	else
+		cmd = 'del /Q ' + ascii(34) + user_path + '\test_admin.x' + ascii(34);
+		unix(cmd);
+	end
+	  
+	// Now the directory exists...
+	user_path = getshortpathname(user_path);
+	user_path = strsubst(user_path,'\','/');
 
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 // $$$ Other actions related to the blocks before to start the Scios code generator should be here... $$$
@@ -1773,7 +1787,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 	[xml_fd,err] = mopen(user_path+'/xml.list', 'w');
 	[xml_list_res,err] = fileinfo(user_path+'/xml.list');
 	if err ~= 0 then
-		my_errstr = "#CodeGen error:  The selected path requires Administrator privileges! Code Generation aborted!"; 
+		my_errstr = "#CodeGen error: File xml.list does not exist! SMCube code generation aborted!"; 
 		disp(my_errstr);
 		message(my_errstr);
 		return
@@ -1784,7 +1798,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 	if err ~= 0 then
 		mclose(xml_fd);
 		unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
-		my_errstr = "#CodeGen error: The selected path requires Administrator privileges! Code Generation aborted!"; 
+		my_errstr = "#CodeGen error: File smb.list does not exist! SMCube code generation aborted!"; 
 		disp(my_errstr);
 		message(my_errstr);
 		return
