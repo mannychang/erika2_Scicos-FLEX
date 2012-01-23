@@ -21,11 +21,18 @@
  */
 
 #include "data_model.h"
+#if defined(_MSC_VER)
+	typedef __int32 int32_t;
+	typedef __int16 int16_t;
+	typedef __int8 int8_t;
+#else
+	#error "Compiler not supported"
+#endif
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 
-int dm_types_size[] = {sizeof(char), sizeof(short), sizeof(int), sizeof(float),
+int dm_types_size[] = {sizeof(int8_t), sizeof(int16_t), sizeof(int32_t), sizeof(float),
 				   sizeof(double)};
 
 void dm_init(struct dm_elem* data)
@@ -166,19 +173,19 @@ void dm_create_types(unsigned char **types_out, const char *types, int size)
 		if (types[i] == 'c')
 		{
 			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = CHAR_TYPE;
+			(*types_out)[j] = INT8_TYPE;
 			++j;
 		}
 		else if (types[i] == 's')
 		{
 			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = SHORT_TYPE;
+			(*types_out)[j] = INT16_TYPE;
 			++j;
 		}
 		else if (types[i] == 'i')
 		{
 			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = INT_TYPE;
+			(*types_out)[j] = INT32_TYPE;
 			++j;
 		}
 		else if (types[i] == 'f')

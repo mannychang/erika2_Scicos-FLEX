@@ -23,9 +23,9 @@
 #ifndef DATA_MODEL_H
 #define DATA_MODEL_H
 
-#define CHAR_TYPE 0
-#define SHORT_TYPE 1
-#define INT_TYPE 2
+#define INT8_TYPE 0
+#define INT16_TYPE 1
+#define INT32_TYPE 2
 #define FLOAT_TYPE 3
 #define DOUBLE_TYPE 4
 #define TYPES_LEN 5
