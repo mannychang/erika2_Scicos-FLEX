@@ -241,6 +241,7 @@ case 'define' then      //** the standard define
   model.intyp = it;
   model.out = 1;
   model.out2 = _spf_get_max_out_size();
+  model.outtyp = 8; //uint8
   model.evtin = 1 ;
   model.evtout = [] ;
   model.state = [] ;
