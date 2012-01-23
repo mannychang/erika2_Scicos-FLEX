@@ -9,11 +9,11 @@
 
   <DATE>January 2012</DATE>
 
-  <SHORT_DESCRIPTION name="sprintf_block">palette: Utils</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="sprintf_block">palette: Miscellaneous</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
     <P><IMG src="sprintf_block.gif"></IMG></P>
-    <P><VERB>palette: Utils</VERB></P>
+    <P><VERB>palette: Miscellaneous</VERB></P>
     <P> Emulator of C language sprintf function. According to the format tags of the sprintf function %[flags][width][.precision][length]specifier this implementation: </P>
     <P>     - Does not support the [length] sub-specifier; </P>
     <P>     - Supports only the following specifiers: d(int32), u(uint32), f(real), c(int8); </P>

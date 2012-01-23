@@ -32,7 +32,7 @@ exec(EESCI_DSPIC_PATH + "/loader.sce");
 %scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/misc/"];
 %scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/NativeInteger/"];
 %scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/easylab/"];
-%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/utils/"];
+%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/miscellaneous/"];
 
 PALETTE_DIR = EESCI_DSPIC_PATH + "/macros/palettes/";
 
@@ -52,7 +52,7 @@ scicos_pal($+1,:)=['FLEX-Communication',PALETTE_DIR + 'FLEX-Communication.cosf']
 scicos_pal($+1,:)=['RT Data Exchange',PALETTE_DIR + 'RT-Data-Exchange.cosf'];
 scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
 scicos_pal($+1,:)=['Easylab',PALETTE_DIR + 'EASYLAB.cosf'];
-scicos_pal($+1,:)=['Utils',PALETTE_DIR + 'MISC.cosf'];
+scicos_pal($+1,:)=['Miscellaneous',PALETTE_DIR + 'MISC.cosf'];
 [x,err] = fileinfo(PALETTE_DIR + 'SMCube.cosf');
 if err == 0
 	%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/smcube/"];

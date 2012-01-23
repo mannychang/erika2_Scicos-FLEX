@@ -10,7 +10,7 @@ add_help_chapter("RT Data Exchange Blockset",path+'rt_data_exchange');
 add_help_chapter("Flex-Communication Blockset",path+'flex_com');
 add_help_chapter("MCHP16-Sources Blockset",path+'misc');
 add_help_chapter("EasyLab Blockset",path+'easylab');
-add_help_chapter("Utils Blockset",path+'utils');
+add_help_chapter("Miscellaneous Blockset",path+'miscellaneous');
 
 // SMCube docs
 SCIDIR = strsubst(SCI,'/','\');
