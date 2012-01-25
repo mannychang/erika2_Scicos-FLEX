@@ -37,6 +37,11 @@ ifndef DIRS
 DIRS := $(dir $(wildcard */conf.in))
 endif
 
+ifneq (ok,$(shell test -x "$(SCIBASE)/contrib/scicos_ee/bin/SMCube" && echo ok ))
+$(warning SMCube.exe not found!)
+DIRS := $(filter-out $(dir $(wildcard smcube*/conf.in)),$(DIRS))
+endif
+
 # remove duplicates and add trailing / if missing
 SDIRS = $(addsuffix /,$(subst /,,$(sort $(DIRS))))
 
