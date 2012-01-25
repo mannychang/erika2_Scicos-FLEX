@@ -14,7 +14,6 @@ MYDIR = get_absolute_file_path('installer.sce');
 OLDDIR = pwd();
 SCIDIR = strsubst(SCI,'/','\');
 
-
 if exists('INSTALLER_BATCH_MODE')==0 & exists('ans_inst_dialog')==0
 	ans_inst_dialog = buttondialog("ScicosLab pack Setup utility.\nChoose if install or uninstall the toolbox. ","Install|Uninstall|Exit","question"); 
 	ans_inst_dialog_up = 1;
@@ -103,34 +102,9 @@ waitbar("                                                        " + "\n" + ..
 		"                                                        " + "\n" + ..
 		"                                                        ", winId_wait);
   EE_debug_printf('  Deleting files...', 0); 
-  // ulink of DLLs
-  if exists('roller_link_num')
-    ulink(roller_link_num);
-  end
-  if exists('flexsim_link_num')
-    ulink(flexsim_link_num);
-  end
-  if exists('nativeinteger_link_num')
-    ulink(nativeinteger_link_num);
-  end
-  if exists('udp_link_num')
-    ulink(udp_link_num);
-  end
-  if exists('mcp2200_link_num')
-    ulink(mcp2200_link_num);
-  end
-  if exists('serial_gateway_link_num')
-    ulink(serial_gateway_link_num);
-  end
-  if exists('rs232_link_num')
-    ulink(rs232_link_num);
-  end
-  if exists('libsmcube_link_num')
-    ulink(libsmcube_link_num);
-  end
-  if exists('libsprintf_link_num')
-    ulink(libsprintf_link_num);
-  end
+  
+  // Unlink DLLs
+  exec(MYDIR + 'scicos_ee\utils\unlink_dll.sce');
   
   cd(SCIDIR + '\contrib');
   // Removing ScicosLabPack_install.log
@@ -303,11 +277,17 @@ end
 
 VC_path_valid = %F;
 if exists('visualc_path')==0
-	visualc_path = 'C:\Programmi\Microsoft Visual Studio 9.0\VC';
+	[x_x_x,vcpp_detect_err] = fileinfo(MYDIR + 'scicos_ee\utils\vcpp_detect.sce');
+	if vcpp_detect_err == 0
+		exec(MYDIR + 'scicos_ee\utils\vcpp_detect.sce');
+	else
+		visualc_path = 'C:\Programmi\Microsoft Visual Studio 9.0\VC';
+	end
 end
+
 while VC_path_valid==%F
 	if exists('INSTALLER_BATCH_MODE')==0 // in batch mode do not display the dialog window
-		visualc_path = x_dialog(['Set preferences';'Enter Visual C++ directory path:'],[visualc_path]);
+		visualc_path = x_dialog(['Enter Visual C++ directory path'],[visualc_path]);
 		visualc_path_up = 1;
 	else
 		if exists('INSTALLER_BATCH_MODE')==1
@@ -402,37 +382,17 @@ if err == 0
 			"                                                        ", winId_wait);
 end
 
-
-//	// Check MPLAB C30 presence 
-//	waitbar('                                               \n..
-//			 Check MPLAB C30 compiler presence...           \n..
-//															\n..
-//															\n..
-//															\n..
-//															', winId_wait);
-//	res_c30 = grep(txt,'MPLAB C30');
-//	res_c   = grep(txt,'MPLAB C');
-//	if res_c30==[] & res_c==[]
-//		EE_debug_printf('  #warning: C30 compiler for dsPIC not found!', fd_log);
-//	waitbar('                                               \n..
-//				  # Installation Warning #                  \n..
-//			  C30 compiler for dsPIC not found!             \n..
-//															\n..
-//															\n..
-//															', winId_wait);
-//	end
-
 	waitbar("                                                        " + "\n" + ..
 			"                C30 compiler settings:                  " + "\n" + ..
-			"    - Recommended version: v3.30 or later               " + "\n" + ..
-			"    - Bad version: v3.25, sprintf_block cannot compile!  " + "\n" + ..
-			"    For further info visit: http://www.microchip.com/   " + "\n" + ..
+			" - Recommended version: v3.30 or later                  " + "\n" + ..
+			" - Bad version: v3.25, sprintf_block cannot be compiled!" + "\n" + ..
+			" For further info visit: http://www.microchip.com/      " + "\n" + ..
 			"                                                        ", winId_wait);
 
-
-
 	if exists('INSTALLER_BATCH_MODE')==0 & exists('answ_c30')==0
-		answ_c30 = buttondialog("Flex Code Generation requires a valid path for C30 compiler (Yes: to enter a path, No: for no code generation)","yes|no","question"); 
+		answ_c30 = buttondialog("Code Generation for dsPIC DSC microcontroller requires a valid path for the Microchip C30 Compiler.\n" + ..
+                                "Please answer yes if you plan to generate code for the target.\n" + ..
+                                "If you are only installing the tool for simulation purposes, and not for code generation, you can safely answer No.","yes|no","question"); 
 		answ_c30_up = 1;
 		if answ_c30=='2' | answ_c30=='0'
 			waitbar("                                                        " + "\n" + ..
@@ -452,11 +412,19 @@ end
 // C30 path
 CC_path_valid=%F; // path is non valid at the moment...
 if exists('c30_asm30_paths')==0
-	c30_asm30_paths = 'c:/Programmi/Microchip/MPLAB C30';
+	[x_x_x,c30_detect_err] = fileinfo(MYDIR + 'scicos_ee\utils\c30_detect.sce');
+	if c30_detect_err == 0
+		exec(MYDIR + 'scicos_ee\utils\c30_detect.sce');
+	else
+		c30_asm30_paths = 'C:\Programmi\Microchip\MPLAB C30';
+	end
 end
 while CC_path_valid==%F
 	  if exists('INSTALLER_BATCH_MODE')==0 & answ_c30=='1' // in batch mode do not display the dialog window
-		c30_asm30_paths = x_dialog(['Set preferences';'Enter C30 installation directory path:'],[c30_asm30_paths]);
+		c30_asm30_paths = x_dialog(['Enter C30 installation directory path';..
+		                            '- Recommended version: v3.30 or later';..
+                                    '- Bad version: v3.25, sprintf_block cannot be compiled!';..
+                                    'For further info visit: http://www.microchip.com/'],[c30_asm30_paths]);
 		c30_asm30_paths_up = 1;
 	  else
 			if exists('INSTALLER_BATCH_MODE')==1
@@ -464,8 +432,15 @@ while CC_path_valid==%F
 			end
 	  end
 	  if c30_asm30_paths==[]
-			c30_asm30_paths = 'c:/Programmi/Microchip/MPLAB C30';
-			answ_c30 = buttondialog("Flex Code Generation requires a valid path for C30 compiler (Yes: to enter a path, No: for no code generation)","yes|no","question"); 
+			[x_x_x,c30_detect_err] = fileinfo(MYDIR + 'scicos_ee\utils\c30_detect.sce');
+			if c30_detect_err == 0
+				exec(MYDIR + 'scicos_ee\utils\c30_detect.sce');
+			else
+				c30_asm30_paths = 'C:\Programmi\Microchip\MPLAB C30';
+			end
+			answ_c30 = buttondialog("Code Generation for dsPIC DSC microcontroller requires a valid path for the Microchip C30 Compiler.\n" + ..
+                                    "Please answer yes if you plan to generate code for the target.\n" + ..
+                                    "If you are only installing the tool for simulation purposes, and not for code generation, you can safely answer No.","yes|no","question"); 
 			answ_c30_up = 1;
 			if answ_c30=='2' | answ_c30=='0'
 				waitbar("                                                        " + "\n" + ..
@@ -595,35 +570,10 @@ waitbar("                                                        " + "\n" + ..
 		"                                                        " + "\n" + ..
 		"                                                        ", winId_wait);
     EE_debug_printf('  Deleting files...', fd_log); 
-    // ulink of DLLs
-    if exists('roller_link_num')
-      ulink(roller_link_num);
-    end
-    if exists('flexsim_link_num')
-      ulink(flexsim_link_num);
-    end
-    if exists('nativeinteger_link_num')
-      ulink(nativeinteger_link_num);
-    end
-    if exists('udp_link_num')
-      ulink(udp_link_num);
-    end
-    if exists('mcp2200_link_num')
-      ulink(mcp2200_link_num);
-    end
-    if exists('serial_gateway_link_num')
-        ulink(serial_gateway_link_num);
-    end 
-    if exists('rs232_link_num')
-        ulink(rs232_link_num);
-    end
-    if exists('libsmcube_link_num')
-      ulink(libsmcube_link_num);
-    end
-    if exists('libsprintf_link_num')
-      ulink(libsprintf_link_num);
-    end
-  
+
+    // Unlink DLLs
+    exec(MYDIR + 'scicos_ee\utils\unlink_dll.sce');
+
     // Removing scicos_ee
     cd(SCIDIR+'\contrib');
     cmd = 'rmdir /s /q scicos_ee';
@@ -677,7 +627,7 @@ waitbar("                                                        " + "\n" + ..
   EE_debug_printf('  The installation was interrupted!', fd_log);
   EE_debug_printf('### END ###', fd_log);
   mclose(fd_log);
-  cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+  cd(home); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
   end
 
 // 40%
@@ -685,11 +635,13 @@ waitbar(0.4, winId_wait);
 
 // Check copy is finished
 EE_debug_printf('  ...copying Scicos EE files...', fd_log); 
+EE_debug_printf('  Please, do not close the MSDOS window.', fd_log); 
+EE_debug_printf('  It will be closed automatically at the end of copy.', fd_log); 
 waitbar("                                                        " + "\n" + ..
 		"                      Copying files...                  " + "\n" + ..
 		"             (Copy may take several seconds!)           " + "\n" + ..
 		"          Please, do not close the MSDOS window.        " + "\n" + ..
-		" It will be closed automatically at the end of the copy." + "\n" + ..
+		"   It will be closed automatically at the end of copy.  " + "\n" + ..
 		"                                                        ", winId_wait);
 realtimeinit(1); 
 realtime(0);
@@ -720,7 +672,7 @@ waitbar("                                                        " + "\n" + ..
   // winclose(winId_prog);
   EE_debug_printf('### END ###', fd_log);
   mclose(fd_log);
-  cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+  cd(home); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
 end
 
 while res_utils==%F,
@@ -810,7 +762,7 @@ if answ_dot_scilab=='1'
 			EE_debug_printf('  Installation aborted!', fd_log);
 			EE_debug_printf('### END ###', fd_log);
 			mclose(fd_log);
-			cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+			cd(home); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
 		else
 			// EE_debug_printf('  #warning: .scilab was successfully restored!', 0);
 			res = size(txt);
@@ -852,8 +804,8 @@ exec builder.sce
 // Create and move Scicos EE pack palettes
 waitbar("                                                        " + "\n" + ..
 		"            Creating ScicosLab EE palettes...           " + "\n" + ..
-		"                                                        " + "\n" + ..
-		"                                                        " + "\n" + ..
+		"     (Depending on your installation, now ScicosLab     " + "\n" + ..
+		"       can generate many warnings, do not worry...)     " + "\n" + ..
 		"                                                        " + "\n" + ..
 		"                                                        ", winId_wait);
 EE_debug_printf('  Creating ScicosLab EE palettes...', fd_log);
