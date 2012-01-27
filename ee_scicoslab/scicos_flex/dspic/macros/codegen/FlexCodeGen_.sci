@@ -1784,111 +1784,70 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   
 	// ------------------------------------------
 	// ------------- SMCUBE section -------------
-	[xml_fd,err] = mopen(user_path+'/xml.list', 'w');
-	[xml_list_res,err] = fileinfo(user_path+'/xml.list');
-	if err ~= 0 then
-		my_errstr = "#CodeGen error: File xml.list does not exist! SMCube code generation aborted!"; 
-		disp(my_errstr);
-		message(my_errstr);
-		return
-	end
-	
-	[smb_fd,err] = mopen(user_path+'/smb.list', 'w');
-	[smb_list_res,err] = fileinfo(user_path+'/smb.list');
-	if err ~= 0 then
-		mclose(xml_fd);
-		unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
-		my_errstr = "#CodeGen error: File smb.list does not exist! SMCube code generation aborted!"; 
-		disp(my_errstr);
-		message(my_errstr);
-		return
-	end
-	
-	xml_list = [];            // XML files list
-	smb_id = 0;
-	for i=1:size(scs_m.objs)
-		//** Search SMCUBE blocks and find out the name of the XMLs
-		//disp(typeof(scs_m.objs(i)))
-		if typeof(scs_m.objs(i))=="Block" then              // check if it is a block
-			iblock_exprs = scs_m.objs(i).graphics.exprs(1); // take the exprs field
-			//disp(iblock_exprs)
-			ib_exp_size = size(iblock_exprs);
-			if ib_exp_size(2) ~= 5 then
-				continue;
-			end
-			if iblock_exprs(4) == "SMCube" then               // check if is a SMCube block
-				if (scs_m.objs(i).model.evtin ~= [] & scs_m.objs(i).model.evtin > 1) | scs_m.objs(i).model.evtout ~= []
-					mclose(xml_fd);
-					mclose(smb_fd);
-					unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
-					unix('del ' + strsubst(user_path,'/','\') + '\smb.list');
-					my_errstr = "#CodeGen error: Sorry, SMCube input/output event ports are not supported by the code generator!"; 
-					disp(my_errstr);
-					message(my_errstr);
-					return;
-				end
-				[info_file,ierr] = fileinfo(iblock_exprs(3)); // Check if the XML file exists
-				if ierr <> 0 then 
-					mclose(xml_fd);
-					mclose(smb_fd);
-					unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
-					unix('del ' + strsubst(user_path,'/','\') + '\smb.list');
-					my_errstr = "#CodeGen error: SMCube file " + iblock_exprs(3) + " not found!"; 
-					disp(my_errstr);
-					message(my_errstr);
-					return;
-				else
-					if grep(xml_list, iblock_exprs(3))==[] then  // Check if this XML file is already in the list
-						xml_list = [xml_list; iblock_exprs(3)];  // push the XML file in the list
-						mfprintf(xml_fd,"%d %s\n", size(xml_list), iblock_exprs(3));  // Write on the text-file the number and the XML file name.
-					end
-					smb_id = smb_id + 1;
-					mfprintf(smb_fd,"%d %d\n", smb_id, grep(xml_list, iblock_exprs(3)));  // Write on the text-file the id and the number of the XML file.
+	xml_list = [];
+	smb_id = [];
+	smc_err = 0;
 
-					// Find the index to write the smb_id in the ipar vector 
-					scs_m.objs(i).model.ipar(1) = smb_id; // write on the local copy
-					[row_size_ipar_i, col_size_ipar_i] = size(scs_m.objs(i).model.ipar);
-					[row_size_ipar, col_size_ipar] = size(cpr.sim.ipar);
-					for k = 1:row_size_ipar // Start the loop to find the index....
-						loop_ok = 0;
-						if cpr.sim.ipar(k) == scs_m.objs(i).model.ipar(2) then
-							if row_size_ipar_i >= 5 				// 5 is the minimun length of ipar vector for a SMCube block
-								for w = 1:(row_size_ipar_i - 2) 	// Check if there is a part of the pre-compiled ipar that is equivalent of block ipar
-																	// In case of SMCube block it should happen. In this case we put the smb_id overwriting on cpr.sim.ipar(k-1)
-									if cpr.sim.ipar(k+w) == scs_m.objs(i).model.ipar(2+w)
-										loop_ok = 1;				// Index found!
-									else
-										loop_ok = 0;				// Index wrong! trying with the next...
-										break;
-									end
-								end
-							end
-						end
-						if loop_ok == 1
-							cpr.sim.ipar(k-1) = smb_id;      // write on the global copy, the pre-compiled structure of the scicos diagram ( used by make_standalonert() )
-							break;
-						end
-					end
-				end
+	[x_x_x,smcexe_err] = fileinfo(SCI + "/contrib/scicos_ee/bin/SMCube.exe");
+	if smcexe_err == 0
+		[cpr.sim.ipar, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(XX, cpr.sim.ipar, xml_list, smb_id);
+	end
+
+	if smc_err ~= 0 then
+
+		my_errstr = "Sorry, Code generation is terminated due to errors in SMCube blocks!"; 
+		disp(my_errstr);
+		message(my_errstr);
+		return;
+
+	else
+
+		if smb_id ~= [] then
+
+			[xml_fd,err] = mopen(user_path+'/xml.list', 'w');
+			[xml_list_res,err] = fileinfo(user_path+'/xml.list');
+			if err ~= 0 then
+				my_errstr = "#CodeGen error: File xml.list cannot be created! SMCube code generation aborted!"; 
+				disp(my_errstr);
+				message(my_errstr);
+				return
 			end
+			
+			[smb_fd,err] = mopen(user_path+'/smb.list', 'w');
+			[smb_list_res,err] = fileinfo(user_path+'/smb.list');
+			if err ~= 0 then
+				my_errstr = "#CodeGen error: File smb.list cannot be created! SMCube code generation aborted!"; 
+				disp(my_errstr);
+				message(my_errstr);
+				mclose(xml_fd);
+				unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
+				return
+			end
+
+			i_end = size(xml_list); 
+			for i=1:i_end(1)
+				// Write in this vector the number and the name of this XML file.
+				mfprintf(xml_fd,"%d %s\n", i, xml_list(i));  
+			end
+
+			for i=1:length(smb_id)
+				// Write in this vector the smcube block id and the number of the corresponding XML file.
+				mfprintf(smb_fd,"%d %d\n", i, smb_id(i));
+			end
+
+			mclose(xml_fd); // Close the XML file
+			mclose(smb_fd); // Close the SMB file
+			
+			disp("SMCube is parsing the XML file to generate the FSM source files used for the compilation.");
+			smc_engine_path = getenv("SMCUBEPATH","");
+			cmd = smc_engine_path + '/SMCube.exe' + ' -target -descr ' + user_path + '/xml.list ' + user_path + '/smb.list ' + '-path ' + user_path + ' -output smcube_block';
+			unix(cmd);
+			disp("Please, wait...Done!")
+
 		end
 	end
-	mclose(xml_fd); // Close the XML file
-	mclose(smb_fd); // Close the SMB file
-	
-	if smb_id > 0 then
-		disp("SMCube is parsing the XML file to generate the FSM source files used for the compilation.");
-		smc_engine_path = getenv("SMCUBEPATH","");
-		cmd = smc_engine_path + '/SMCube.exe' + ' -target -descr ' + user_path + '/xml.list ' + user_path + '/smb.list ' + '-path ' + user_path + ' -output smcube_block';
-		unix(cmd);
-		disp("Please, wait...Done!")
-	else
-		unix('del ' + strsubst(user_path,'/','\') + '\xml.list');
-		unix('del ' + strsubst(user_path,'/','\') + '\smb.list');
-	end
-	
 	// ------------------------------------------
-	
+
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   
   

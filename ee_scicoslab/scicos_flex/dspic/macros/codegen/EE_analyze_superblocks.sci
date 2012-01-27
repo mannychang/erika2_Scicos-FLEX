@@ -1,3 +1,10 @@
+// 같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같�
+// EE_analyze_superblocks
+// This function returns the blocks list, the functions list 
+// and the symbols list.
+// Author: Francesco Prosperi, Retis Lab
+// 같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같�
+
 function [B_L,F_L,S_L] = EE_analyze_superblocks(XX,B_L,F_L,S_L)
  
 	//disp("We are in " + XX.gui);
