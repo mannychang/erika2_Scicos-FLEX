@@ -88,7 +88,7 @@ static const char* folder_separator = "/";
 #define CHECK_OUTPUT_EVENT(events, evt) \
 	( events & ((unsigned int)1 << evt) )
 
-#define CONNECTION_TIMEOUT 30
+#define CONNECTION_TIMEOUT 15
 
 /*BLOCK DATA*/
 struct process_data* process = 0;

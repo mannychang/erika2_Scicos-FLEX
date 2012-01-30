@@ -65,7 +65,7 @@
 #define BUTTONS_CMD 0
 #define LEDSLCD_CMD 1
 
-#define CONNECTION_TIMEOUT 30
+#define CONNECTION_TIMEOUT 15
 
 #pragma pack(push,1)
 typedef struct flex_buttons_data_ {
