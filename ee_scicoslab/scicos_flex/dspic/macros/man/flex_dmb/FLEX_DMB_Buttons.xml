@@ -16,8 +16,9 @@
     <P><VERB>palette: FLEX-DemoBoard</VERB></P>
     <P>This block reads the status of the FLEX DEMO board buttons.</P>
     <P>Simulation: This block is fully supported in simulation. During the simulation, an image of the
-    FLEX DEMO board is shown and you can press the buttons by clicking with your mouse, the outputs of the block will be updated accordingly. 
+    FLEX DEMO board is shown, like the one below. You can press the buttons by clicking with your mouse and the outputs of the block will be updated accordingly. 
     The Qt framework has been used to develop this application.</P>
+    <P><IMG src="flex_demo_board.gif"></IMG></P>
     <P>Code Generation: This block is fully supported by the code generator.</P>
   </DESCRIPTION>
   
