@@ -1,0 +1,497 @@
+<SMCube version="1.0" name="StateMachine">
+ <States>
+  <State entryAction="" whileAction="" type="initial" id="1" name="" exitAction="">
+   <Hmi width="12" radius="6" height="12">
+    <Position>
+     <Point x="84" y="53"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="2" name="Empty" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="190" y="79"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="OutPort(lev0) = 1;" whileAction="" type="regular" id="3" name="Level0" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="475" y="76"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="4" name="Level1" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="771" y="79"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="5" name="Level2" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="966" y="224"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="6" name="Level4" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="773" y="544"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="7" name="Level5" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="502" y="576"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="8" name="Level6" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="269" y="455"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="9" name="Level7" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="175" y="260"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+  <State entryAction="" whileAction="" type="regular" id="10" name="Level3" exitAction="">
+   <Hmi width="140" radius="8" height="80">
+    <Position>
+     <Point x="972" y="435"/>
+    </Position>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </State>
+ </States>
+ <Transitions>
+  <Transition events="" guard="" srcStateId="1" action="LocVar(thr) = 10.0" priority="1" id="1" dstStateId="2">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="59.5" y="13.5"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="38" y="68"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="120" y="78"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="176.5" y="101.5"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="8.90070286343755e-308" y="8.900702863567067e-308"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="19" y="18"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= 0" srcStateId="3" action="OutPort(lev0) = 0;" priority="1" id="2" dstStateId="2">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="288" y="147"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="329" y="135"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="260" y="95"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="257.5" y="121"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="402" y="91"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="405" y="91"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > 0" srcStateId="2" action="OutPort(lev0) = 1;" priority="1" id="3" dstStateId="3">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="328.5" y="8"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="335" y="23"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="405" y="61"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="232" y="10"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="261" y="63"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="260" y="63"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > LocVar(thr)" srcStateId="3" action="OutPort(lev1) = 1;" priority="2" id="4" dstStateId="4">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="627.5" y="12"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="623" y="17"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="701" y="61"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="485" y="11"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="311" y="113"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="545" y="60"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > 2 * LocVar(thr)" srcStateId="4" action="OutPort(lev2) = 1;" priority="1" id="5" dstStateId="5">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="985.5" y="80"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="937" y="63"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="975" y="184"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="858" y="39"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="361" y="163"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="841" y="93"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > 3 * LocVar(thr)" srcStateId="5" action="OutPort(lev3) = 1;" priority="1" id="6" dstStateId="10">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="995.5" y="325"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="1004" y="263"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="1004" y="395"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="957" y="291"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="411" y="213"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="993" y="264"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > 4 * LocVar(thr)" srcStateId="10" action="OutPort(lev4) = 1;" priority="1" id="7" dstStateId="6">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="963.5" y="587"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="997" y="554"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="843" y="573"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="944" y="557"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="461" y="263"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="1005" y="475"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > 5 * LocVar(thr)" srcStateId="6" action="OutPort(lev5) = 1;" priority="1" id="8" dstStateId="7">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="772.5" y="643"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="745" y="636"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="558" y="616"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="726" y="623"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="511" y="313"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="757" y="584"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > 6 * LocVar(thr)" srcStateId="7" action="OutPort(lev6) = 1;" priority="1" id="9" dstStateId="8">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="273.9285714285714" y="617.2857142857143"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="290" y="610"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="291" y="495"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="142" y="569"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="561" y="363"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="432" y="603"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) > 7 * LocVar(thr)" srcStateId="8" action="OutPort(lev7) = 1;" priority="1" id="10" dstStateId="9">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="63.92857142857145" y="396.2857142857143"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="124" y="372"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="133" y="300"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="44" y="344"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="611" y="413"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="199" y="451"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= LocVar(thr)" srcStateId="4" action="OutPort(lev1) = 0;" priority="2" id="11" dstStateId="3">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="531" y="170"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="636" y="157"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="528" y="116"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="521.5" y="149"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="452" y="141"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="727" y="119"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= 2 * LocVar(thr)" srcStateId="5" action="OutPort(lev2) = 0;" priority="2" id="12" dstStateId="4">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="730.278030993619" y="213.9070191431176"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="789.580674567001" y="196.845031905196"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="780.0838650866" y="119"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="673.0496809480402" y="192.9070191431176"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="502" y="191"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="896" y="213.6818596171376"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= 3 * LocVar(thr)" srcStateId="10" action="OutPort(lev3) = 0;" priority="2" id="13" dstStateId="5">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="753.8751139471286" y="345.1467639015497"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="869.0300820419326" y="332.1467639015496"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="917.4165907019146" y="264"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="715.9412032816774" y="303.8368277119416"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="552" y="241"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="930.7675478577941" y="395"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= 4 * LocVar(thr)" srcStateId="6" action="OutPort(lev4) = 0;" priority="2" id="14" dstStateId="10">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="731.7748404740202" y="441.8596171376482"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="804.2789425706473" y="435.9680948040108"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="902" y="457.1850501367366"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="714.150865998177" y="422.890610756609"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="602" y="291"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="777.6681859617138" y="504"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= 5 * LocVar(thr)" srcStateId="7" action="OutPort(lev5) = 0;" priority="2" id="15" dstStateId="6">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="541.1020966271651" y="485.7666362807658"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="610.5597082953511" y="466.6736554238831"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="714.3737465815863" y="504"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="514.3386508659983" y="467.8131267092069"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="652" y="341"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="538.2515952597996" y="536"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= 6 * LocVar(thr)" srcStateId="8" action="OutPort(lev6) = 0;" priority="2" id="16" dstStateId="7">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="435.7310847766638" y="422.0309936189609"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="472.6927985414769" y="412.0774840474017"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="451.6007292616229" y="536"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="381.5492251595261" y="394.9380127620784"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="702" y="391"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="339" y="424.5360072926162"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+  <Transition events="" guard="InPort(level) &lt;= 7 * LocVar(thr)" srcStateId="9" action="OutPort(lev7) = 0;" priority="1" id="17" dstStateId="8">
+   <Hmi visible="1">
+    <ActionPoint>
+     <Point x="344.5770282588881" y="277.0556061987239"/>
+    </ActionPoint>
+    <ControlPoint>
+     <Point x="408.9571558796721" y="285.3810391978118"/>
+    </ControlPoint>
+    <EndPoint>
+     <Point x="320.8422971741114" y="415"/>
+    </EndPoint>
+    <GuardPoint>
+     <Point x="304.6121239744759" y="242.8541476754786"/>
+    </GuardPoint>
+    <PriorityPoint>
+     <Point x="752" y="441"/>
+    </PriorityPoint>
+    <StartPoint>
+     <Point x="245" y="260.2661804922515"/>
+    </StartPoint>
+    <Font size="8" family="MS Shell Dlg 2"/>
+   </Hmi>
+  </Transition>
+ </Transitions>
+ <DataModel>
+  <Input>
+   <Attribute position="0" multiplicity="1" alias="level" type="double"/>
+  </Input>
+  <Output>
+   <Attribute position="0" multiplicity="1" alias="lev0" type="int32_t"/>
+   <Attribute position="1" multiplicity="1" alias="lev1" type="int32_t"/>
+   <Attribute position="2" multiplicity="1" alias="lev2" type="int32_t"/>
+   <Attribute position="3" multiplicity="1" alias="lev3" type="int32_t"/>
+   <Attribute position="4" multiplicity="1" alias="lev4" type="int32_t"/>
+   <Attribute position="5" multiplicity="1" alias="lev5" type="int32_t"/>
+   <Attribute position="6" multiplicity="1" alias="lev6" type="int32_t"/>
+   <Attribute position="7" multiplicity="1" alias="lev7" type="int32_t"/>
+  </Output>
+  <LocalVariables>
+   <Attribute position="0" multiplicity="1" alias="thr" type="double"/>
+  </LocalVariables>
+  <EventsIn/>
+  <EventsOut/>
+ </DataModel>
+</SMCube>
