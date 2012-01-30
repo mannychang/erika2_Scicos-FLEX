@@ -5,7 +5,6 @@
   </head>
   <body bgcolor="#FFFFFF">
     <center>Scicos block</center>
-    <div align="right">Last update : 03/11/2011</div>
     <p>
       <b>EASYLAB_serial_rx_gw</b> - palette: EASYLAB</p>
     <h3>
@@ -17,7 +16,11 @@
         <b>Palette: EASYLAB</b>
       </tt>
     </p>
-    <p>This block controls the serial reception of floats through UART controller for the EASYLAB Board. </p>
+    <p>This block controls the serial reception of floating point numbers through the UART controller of the dsPIC mounted on the EASYLAB board 
+      (the dsPIC UART controller is directly connected with MCP2200, a USB 2.0 to UART converter). </p>
+    <p>This block has two real outputs (treated as two single precision floating point numbers). </p>
+    <p>For PC-side diagrams the 'SERIAL_GATEWAY' block and the UDP blocks, from the 'RT Data Exchange' palette, should be used to 
+       estabilish a communication with the board (see the examples for further info). </p>
     <h3>
       <font color="blue">Parameters</font>
     </h3>
@@ -33,7 +36,7 @@
       <font color="blue">See Also</font>
     </h3>
     <p>
-      <a href="../../../../../../scicos_ee/scicos_flex/dspic/macros/man/easylab/EASYLAB_serial_tx_gw.htm">
+      <a href="EA3261~1.HTM">
         <tt>
           <b>EASYLAB_serial_tx_gw</b>
         </tt>

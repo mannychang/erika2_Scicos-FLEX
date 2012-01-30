@@ -5,7 +5,6 @@
   </head>
   <body bgcolor="#FFFFFF">
     <center>Scicos block</center>
-    <div align="right">Last update : 03/11/2011</div>
     <p>
       <b>SERIAL_GATEWAY</b> - palette: RT Data Exchange</p>
     <h3>
@@ -17,8 +16,10 @@
         <b>Palette: RT Data Exchange</b>
       </tt>
     </p>
-    <p>This block manage external Serial Gateway program, that receive udp packets from scicos PC simulation and send the throught serial channel.
-       Viceversa from the board.</p>
+    <p>This block configures the 'Serial Gateway', an external executable that can be used to send and receive single precision floating point numbers by COM ports (only COM ports are supported!).</p>
+    <p>The SERIAL_GATEWAY block communicates with the scicos diagram by an UDP interface. 
+       To establish a successful communication with the 'Serial Gateway', UDP blocks should be used in the PC-side diagram. </p>
+    <p>For board-side diagrams (FLEX or EASYLAB), FLEX_serial_rx_gw/FLEX_serial_tx_gw or EASYLAB_serial_rx_gw/EASYLAB_serial_tx_gw blocks should be used.</p>
     <h3>
       <font color="blue">Parameters</font>
     </h3>

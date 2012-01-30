@@ -10,8 +10,8 @@ path=get_absolute_file_path('builder.sce');
 //         path+'misc', "MCHP16-Sources Blockset";
 //         path+'easylab', "EasyLab Blockset"];
 
-//myhelps=[path+'flex_dmb', "Flex-DemoBoard Blockset"];
-myhelps=[path+'smcube', "SMCube Blockset"];
+myhelps=[path+'rt_data_exchange', "RT Data Exchange Blockset"];
+//myhelps=[path+'smcube', "SMCube Blockset"];
 //myhelps=[path+'misc', "MCHP16-Sources Blockset"];
 
 // process the xml files to produce html files 

@@ -14,7 +14,11 @@
   <DESCRIPTION>
     <P><IMG src="EASYLAB_serial_tx_gw.gif"></IMG></P>
     <P><VERB>Palette: EASYLAB</VERB></P>
-    <P>This block controls the serial sending of floats through the UART controller for the EASYLAB Board. </P>
+    <P>This block controls the serial sending of floating point numbers through the UART controller of the dsPIC mounted on the EASYLAB board 
+      (the dsPIC UART controller is directly connected with MCP2200, a USB 2.0 to UART converter). </P>
+    <P>This block accepts two real input values (treated as two single precision floating point numbers). </P>
+    <P>For PC-side diagrams the 'SERIAL_GATEWAY' block and the UDP blocks, from the 'RT Data Exchange' palette, should be used to 
+       estabilish a communication with the board (see the examples for further info). </P>
   </DESCRIPTION>
   
     <PARAM>

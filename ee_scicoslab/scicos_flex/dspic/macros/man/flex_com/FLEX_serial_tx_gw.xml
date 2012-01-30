@@ -14,7 +14,11 @@
   <DESCRIPTION>
     <P><IMG src="FLEX_serial_tx_gw.gif"></IMG></P>
     <P><VERB>Palette: FLEX-Communication</VERB></P>
-    <P>This block controls the serial sending of floats through the UART controller for the FLEX Board. </P>
+    <P>This block controls the serial sending of floating point numbers through the UART controller of the dsPIC mounted on the FLEX board 
+      (this block requires the FLEX daughter RS232 plugin and a suitable USB converter). </P>
+    <P>This block accepts two real input values (treated as two single precision floating point numbers). </P>
+    <P>For PC-side diagrams the 'SERIAL_GATEWAY' block and the UDP blocks, from the 'RT Data Exchange' palette, should be used to 
+       estabilish a communication with the board. </P>
   </DESCRIPTION>
   
     <PARAM>
