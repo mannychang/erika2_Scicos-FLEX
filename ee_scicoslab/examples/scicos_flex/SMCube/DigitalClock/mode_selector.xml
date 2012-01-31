@@ -9,26 +9,26 @@
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
   </State>
-  <State entryAction="OutPort(code) = 0;" whileAction="OutPort(code) = 0;" type="regular" id="2" name="TIME" exitAction="">
-   <Hmi width="409" radius="8" height="75">
+  <State entryAction="OutPort(code) = 0;" whileAction="" type="regular" id="2" name="TIME" exitAction="">
+   <Hmi width="162" radius="8" height="82">
     <Position>
-     <Point x="532.5" y="92.5"/>
+     <Point x="296" y="101"/>
     </Position>
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
   </State>
-  <State entryAction="OutPort(code) = 1;" whileAction="OutPort(code) = 1;" type="regular" id="3" name="STOPWATCH" exitAction="">
-   <Hmi width="417" radius="8" height="75">
+  <State entryAction="OutPort(code) = 1;" whileAction="" type="regular" id="3" name="STOPWATCH" exitAction="">
+   <Hmi width="171" radius="8" height="85">
     <Position>
-     <Point x="533.5" y="236.5"/>
+     <Point x="299.5" y="243.5"/>
     </Position>
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
   </State>
-  <State entryAction="OutPort(code) = 2;" whileAction="OutPort(code) = 2;" type="regular" id="4" name="ALARM" exitAction="">
-   <Hmi width="417" radius="8" height="75">
+  <State entryAction="OutPort(code) = 2;" whileAction="" type="regular" id="4" name="ALARM" exitAction="">
+   <Hmi width="161" radius="8" height="74">
     <Position>
-     <Point x="542.5" y="391.5"/>
+     <Point x="301.5" y="396"/>
     </Position>
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
@@ -41,10 +41,10 @@
      <Point x="8.90070286343755e-308" y="8.900702863567067e-308"/>
     </ActionPoint>
     <ControlPoint>
-     <Point x="177" y="125"/>
+     <Point x="147" y="78"/>
     </ControlPoint>
     <EndPoint>
-     <Point x="328" y="90.62499999999999"/>
+     <Point x="215" y="98.9499999999999"/>
     </EndPoint>
     <GuardPoint>
      <Point x="8.90070286343755e-308" y="8.90070286343755e-308"/>
@@ -53,7 +53,7 @@
      <Point x="8.90070286343755e-308" y="8.900702863567067e-308"/>
     </PriorityPoint>
     <StartPoint>
-     <Point x="152" y="100"/>
+     <Point x="118" y="32"/>
     </StartPoint>
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
@@ -61,22 +61,22 @@
   <Transition guard="InPort(switch_mode)" srcStateId="2" action="" priority="1" events="" id="2" dstStateId="3">
    <Hmi visible="1">
     <ActionPoint>
-     <Point x="335.5" y="167.75"/>
+     <Point x="166.5" y="159.75"/>
     </ActionPoint>
     <ControlPoint>
-     <Point x="354" y="169.5"/>
+     <Point x="193" y="170.5"/>
     </ControlPoint>
     <EndPoint>
-     <Point x="392" y="199"/>
+     <Point x="241.4748201438853" y="201"/>
     </EndPoint>
     <GuardPoint>
-     <Point x="248.5" y="143.25"/>
+     <Point x="43.5891167192429" y="159.1608832807571"/>
     </GuardPoint>
     <PriorityPoint>
      <Point x="394" y="129"/>
     </PriorityPoint>
     <StartPoint>
-     <Point x="394" y="130"/>
+     <Point x="241.1418092909545" y="142"/>
     </StartPoint>
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
@@ -84,22 +84,22 @@
   <Transition guard="InPort(switch_mode)" srcStateId="3" action="" priority="1" events="" id="3" dstStateId="4">
    <Hmi visible="1">
     <ActionPoint>
-     <Point x="332.5" y="281.75"/>
+     <Point x="179.5" y="306.75"/>
     </ActionPoint>
     <ControlPoint>
-     <Point x="353" y="318.5"/>
+     <Point x="176" y="320.5"/>
     </ControlPoint>
     <EndPoint>
-     <Point x="387" y="354"/>
+     <Point x="241.4628297362105" y="359"/>
     </EndPoint>
     <GuardPoint>
-     <Point x="240.5" y="311.25"/>
+     <Point x="57.5" y="307.25"/>
     </GuardPoint>
     <PriorityPoint>
      <Point x="444" y="179"/>
     </PriorityPoint>
     <StartPoint>
-     <Point x="385" y="274"/>
+     <Point x="238.6043165467621" y="286"/>
     </StartPoint>
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
@@ -107,22 +107,22 @@
   <Transition guard="InPort(switch_mode)" srcStateId="4" action="" priority="1" events="" id="4" dstStateId="2">
    <Hmi visible="1">
     <ActionPoint>
-     <Point x="815.5" y="344.75"/>
+     <Point x="563.5" y="236.75"/>
     </ActionPoint>
     <ControlPoint>
-     <Point x="901" y="233.5"/>
+     <Point x="484" y="240.5"/>
     </ControlPoint>
     <EndPoint>
-     <Point x="719" y="130"/>
+     <Point x="369.8704156479237" y="142"/>
     </EndPoint>
     <GuardPoint>
-     <Point x="800.5" y="315.25"/>
+     <Point x="441.5" y="236.25"/>
     </GuardPoint>
     <PriorityPoint>
      <Point x="494" y="229"/>
     </PriorityPoint>
     <StartPoint>
-     <Point x="738" y="354"/>
+     <Point x="376.9808153477206" y="359"/>
     </StartPoint>
     <Font size="8" family="MS Shell Dlg 2"/>
    </Hmi>
