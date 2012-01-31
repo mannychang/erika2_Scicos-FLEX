@@ -203,16 +203,12 @@ if exists('NO_APPS_CHECK')==0
 			"                                                        ", winId_wait);
 	else
 	waitbar("                                                        " + "\n" + ..
-			"                  # Installation Error #                " + "\n" + ..
+			"                  # Installation Warning #              " + "\n" + ..
 			"                    Cygwin not found!                   " + "\n" + ..
 			"              Cygwin should be installed in C:\         " + "\n" + ..
-			"                   Installation aborted!                " + "\n" + ..
+			"           if you plan to generate code for dsPIC.      " + "\n" + ..
 			"                                                        ", winId_wait);
-	  EE_debug_printf('  #Error Cygwin not found!', fd_log);
-	  EE_debug_printf('  Installation aborted!', fd_log);
-	  EE_debug_printf('### END ###', fd_log);
-	  mclose(fd_log);
-	  cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+	  EE_debug_printf('  #Warning Cygwin not found!', fd_log);
 	end
 
 	// --- Create apps.list (installed applications list) ---
@@ -818,10 +814,7 @@ create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\R
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\EASYLAB");
 create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\MISC");
 // SMCube palette
-[x,err] = fileinfo(SCIDIR + "\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube\SMCube.sci");
-if err == 0
-	create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube");
-end
+create_palette(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube");
 
 // Copy the palettes in the directory
 cd(MYDIR+'scicos_ee\utils');

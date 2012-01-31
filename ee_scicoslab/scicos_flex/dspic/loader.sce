@@ -17,15 +17,18 @@ dspiclib_easylab = lib(DIR+'/macros/flex_blocks/EASYLAB/')
 dspiclib_misc = lib(DIR+'/macros/misc/')
 dspiclib_fb_misc = lib(DIR+'/macros/flex_blocks/MISC/')
 dspiclib_gif_icons = lib(DIR+'/macros/man/')
+dspiclib_smcube = lib(DIR+'/macros/flex_blocks/SMCube/')
 
 // Flex Demo Board simulation (QT executable)
-setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+[x_x_x,dmbexe_err] = fileinfo(SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+if dmbexe_err == 0
+	setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+end
 
 // SMCube
-[x,err] = fileinfo(DIR+'/macros/flex_blocks/SMCube/SMCube.sci');
-if err == 0
+[x_x_x,smcexe_err] = fileinfo(SCI + "/contrib/scicos_ee/bin/SMCube.exe");
+if smcexe_err == 0
 	setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin');
-	dspiclib_smcube = lib(DIR+'/macros/flex_blocks/SMCube/')
 end
 
 

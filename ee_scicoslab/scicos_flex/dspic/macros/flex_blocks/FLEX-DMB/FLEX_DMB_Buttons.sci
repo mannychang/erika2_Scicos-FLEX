@@ -139,12 +139,14 @@ case 'define' then      //** the standard define
 case 'compile' then
   flex_path = getenv("FLEXPATH","");
   if isempty(flex_path) == %T then
-    error("Please set the environment variable FLEXPATH");
+    error("Environment variable FLEXPATH not found!");
+  else
+    [info_file,ierr] = fileinfo(flex_path);
+    if ierr <> 0 then
+      error("Flex file " + flex_path + " not found!");
+    end
   end
-  [info_file,ierr] = fileinfo(flex_path);
-  if ierr <> 0 then
-    error("Flex file " + flex_path + " not found!");
-  end
+
 end
 endfunction
 

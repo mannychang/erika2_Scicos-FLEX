@@ -11,13 +11,7 @@ add_help_chapter("Flex-Communication Blockset",path+'flex_com');
 add_help_chapter("MCHP16-Sources Blockset",path+'misc');
 add_help_chapter("EasyLab Blockset",path+'easylab');
 add_help_chapter("Miscellaneous Blockset",path+'miscellaneous');
-
-// SMCube docs
-SCIDIR = strsubst(SCI,'/','\');
-[x,err] = fileinfo(SCIDIR + "\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube\SMCube.sci");
-if err == 0
-	add_help_chapter("SMCube Blockset",path+'smcube');
-end
+add_help_chapter("SMCube Blockset",path+'smcube');
 
 //clear the variable stack
 clear path add_help_chapter get_absolute_file_path

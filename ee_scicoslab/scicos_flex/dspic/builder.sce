@@ -53,15 +53,17 @@ genlib(libname_easylab,FB_EASYLAB)
 genlib(libname_gif_icons,GIF_ICONS)
 
 // Flex Demo Board simulation (QT executable)
-setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+[x_x_x,dmbexe_err] = fileinfo(SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+if dmbexe_err == 0
+	setenv('FLEXPATH',   SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+end
 
 // SMCube
 SMCUBE = FB_MACROS+'SMCube/';
-[x,err] = fileinfo(FB_MACROS+'SMCube/SMCube.sci');
-if err == 0
+libname_smcube = 'smcube'
+genlib(libname_smcube,SMCUBE)
+[x_x_x,smcexe_err] = fileinfo(SCI + "/contrib/scicos_ee/bin/SMCube.exe");
+if smcexe_err == 0
 	setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin');
-	libname_smcube = 'smcube'
-	genlib(libname_smcube,SMCUBE)
 end
-
 

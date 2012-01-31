@@ -38,6 +38,7 @@ if res_dspic_dir == %T
 	%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/NativeInteger/"];
 	%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/easylab/"];
 	%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/miscellaneous/"];
+	%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/smcube/"];
 
 	PALETTE_DIR = EESCI_DSPIC_PATH + "/macros/palettes/";
 
@@ -58,11 +59,7 @@ if res_dspic_dir == %T
 	scicos_pal($+1,:)=['Amazing Ball',PALETTE_DIR + 'AMAZING.cosf'];
 	scicos_pal($+1,:)=['Easylab',PALETTE_DIR + 'EASYLAB.cosf'];
 	scicos_pal($+1,:)=['Miscellaneous',PALETTE_DIR + 'MISC.cosf'];
-	[x,err] = fileinfo(PALETTE_DIR + 'SMCube.cosf');
-	if err == 0
-		%scicos_gif($+1)=[EESCI_DSPIC_PATH + "/macros/man/smcube/"];
-		scicos_pal($+1,:)=['SMCube',PALETTE_DIR + 'SMCube.cosf'];
-	end
+	scicos_pal($+1,:)=['SMCube',PALETTE_DIR + 'SMCube.cosf'];
 
 	if MSDOS then
 
@@ -97,10 +94,7 @@ if res_dspic_dir == %T
 		exec(EESCI_DSPIC_PATH + "/Misc/misc_loader.sce"); 
 
 		//** Load SMCube dll
-		[x,err] = fileinfo(EESCI_DSPIC_PATH + "/SMCube/win_loader.sce");
-		if err == 0
-			exec(EESCI_DSPIC_PATH + "/SMCube/win_loader.sce");
-		end
+		exec(EESCI_DSPIC_PATH + "/SMCube/win_loader.sce");
 
 	end
 

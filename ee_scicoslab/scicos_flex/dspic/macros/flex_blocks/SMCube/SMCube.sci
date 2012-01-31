@@ -63,11 +63,17 @@ case 'set' then //** set parameters
     sengine_exe_name = sengine_exe_name + ".exe";
   end
   sengine_path = getenv("SMCUBEPATH","");
-  sengine_path = _buildPath(sengine_path) + sengine_exe_name;
-  [info_file,ierr] = fileinfo(sengine_path);
-  if ierr <> 0 then
-    message("SMCube application binary file " + sengine_path + " not found!");
+  
+  if isempty(sengine_path) == %T then
+    disp("Environment variable SMCUBEPATH not found!");
+  else
+    sengine_path = _buildPath(sengine_path) + sengine_exe_name;
+    [info_file,ierr] = fileinfo(sengine_path);
+    if ierr <> 0 then
+      disp("SMCube application binary file " + sengine_path + " not found!");
+    end
   end
+
   res = message("Make your choice",["Editor","Properties"]);  
   //res = buttondialog("Make your choice","Editor|Properties|Cancel","question");
   //if res == 3 then
@@ -82,11 +88,17 @@ case 'set' then //** set parameters
     if ierr <> 0 then
       message("SMCube file " + sengine_file + " not found, an empty state machine will be created.")
     end
-    if MSDOS == %T then
-      sengine_path = msprintf("""%s""",sengine_path);
+
+    if isempty(sengine_path) == %T then
+      message("Environment variable SMCUBEPATH not found!");
+      return
+    else
+      if MSDOS == %T then
+        sengine_path = msprintf("""%s""",sengine_path);
+      end
+      unix_s(sengine_path+ " -editor " + sengine_file);
+      return
     end
-    unix_s(sengine_path+ " -editor " + sengine_file);
-    return
   end
   
   reserved = model.ipar(1);
@@ -230,7 +242,7 @@ case 'set' then //** set parameters
         x.model = model ;
         graphics.exprs = label ;
         x.graphics = graphics ;   
-	    break
+        break
       end
       // Check is ok!
       if length(indata) == 0
@@ -278,7 +290,7 @@ case 'define' then      //** the standard define
 
   sengine_path = getenv("SMCUBEPATH","");
   if isempty(sengine_path) == %T then
-    message("Please set the environment variable SMCUBEPATH");
+    disp("Environment variable SMCUBEPATH not found!");
   end
   name = 'SMCube'; //** default name
 
@@ -329,25 +341,25 @@ case 'compile' then
   
   sengine_path = getenv("SMCUBEPATH","");
   if isempty(sengine_path) == %T then
-    error("Please set the environment variable SMCUBEPATH");
-  end
-  sengine_exe_name = "SMCube";
-  sengine_conf_name = "Configuration.ini";
-  sengine_path = _buildPath(sengine_path);
-  if MSDOS == %T then
-    sengine_exe_name = sengine_exe_name + ".exe";
-  end
-  sengine_binary_file = sengine_path + sengine_exe_name;
-  [info_file,ierr] = fileinfo(sengine_binary_file);
-  if ierr <> 0 then
-    error("SMCube application binary file " + sengine_binary_file + " not found!");
-  end
-  sengine_conf_file = sengine_path + sengine_conf_name;
-  [info_file,ierr] = fileinfo(sengine_conf_file);
-  if ierr <> 0 then
-    error("Cannot open the configuration file.");
-  end
- 
+    disp("Environment variable SMCUBEPATH not found!");
+  else
+      sengine_exe_name = "SMCube";
+      sengine_conf_name = "Configuration.ini";
+      sengine_path = _buildPath(sengine_path);
+      if MSDOS == %T then
+        sengine_exe_name = sengine_exe_name + ".exe";
+      end
+      sengine_binary_file = sengine_path + sengine_exe_name;
+      [info_file,ierr] = fileinfo(sengine_binary_file);
+      if ierr <> 0 then
+        disp("SMCube application binary file " + sengine_binary_file + " not found!");
+      end
+      sengine_conf_file = sengine_path + sengine_conf_name;
+      [info_file,ierr] = fileinfo(sengine_conf_file);
+      if ierr <> 0 then
+        disp("Cannot open the configuration file.");
+      end
+  end 
 
 end
 endfunction
