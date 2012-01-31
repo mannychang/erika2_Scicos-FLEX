@@ -1261,6 +1261,12 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
                    "WRITEC_f","Write block";
                    "AFFICH_m","AFFICH_m display block"]
 
+  [x_x_x,smcexe_err] = fileinfo(SCI + "/contrib/scicos_ee/bin/SMCube.exe");
+  if smcexe_err ~= 0
+      vorbidden_items = [vorbidden_items;
+                         "SMCube", "SMCube toolbox is not installed on your machine. SMCube block is"]
+  end
+
   clkIN = [];
   
   //** scan Problem with incapsulated Superblocks
