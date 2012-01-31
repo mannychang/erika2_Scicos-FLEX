@@ -90,11 +90,10 @@
  </PARAM_INDENT>
   </PARAM>
 
-  <SEE_ALSO>
-    <SEE_ALSO_ITEM>
-      <LINK> SMCube site </LINK>
-    </SEE_ALSO_ITEM>
-  </SEE_ALSO>
+  <BIBLIO>
+    <P>This block has been developped according to the  &quot;SMCube Manual&quot;. You can find the &quot;SMCube Manual&quot; and further info at
+ <A href="http://www.evidence.eu.com/products/smcube.html"> SMCube web page</A>.</P>
+  </BIBLIO>
 
   <AUTHOR>Giuseppe Arturi, Evidence Srl, 2012</AUTHOR>
 

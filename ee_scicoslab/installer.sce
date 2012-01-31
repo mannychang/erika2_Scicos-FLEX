@@ -793,6 +793,8 @@ waitbar("                                                        " + "\n" + ..
 		"                                                        " + "\n" + ..
 		"                                                        " + "\n" + ..
 		"                                                        ", winId_wait);
+
+clc
 EE_debug_printf('  Building ScicosLab EE pack...', fd_log);
 cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic");
 exec builder.sce
@@ -837,6 +839,13 @@ end
 if err == 0
 	cmd = 'del common_oil.pref';
 	unix(cmd);
+end
+
+if exists('INSTALLER_BATCH_MODE')==0
+	clc
+	EE_debug_printf('  Building ScicosLab EE pack Help...', fd_log);
+	cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\man");
+	exec builder.sce
 end
 
 // End
