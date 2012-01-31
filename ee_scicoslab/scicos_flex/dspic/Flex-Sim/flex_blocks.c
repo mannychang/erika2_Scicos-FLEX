@@ -22,23 +22,12 @@
 
 //#include "stdafx.h"
 #include "flexsim.h"
-#include "../common/process_utils.h"
-#include "../common/comm_channel.h"
-#include "block_data.h"
 
-#define SNPRINTF snprintf
-#if defined(_WIN32) && defined(_MSC_VER)
-#undef SNPRINTF
-#define SNPRINTF _snprintf
-#endif
-
-#define FLEX_ENV_PATH "FLEXPATH"
 #define BLOCK_TYPE_BUTTONS 0
 #define BLOCK_TYPE_LEDSLCD 1
 
 #define PAR_BLOCK_TYPE 0
 #define PAR_BLOCK_INDEX 1
-
 #define ipar(i) (block->ipar[i])
 
 #define BUTTON_1 0
@@ -56,6 +45,24 @@
 #define LED_7 7
 #define LEDS_SIZE 8
 #define LCD_MAX_SIZE 16 /*in case of array of uint8_t*/
+
+
+//#define __NO_FLEXDMB_SIMULATOR__
+
+#ifndef __NO_FLEXDMB_SIMULATOR__ 
+
+#include "../common/process_utils.h"
+#include "../common/comm_channel.h"
+#include "block_data.h"
+
+#define SNPRINTF snprintf
+#if defined(_WIN32) && defined(_MSC_VER)
+#undef SNPRINTF
+#define SNPRINTF _snprintf
+#endif
+
+#define FLEX_ENV_PATH "FLEXPATH"
+
 #define LCD_INPORT_1 9
 #define LCD_INPORT_2 10
 
@@ -477,4 +484,55 @@ void do_ledslcd_update(scicos_block *block)
 		return;
 	}
 }
+
+#else
+
+void FLEXSIM_LIB_API flex_blocks(scicos_block *block,int flag)
+{
+	switch (flag)
+	{
+
+		/* Init */
+		case 4:{
+					int block_type = ipar(PAR_BLOCK_TYPE);
+					if (block_type == BLOCK_TYPE_BUTTONS) {
+							int i;
+							for(i = 0; i < BUTTONS_SIZE; ++i)
+								if (Getint8OutPortPtrs(block,i+1))
+									*Getint8OutPortPtrs(block,i+1) = 0;
+					}
+					else if (block_type == BLOCK_TYPE_LEDSLCD) {
+					}
+				} break;
+
+		/* output update */
+		case 1:{
+					int block_type = ipar(PAR_BLOCK_TYPE);
+					if (block_type == BLOCK_TYPE_BUTTONS) {
+							int i;
+							for(i = 0; i < BUTTONS_SIZE; ++i)
+								if (Getint8OutPortPtrs(block,i+1))
+									*Getint8OutPortPtrs(block,i+1) = 0;
+					}
+					else if (block_type == BLOCK_TYPE_LEDSLCD) {
+					}
+				} break;
+
+		/* ending */
+		case 5:{
+					int block_type = ipar(PAR_BLOCK_TYPE);
+					if (block_type == BLOCK_TYPE_BUTTONS) {
+							int i;
+							for(i = 0; i < BUTTONS_SIZE; ++i)
+								if (Getint8OutPortPtrs(block,i+1))
+									*Getint8OutPortPtrs(block,i+1) = 0;
+					}
+					else if (block_type == BLOCK_TYPE_LEDSLCD) {
+					}
+				} break;
+	}
+}
+
+#endif
+
 

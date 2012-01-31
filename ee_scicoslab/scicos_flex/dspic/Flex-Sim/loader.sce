@@ -91,5 +91,10 @@ comp_fun = [comp_fun comp_fun_amazingball];
 // comp_fun = [comp_fun comp_fun_other];
 
 // Link to import the selected modules of the library
-flexsim_link_num = link(flexsim_path + 'Release\libflexsim.dll', comp_fun, 'c');
-//flexsim_link_num = link(flexsim_path + 'Debug\libflexsim.dll', comp_fun, 'c');
+// Flex Demo Board simulation (QT executable)
+[x_x_x,dmbexe_err] = fileinfo(SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
+if dmbexe_err == 0
+	flexsim_link_num = link(flexsim_path + 'Release\libflexsim.dll', comp_fun, 'c');
+else
+	flexsim_link_num = link(flexsim_path + 'Release_fake\libflexsim.dll', comp_fun, 'c');
+end

@@ -198,7 +198,7 @@ case 'compile' then
   else
       [info_file,ierr] = fileinfo(flex_path);
       if ierr <> 0 then
-        error("Flex file " + flex_path + " not found!");
+        disp("Flex file " + flex_path + " not found!");
       end
   end
 end
