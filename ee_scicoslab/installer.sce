@@ -231,17 +231,13 @@ if exists('NO_APPS_CHECK')==0
 	res = grep(txt,'Visual C++ 2008');
 	if res==[]
 		waitbar("                                                        " + "\n" + ..
-				"                # Installation Error #                  " + "\n" + ..
+				"                # Installation Warning #                " + "\n" + ..
 				"                 Visual C++ not found!                  " + "\n" + ..
 				"    Installation of Visual C++ 2008 Express Edition     " + "\n" + ..
 				"        is required by the ScicosLab EE pack!           " + "\n" + ..
 				"                                                        ", winId_wait);
-			EE_debug_printf('  #error: Visual C++ 2008 not found!', fd_log);
-			EE_debug_printf('  #error: Installation of Visual C++ 2008 Express Edition is required by the ScicosLab EE pack!', fd_log);
-			EE_debug_printf('  Installation aborted!', fd_log);
-			EE_debug_printf('### END ###', fd_log);
-			mclose(fd_log);
-			cd(OLDDIR); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+			EE_debug_printf('  #warning: Visual C++ 2008 not found!', fd_log);
+			EE_debug_printf('  #warning: Installation of Visual C++ 2008 Express Edition is required by the ScicosLab EE pack!', fd_log);
 	end
 
 	// Check Java presence

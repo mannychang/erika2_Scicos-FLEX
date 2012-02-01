@@ -1,4 +1,11 @@
 
+disp('');
+disp('						ScicosLab-Pack for FLEX and EASYLAB');
+disp('						Copyright (c) 2010-2012');
+disp('						Evidence Srl, Simone Mannori, Roberto Bucher');
+disp('');
+disp('			the tool is configuring the environment...'); disp(' ');
+
 EESCI_DSPIC_PATH = SCI+"/contrib/scicos_ee/scicos_flex/dspic";
 
 res_dspic_dir = isdir(EESCI_DSPIC_PATH);
@@ -99,7 +106,7 @@ if res_dspic_dir == %T
 	end
 
 	//** show some message  
-	disp("ScicosLab-FLEX Ready");disp(" ");
+	disp("			ScicosLab-Pack Ready!");disp(" ");
 
 	//**===================================================================================
 
@@ -110,10 +117,10 @@ if res_dspic_dir == %T
 
 else
 
-	disp('# Fatal Error encountered!');
-	disp('    Directory ' + EESCI_DSPIC_PATH + ' was not found!');
-	disp('    FLEX ScicosLab toolbox initialization is aborted!');
-	disp('    Please, use installer.sce to install and uninstall the toolbox!');
+	disp('		# Fatal Error encountered!');
+	disp('			Directory ' + EESCI_DSPIC_PATH + ' was not found!');
+	disp('			ScicosLab toolbox initialization is aborted!');
+	disp('			Please, use installer.sce to install and uninstall the toolbox!');disp(" ");
 
 end
 
