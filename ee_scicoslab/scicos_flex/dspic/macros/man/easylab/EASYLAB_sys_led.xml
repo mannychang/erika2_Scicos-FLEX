@@ -15,6 +15,7 @@
     <P><IMG src="EASYLAB_sys_led.gif"></IMG></P>
     <P><VERB>Palette: EASYLAB</VERB></P>
     <P>This block controls the led of the Microstick board mounted on the Easylab board.</P>
+    <P>The input value is compared with a threshold value of 0.5 to determine the LED lights up.</P>
   </DESCRIPTION>
 
   <SEE_ALSO>
