@@ -342,6 +342,9 @@ case 'compile' then
   sengine_path = getenv("SMCUBEPATH","");
   if isempty(sengine_path) == %T then
     disp("Environment variable SMCUBEPATH not found!");
+    disp("SMCube has not been installed!");
+    disp("Please note that the SMCube is included only with the full version of the ScicosLab-pack.");
+    error("SMCube has not been installed!");
   else
       sengine_exe_name = "SMCube";
       sengine_conf_name = "Configuration.ini";
@@ -352,12 +355,12 @@ case 'compile' then
       sengine_binary_file = sengine_path + sengine_exe_name;
       [info_file,ierr] = fileinfo(sengine_binary_file);
       if ierr <> 0 then
-        disp("SMCube application binary file " + sengine_binary_file + " not found!");
+        error("SMCube application binary file " + sengine_binary_file + " not found!");
       end
       sengine_conf_file = sengine_path + sengine_conf_name;
       [info_file,ierr] = fileinfo(sengine_conf_file);
       if ierr <> 0 then
-        disp("Cannot open the configuration file.");
+        error("Cannot open the configuration file.");
       end
   end 
 
