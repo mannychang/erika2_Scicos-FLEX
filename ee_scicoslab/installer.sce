@@ -783,8 +783,8 @@ if answ_dot_scilab=='1'
 	mclose(fd);
 end
 
-// 99%
-waitbar(0.99, winId_wait);
+// 95%
+waitbar(0.95, winId_wait);
 
 // Build Scicos EE pack
 waitbar("                                                        " + "\n" + ..
@@ -801,7 +801,7 @@ exec builder.sce
 
 // Create and move Scicos EE pack palettes
 waitbar("                                                        " + "\n" + ..
-		"            Creating ScicosLab EE palettes...           " + "\n" + ..
+		"           Creating ScicosLab Pack palettes...          " + "\n" + ..
 		"     (Depending on your installation, now ScicosLab     " + "\n" + ..
 		"       can generate many warnings, do not worry...)     " + "\n" + ..
 		"                                                        " + "\n" + ..
@@ -841,7 +841,16 @@ if err == 0
 	unix(cmd);
 end
 
+// 99%
+waitbar(0.99, winId_wait);
+
 if exists('INSTALLER_BATCH_MODE')==0
+waitbar("                                                        " + "\n" + ..
+		"             Creating ScicosLab Pack Help...            " + "\n" + ..
+		"                                                        " + "\n" + ..
+		"                                                        " + "\n" + ..
+		"                                                        " + "\n" + ..
+		"                                                        ", winId_wait);
 	clc
 	EE_debug_printf('  Building ScicosLab EE pack Help...', fd_log);
 	cd(SCIDIR+"\contrib\scicos_ee\scicos_flex\dspic\macros\man");
