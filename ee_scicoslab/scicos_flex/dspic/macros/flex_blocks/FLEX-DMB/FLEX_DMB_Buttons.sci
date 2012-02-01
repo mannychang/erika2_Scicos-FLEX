@@ -140,6 +140,8 @@ case 'compile' then
   flex_path = getenv("FLEXPATH","");
   if isempty(flex_path) == %T then
     disp("Environment variable FLEXPATH not found!");
+    disp("The FLEX Demo Board SIMULATOR has not been installed!");
+    disp("Please note that the FLEX Demo Board SIMULATOR is included only with the full version of the ScicosLab-pack.");
   else
     [info_file,ierr] = fileinfo(flex_path);
     if ierr <> 0 then
