@@ -63,11 +63,11 @@ COMPILE_easylab              = COMPILE_flex_source
 
 # -------------------------------------------------------------------
 
-TMPDIR = $(TESTBASE)/testcase/tmp
-FILE_LOCK = $(TMPDIR)/flex_manual.lock
-RTDRUID_GENERATE_LOCK = $(TMPDIR)/rtdruid_generate_lock.lock
+EE_TMPDIR = $(TESTBASE)/testcase/tmp
+FILE_LOCK = $(EE_TMPDIR)/flex_manual.lock
+RTDRUID_GENERATE_LOCK = $(EE_TMPDIR)/rtdruid_generate_lock.lock
 LOCKFILE= lockfile -1 -r-1
-DIST_LOCK = $(TMPDIR)/dist.lock
+DIST_LOCK = $(EE_TMPDIR)/dist.lock
 
 # -------------------------------------------------------------------
 
