@@ -66,6 +66,8 @@ case 'set' then //** set parameters
   
   if isempty(sengine_path) == %T then
     disp("Environment variable SMCUBEPATH not found!");
+    disp("SMCube has not been installed!");
+    disp("Please note that the SMCube is included only with the full version of the ScicosLab-pack.");
   else
     sengine_path = _buildPath(sengine_path) + sengine_exe_name;
     [info_file,ierr] = fileinfo(sengine_path);
@@ -90,7 +92,10 @@ case 'set' then //** set parameters
     end
 
     if isempty(sengine_path) == %T then
-      message("Environment variable SMCUBEPATH not found!");
+      disp("Environment variable SMCUBEPATH not found!");
+      disp("SMCube has not been installed!");
+      disp("Please note that the SMCube is included only with the full version of the ScicosLab-pack.");
+      message("SMCube has not been installed!");
       return
     else
       if MSDOS == %T then
@@ -291,6 +296,8 @@ case 'define' then      //** the standard define
   sengine_path = getenv("SMCUBEPATH","");
   if isempty(sengine_path) == %T then
     disp("Environment variable SMCUBEPATH not found!");
+    disp("SMCube has not been installed!");
+    disp("Please note that the SMCube is included only with the full version of the ScicosLab-pack.");
   end
   name = 'SMCube'; //** default name
 
