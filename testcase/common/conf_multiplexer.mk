@@ -128,23 +128,29 @@ define print_template
 .PHONY: print_$(1)
 print_$(1):
 	@echo Checking EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)
+	@echo "  <testsuite name=\"scicos_$(EXPERIMENT).$(thearch)\" tests=\"\" failures=\"\" errors=\"\" time=\"\">" >> ../tmp/results.xml;
 	@if (test -e $(TESTBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/doneflag.txt); then \
-		echo "  <testsuite name=\"scicos_$(EXPERIMENT).$(thearch)\" tests=\"\" failures=\"\" errors=\"\" time=\"\">" >> ../tmp/results.xml;\
 		echo "    <testcase name=\"$(1)\" status=\"run\" time=\"\" classname=\"$(EXPERIMENT).$(thearch).$(1)\">" >> ../tmp/results.xml;\
 		echo "    </testcase>" >> ../tmp/results.xml;\
-		echo "  </testsuite>" >> ../tmp/results.xml;\
-		echo "" >> ../tmp/results.xml;\
 	else        \
-		echo "  <testsuite name=\"scicos_$(EXPERIMENT).$(thearch)\" tests=\"\" failures=\"\" errors=\"\" time=\"\">" >> ../tmp/results.xml;\
 		echo "    <testcase name=\"$(1)\" status=\"run\" time=\"\" classname=\"$(EXPERIMENT).$(thearch).$(1)\">" >> ../tmp/results.xml;\
 		echo "      <failure type=\"java.lang.RuntimeException\"><![CDATA[" >> ../tmp/results.xml;\
 		cat $(EXPERIMENT)out_$(thearch)_$(1)/scicoslab_log.txt >> ../tmp/results.xml  2>&1;\
 		cat $(EXPERIMENT)out_$(thearch)_$(1)/compile_log.txt >> ../tmp/results.xml   2>&1;\
 		echo "]]></failure>" >> ../tmp/results.xml;\
 		echo "    </testcase>" >> ../tmp/results.xml;\
-		echo "  </testsuite>" >> ../tmp/results.xml;\
-		echo "" >> ../tmp/results.xml;\
 	fi
+	@if (test -e $(TESTBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/simulate_log.txt); then \
+		echo "    <testcase name=\"$(1)_sim\" status=\"run\" time=\"\" classname=\"$(EXPERIMENT).$(thearch).$(1)_sim\">" >> ../tmp/results.xml;\
+		echo "    </testcase>" >> ../tmp/results.xml;\
+	else        \
+		echo "    <testcase name=\"$(1)_sim\" status=\"run\" time=\"\" classname=\"$(EXPERIMENT).$(thearch).$(1)_sim\">" >> ../tmp/results.xml;\
+		echo "      <failure type=\"java.lang.RuntimeException\"><![CDATA[" >> ../tmp/results.xml;\
+		echo "]]></failure>" >> ../tmp/results.xml;\
+		echo "    </testcase>" >> ../tmp/results.xml;\
+	fi
+	@echo "  </testsuite>" >> ../tmp/results.xml;
+	@echo "" >> ../tmp/results.xml;
 endef
 
 $(foreach c,$(confs),$(eval $(call print_template,$(c))))

@@ -1,5 +1,4 @@
 // the "cd" command below is expanded by the gcc preprocessor
-//cd "c:/Evidence/scicoslab-44b7/testcase/mchp16_sources_7"
 cd TESTDIR
 
 // load the program to be tested

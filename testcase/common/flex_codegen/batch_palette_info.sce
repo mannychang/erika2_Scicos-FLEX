@@ -1,4 +1,4 @@
-cd C:/Dario/EE_svn/repos/SCILAB~1/trunk/testcase/tmp
+cd TESTDIR
 
 load SCI/macros/scicos/lib
 

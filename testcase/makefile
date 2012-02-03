@@ -42,6 +42,11 @@ $(warning SMCube.exe not found!)
 DIRS := $(filter-out $(dir $(wildcard smcube*/conf.in)),$(DIRS))
 endif
 
+ifneq (ok,$(shell test -x "$(SCIBASE)/contrib/scicos_ee/bin/FlexDemoBoard" && echo ok ))
+$(warning FlexDemoBoard.exe not found!)
+DIRS := $(filter-out flex_demoboard_17/ flex_demoboard_18/,$(DIRS))
+endif
+
 # remove duplicates and add trailing / if missing
 SDIRS = $(addsuffix /,$(subst /,,$(sort $(DIRS))))
 

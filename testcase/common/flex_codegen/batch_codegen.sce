@@ -11,6 +11,8 @@ x = FlexCodeGen_;
 load SCI/macros/scicos/lib;
 exec(loadpallibs,-1);
 
+exec('batch_simulate_parsed.sce');
+
 // set the parameters which are usually asked in the code generator popup window
 #ifdef flex
 TARGETBOARD = 'board_flex';
