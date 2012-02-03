@@ -12,7 +12,7 @@ load SCI/macros/scicos/lib;
 exec(loadpallibs,-1);
 
 // set the parameters which are usually asked in the code generator popup window
-#ifdef BOARDFLEX
+#ifdef flex
 TARGETBOARD = 'board_flex';
 TARGETARCH = 'dspic_testcase';
 TERGETNAME = 'test';
@@ -20,12 +20,20 @@ TARGETPATH = getcwd()+'/test_scig';
 #endif
 
 // set the parameters which are usually asked in the code generator popup window
-#ifdef BOARDEASYLAB
+#ifdef easylab
 TARGETBOARD = 'board_easylab';
 TARGETARCH = 'dspic_testcase';
 TERGETNAME = 'test';
 TARGETPATH = getcwd()+'/test_scig';
 #endif
+
+// to do...
+// Here we can set the value of a KERNEL-related-parameter to be passed to 'do_compile_superblock42'.
+// The code generation script will write a new symbol in the file named: 'scicos_symbols'.
+// In case of TESTCASE (command-line code generation) the parameter will be for example the value of CONF specified in the 'conf.in'.
+// In case of code generation launched by hand the value will be choosed by combo boxes. 
+// In this way we can run GCC preprocessor on 'conf_scicos.oil' to change something related to the kernel.
+// This feature can be useful for OSEK application based on ScicosLab.
 
 // search for the block tagged with the right ID. If found, call the code generator
 ID='cg'

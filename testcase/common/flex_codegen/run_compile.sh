@@ -19,11 +19,11 @@
 ## preprocessor, and creates a script file in the target
 ## directory. then, it executes this file in the target directory.
 
-#ifdef BOARDFLEX
+#ifdef flex
 ./compile.sh ${SCIBASE}/contrib/scicos_ee/RT-Druid board_flex && touch ../doneflag.txt
 #endif
 
-#ifdef BOARDEASYLAB
+#ifdef easylab
 ./compile.sh ${SCIBASE}/contrib/scicos_ee/RT-Druid board_easylab && touch ../doneflag.txt
 #endif
 

@@ -1,2 +1,2 @@
-conf = BOARD=BOARDFLEX
-worksfor = flex
+conf = CONF=FP
+worksfor = flex easylab

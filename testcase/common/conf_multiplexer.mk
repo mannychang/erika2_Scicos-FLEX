@@ -129,25 +129,21 @@ define print_template
 print_$(1):
 	@echo Checking EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)
 	@if (test -e $(TESTBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/doneflag.txt); then \
-		echo "  <test name=\"$(EXPERIMENT) $(thearch) $(1)\" executed=\"yes\">" >> ../tmp/results.xml;\
-		echo "    <result>"                                                     >> ../tmp/results.xml;\
-		echo "      <success passed=\"yes\" state=\"100\"/>"                    >> ../tmp/results.xml;\
-		echo "    </result>"                                                    >> ../tmp/results.xml;\
-		echo "    <description>"                                                >> ../tmp/results.xml;\
-		echo "      OK EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)"           >> ../tmp/results.xml;\
-		echo "    </description>"                                               >> ../tmp/results.xml;\
-		echo "  </test>"                                                        >> ../tmp/results.xml;\
-		echo ""                                                                 >> ../tmp/results.xml;\
-	else                                                                                                  \
-		echo "  <test name=\"$(EXPERIMENT) $(thearch) $(1)\" executed=\"yes\">" >> ../tmp/results.xml;\
-		echo "    <result>"                                                     >> ../tmp/results.xml;\
-		echo "      <success passed=\"no\" state=\"0\"/>"                       >> ../tmp/results.xml;\
-		echo "    </result>"                                                    >> ../tmp/results.xml;\
-		echo "    <description>"                                                >> ../tmp/results.xml;\
-		echo "      ERROR EXP $(EXPERIMENT) ARCH $(thearch) PARAMS $(1)"        >> ../tmp/results.xml;\
-		echo "    </description>"                                               >> ../tmp/results.xml;\
-		echo "  </test>"                                                        >> ../tmp/results.xml;\
-		echo ""                                                                 >> ../tmp/results.xml;\
+		echo "  <testsuite name=\"scicos_$(EXPERIMENT).$(thearch)\" tests=\"\" failures=\"\" errors=\"\" time=\"\">" >> ../tmp/results.xml;\
+		echo "    <testcase name=\"$(1)\" status=\"run\" time=\"\" classname=\"$(EXPERIMENT).$(thearch).$(1)\">" >> ../tmp/results.xml;\
+		echo "    </testcase>" >> ../tmp/results.xml;\
+		echo "  </testsuite>" >> ../tmp/results.xml;\
+		echo "" >> ../tmp/results.xml;\
+	else        \
+		echo "  <testsuite name=\"scicos_$(EXPERIMENT).$(thearch)\" tests=\"\" failures=\"\" errors=\"\" time=\"\">" >> ../tmp/results.xml;\
+		echo "    <testcase name=\"$(1)\" status=\"run\" time=\"\" classname=\"$(EXPERIMENT).$(thearch).$(1)\">" >> ../tmp/results.xml;\
+		echo "      <failure type=\"java.lang.RuntimeException\"><![CDATA[" >> ../tmp/results.xml;\
+		cat $(EXPERIMENT)out_$(thearch)_$(1)/scicoslab_log.txt >> ../tmp/results.xml  2>&1;\
+		cat $(EXPERIMENT)out_$(thearch)_$(1)/compile_log.txt >> ../tmp/results.xml   2>&1;\
+		echo "]]></failure>" >> ../tmp/results.xml;\
+		echo "    </testcase>" >> ../tmp/results.xml;\
+		echo "  </testsuite>" >> ../tmp/results.xml;\
+		echo "" >> ../tmp/results.xml;\
 	fi
 endef
 

@@ -1,2 +1,2 @@
-conf = BOARD=BOARDEASYLAB
+conf = CONF=FP
 worksfor = easylab
