@@ -370,6 +370,23 @@ case 'compile' then
         error("Cannot open the configuration file.");
       end
   end 
+  
+  // Test user privileges for pwd
+  [status_test, msg_test] = mkdir(pwd(),'test_admin');
+  [fd_test,err_test] = mopen(pwd() + '\test_admin\test_admin.x', 'w');
+  if err_test == 0
+    mfprintf(fd_test, 'test');
+    mclose(fd_test);
+  end
+  [testadmin_x,testadmin_err] = fileinfo(pwd() + '\test_admin\test_admin.x');
+  if testadmin_err ~= 0
+    sm3_msg = "#SMCube error: Access denied! Please, change the working directory or run ScicosLab with administrator privileges!";
+    disp(sm3_msg);
+    error("#SMCube error: Access denied for the current working directory!");
+    return;
+  else
+    rmdir(pwd() + '/test_admin','s');
+  end
 
 end
 endfunction
