@@ -1432,6 +1432,19 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   else
     depu_vec=depu_mat*ones(size(depu_mat,2),1)>0
   end
+  
+  // Test user privileges for pwd
+  cmd = 'dir > ' + ascii(34) + pwd() + '\test_admin.x' + ascii(34);
+  unix(cmd); // if you aren't ADMINISTRATOR the access will be denied...
+	
+  [x,err] = fileinfo(pwd() + '\test_admin.x');
+  if err ~= 0
+		message("#Codegen error: Access denied! Please, change the working directory or run ScicosLab with administrator privileges!");
+		return;
+  else
+		cmd = 'del /Q ' + ascii(34) + pwd() + '\test_admin.x' + ascii(34);
+		unix(cmd);
+  end
 
   //## Detect synchro block and type1
   funs_save   = cpr.sim.funs;
