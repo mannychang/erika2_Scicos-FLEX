@@ -67,6 +67,8 @@ archs := $(filter $(ARCH)%,$(worksfor))
 
 MUX = $(TESTBASE)/testcase/common/confparser/confparser_mux
 
+SCI_TIMEOUT ?= 120
+
 .PHONY: all print analyze conf help clean
 
 #
@@ -117,7 +119,7 @@ analyze:
 	@mkdir -p $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze
 	@cd $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze; cp -f ../test.cos .
 	@cat $(TESTBASE)/testcase/common/flex_codegen/batch_diagram_info.sce | gcc -c - -E -P -DTHEFILENAME="test.cos" -DTESTDIR="`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze`" -DTESTCASE="\"$(EXPERIMENT)\"" -o - >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce
-	@timeout 60 $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce`" >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/scicoslab_log.txt || echo "analyze failed" 
+	@timeout $(SCI_TIMEOUT) $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce`" >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/scicoslab_log.txt || echo "analyze failed" 
 
 
 

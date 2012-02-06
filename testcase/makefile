@@ -20,6 +20,10 @@ else
 export SCIBASE:=$(call normalize_path,$(SCIBASE))
 endif
 
+ifndef SCI_TIMEOUT
+export SCI_TIMEOUT := 120
+endif
+
 ifndef ARCH
 help:
 endif
@@ -130,7 +134,7 @@ analyze_palettes: tmp $(analyze_dirs)
 	  chmod +r ./mypalette.cosf; \
 	  echo ---------- >>$(TESTBASE)/testcase/tmp/scicoslab_log.txt ;\
           cat $(TESTBASE)/testcase/common/flex_codegen/batch_palette_info.sce | gcc -c - -E -P -DTESTDIR="`cygpath -ms $(TESTBASE)/testcase/tmp`" -o - >$(TESTBASE)/testcase/tmp/batch_palette_info_parsed.sce; \
-          timeout 60 $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/tmp/batch_palette_info_parsed.sce`" >>$(TESTBASE)/testcase/tmp/scicoslab_log.txt || echo "analyze palette failed" ; \
+          timeout $(SCI_TIMEOUT) $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/tmp/batch_palette_info_parsed.sce`" >>$(TESTBASE)/testcase/tmp/scicoslab_log.txt || echo "analyze palette failed" ; \
           export myscilabfile=$${p}; \
           cat $(TESTBASE)/testcase/tmp/blocklist.txt | awk '{ print ENVIRON["myscilabfile"], $$1}' >> $(TESTBASE)/testcase/tmp/globalpalettelist.txt; \
         done

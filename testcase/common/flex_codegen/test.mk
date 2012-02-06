@@ -69,6 +69,8 @@ RTDRUID_GENERATE_LOCK = $(EE_TMPDIR)/rtdruid_generate_lock.lock
 LOCKFILE= lockfile -1 -r-1
 DIST_LOCK = $(EE_TMPDIR)/dist.lock
 
+SCI_TIMEOUT ?= 120
+
 # -------------------------------------------------------------------
 
 # we cannot use -sf because ScicosLab seems not recognize symlinks.
@@ -90,7 +92,7 @@ CODEGEN_flex_source = \
 	cat flex_codegen/batch_codegen.sce | gcc -c - -E -P $$(addprefix -D, $$(shell $$(DEMUX2) $(1))) -D$$(thearch) -DTESTDIR="`cygpath -ms $$(OUTDIR_PREFIX)$(1)`" -o - >$$(OUTDIR_PREFIX)$(1)/batch_codegen_parsed.sce; \
 	cat flex_codegen/batch_simulate.sce | gcc -c - -E -P $$(addprefix -D, $$(shell $$(DEMUX2) $(1))) -D$$(thearch) -DTESTDIR="`cygpath -ms $$(OUTDIR_PREFIX)$(1)`" -o - >$$(OUTDIR_PREFIX)$(1)/batch_simulate_parsed.sce; \
 	cd $$(OUTDIR_PREFIX)$(1); \
-	timeout 60 $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $$(OUTDIR_PREFIX)$(1)/batch_codegen_parsed.sce`" >$$(OUTDIR_PREFIX)$(1)/scicoslab_log.txt || echo "codegen failed"
+	timeout $(SCI_TIMEOUT) $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $$(OUTDIR_PREFIX)$(1)/batch_codegen_parsed.sce`" >$$(OUTDIR_PREFIX)$(1)/scicoslab_log.txt || echo "codegen failed"
 
 # -------------------------------------------------------------------
 
