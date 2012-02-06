@@ -117,7 +117,10 @@ analyze:
 	@mkdir -p $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze
 	@cd $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze; cp -f ../test.cos .
 	@cat $(TESTBASE)/testcase/common/flex_codegen/batch_diagram_info.sce | gcc -c - -E -P -DTHEFILENAME="test.cos" -DTESTDIR="`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze`" -DTESTCASE="\"$(EXPERIMENT)\"" -o - >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce
-	@$(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce`" >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/scicoslab_log.txt
+	@$(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/batch_diagram_info_parsed.sce`" >$(TESTBASE)/testcase/$(EXPERIMENT)out_analyze/scicoslab_log.txt & \
+	LAST_PID=$$! ;\
+	/bin/sh -c "sleep 60; kill $$LAST_PID 2>/dev/null ; sleep 5; kill -9 $$LAST_PID 2>/dev/null  " & \
+	wait $$LAST_PID 
 
 
 

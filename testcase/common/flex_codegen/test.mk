@@ -90,7 +90,10 @@ CODEGEN_flex_source = \
 	cat flex_codegen/batch_codegen.sce | gcc -c - -E -P $$(addprefix -D, $$(shell $$(DEMUX2) $(1))) -D$$(thearch) -DTESTDIR="`cygpath -ms $$(OUTDIR_PREFIX)$(1)`" -o - >$$(OUTDIR_PREFIX)$(1)/batch_codegen_parsed.sce; \
 	cat flex_codegen/batch_simulate.sce | gcc -c - -E -P $$(addprefix -D, $$(shell $$(DEMUX2) $(1))) -D$$(thearch) -DTESTDIR="`cygpath -ms $$(OUTDIR_PREFIX)$(1)`" -o - >$$(OUTDIR_PREFIX)$(1)/batch_simulate_parsed.sce; \
 	cd $$(OUTDIR_PREFIX)$(1); \
-	$(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $$(OUTDIR_PREFIX)$(1)/batch_codegen_parsed.sce`" >$$(OUTDIR_PREFIX)$(1)/scicoslab_log.txt
+	$(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $$(OUTDIR_PREFIX)$(1)/batch_codegen_parsed.sce`" >$$(OUTDIR_PREFIX)$(1)/scicoslab_log.txt & \
+	LAST_PID=$$$$! ;\
+	/bin/sh -c "sleep 60; kill $$$$LAST_PID 2>/dev/null ; sleep 5; kill -9 $$$$LAST_PID 2>/dev/null  " & \
+	wait $$$$LAST_PID 
 
 # -------------------------------------------------------------------
 
