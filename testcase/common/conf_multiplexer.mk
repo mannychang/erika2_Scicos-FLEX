@@ -101,11 +101,11 @@ define all_template
 all_$(1): $$(OUTDIRS)
 	@echo EXPERIMENT $$(EXPERIMENT) $(PARAMETERS)
 	@echo CLEAN      $$(EXPERIMENT) $(PARAMETERS)
-	@$($(CLEAN_$(thearch)))
+	-@$($(CLEAN_$(thearch)))
 	@echo CODEGEN    $$(EXPERIMENT) $(PARAMETERS)
-	@$($(CODEGEN_$(thearch)))
+	-@$($(CODEGEN_$(thearch)))
 	@echo COMPILE    $$(EXPERIMENT) $(PARAMETERS)
-	@$($(COMPILE_$(thearch)))
+	-@$($(COMPILE_$(thearch)))
 
 
 #	@echo DEBUGGER   $$(EXPERIMENT) $(PARAMETERS)

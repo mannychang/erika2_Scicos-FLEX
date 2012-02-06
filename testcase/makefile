@@ -130,10 +130,7 @@ analyze_palettes: tmp $(analyze_dirs)
 	  chmod +r ./mypalette.cosf; \
 	  echo ---------- >>$(TESTBASE)/testcase/tmp/scicoslab_log.txt ;\
           cat $(TESTBASE)/testcase/common/flex_codegen/batch_palette_info.sce | gcc -c - -E -P -DTESTDIR="`cygpath -ms $(TESTBASE)/testcase/tmp`" -o - >$(TESTBASE)/testcase/tmp/batch_palette_info_parsed.sce; \
-          $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/tmp/batch_palette_info_parsed.sce`" >>$(TESTBASE)/testcase/tmp/scicoslab_log.txt & \
-			LAST_PID=$$! ;\
-			/bin/sh -c "sleep 60; kill $$LAST_PID 2>/dev/null ; sleep 5; kill -9 $$LAST_PID 2>/dev/null  " & \
-			wait $$LAST_PID ; \
+          timeout 60 $(SCIBASE)/bin/cscilex.exe -nw -nb -f "`cygpath -ms $(TESTBASE)/testcase/tmp/batch_palette_info_parsed.sce`" >>$(TESTBASE)/testcase/tmp/scicoslab_log.txt || echo "analyze palette failed" ; \
           export myscilabfile=$${p}; \
           cat $(TESTBASE)/testcase/tmp/blocklist.txt | awk '{ print ENVIRON["myscilabfile"], $$1}' >> $(TESTBASE)/testcase/tmp/globalpalettelist.txt; \
         done
