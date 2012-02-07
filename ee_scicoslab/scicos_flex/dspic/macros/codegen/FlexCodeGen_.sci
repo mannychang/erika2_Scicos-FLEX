@@ -2261,6 +2261,9 @@ function [Code, Code_common]=make_standalonert()
 // rmk : zdoit is not used
 //
 
+old_format = format();
+format('v',100);
+
 Code_common= []
 
   x=cpr.state.x;
@@ -2666,13 +2669,13 @@ Code = [Code;
           Code_opar =[Code_opar;
                  '  __CONST__ '+cformatline(mat2c_typ(opar(opptr(i)+j-1)) +...
                          ' opar_'+string(opptr(i)+j-1) + '[]={'+...
-                             strcat(string(opar(opptr(i)+j-1)),',')+'};',128)]
+                             strcat(strsubst(string(opar(opptr(i)+j-1)),'D','e'),',')+'};',128)]
         else //** cmplx test
           Code_opar =[Code_opar;
                  '  __CONST__ '+cformatline(mat2c_typ(opar(opptr(i)+j-1)) +...
                          ' opar_'+string(opptr(i)+j-1) + '[]={'+...
-                             strcat(string([real(opar(opptr(i)+j-1)(:));
-                                            imag(opar(opptr(i)+j-1)(:))]),',')+'};',128)]
+                             strcat(strsubst(string([real(opar(opptr(i)+j-1)(:));
+                                            imag(opar(opptr(i)+j-1)(:))]),'D','e'),',')+'};',128)]
         end
       end
 
@@ -4132,6 +4135,12 @@ Code = [Code;
     end
   end
 
+  if old_format(1)==1
+    format('v',old_format(2))
+  else
+    format('e',old_format(2))
+  end
+  
 endfunction
 
 
