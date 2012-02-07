@@ -135,8 +135,8 @@ print_$(1):
 	else        \
 		echo "    <testcase name=\"$(1)\" status=\"run\" time=\"\" classname=\"$(EXPERIMENT).$(thearch).$(1)\">" >> ../tmp/results.xml;\
 		echo "      <failure type=\"java.lang.RuntimeException\"><![CDATA[" >> ../tmp/results.xml;\
-		cat $(EXPERIMENT)out_$(thearch)_$(1)/scicoslab_log.txt >> ../tmp/results.xml  2>&1;\
-		cat $(EXPERIMENT)out_$(thearch)_$(1)/compile_log.txt >> ../tmp/results.xml   2>&1;\
+		cat $(TESTBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/scicoslab_log.txt >> ../tmp/results.xml  2>&1;\
+		cat $(TESTBASE)/testcase/$(EXPERIMENT)out_$(thearch)_$(1)/compile_log.txt >> ../tmp/results.xml   2>&1;\
 		echo "]]></failure>" >> ../tmp/results.xml;\
 		echo "    </testcase>" >> ../tmp/results.xml;\
 	fi
