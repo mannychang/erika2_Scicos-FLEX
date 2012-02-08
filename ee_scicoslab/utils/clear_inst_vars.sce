@@ -44,3 +44,7 @@
 	if exists('answ_dot_scilab_up')==1
 		clear answ_dot_scilab answ_dot_scilab_up
 	end
+
+	if exists('ans_reg_fix_up')==1
+		clear ans_reg_fix ans_reg_fix_up
+	end

@@ -837,6 +837,23 @@ if err == 0
 	unix(cmd);
 end
 
+// Fixes: REGISTER
+if exists('INSTALLER_BATCH_MODE')==0 & exists('ans_reg_fix')==0
+	ans_reg_fix = buttondialog("The Scicos pack will now install a fix to the REGISTER block," + ..
+	" which has been fixed after the release of scicosLab 4.4.1.\nIf you are using that version of scicosLab," + ..
+	" and you did not install the fix,\nplease answer yes to this question. (Yes: to continue, No: to skip)","yes|no","question");
+	ans_reg_fix_up = 1;
+else
+	if exists('ans_reg_fix')==0
+		ans_reg_fix = '1'; // continue with the installation by dafault...
+	end
+end
+if ans_reg_fix == '1'
+	cd(MYDIR + 'scicos_ee\utils\fixes\register');
+	cmd = 'start fix.bat ' + ascii(34)+SCIDIR+ascii(34);
+	unix(cmd);
+end
+
 // 99%
 waitbar(0.99, winId_wait);
 

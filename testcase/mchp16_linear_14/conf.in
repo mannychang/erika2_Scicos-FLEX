@@ -1,2 +1,2 @@
-conf = 
-worksfor = 
+conf = CONF=FP
+worksfor = flex easylab
