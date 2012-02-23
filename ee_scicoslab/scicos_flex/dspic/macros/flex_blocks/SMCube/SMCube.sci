@@ -237,7 +237,7 @@ case 'set' then //** set parameters
         model.evtin = ci;
         model.evtout = co;
         model.state = [];
-        model.dstate = 0 ;
+        model.dstate=[] ;
         model.rpar = [];
         model.ipar = [reserved;simmode;length(indata);ascii(indata)';length(outdata);ascii(outdata)';...
           length(engine_file);ascii(engine_file)'];
@@ -272,7 +272,7 @@ case 'set' then //** set parameters
       model.evtin = ci;
       model.evtout = co;
       model.state = [];
-      model.dstate = 0 ;
+      model.dstate=[] ;
       model.rpar = [];
       model.ipar = [reserved;simmode;length(indata);ascii(indata)';length(outdata);ascii(outdata)';...
         length(engine_file);ascii(engine_file)'];

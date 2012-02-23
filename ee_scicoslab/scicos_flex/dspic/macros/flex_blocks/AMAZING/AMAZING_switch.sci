@@ -40,7 +40,7 @@ function [x,y,typ] = AMAZING_switch(job,arg1,arg2)
         graphics.exprs=exprs;
         model.rpar=[];
         model.ipar=[gpin_pin];
-        model.dstate=[1];
+        model.dstate=[];
         x.graphics=graphics;x.model=model
         break
       end
@@ -55,7 +55,7 @@ function [x,y,typ] = AMAZING_switch(job,arg1,arg2)
     model.evtin=1
     model.rpar=[]
     model.ipar=[gpin_pin]
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(gpin_pin)]

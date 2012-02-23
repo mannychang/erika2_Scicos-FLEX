@@ -25,7 +25,7 @@ function [x,y,typ] = FLEX_DMB_lcd_ascii(job,arg1,arg2)
     model.rpar=[]
     model.intyp = [5;5]; // int8
     model.ipar=[5]       // ipar = int8_code
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[]

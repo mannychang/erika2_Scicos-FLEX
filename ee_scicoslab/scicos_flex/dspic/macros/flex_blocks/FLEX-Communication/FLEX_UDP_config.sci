@@ -150,7 +150,7 @@ function [x,y,typ] = FLEX_UDP_config(job,arg1,arg2)
                     pc_ip(2),..
                     pc_ip(3),..
                     pc_ip(4)];
-        model.dstate=[1];
+        model.dstate=[];
         x.graphics=graphics;x.model=model;
         break
       end
@@ -212,7 +212,7 @@ function [x,y,typ] = FLEX_UDP_config(job,arg1,arg2)
                     pc_ip(2),..
                     pc_ip(3),..
                     pc_ip(4)];
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d';
     model.dep_ut=[%t %f];
     exprs=[sci2exp(flex_port_id);..

@@ -47,7 +47,7 @@ function [x,y,typ] = FLEX_serial_config(job,arg1,arg2)
         graphics.exprs=exprs;
         model.rpar=[flex_uart_baudrate];
         model.ipar=[2];
-        model.dstate=[1];
+        model.dstate=[];
         x.graphics=graphics;
 		x.model=model;
         break
@@ -65,7 +65,7 @@ function [x,y,typ] = FLEX_serial_config(job,arg1,arg2)
     model.evtin=1;
     model.rpar=[flex_uart_baudrate];
     model.ipar=[2];
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d';
     model.dep_ut=[%t %f];
     exprs=[sci2exp(flex_uart_baudrate)];  

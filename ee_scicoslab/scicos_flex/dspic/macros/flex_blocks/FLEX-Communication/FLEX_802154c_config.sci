@@ -122,7 +122,7 @@ function [x,y,typ] = FLEX_802154c_config(job,arg1,arg2)
                      gts_list_dir(5); gts_list_addr(6); gts_list_len(6);..
                      gts_list_dir(6); gts_list_addr(7); gts_list_len(7);..
                      gts_list_dir(7)];
-        model.dstate=[1];
+        model.dstate=[];
         x.graphics=graphics;x.model=model
         break
       end
@@ -152,7 +152,7 @@ function [x,y,typ] = FLEX_802154c_config(job,arg1,arg2)
                      gts_list_dir(5); gts_list_addr(6); gts_list_len(6);..
                      gts_list_dir(6); gts_list_addr(7); gts_list_len(7);..
                      gts_list_dir(7)];
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(local_address);..

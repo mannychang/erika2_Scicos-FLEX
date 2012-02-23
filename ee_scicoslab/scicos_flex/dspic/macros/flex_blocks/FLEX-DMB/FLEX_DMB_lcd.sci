@@ -23,7 +23,7 @@ function [x,y,typ] = FLEX_DMB_lcd(job,arg1,arg2)
     model.evtin=1
     model.rpar=[]
     model.ipar=[1]       // ipar = float_code
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[]

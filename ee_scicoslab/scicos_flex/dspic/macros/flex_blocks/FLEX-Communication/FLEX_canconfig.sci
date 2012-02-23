@@ -78,7 +78,7 @@ function [x,y,typ] = FLEX_canconfig(job,arg1,arg2)
                     can_msg_id_3,..
                     can_msg_id_4,..
                     can_msg_id_5];
-        model.dstate=[1];
+        model.dstate=[];
         x.graphics=graphics;x.model=model;
         break
       end
@@ -104,7 +104,7 @@ function [x,y,typ] = FLEX_canconfig(job,arg1,arg2)
                     can_msg_id_3,..
                     can_msg_id_4,..
                     can_msg_id_5];
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d';
     model.dep_ut=[%t %f];
     exprs=[sci2exp(can_msg_id_1);..

@@ -27,7 +27,7 @@ function [x,y,typ] = AMAZING_pwm(job,arg1,arg2)
     model.evtin=1;
     model.rpar=[];
     model.ipar=[];
-    model.dstate=[1];
+    model.dstate=[];
     x.graphics=graphics;x.model=model
 	
   case 'define' then
@@ -38,7 +38,7 @@ function [x,y,typ] = AMAZING_pwm(job,arg1,arg2)
     model.evtin=1
     model.rpar=[]
     model.ipar=[]
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[]

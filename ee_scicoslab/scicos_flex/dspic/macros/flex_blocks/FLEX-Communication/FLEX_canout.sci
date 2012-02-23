@@ -41,7 +41,7 @@ function [x,y,typ] = FLEX_canout(job,arg1,arg2)
         graphics.exprs = exprs;
         model.rpar = [];
         model.ipar = [can_msg_id, n_channels];
-        model.dstate = [1];
+        model.dstate=[];
         x.graphics = graphics;
         x.model = model;
         break;
@@ -58,7 +58,7 @@ function [x,y,typ] = FLEX_canout(job,arg1,arg2)
     model.evtin = 1;
     model.rpar = [];
     model.ipar = [can_msg_id, n_channels];
-    model.dstate = [1];
+    model.dstate=[];
     model.blocktype = 'd';
     model.dep_ut = [%t %f];
     exprs = [sci2exp(can_msg_id);..

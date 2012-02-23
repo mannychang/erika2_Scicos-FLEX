@@ -38,7 +38,7 @@ function [x,y,typ] = FLEX_DMB_encoder(job,arg1,arg2)
       if ok then
         graphics.exprs = exprs;
         model.ipar = [enc_type];
-        model.dstate = [1];
+        model.dstate=[];
         x.graphics = graphics;
         x.model = model;
         break
@@ -52,7 +52,7 @@ function [x,y,typ] = FLEX_DMB_encoder(job,arg1,arg2)
     model.out = ones(2,1);
     model.evtin = 1;
     model.ipar = [enc_type];
-    model.dstate = [1];
+    model.dstate=[];
     model.blocktype = 'd';
     model.dep_ut = [%t %f];
     exprs = [sci2exp(enc_type)];

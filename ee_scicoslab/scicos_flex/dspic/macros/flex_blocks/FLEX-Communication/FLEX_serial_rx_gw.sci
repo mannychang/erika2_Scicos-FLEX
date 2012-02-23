@@ -33,7 +33,7 @@ function [x,y,typ] = FLEX_serial_rx_gw(job,arg1,arg2)
             graphics.exprs=exprs;
             model.rpar=[baudrate];
             model.ipar=[];
-            model.dstate=[1];
+            model.dstate=[];
             x.graphics=graphics;x.model=model;
             break;
         end
@@ -49,7 +49,7 @@ function [x,y,typ] = FLEX_serial_rx_gw(job,arg1,arg2)
         model.evtin=1;
         model.rpar=[baudrate];
         model.ipar=[];
-        model.dstate=[1];
+        model.dstate=[];
         model.blocktype='d';
         model.dep_ut=[%t %f];
         exprs=[sci2exp(baudrate)];

@@ -38,7 +38,7 @@ function [x,y,typ] = EASYLAB_leds(job,arg1,arg2)
             graphics.exprs=exprs;
             model.rpar=[led_threshold];
             model.ipar=[gpout_pin];
-            model.dstate=[1];
+            model.dstate=[];
             x.graphics=graphics;x.model=model
             break
         end
@@ -53,7 +53,7 @@ function [x,y,typ] = EASYLAB_leds(job,arg1,arg2)
     model.evtin=1
     model.rpar=[led_threshold]
     model.ipar=[gpout_pin]
-    model.dstate=[1];
+    model.dstate=[];
     model.blocktype='d'
     model.dep_ut=[%t %f]
     exprs=[sci2exp(led_threshold);sci2exp(gpout_pin)]
