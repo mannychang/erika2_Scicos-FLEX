@@ -25,6 +25,7 @@
 
 #define BLOCK_TYPE_BUTTONS 0
 #define BLOCK_TYPE_LEDSLCD 1
+#define BLOCK_TYPE_LEDSLCDBUZZER 2
 
 #define PAR_BLOCK_TYPE 0
 #define PAR_BLOCK_INDEX 1
@@ -65,12 +66,14 @@
 
 #define LCD_INPORT_1 9
 #define LCD_INPORT_2 10
+#define BUZZER_INPORT 11
 
 #define MSG_REAL_TYPE 0
 #define MSG_UINT8_TYPE 1
 
 #define BUTTONS_CMD 0
 #define LEDSLCD_CMD 1
+#define LEDSLCDBUZZER_CMD 2
 
 #define CONNECTION_TIMEOUT 15
 
@@ -89,6 +92,11 @@ typedef struct buttons_req_msg_
 	header_msg header;
 }buttons_req_msg;
 
+typedef struct buzzer_data_
+{
+	double value;
+}buzzer_data;
+
 typedef struct lcd_data_
 {
 	unsigned char type;
@@ -104,6 +112,15 @@ typedef struct ledslcd_msg_
 	lcd_data lcd1;
 	lcd_data lcd2;
 }ledslcd_msg;
+
+typedef struct ledslcdbuzzer_msg_
+{
+	header_msg header;
+	unsigned char leds[LEDS_SIZE];
+	lcd_data lcd1;
+	lcd_data lcd2;
+	buzzer_data buzzer;
+} ledslcdbuzzer_msg;
 #pragma pack(pop)
 
 /*BLOCK DATA*/
@@ -133,7 +150,13 @@ int file_exists(const char* file_name, const char* perm);
 
 void do_buttons_update(scicos_block* block);
 
+void do_leds_update(scicos_block * block, unsigned char* leds);
+
+int do_lcds_update(scicos_block* block, lcd_data* lcd1, lcd_data* lcd2);
+
 void do_ledslcd_update(scicos_block* block);
+
+void do_ledslcdbuzzer_update(scicos_block* block);
 
 void FLEXSIM_LIB_API flex_blocks(scicos_block *block,int flag)
 {
@@ -264,6 +287,10 @@ init_error:
 		else if (block_type == BLOCK_TYPE_LEDSLCD)
 		{
 			do_ledslcd_update(block);
+		}
+		else if (block_type == BLOCK_TYPE_LEDSLCDBUZZER)
+		{
+			do_ledslcdbuzzer_update(block);
 		}
 		}break;
 	/* ending */
@@ -415,70 +442,111 @@ void do_buttons_update(scicos_block *block)
 	}
 }
 
-void do_ledslcd_update(scicos_block *block)
+void do_leds_update(scicos_block * block, unsigned char* leds)
 {
-	ledslcd_msg msg;
-	int i;
-	msg.header.cmd = LEDSLCD_CMD;
-	for(i = 0; i < LEDS_SIZE; ++i)
+	if (leds != NULL && sizeof(leds) == LEDS_SIZE)
 	{
-		if (Getint8InPortPtrs(block,i+1))
+		int i;
+		for(i = 0; i < LEDS_SIZE; ++i)
 		{
-			msg.leds[i] = *Getint8InPortPtrs(block,i+1);
+			if (Getint8InPortPtrs(block,i+1))
+			{
+				leds[i] = *Getint8InPortPtrs(block,i+1);
+			}
 		}
 	}
+}
+
+int do_lcds_update(scicos_block* block, lcd_data* lcd1, lcd_data* lcd2)
+{
+	if (lcd1 == NULL || lcd2 == NULL)
+		return 1;
 	if (GetInType(block, LCD_INPORT_1) == SCSREAL_N)
 	{
-		msg.lcd1.type = MSG_REAL_TYPE;
-		msg.lcd1.size = sizeof(SCSREAL_COP);
-		msg.lcd1.value = *GetRealInPortPtrs(block,LCD_INPORT_1);
+		lcd1->type = MSG_REAL_TYPE;
+		lcd1->size = sizeof(SCSREAL_COP);
+		lcd1->value = *GetRealInPortPtrs(block,LCD_INPORT_1);
 	}
 	else if (GetInType(block, LCD_INPORT_1) == SCSUINT8_N)
 	{
-		msg.lcd1.type = MSG_UINT8_TYPE;
-		msg.lcd1.size = (GetInPortSize(block, LCD_INPORT_1, 1) * 
+		lcd1->type = MSG_UINT8_TYPE;
+		lcd1->size = (GetInPortSize(block, LCD_INPORT_1, 1) * 
 			GetInPortSize(block, LCD_INPORT_1, 2)) * sizeof(SCSUINT8_COP);
-		if (msg.lcd1.size > LCD_MAX_SIZE)
+		if (lcd1->size > LCD_MAX_SIZE)
 		{
 			Coserror("Bad port size for LCD1: %d (greater then %d).", 
-				msg.lcd1.size, LCD_MAX_SIZE);
-			return;	
+				lcd1->size, LCD_MAX_SIZE);
+			return 1;	
 		}
-		memcpy(msg.lcd1.data, GetInPortPtrs(block, LCD_INPORT_1), msg.lcd1.size);
+		memcpy(lcd1->data, GetInPortPtrs(block, LCD_INPORT_1), lcd1->size);
 	}
 	else
 	{
 		Coserror("Bad port type for LCD1: %d.", GetInType(block, LCD_INPORT_1));
-		return;
+		return 1;
 	}
 	if (GetInType(block, LCD_INPORT_2) == SCSREAL_N)
 	{
-		msg.lcd2.type = MSG_REAL_TYPE;
-		msg.lcd2.size = sizeof(SCSREAL_COP);
-		msg.lcd2.value = *GetRealInPortPtrs(block,LCD_INPORT_2);
+		lcd2->type = MSG_REAL_TYPE;
+		lcd2->size = sizeof(SCSREAL_COP);
+		lcd2->value = *GetRealInPortPtrs(block,LCD_INPORT_2);
 	}
 	else if (GetInType(block, LCD_INPORT_2) == SCSUINT8_N)
 	{
-		msg.lcd2.type = MSG_UINT8_TYPE;
-		msg.lcd2.size = (GetInPortSize(block, LCD_INPORT_2, 1) * 
+		lcd2->type = MSG_UINT8_TYPE;
+		lcd2->size = (GetInPortSize(block, LCD_INPORT_2, 1) * 
 			GetInPortSize(block, LCD_INPORT_2, 2)) * sizeof(SCSUINT8_COP);
-		if (msg.lcd2.size > LCD_MAX_SIZE)
+		if (lcd2->size > LCD_MAX_SIZE)
 		{
 			Coserror("Bad port size for LCD2: %d (greater then %d).", 
-				msg.lcd2.size, LCD_MAX_SIZE);
-			return;	
+				lcd2->size, LCD_MAX_SIZE);
+			return 1;	
 		}
-		memcpy(msg.lcd2.data, GetInPortPtrs(block, LCD_INPORT_2), msg.lcd2.size);
+		memcpy(lcd2->data, GetInPortPtrs(block, LCD_INPORT_2), lcd2->size);
 	}
 	else
 	{
 		Coserror("Bad port type for LCD2: %d.", GetInType(block, LCD_INPORT_2));
-		return;
+		return 1;
 	}
+	return 0;
+}
 
+void do_ledslcd_update(scicos_block *block)
+{
+	ledslcd_msg msg;
+	
+	msg.header.cmd = LEDSLCD_CMD;
+
+	do_leds_update(block, msg.leds);
+
+	if (do_lcds_update(block, &msg.lcd1, &msg.lcd2) != 0)
+		return;
 	if (write_to_channel(channel, (const char*)&msg, sizeof(msg)) < 0)
 	{
 		Coserror("Write to channel failed for ledslcd: %d.", 
+			channel->last_error_code_);
+		*engine_exists = 0;
+		return;
+	}
+}
+
+void do_ledslcdbuzzer_update(scicos_block *block)
+{
+	ledslcdbuzzer_msg msg;
+
+	msg.header.cmd = LEDSLCDBUZZER_CMD;
+
+	do_leds_update(block, msg.leds);
+
+	if (do_lcds_update(block, &msg.lcd1, &msg.lcd2) != 0)
+		return;
+
+	msg.buzzer.value = *GetRealInPortPtrs(block, BUZZER_INPORT);
+
+	if (write_to_channel(channel, (const char*)&msg, sizeof(msg)) < 0)
+	{
+		Coserror("Write to channel failed for ledslcdbuzzer: %d.", 
 			channel->last_error_code_);
 		*engine_exists = 0;
 		return;
