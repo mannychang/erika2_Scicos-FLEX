@@ -232,7 +232,7 @@ void FLEXSIM_LIB_API flex_blocks(scicos_block *block,int flag)
 			goto init_error;
 		}
 		/* Create and initialize channel */
-		build_channel(channel, sizeof(flex_buttons_data), sizeof(ledslcd_msg), channel_name);
+		build_channel(channel, sizeof(flex_buttons_data), sizeof(ledslcdbuzzer_msg), channel_name);
 		if (open_channel(channel) == -1)
 		{
 			*engine_exists = 0;
