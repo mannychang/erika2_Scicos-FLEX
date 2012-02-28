@@ -7,7 +7,7 @@ myhelps=[path+'amazing', "Amazing Ball Blockset";..
          path+'flex_mtb', "Flex-MotionBoard Blockset";..
          path+'rt_data_exchange', "RT Data Exchange Blockset";..
          path+'flex_com', "Flex-Communication Blockset";..
-         path+'misc', "MCHP16-Sources Blockset";..
+         path+'misc', "Other EE Blocks";..
          path+'easylab', "EasyLab Blockset";..
          path+'miscellaneous', "Miscellaneous Blockset";..
          path+'smcube', "SMCube Blockset"];

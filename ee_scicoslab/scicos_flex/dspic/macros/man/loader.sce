@@ -8,7 +8,7 @@ add_help_chapter("Flex-DemoBoard Blockset",path+'flex_dmb');
 add_help_chapter("Flex-MotionBoard Blockset",path+'flex_mtb');
 add_help_chapter("RT Data Exchange Blockset",path+'rt_data_exchange');
 add_help_chapter("Flex-Communication Blockset",path+'flex_com');
-add_help_chapter("MCHP16-Sources Blockset",path+'misc');
+add_help_chapter("Other EE Blocks",path+'misc');
 add_help_chapter("EasyLab Blockset",path+'easylab');
 add_help_chapter("Miscellaneous Blockset",path+'miscellaneous');
 add_help_chapter("SMCube Blockset",path+'smcube');

@@ -3,20 +3,20 @@
 <MAN>
   <LANGUAGE>eng</LANGUAGE>
 
-  <TITLE>FLEX_DMB_LedsLcd</TITLE>
+  <TITLE>FLEX_DMB_LedsLcdBuz</TITLE>
 
   <TYPE>Scicos block</TYPE>
 
   <DATE>January 2012</DATE>
 
-  <SHORT_DESCRIPTION name="FLEX_DMB_LedsLcd">palette: FLEX-DemoBoard</SHORT_DESCRIPTION>
+  <SHORT_DESCRIPTION name="FLEX_DMB_LedsLcdBuz">palette: FLEX-DemoBoard</SHORT_DESCRIPTION>
 
   <DESCRIPTION>
-    <P><IMG src="FLEX_DMB_LedsLcd_big.gif"></IMG></P>
+    <P><IMG src="FLEX_DMB_LedsLcdBuz_big.gif"></IMG></P>
     <P><VERB>palette: FLEX-DemoBoard</VERB></P>
     <P>This block controls LEDs (8) and LCD of the FLEX DEMO board.</P>
     <P>Simulation: This block is fully supported in simulation. During the simulation, an image of the
-    FLEX DEMO board is shown, like the one below, and the status of LEDs and LCD is updated according with the inputs of the block. 
+    FLEX DEMO board is shown, like the one below, and the status of LEDs, LCD and Buzzer is updated according with the inputs of the block. 
     Qt framework has been used to develop this application.</P>
     <P><IMG src="flex_demo_board.gif"></IMG></P>
     <P>Code Generation: This block is fully supported by the code generator.</P>
