@@ -444,7 +444,7 @@ void do_buttons_update(scicos_block *block)
 
 void do_leds_update(scicos_block * block, unsigned char* leds)
 {
-	if (leds != NULL && sizeof(leds) == LEDS_SIZE)
+	if (leds != NULL)
 	{
 		int i;
 		for(i = 0; i < LEDS_SIZE; ++i)
