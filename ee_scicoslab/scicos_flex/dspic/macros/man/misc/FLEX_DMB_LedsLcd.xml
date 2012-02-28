@@ -18,7 +18,7 @@
     <P>Simulation: This block is fully supported in simulation. During the simulation, an image of the
     FLEX DEMO board is shown, like the one below, and the status of LEDs and LCD is updated according with the inputs of the block. 
     Qt framework has been used to develop this application.</P>
-    <P><IMG src="flex_demo_board.gif"></IMG></P>
+    <P><IMG src="../flex_dmb/flex_demo_board.gif"></IMG></P>
     <P>Code Generation: This block is fully supported by the code generator.</P>
   </DESCRIPTION>
   
