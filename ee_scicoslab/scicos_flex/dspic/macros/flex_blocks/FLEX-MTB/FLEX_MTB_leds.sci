@@ -30,7 +30,8 @@ function [x,y,typ] = FLEX_MTB_leds(job,arg1,arg2)
       [model,graphics,ok]=check_io(model,graphics,in,out,1,[])
       if ok then
         graphics.exprs=exprs;
-        model.rpar=[];
+        led_threshold=0.5;
+        model.rpar=led_threshold;
         model.ipar=[gpout_pin];
         model.dstate=[];
         x.graphics=graphics;x.model=model
@@ -44,7 +45,8 @@ function [x,y,typ] = FLEX_MTB_leds(job,arg1,arg2)
     if exists('inport') then model.in=ones(inport,1), else model.in=1, end
     model.out=[]
     model.evtin=1
-    model.rpar=[]
+    led_threshold=0.5;
+    model.rpar=led_threshold;
     model.ipar=[gpout_pin]
     model.dstate=[];
     model.blocktype='d'
