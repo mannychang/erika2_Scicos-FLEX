@@ -43,6 +43,8 @@
 	typedef __int32 int32_t;
 	typedef __int16 int16_t;
 	typedef __int8 int8_t;
+#elif defined(__GNUC__) && defined(__INT8_TYPE__) 
+	#include <stdint.h>
 #else
 	#error "Compiler not supported"
 #endif

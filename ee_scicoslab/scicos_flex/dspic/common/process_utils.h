@@ -43,12 +43,14 @@
 
 #if defined(WIN32)
 	#include <windows.h>
-#else
+#elif defined(linux)
 	#include <unistd.h>
 	#if defined(HANDLE)
 		#undef HANDLE
 	#endif
 	#define HANDLE pid_t
+#else
+	#error "OS not supported"
 #endif
 
 

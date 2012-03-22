@@ -290,11 +290,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 			Coserror("SMCube launch failed: %d.", process->last_error_code_);
 			goto init_error;
 		}
-#if defined(_WIN32)
 		if (wait_for_connect_timeout(channel, CONNECTION_TIMEOUT))
-#else
-		if (wait_for_connect(channel) == -1)
-#endif
 		{
 			*engine_exists = 0;
 			Coserror("Channel wait for connection failed: %d." ,
@@ -348,7 +344,7 @@ init_error:
 		}
 		if (output_data->size_)
 		{
-			if (read_from_channel(channel, output_data->data_, output_data->size_) == -1)
+			if (read_from_channel_size(channel, output_data->size_, output_data->data_, output_data->size_) == -1)
 			{
 				Coserror("Read from channel failed: %d.", channel->last_error_code_);
 				*engine_exists = 0;
@@ -357,7 +353,7 @@ init_error:
 			/*BUILD OUTPUT */
 			assign_output_data(output_data, block);
 		}
-		if (read_from_channel(channel, (char*)&evtout, sizeof(evtout)) == -1)
+		if (read_from_channel_size(channel, sizeof(evtout), (char*)&evtout, sizeof(evtout)) == -1)
 		{
 			Coserror("Read from channel failed: %d.", channel->last_error_code_);
 			*engine_exists = 0;

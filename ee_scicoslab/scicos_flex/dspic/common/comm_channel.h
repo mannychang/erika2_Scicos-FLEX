@@ -42,16 +42,21 @@
 
 #if defined(WIN32)
 	#include <windows.h>
-#else
+#elif defined(linux)
 #if defined(HANDLE)
 	#undef HANDLE
 #endif
 	#define HANDLE int
+#else
+	#error "OS not supported"
 #endif
 
 typedef struct comm_channel
 {
 	HANDLE handle_;
+#if defined(linux)
+	HANDLE listenHandle_;
+#endif	
 	char* name_;
 	int in_buff_size_;
 	int out_buff_size_;

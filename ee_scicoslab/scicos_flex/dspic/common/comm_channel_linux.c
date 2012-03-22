@@ -46,10 +46,10 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <poll.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include <assert.h>
 
-static HANDLE d_listen_socket;
 static int d_backlog;
 
 static void build_error(struct comm_channel* channel)
@@ -64,6 +64,45 @@ static void clean_error(struct comm_channel* channel)
 	channel->last_error_str_  = 0;
 }
 
+static int set_blocking(struct comm_channel* channel, HANDLE handle, int blocking)
+{
+	int arg, res;
+	if (blocking)
+	{
+		arg = fcntl(handle, F_GETFL, NULL);
+		if (arg < 0)
+		{
+			build_error(channel);
+			return -1;
+		}
+		arg |= O_NONBLOCK;
+		res = fcntl(handle, F_SETFL, arg);
+		if (res < 0)
+		{
+			build_error(channel);
+			return -1;
+		}
+
+	}
+	else
+	{
+		arg = fcntl(handle, F_GETFL, NULL);
+		if (arg < 0)
+		{
+			build_error(channel);
+			return -1;
+		}
+		arg &= ~O_NONBLOCK;
+		res = fcntl(handle, F_SETFD, arg);
+		if (res < 0)
+		{
+			build_error(channel);
+			return -1;
+		}
+	}
+	return 0;
+}
+
 void init_channel(struct comm_channel* channel)
 {
 	channel->handle_ = -1;
@@ -73,7 +112,7 @@ void init_channel(struct comm_channel* channel)
 	channel->disconnection_needed_ = -1;
 	channel->last_error_code_ = -1;
 	channel->last_error_str_ = 0;
-	d_listen_socket = -1;
+	channel->listenHandle_ = -1;
 	d_backlog = 1;
 }
 
@@ -96,9 +135,9 @@ void clean_channel(struct comm_channel *channel)
 			build_error(channel);
 		}
 	}
-	if (d_listen_socket != -1)
+	if (channel->listenHandle_ != -1)
 	{
-		if (close(d_listen_socket) == -1)
+		if (close(channel->listenHandle_) == -1)
 		{
 			build_error(channel);
 		}
@@ -108,31 +147,36 @@ void clean_channel(struct comm_channel *channel)
 int open_channel(struct comm_channel *channel)
 {
 	struct sockaddr_un s_un;
-	remove(channel->name_);
-	s_un.sun_family = AF_UNIX;
-	strcpy(s_un.sun_path, channel->name_);
-	if (d_listen_socket != -1)
+	if (channel->listenHandle_ != -1)
 	{
-		close(d_listen_socket);
+		close(channel->listenHandle_);
 	}
-	d_listen_socket = socket(AF_UNIX, SOCK_STREAM, 0);
+	channel->listenHandle_ = socket(AF_UNIX, SOCK_STREAM, 0);
 
-	if (d_listen_socket == -1)
+	if (channel->listenHandle_ == -1)
 	{
 		build_error(channel);
 		return -1;
 	}
-
-	if (bind(d_listen_socket, (const struct sockaddr*)&s_un, sizeof(s_un))
+	memset(&s_un, 0, sizeof(s_un));
+	s_un.sun_family = AF_UNIX;
+	strncpy(s_un.sun_path, channel->name_, sizeof(s_un.sun_path)-1);
+	unlink(channel->name_);
+	if (bind(channel->listenHandle_, (const struct sockaddr*)&s_un, sizeof(s_un))
 		== -1)
 	{
 		build_error(channel);
 		return -1;
 	}
 
-	if (listen(d_listen_socket, d_backlog) == -1)
+	if (listen(channel->listenHandle_, d_backlog) == -1)
 	{
 		build_error(channel);
+		return -1;
+	}
+	/*set non blocking*/
+	if (set_blocking(channel, channel->listenHandle_, 0) == -1)
+	{
 		return -1;
 	}
 	return 0;
@@ -140,7 +184,7 @@ int open_channel(struct comm_channel *channel)
 
 int wait_for_connect(struct comm_channel *channel)
 {
-	channel->handle_ = accept(d_listen_socket, 0, 0);
+	channel->handle_ = accept(channel->listenHandle_, 0, 0);
 
 	if (channel->handle_ == -1)
 	{
@@ -152,29 +196,53 @@ int wait_for_connect(struct comm_channel *channel)
 
 int wait_for_connect_timeout(struct comm_channel *channel, int secs)
 {
-	/*TODO*/
-	return -1;
-}
-
-int connect_channel(struct comm_channel *channel)
-{
-	struct sockaddr_un s_un;
-	s_un.sun_family = AF_UNIX;
-	strcpy(s_un.sun_path, channel->name_);
-	if (channel->handle_ != -1)
+	int res;
+	struct pollfd pfd;
+	if (secs <= 0) /*no timeout*/
 	{
-		close(channel->handle_);
+		return wait_for_connect(channel);
 	}
-	channel->handle_ = socket(AF_UNIX, SOCK_STREAM, 0);
-
+	pfd.fd = channel->listenHandle_;
+	pfd.events = POLLIN;
+	res = poll(&pfd, 1, secs * 1000);
+	if (res < 0)
+	{
+		build_error(channel);
+        	return -1;
+	} 
+	else if (res == 0) /*timeout*/
+	{
+		clean_error(channel);/*TODO:return a different code for timed out accept*/
+		return -1;			
+	}	
+	channel->handle_ = accept(channel->listenHandle_, 0, 0);
 	if (channel->handle_ == -1)
 	{
 		build_error(channel);
 		return -1;
 	}
+	return 0;
+}
 
-	if (connect(channel->handle_, (const struct sockaddr*)&s_un,
-				  sizeof(s_un)))
+int connect_channel(struct comm_channel *channel)
+{
+	struct sockaddr_un s_un;
+	int ret;
+	if (channel->handle_ != -1)
+	{
+		close(channel->handle_);
+	}
+	channel->handle_ = socket(AF_UNIX, SOCK_STREAM, 0);
+	if (channel->handle_ == -1)
+	{
+		build_error(channel);
+		return -1;
+	}
+	memset(&s_un, 0, sizeof(s_un));
+	s_un.sun_family = AF_UNIX;
+	strncpy(s_un.sun_path, channel->name_, sizeof(s_un.sun_path)-1);
+	ret = connect(channel->handle_, (const struct sockaddr*)&s_un, sizeof(s_un));
+	if (ret == -1)
 	{
 		build_error(channel);
 		return -1;
@@ -187,32 +255,51 @@ int wait_for_open(struct comm_channel *channel, int timeout)
 	struct pollfd pfd;
 	int res;
 	struct sockaddr_un s_un;
-	pfd.fd = channel->handle_;
-	pfd.events = POLLOUT;
-	if (timeout > 0)
+	if (timeout <= 0) /*no timeout*/
 	{
-		res = poll(&pfd, 1, timeout);
+		return connect_channel(channel);	
 	}
-	else
+	if (channel->handle_ != -1)
 	{
-		res = poll(&pfd, 1, 0);
-	}
-	if (res == -1) //ERROR
-	{
-		build_error(channel);
-		return -1;
-	}
-	else if (res == 0)// TIMEOUT
-	{
-		clean_error(channel);
-		return -1;
+		close(channel->handle_);
 	}
 	s_un.sun_family = AF_UNIX;
-	strcpy(s_un.sun_path, channel->name_);
-	if (connect(channel->handle_, (const struct sockaddr*)&s_un,
-				  sizeof(s_un)))
+	strncpy(s_un.sun_path, channel->name_, sizeof(s_un.sun_path)-1);
+	/*set non blocking*/
+	if (set_blocking(channel, channel->handle_, 0) == -1)
+	{
+		return -1;
+	}
+	res = connect(channel->handle_, (const struct sockaddr*)&s_un,
+				  sizeof(s_un));
+	if (res < 0)
 	{
 		build_error(channel);
+		if (channel->last_error_code_ == EINPROGRESS)
+		{
+			pfd.fd = channel->handle_;
+			pfd.events = POLLOUT;
+			res = poll(&pfd, 1, timeout * 1000);
+			if (res < 0)
+			{
+				build_error(channel);
+        			return -1;
+			} 
+			else if (res == 0) /*timeout*/
+			{
+				clean_error(channel);/*TODO:return a different code for timed out connect*/
+				return -1;			
+			}
+		} 
+		else 
+		{
+			return -1;
+		}
+	} 
+
+	/*set blocking*/
+	if (set_blocking(channel, channel->handle_, 1) == -1)
+	{
 		return -1;
 	}
 	return 0;
@@ -221,9 +308,9 @@ int wait_for_open(struct comm_channel *channel, int timeout)
 int close_channel(struct comm_channel *channel)
 {
 	int res = 0;
-	if (d_listen_socket != -1)
+	if (channel->listenHandle_ != -1)
 	{
-		if (close(d_listen_socket) == -1)
+		if (close(channel->listenHandle_) == -1)
 		{
 			res = res + 1;
 		}
@@ -245,13 +332,23 @@ int close_channel(struct comm_channel *channel)
 
 int write_to_channel(struct comm_channel *channel, const char *data, int size)
 {
-	int written;
-	written = send(channel->handle_, data, size, MSG_NOSIGNAL);
-	if (written == -1 || written != size)
+	int sent = 0;
+	int to_send = size;
+	do 
 	{
-		build_error(channel);
-		return -1;
-	}
+		int bytes;
+		bytes = send(channel->handle_, (const char*)data + sent, size - sent, MSG_NOSIGNAL);
+		if (bytes == -1)
+		{
+			build_error(channel);
+			if (channel->last_error_code_ == EINTR)
+			{
+				continue;
+			}
+			return -1;
+		}
+		sent += bytes;
+	} while(sent < to_send);
 	return 0;
 }
 
@@ -267,25 +364,26 @@ int read_from_channel(struct comm_channel *channel, char *data, int max_size)
 	do
 	{
 		read = recv(channel->handle_,
-					  (char*)data+channel->in_buff_size_ - to_read, to_read, 0);
-		if (read == -1 || read == 0)
+		       (char*)data+channel->in_buff_size_ - to_read, to_read,
+		       0);
+		if (read == 0)
 		{
-			break;
+			return -1; /*the peer has performed an orderly shutdown, quit*/
+		}
+		else if (read == -1)
+		{
+			build_error(channel);
+			return -1;
 		}
 		to_read -= read;
 	}while(to_read > 0);
-	if (read == -1)
-	{
-		build_error(channel);
-		return -1;
-	}
 	return 0;
 }
 
 int read_from_channel_size(struct comm_channel *channel, int size, char *data, int max_size)
 {
 	int read;
-	int to_read = size;
+	int to_read = (size>max_size?max_size:size);
 	if (size > channel->in_buff_size_ || size > max_size)
 	{
 		clean_error(channel);
@@ -294,18 +392,18 @@ int read_from_channel_size(struct comm_channel *channel, int size, char *data, i
 	do
 	{
 		read = recv(channel->handle_,
-					  (char*)data + size - to_read, to_read, 0);
-		if (read == -1 || read == 0)
+		       (char*)data + size - to_read, to_read, 0);
+		if (read == 0)
 		{
-			break;
+			return -1; /*the peer has performed an orderly shutdown, quit*/
+		}
+		else if (read == -1)
+		{
+			build_error(channel);
+			return -1;
 		}
 		to_read -= read;
 	}while(to_read > 0);
-	if (read == -1)
-	{
-		build_error(channel);
-		return -1;
-	}
 	return 0;
 }
 

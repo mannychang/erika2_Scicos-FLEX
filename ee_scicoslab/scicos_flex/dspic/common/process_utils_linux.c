@@ -50,6 +50,7 @@
 #define INVALID_HANDLE_VALUE -1
 
 static struct sigaction old_sa;
+static int handler_already_registered = 0;
 
 static void build_error(struct process_data* proc)
 {
@@ -74,6 +75,10 @@ static void handler(int sig, siginfo_t* info, void* unused)
 static int register_handler()
 {
 	struct sigaction sa;
+	if (handler_already_registered)
+	{
+		return 0;
+	}
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	sa.sa_sigaction = handler;
@@ -81,15 +86,21 @@ static int register_handler()
 	{
 		return -1;
 	}
+	handler_already_registered = 1;
 	return 0;
 }
 
 static int unregister_handler()
 {
+	if (!handler_already_registered)
+	{
+		return 0;
+	}
 	if (sigaction(SIGCHLD, &old_sa, NULL) == -1)
 	{
 		return -1;
 	}
+	handler_already_registered = 0;
 	return 0;
 }
 
