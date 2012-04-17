@@ -41,48 +41,57 @@
 #ifndef DATA_MODEL_H
 #define DATA_MODEL_H
 
-#define INT8_TYPE 0
-#define INT16_TYPE 1
-#define INT32_TYPE 2
-#define FLOAT_TYPE 3
-#define DOUBLE_TYPE 4
-#define TYPES_LEN 5
+typedef enum {
+	DM_INT8 = 0,
+	DM_INT16,
+	DM_INT32,
+	DM_UINT8,
+	DM_UINT16,
+	DM_UINT32,
+	DM_REAL,
+	DM_N_TYPES
+}dm_item_type; 
 
-int dm_types_size[TYPES_LEN];
+int dm_types_size[DM_N_TYPES];
+int dm_type_max_size;
 
-struct dm_elem_descr
-{
-	unsigned char* types_;
-	int size_; 
+struct dm_item {
+	dm_item_type type;
+	int multiplicity;
 };
 
-struct dm_elem
-{
-	void* data_;
-	int size_;
-	struct dm_elem_descr description_;
+struct dm_elem_descr {
+	struct dm_item* items;
+	int size; // number of items
+};
+
+struct dm_elem {
+	void* data_ptr;
+	int data_size;
+	struct dm_elem_descr description;
 };
 
 void dm_init(struct dm_elem* data);
 
-int dm_get_value(const struct dm_elem* data, int index, unsigned char* type,
-				 void** value);
+// [WARNING] Use the "dm_max_type_size" to store enough bytes for value
+int dm_get_value( // [return] The size of the selected type or zero if fails  
+				 const struct dm_elem* data, // [in]
+				 int index, // [in] item index
+				 int pos, // [in] array position of the item
+				 void* value, // [out] value of the selected item at "pos"
+				 int size); // [in] size of "value"
 
-void dm_set_value(struct dm_elem* data, int index, const void* value,
-				  int size);
+int dm_set_value( // [return] A value greather than zero if succeed or zero if fails  
+				 struct dm_elem* data, // [inout]
+				 int index, // [in] item index
+				 int pos, // [in] array position of the item
+				 const void* value, // [in] value to be written at the selected item at "pos"
+				 int size); // [in] size of "value"
 
-void dm_create_elem_descr(struct dm_elem_descr* descr, unsigned char* types,
-						  int size);
-
-void dm_erase_elem_descr(struct dm_elem_descr* descr);
-
-void dm_create_elem(struct dm_elem* data,unsigned char* types, int size);
-
-void dm_erase_elem(struct dm_elem* data);
-
-void dm_create_types(unsigned char** types_out, const char* types, int size);
-
-void dm_erase_types(unsigned char** types_out);
+ void dm_create_elem(struct dm_elem* data, // [inout]
+					 dm_item_type* types, // [in] the array of items types
+					 int* multiplicities, // [in] the array of items multiplicities
+					 int size); // [in] the number of items
 
 #endif
 

@@ -43,6 +43,9 @@
 	typedef __int32 int32_t;
 	typedef __int16 int16_t;
 	typedef __int8 int8_t;
+	typedef unsigned __int32 uint32_t;
+	typedef unsigned __int16 uint16_t;
+	typedef unsigned __int8 uint8_t;
 #elif defined(__GNUC__) && defined(__INT8_TYPE__) 
 	#include <stdint.h>
 #else
@@ -52,179 +55,139 @@
 #include <string.h>
 #include <assert.h>
 
-int dm_types_size[] = {sizeof(int8_t), sizeof(int16_t), sizeof(int32_t), sizeof(float),
-				   sizeof(double)};
+#define RET_OK 1
+#define RET_FAIL 1
 
+int dm_types_size[] = {sizeof(int8_t), sizeof(int16_t), sizeof(int32_t),
+					   sizeof(uint8_t), sizeof(uint16_t), sizeof(uint32_t),
+					   sizeof(double)};
+
+int dm_type_max_size = (sizeof(double) > sizeof(int32_t) ? sizeof(double) : sizeof(int32_t));
+
+/* Private */
+static void create_elem_descr(struct dm_elem_descr* descr, dm_item_type* types, int* multiplicities, int size);
+static void erase_elem_descr(struct dm_elem_descr* descr);
+static int get_offset_and_size(const struct dm_elem* data, int index, int pos, int* offset, int* size);
+static int get_type_size(dm_item_type type);
+
+/* Public */
 void dm_init(struct dm_elem* data)
 {
-	data->data_ = 0;
-	data->size_ = 0;
-	data->description_.types_ = 0;
-	data->description_.size_ = 0;
+	data->data_ptr = NULL;
+	data->data_size = 0;
+	data->description.items = NULL;
+	data->description.size = 0;
 }
 
-int dm_get_value(const struct dm_elem* data, int index, unsigned char* type,
-			  void** value)
+int dm_get_value(const struct dm_elem* data, int index, int pos, void* value, int size)
 {
-	int offset = 0, i, value_size;
-	if (index < 0 || index >= data->description_.size_)
-	{
-		return 0;
-	}
-	for(i = 0; i < index; ++i)
-	{
-		assert(data->description_.types_[i] <
-			   (sizeof(dm_types_size)/sizeof(int)));
-		if (data->description_.types_[i] <
-				(sizeof(dm_types_size)/sizeof(int)))
-		{
-			offset = offset + dm_types_size[data->description_.types_[i]];
+	int offset, value_size, result = RET_OK;
+	assert(data);
+	if (get_offset_and_size(data, index, pos, &offset, &value_size)) {
+		/* check if value has enough space for result */
+		if (value_size <= size) {
+			memcpy(value, (const char*)data->data_ptr+offset, value_size);
+		} else {
+			result = RET_FAIL;
 		}
+	} else {
+		result = RET_FAIL;
 	}
-	*type = data->description_.types_[index];
-	assert(*type < (sizeof(dm_types_size)/sizeof(int)));
-	if (*type < (sizeof(dm_types_size)/sizeof(int)))
-	{
-		value_size = dm_types_size[*type];
-	}
-	else
-	{
-		return 0;
-	}
-	*value = malloc(value_size);
-	assert(offset+value_size <= data->size_);
-	if (offset+value_size <= data->size_)
-	{
-		memcpy(*value, (const char*)data->data_+offset, value_size);
+	if (!result) {
+		value_size = 0;
 	}
 	return value_size;
 }
 
-void dm_set_value(struct dm_elem *data, int index, const void *value, int size)
+int dm_set_value(struct dm_elem* data, int index, int pos, const void* value, int size)
 {
-	int offset = 0, i, value_size;
-	unsigned char type;
-	if (index < 0 || index >= data->description_.size_)
-	{
-		return;
-	}
-	for(i = 0; i < index; ++i)
-	{
-		assert(data->description_.types_[i] <
-			   (sizeof(dm_types_size)/sizeof(int)));
-		if (data->description_.types_[i] <
-				(sizeof(dm_types_size)/sizeof(int)))
-		{
-			offset = offset + dm_types_size[data->description_.types_[i]];
+	int offset, value_size, result = RET_OK;
+	assert(data);
+	if (get_offset_and_size(data, index, pos, &offset, &value_size)) {
+		/* check if value has enough space for result */
+		if (value_size == size) {
+			memcpy((char*)data->data_ptr+offset, value, value_size);
+		} else {
+			result = RET_FAIL;
 		}
+	} else {
+		result = RET_FAIL;
 	}
-	type = data->description_.types_[index];
-	assert(type < (sizeof(dm_types_size)/sizeof(int)));
-	if (type < (sizeof(dm_types_size)/sizeof(int)))
-	{
-		value_size = dm_types_size[type];
-	}
-	assert(value_size == size && offset < data->size_);
-	if (value_size == size && offset+size <= data->size_)
-	{
-		memcpy((char*)data->data_+offset, value, size);
-	}
+	return result;
 }
 
-void dm_create_elem_descr(struct dm_elem_descr* descr, unsigned char* types,
-						   int size)
-{
-	if (types)
-	{
-		descr->types_ = malloc(size);
-		descr->size_ = size;
-		memcpy(descr->types_, types, size);
-	}
-}
-
-void dm_erase_elem_descr(struct dm_elem_descr* descr)
-{
-	free(descr->types_);
-	descr->types_ = 0;
-	descr->size_ = 0;
-}
-
-void dm_create_elem(struct dm_elem *data, unsigned char* types,
-					int size)
+void dm_create_elem(struct dm_elem *data, dm_item_type* types, int* multiplicities, int size)
 {
 	int i, data_size = 0;
-	unsigned char type;
-	dm_create_elem_descr(&data->description_, types, size);
-	for(i = 0; i < size; ++i)
-	{
-		type = data->description_.types_[i];
-		assert(type < (sizeof(dm_types_size)/sizeof(int)));
-		if (type < (sizeof(dm_types_size)/sizeof(int)))
-		{
-			data_size += dm_types_size[type];
-		}
+	create_elem_descr(&data->description, types, multiplicities, size);
+	for(i = 0; i < size; ++i) {
+		data_size += get_type_size(data->description.items[i].type) *
+			data->description.items[i].multiplicity;
 	}
-	if (data_size > 0)
-	{
-		data->data_ = malloc(data_size);
-		data->size_ = data_size;
-	}
-	else
-	{
-		data->data_ = 0;
-		data->size_ = 0;
+	if (data_size > 0) {
+		data->data_ptr = malloc(data_size);
+		data->data_size = data_size;
+	} else {
+		data->data_ptr = NULL;
+		data->data_size = 0;
 	}
 }
 
 void dm_erase_elem(struct dm_elem *data)
 {
-	dm_erase_elem_descr(&data->description_);
-	free(data->data_);
-	data->data_ = 0;
-	data->size_ = 0;
+	erase_elem_descr(&data->description);
+	free(data->data_ptr);
+	data->data_ptr = NULL;
+	data->data_size = 0;
 }
 
-void dm_create_types(unsigned char **types_out, const char *types, int size)
-{
-	int i;
-	int j=0;
-	for(i=0; i<size; ++i)
-	{
-		if (types[i] == 'c')
-		{
-			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = INT8_TYPE;
-			++j;
-		}
-		else if (types[i] == 's')
-		{
-			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = INT16_TYPE;
-			++j;
-		}
-		else if (types[i] == 'i')
-		{
-			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = INT32_TYPE;
-			++j;
-		}
-		else if (types[i] == 'f')
-		{
-			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = FLOAT_TYPE;
-			++j;
-		}
-		else if (types[i] == 'd')
-		{
-			*types_out = realloc(*types_out, j+1);
-			(*types_out)[j] = DOUBLE_TYPE;
-			++j;
+/* PRIVATE */
+void create_elem_descr(struct dm_elem_descr* descr, dm_item_type* types, int* multiplicities, int size)
+{	
+	int i, n;
+	if (size > 0) {
+		descr->items = (struct dm_item*) malloc(size * sizeof(struct dm_item));
+		descr->size = size;
+		for (i = 0, n = descr->size; i < n; ++i) {
+			descr->items[i].type = types[i];
+			descr->items[i].multiplicity = multiplicities[i];
 		}
 	}
 }
 
-void dm_erase_types(unsigned char **types_out)
+void erase_elem_descr(struct dm_elem_descr* descr)
 {
-	free(*types_out);
-	*types_out = 0;
+	free(descr->items);
+	descr->items = NULL;
+	descr->size = 0;
+}
+
+int get_offset_and_size(const struct dm_elem* data, int index, int pos, int* offset, int* size)
+{
+	int i, value_size;
+	struct dm_item* selected_item = NULL;
+	/* Check for index and pos bounds */
+	if ((index < 0 || index >= data->description.size) || 
+		(pos < 0 || pos >= data->description.items[index].multiplicity)) {
+		return RET_FAIL;
+	}
+	/* move offset to selected item */
+	for (i = 0; i < index; ++i) {
+		offset += get_type_size(data->description.items[i].type) * 
+			data->description.items[i].multiplicity;
+	}
+	selected_item = &(data->description.items[index]);
+	value_size = get_type_size(selected_item->type);
+
+	/* move offset to the value position of the selected item */
+	offset += pos * value_size;
+	/* check for offset out of bound */
+	assert(offset+value_size <= data->data_size);
+	return RET_OK;
+}
+
+int get_type_size(dm_item_type type)
+{
+	assert(type < (sizeof(dm_types_size)/sizeof(int)));
+	return dm_types_size[type];
 }
