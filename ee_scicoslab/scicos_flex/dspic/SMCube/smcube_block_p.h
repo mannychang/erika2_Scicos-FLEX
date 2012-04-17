@@ -42,9 +42,18 @@
  * ###*E*### */
 
 #include <stdlib.h>
+#include <stdio.h>
+
 #include "scicos/scicos_block4.h"
 
-#include "data_model.h"
+#include "../common/data_model.h"
+
+#define SNPRINTF snprintf
+
+#if defined(_WIN32) && defined(_MSC_VER)
+#undef SNPRINTF
+#define SNPRINTF _snprintf
+#endif
 
 #define SCICOS_INT8		5
 #define SCICOS_INT16	4
@@ -168,31 +177,24 @@ void clean_engine_parameters(char **parameters, int size)
 
 void assign_input_data(struct dm_elem *input, scicos_block* block)
 {
-	int i, value_size, offset = 0;
-	unsigned char value_type;
-	for(i=0; i < input->description_.size_; ++i) {
-		value_type = input->description_.types_[i];
-		if (value_type <= sizeof(dm_types_size)/sizeof(int)) {
-			value_size = dm_types_size[value_type];
-			memcpy((char*)input->data_+offset,
-				   (const char*)block->inptr[i], value_size);
-			offset += value_size;
+	int i, value_size, offset;
+	for(i = 0; i < input->description.size; ++i) {
+		if (dm_get_offset_and_size(input, i, 0, &offset, &value_size)) {
+			memcpy((char*)input->data_ptr + offset, 
+				(const char*)block->inptr[i], 
+				value_size * input->description.items[i].multiplicity);
 		}
 	}
 }
 
 void assign_output_data(struct dm_elem *output, scicos_block* block)
 {
-	int i, value_size, offset = 0;
-	void* value;
-	unsigned char value_type;
-	for(i=0; i < output->description_.size_; ++i) {
-		value_size = dm_get_value(output, i, &value_type, &value);
-		if (value_size != 0 && value_size == dm_types_size[value_type]) {
-			memcpy((char*)block->outptr[i], value, value_size);
-			offset += value_size;
-			free(value);
-			value = 0;
+	int i, value_size, offset;
+	for(i = 0; i < output->description.size; ++i) {
+		if (dm_get_offset_and_size(output, i, 0, &offset, &value_size)) {
+			memcpy((char*)block->outptr[i], 
+				(const char*)output->data_ptr + offset, 
+				value_size * output->description.items[i].multiplicity);
 		}
 	}
 }
@@ -205,7 +207,7 @@ char* get_string(scicos_block* block, int base, int length)
 	string = (char*)malloc(length+1);
 	strcpy(string,"");
 	for (i=0; i<length; ++i) {
-		c = ipar(base+i);
+		c = block->ipar[base+i];
 		strncat(string,&c,1);
 	}
 	return string;

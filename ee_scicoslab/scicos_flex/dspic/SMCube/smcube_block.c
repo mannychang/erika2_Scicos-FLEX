@@ -51,8 +51,6 @@
 #include <ctype.h>
 #include "scicos/scicos_block4.h"
 
-#define SNPRINTF snprintf
-
 #ifdef _WIN32
 #define EXPORT_SHARED_LIB __declspec(dllexport)
 static const char* executable_name = "SMCube.exe";
@@ -61,11 +59,6 @@ static const char* folder_separator = "\\";
 #define EXPORT_SHARED_LIB
 static const char* executable_name = "SMCube";
 static const char* folder_separator = "/";
-#endif
-
-#if defined(_WIN32) && defined(_MSC_VER)
-#undef SNPRINTF
-#define SNPRINTF _snprintf
 #endif
 
 #define SMCUBE_ENV_PATH "SMCUBEPATH"
@@ -77,8 +70,8 @@ static const char* folder_separator = "/";
 
 #define PAR_SIMULATION_MODE 1
 
-#define PAR_INPUT_DESCR_LENGTH 2
-#define PAR_INPUT_DESCR_BASE (PAR_INPUT_DESCR_LENGTH+1)
+#define PAR_ENGINE_FILE_LENGTH 2
+#define PAR_ENGINE_FILE_BASE (PAR_ENGINE_FILE_LENGTH+1)
 
 /*The others parametes position is known at run time*/
 
@@ -113,16 +106,10 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 {
 	int block_index;
 	int background;
-	char* input_descr = 0;
-	char* output_descr = 0;
 	char* engine_path = 0;
 	char* engine_exe = 0;
 	char* engine_file = 0;
-	int par_output_descr_base;
-	int par_output_descr_length;
-	int par_engine_file_base;
-	int par_engine_file_length;
-	unsigned char* inout_types=0;
+	dm_item_type* inout_types;
 #ifdef WIN32
 	const char* base_channel_name = "smcube_channel";
 #else
@@ -132,123 +119,90 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 	char* sblock_index = 0;
 	char** parameters;
 	int nparameters;
-	switch (flag)
-	{
+	switch (flag) {
  	/* Init */
 	case 4:{
 		block_data new_block_data;
-		char* str_tmp;
 		initialize_block_data(&new_block_data);
 		/*INITIALIZE BLOCK DATA*/
-		if (erase_blocks)
-		{
+		if (erase_blocks) {
 			BLOCK_ERASE(blocks_data);
 			erase_blocks = 0;
 		}
 		block_index = BLOCK_PUSH(blocks_data, new_block_data);
-		if (block_index < 0)
-		{
+		if (block_index < 0) {
 			Coserror("Block initialization failed, internal error"
 				"(BLOCK_PUSH).");
 			goto init_error;
 		}
 		*block->work = scicos_malloc(sizeof(int));
 		iwork(PAR_INTERNAL_BLOCK_INDEX) = block_index;
-		if (assign_current_block(block_index) == 0)
-		{
+		if (assign_current_block(block_index) == 0) {
 			Coserror("Block initialization failed, internal error"
 				"(bad block_index).");
 			goto init_error;
 		}
 		sblock_index = int_to_string(block_index);
-		if (!sblock_index)
-		{
+		if (!sblock_index) {
 			Coserror("Block initialization failed, internal error"
 				"(build_block_index_str).");
 			goto init_error;
 		}
 		channel_name = build_channel_name(base_channel_name, sblock_index);
-		if (!channel_name)
-		{
+		if (!channel_name) {
 			Coserror("Block initialization failed, internal error"
 				"(build_channel_name).");
 			goto init_error;
 		}
 		/*SIMULATION MODE*/
 		background = 0;
-		if ((int)ipar(PAR_SIMULATION_MODE) == SIMULATION_MODE_BACKGROUND)
-		{
+		if ((int)ipar(PAR_SIMULATION_MODE) == SIMULATION_MODE_BACKGROUND) {
 			background = 1;
 		}
-		/*INPUT DESCRIPTION*/
-		input_descr = get_string(block, PAR_INPUT_DESCR_BASE,
-								 ipar(PAR_INPUT_DESCR_LENGTH));
-		/*OUTPUT DESCRIPTION*/
-		par_output_descr_length = PAR_INPUT_DESCR_BASE +
-				ipar(PAR_INPUT_DESCR_LENGTH);
-		par_output_descr_base = par_output_descr_length + 1;
-		output_descr = get_string(block, par_output_descr_base,
-								  ipar(par_output_descr_length));
 		/*ENGINE PATH*/
-		par_engine_file_length = par_output_descr_base +
-				ipar(par_output_descr_length);
-		par_engine_file_base = par_engine_file_length + 1;
-		engine_file = get_string(block, par_engine_file_base,
-								  ipar(par_engine_file_length));
+		engine_file = get_string(block, PAR_ENGINE_FILE_BASE, ipar(PAR_ENGINE_FILE_BASE));
 		/*ENGINE FILE*/
 		engine_path = getenv(SMCUBE_ENV_PATH);
-		if (!engine_path)
-		{
+		if (!engine_path) {
 			*engine_exists = 0;
 			Coserror("\"SMCUBEPATH\" environment variable not set.");
 			goto init_error;
 		}
 		engine_exe = get_engine_exe(engine_path, executable_name, folder_separator);
-		if (!engine_exe)
-		{
+		if (!engine_exe) {
 			*engine_exists = 0;
 			Coserror("Error while building executable name of SMCube.");
 			goto init_error;		
 		}
 		/*INITIALIZE INPUT DATA STRUCTURE*/
-		str_tmp = trim_string(input_descr);
-		free(input_descr);
-		input_descr = str_tmp;
-		dm_create_types(&inout_types, input_descr, strlen(input_descr));
-		dm_create_elem(input_data, inout_types, strlen(input_descr));
-		dm_erase_types(&inout_types);
+		build_from_scicos_types(&(block->insz[2*block->nin]), block->nin, &inout_types); 
+		dm_create_elem(input_data, inout_types, &(block->insz[0]), block->nin);
+		free(inout_types);
 		/*INITIALIZE OUTPUT DATA STRUCTURE*/
-		str_tmp = trim_string(output_descr);
-		free(output_descr);
-		output_descr = str_tmp;
-		dm_create_types(&inout_types, output_descr, strlen(output_descr));
-		dm_create_elem(output_data, inout_types, strlen(output_descr));
-		dm_erase_types(&inout_types);
+		build_from_scicos_types(&(block->outsz[2*block->nin]), block->nout, &inout_types); 
+		dm_create_elem(output_data, inout_types, &(block->outsz[0]), block->nout);
+		free(inout_types);
 		/*CHECK FOR ENGINE PARAMETERS*/
 		*engine_exists = 1;
-		if (file_exists(engine_exe, "r") == 0)
-		{
+		if (file_exists(engine_exe, "r") == 0) {
 			*engine_exists = 0;
 			Coserror("SMCube application binary file %s "
 			    "error: %s.", engine_exe, strerror(errno));
 		}
-		if (file_exists(engine_file, "r+") == 0)
-		{
+		if (file_exists(engine_file, "r+") == 0) {
 			*engine_exists = 0;
 			Coserror("SMCube xml file %s error: %s.", 
 				engine_file, strerror(errno));
 		}
-		if (*engine_exists == 0)
-		{
+		if (*engine_exists == 0) {
 			goto init_error;
 		}
 		/* Create and initialize channel */
 		/* The write operation is from the block input while
 		   the read operation is from the block output       */
-		build_channel(channel, output_data->size_, input_data->size_,
+		build_channel(channel, output_data->data_size, input_data->data_size,
 						 channel_name);
-		if (open_channel(channel) == -1)
-		{
+		if (open_channel(channel) == -1) {
 			*engine_exists = 0;
 			Coserror("Channel open failed: %d.", channel->last_error_code_);
 			goto init_error;
@@ -260,14 +214,12 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 											 &nparameters);
 		build_process(process, engine_exe, (const char**)parameters, nparameters);
 		clean_engine_parameters(parameters, nparameters);
-		if (launch_process(process) == -1)
-		{
+		if (launch_process(process) == -1) {
 			*engine_exists = 0;
 			Coserror("SMCube launch failed: %d.", process->last_error_code_);
 			goto init_error;
 		}
-		if (wait_for_connect_timeout(channel, CONNECTION_TIMEOUT))
-		{
+		if (wait_for_connect_timeout(channel, CONNECTION_TIMEOUT)) {
 			*engine_exists = 0;
 			Coserror("Channel wait for connection failed: %d." ,
 				channel->last_error_code_);
@@ -275,21 +227,17 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 		}
 		free(engine_exe);
 		free(engine_file);
-		free(input_descr);
-		free(output_descr);
 		free(channel_name);
 		free(sblock_index);
 		break;
 init_error:
 		free(engine_exe);
 		free(engine_file);
-		free(input_descr);
-		free(output_descr);
 		free(channel_name);
 		free(sblock_index);
 		dm_erase_elem(input_data);
 		dm_erase_elem(output_data);
-		}break;
+	}break;
 	/* output update */
 	case 1:{
 		int inevents = GetNevIn(block);
@@ -305,23 +253,20 @@ init_error:
 			break;
 		/* INPUT DATA INITIALIZATION */
 		assign_input_data(input_data, block);
-		if (write_to_channel(channel, (char*)&inevents, sizeof(inevents)) == -1)
-		{
+		if (write_to_channel(channel, (char*)&inevents, sizeof(inevents)) == -1) {
 			Coserror("Write to channel failed: %d.", channel->last_error_code_);
 			*engine_exists = 0;
 			break;
 		}
-		if (input_data->size_ && 
-			write_to_channel(channel, input_data->data_, input_data->size_) == -1)
-		{
+		if (input_data->data_size && 
+			write_to_channel(channel, input_data->data_ptr, input_data->data_size) == -1) {
 			Coserror("Write to channel failed: %d.", channel->last_error_code_);
 			*engine_exists = 0;
 			break;
 		}
-		if (output_data->size_)
-		{
-			if (read_from_channel_size(channel, output_data->size_, output_data->data_, output_data->size_) == -1)
-			{
+		if (output_data->data_size) {
+			if (read_from_channel_size(channel, output_data->data_size, 
+					output_data->data_ptr, output_data->data_size) == -1) {
 				Coserror("Read from channel failed: %d.", channel->last_error_code_);
 				*engine_exists = 0;
 				break;
@@ -329,43 +274,37 @@ init_error:
 			/*BUILD OUTPUT */
 			assign_output_data(output_data, block);
 		}
-		if (read_from_channel_size(channel, sizeof(evtout), (char*)&evtout, sizeof(evtout)) == -1)
-		{
+		if (read_from_channel_size(channel, sizeof(evtout), (char*)&evtout, sizeof(evtout)) == -1) {
 			Coserror("Read from channel failed: %d.", channel->last_error_code_);
 			*engine_exists = 0;
 			break;
 		}
-		if (!set_output_events(iwork(PAR_INTERNAL_BLOCK_INDEX), evtout))
-		{
+		if (!set_output_events(iwork(PAR_INTERNAL_BLOCK_INDEX), evtout)) {
 			Coserror("Internal error(on set_output_events): unknown block %d", 
 				iwork(PAR_INTERNAL_BLOCK_INDEX));
 			*engine_exists = 0;
 			break;		
 		}
-		}break;
+	}break;
 	/* output events update */
 	case 3:{
 		unsigned int evtsout = 0;
 		int i;
-		if (!get_output_events(iwork(PAR_INTERNAL_BLOCK_INDEX), &evtsout))
-		{
+		if (!get_output_events(iwork(PAR_INTERNAL_BLOCK_INDEX), &evtsout)) {
 			Coserror("Internal error(on set_output_events): unknown block %d", 
 				iwork(PAR_INTERNAL_BLOCK_INDEX));
 			break;
 		}
-		for (i = 0; i < block->nevout; ++i)
-		{
-			if (CHECK_OUTPUT_EVENT(evtsout, i))
-			{
+		for (i = 0; i < block->nevout; ++i) {
+			if (CHECK_OUTPUT_EVENT(evtsout, i)) {
 				block->evout[i] = 0;
 			}
 		}
-		}break;
+	}break;
 	/* ending */
 	case 5:
 		/*CLEAN SIMULATION*/
-		if (assign_current_block(iwork(PAR_INTERNAL_BLOCK_INDEX)) == 0)
-		{
+		if (assign_current_block(iwork(PAR_INTERNAL_BLOCK_INDEX)) == 0) {
 			Coserror("Block initialization failed, internal error"
 				"(bad block_index from scicos_block, case 5).");
 			break;
@@ -374,8 +313,7 @@ init_error:
 		dm_erase_elem(output_data);
 		clean_channel(channel);
 		clean_process(process);
-		if (!erase_blocks)
-		{
+		if (!erase_blocks) {
 			erase_blocks = 1;
 		}
 		scicos_free(*block->work);
@@ -386,8 +324,7 @@ init_error:
 int assign_current_block(int block_index)
 {
 	block_data* bd = BLOCK_AT_PTR(blocks_data, block_index);
-	if (bd == 0)
-	{
+	if (bd == 0) {
 		return 0;
 	}
 	process = &bd->process_;
@@ -401,8 +338,7 @@ int assign_current_block(int block_index)
 int get_output_events(int block_index, unsigned int* evtout)
 {
 	block_data* bd = BLOCK_AT_PTR(blocks_data, block_index);
-	if (bd == 0)
-	{
+	if (bd == 0) {
 		return 0;
 	}
 	*evtout = bd->output_events_;
@@ -412,8 +348,7 @@ int get_output_events(int block_index, unsigned int* evtout)
 int set_output_events(int block_index, unsigned int evtout)
 {
 	block_data* bd = BLOCK_AT_PTR(blocks_data, block_index);
-	if (bd == 0)
-	{
+	if (bd == 0) {
 		return 0;
 	}
 	bd->output_events_ = evtout;

@@ -88,10 +88,18 @@ int dm_set_value( // [return] A value greather than zero if succeed or zero if f
 				 const void* value, // [in] value to be written at the selected item at "pos"
 				 int size); // [in] size of "value"
 
- void dm_create_elem(struct dm_elem* data, // [inout]
-					 dm_item_type* types, // [in] the array of items types
-					 int* multiplicities, // [in] the array of items multiplicities
-					 int size); // [in] the number of items
+void dm_create_elem(struct dm_elem* data, // [inout]
+					dm_item_type* types, // [in] the array of items types
+					int* multiplicities, // [in] the array of items multiplicities
+					int size); // [in] the number of items
 
+void dm_erase_elem(struct dm_elem *data); // [inout]
+
+int dm_get_offset_and_size( // [return] a value greather than zero on succeed, zero otherwise
+						   const struct dm_elem* data, // [in] item index
+						   int index, // [in] item index
+						   int pos, // [in] array position of the item
+						   int* offset, // [out] offset of the value at [index][pos]
+						   int* size); // [out] size of the value at [index][pos]
 #endif
 

@@ -67,7 +67,6 @@ int dm_type_max_size = (sizeof(double) > sizeof(int32_t) ? sizeof(double) : size
 /* Private */
 static void create_elem_descr(struct dm_elem_descr* descr, dm_item_type* types, int* multiplicities, int size);
 static void erase_elem_descr(struct dm_elem_descr* descr);
-static int get_offset_and_size(const struct dm_elem* data, int index, int pos, int* offset, int* size);
 static int get_type_size(dm_item_type type);
 
 /* Public */
@@ -83,7 +82,7 @@ int dm_get_value(const struct dm_elem* data, int index, int pos, void* value, in
 {
 	int offset, value_size, result = RET_OK;
 	assert(data);
-	if (get_offset_and_size(data, index, pos, &offset, &value_size)) {
+	if (dm_get_offset_and_size(data, index, pos, &offset, &value_size)) {
 		/* check if value has enough space for result */
 		if (value_size <= size) {
 			memcpy(value, (const char*)data->data_ptr+offset, value_size);
@@ -103,7 +102,7 @@ int dm_set_value(struct dm_elem* data, int index, int pos, const void* value, in
 {
 	int offset, value_size, result = RET_OK;
 	assert(data);
-	if (get_offset_and_size(data, index, pos, &offset, &value_size)) {
+	if (dm_get_offset_and_size(data, index, pos, &offset, &value_size)) {
 		/* check if value has enough space for result */
 		if (value_size == size) {
 			memcpy((char*)data->data_ptr+offset, value, value_size);
@@ -141,6 +140,32 @@ void dm_erase_elem(struct dm_elem *data)
 	data->data_size = 0;
 }
 
+int dm_get_offset_and_size(const struct dm_elem* data, int index, int pos, int* offset, int* size)
+{
+	int i, value_size, offset_value = 0;
+	struct dm_item* selected_item = NULL;
+	/* Check for index and pos bounds */
+	if ((index < 0 || index >= data->description.size) || 
+		(pos < 0 || pos >= data->description.items[index].multiplicity)) {
+		return RET_FAIL;
+	}
+	/* move offset to selected item */
+	for (i = 0; i < index; ++i) {
+		offset_value += get_type_size(data->description.items[i].type) * 
+			data->description.items[i].multiplicity;
+	}
+	selected_item = &(data->description.items[index]);
+	value_size = get_type_size(selected_item->type);
+
+	/* move offset to the value position of the selected item */
+	offset_value += pos * value_size;
+	/* check for offset out of bound */
+	assert(offset_value+value_size <= data->data_size);
+	*offset = offset_value;
+	*size = value_size;
+	return RET_OK;
+}
+
 /* PRIVATE */
 void create_elem_descr(struct dm_elem_descr* descr, dm_item_type* types, int* multiplicities, int size)
 {	
@@ -160,30 +185,6 @@ void erase_elem_descr(struct dm_elem_descr* descr)
 	free(descr->items);
 	descr->items = NULL;
 	descr->size = 0;
-}
-
-int get_offset_and_size(const struct dm_elem* data, int index, int pos, int* offset, int* size)
-{
-	int i, value_size;
-	struct dm_item* selected_item = NULL;
-	/* Check for index and pos bounds */
-	if ((index < 0 || index >= data->description.size) || 
-		(pos < 0 || pos >= data->description.items[index].multiplicity)) {
-		return RET_FAIL;
-	}
-	/* move offset to selected item */
-	for (i = 0; i < index; ++i) {
-		offset += get_type_size(data->description.items[i].type) * 
-			data->description.items[i].multiplicity;
-	}
-	selected_item = &(data->description.items[index]);
-	value_size = get_type_size(selected_item->type);
-
-	/* move offset to the value position of the selected item */
-	offset += pos * value_size;
-	/* check for offset out of bound */
-	assert(offset+value_size <= data->data_size);
-	return RET_OK;
 }
 
 int get_type_size(dm_item_type type)
