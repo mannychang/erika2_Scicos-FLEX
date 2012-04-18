@@ -27,6 +27,29 @@ function [result] = _buildPath(path)
   end
 endfunction
 
+function [res] = _translateOldInOut(str)
+  res = str;
+  res = strsubst(res, "d", "1 1;");
+  res = strsubst(res, "i", "3 1;");
+endfunction
+
+function [res, err] = _parseInOut(str)
+  ok = %t;
+  res = [];
+  err = "";
+  _translateOldInOut(str)
+  try
+      res = evstr(str);
+  catch
+      ok = %f;
+  end
+  if ok == %f then
+      err = lasterror(%t);
+  end
+endfunction
+
+
+
 
 function [x,y,typ] = SMCube(job,arg1,arg2)
 
@@ -113,6 +136,8 @@ case 'set' then //** set parameters
   sindata = stripblanks(label(1)(1));
   soutdata = stripblanks(label(1)(2));
   sengine_file = stripblanks(label(1)(3));
+  sindata = _translateOldInOut(sindata);
+  soutdata = _translateOldInOut(soutdata);
   while %t do
     dialog_box_banner = "SMCube Parameters";
     [ok, eventsin, eventsout, simmode, indata, outdata, engine_file, lab] = getvalue(dialog_box_banner,...
@@ -161,57 +186,22 @@ case 'set' then //** set parameters
       end
     
       //** parse input and output
-      int32_type = 3;
-      double_type = 1;
-
-      i = [];
-      it = [];
-      in_descr = ascii(indata);
-      in_descr_size = size(in_descr);
-      new_descr = [];
-      for k=1:in_descr_size(2)
-        if in_descr(k) == ascii("i") then
-          i = [i;1 1];
-          it = [it;int32_type];
-          new_descr = [new_descr in_descr(k)];
-        elseif in_descr(k) == ascii("d") then
-          i = [i;1 1];
-          it = [it;double_type];
-          new_descr = [new_descr in_descr(k)];
-        else
-          message("invalid input type: " + ascii2string(in_descr(k)));
-        end
+      [intypes, errstr] = _parseInOut(indata);
+      if isempty(errstr) == %f then
+        message("Input error " + errstr);
       end
-    
-      in_descr = new_descr;
-    
-      o = [];
-      ot = [];
-      out_descr = ascii(outdata);
-      out_descr_size = size(out_descr);
-      new_descr = [];
-      for k=1:out_descr_size(2)
-        if out_descr(k) == ascii("i") then
-          o = [o;1 1];
-          ot = [ot;int32_type]; 
-          new_descr = [new_descr out_descr(k)];
-        elseif out_descr(k) == ascii("d") then
-          o = [o;1 1];
-          ot = [ot;double_type];
-          new_descr = [new_descr out_descr(k)];
-        else  
-          message("invalid output type: " + ascii2string(out_descr(k)));
-        end
+      [outtypes, errstr] = _parseInOut(outdata);
+      if isempty(errstr) == %f then
+        message("Output error " + errstr);
       end
-      
-      out_descr = new_descr;
+      i = [intypes(:, 2) ones(intypes(:,2))];
+      it = intypes(:, 1);
+      o = [outtypes(:, 2) ones(outtypes(:,2))];
+      ot = outtypes(:, 1);
       [model, graphics, ok] = set_io(model, graphics, list(i,it), list(o, ot), ci, co);
       if ~ok then
         result = 1;  
       end
-    
-      indata = ascii2string(in_descr);
-      outdata = ascii2string(out_descr);
       
       if result <> 0 then
         //** Save current valid parameters
@@ -224,11 +214,11 @@ case 'set' then //** set parameters
         if length(engine_file) == 0
           engine_file = ' ';
         end
-	smcube_filename=_getFileName(engine_file);
+	    smcube_filename=_getFileName(engine_file);
         label(1)(1) = indata;
         label(1)(2) = outdata;
         label(1)(3) = engine_file;
-	label(1)(5) = smcube_filename;
+	    label(1)(5) = smcube_filename;
         model.sim = list(funam,funtyp) ; //** computation function
         model.in  = i(:,1);
         model.in2  = i(:,2);
@@ -239,8 +229,7 @@ case 'set' then //** set parameters
         model.state = [];
         model.dstate=[] ;
         model.rpar = [];
-        model.ipar = [reserved;simmode;length(indata);ascii(indata)';length(outdata);ascii(outdata)';...
-          length(engine_file);ascii(engine_file)'];
+        model.ipar = [reserved;simmode; length(engine_file);ascii(engine_file)'];
         model.firing = -co;
         model.dep_ut = dep_ut;
         model.nzcross = 0 ;
@@ -274,8 +263,7 @@ case 'set' then //** set parameters
       model.state = [];
       model.dstate=[] ;
       model.rpar = [];
-      model.ipar = [reserved;simmode;length(indata);ascii(indata)';length(outdata);ascii(outdata)';...
-        length(engine_file);ascii(engine_file)'];
+      model.ipar = [reserved;simmode; length(engine_file);ascii(engine_file)'];
       model.firing = -co;
       model.dep_ut = dep_ut;
       model.nzcross = 0 ;
@@ -287,8 +275,8 @@ case 'set' then //** set parameters
   end
 
 case 'define' then      //** the standard define  
-  indata = "";
-  outdata = "";
+  indata = "[]";
+  outdata = "[]";
   simmode = 2;
   engine_file = ' '
   reserved = -1;
@@ -315,8 +303,7 @@ case 'define' then      //** the standard define
   model.state = [] ;
   model.dstate = [] ;
   model.rpar = [];
-  model.ipar = [reserved;simmode;length(indata);ascii(indata)';length(outdata);ascii(outdata)';...
-    length(engine_file);ascii(engine_file)'];
+  model.ipar = [reserved;simmode; length(engine_file);ascii(engine_file)'];
   model.blocktype = 'c';
   model.firing = [] ;
   model.dep_ut = [%t %f];
@@ -332,13 +319,11 @@ case 'define' then      //** the standard define
 case 'compile' then
   model = arg1;
   ipar = model.ipar;
-  il = ipar(3);
-  ol = ipar(3 + il + 1);
-  fl = ipar(3+ il + 1 + ol + 1);
+  fl = ipar(3);
   if fl == 0 then
     error("SMCube file is empty");
   else
-    pos = 3 + il + 1 + ol + 1 + 1;
+    pos = 3 + 1;
     engine_file = ascii2string(ipar(pos:pos+fl-1)');
     [info_file,ierr] = fileinfo(engine_file);
     if ierr <> 0 then
