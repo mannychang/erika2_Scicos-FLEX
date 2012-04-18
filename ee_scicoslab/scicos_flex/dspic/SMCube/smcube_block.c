@@ -160,7 +160,7 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 			background = 1;
 		}
 		/*ENGINE PATH*/
-		engine_file = get_string(block, PAR_ENGINE_FILE_BASE, ipar(PAR_ENGINE_FILE_BASE));
+		engine_file = get_string(block, PAR_ENGINE_FILE_BASE, ipar(PAR_ENGINE_FILE_LENGTH));
 		/*ENGINE FILE*/
 		engine_path = getenv(SMCUBE_ENV_PATH);
 		if (!engine_path) {
@@ -175,11 +175,19 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 			goto init_error;		
 		}
 		/*INITIALIZE INPUT DATA STRUCTURE*/
-		build_from_scicos_types(&(block->insz[2*block->nin]), block->nin, &inout_types); 
+		if (!build_from_scicos_types(&(block->insz[2*block->nin]), block->nin, &inout_types)) {
+			*engine_exists = 0;
+			Coserror("SMCube invalid input");
+			goto init_error;
+		}
 		dm_create_elem(input_data, inout_types, &(block->insz[0]), block->nin);
 		free(inout_types);
 		/*INITIALIZE OUTPUT DATA STRUCTURE*/
-		build_from_scicos_types(&(block->outsz[2*block->nin]), block->nout, &inout_types); 
+		if (!build_from_scicos_types(&(block->outsz[2*block->nout]), block->nout, &inout_types)) {
+			*engine_exists = 0;
+			Coserror("SMCube invalid output");
+			goto init_error;
+		}
 		dm_create_elem(output_data, inout_types, &(block->outsz[0]), block->nout);
 		free(inout_types);
 		/*CHECK FOR ENGINE PARAMETERS*/
