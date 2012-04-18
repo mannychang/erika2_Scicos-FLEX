@@ -55,16 +55,18 @@
 #define SNPRINTF _snprintf
 #endif
 
-#define SCICOS_INT8		5
-#define SCICOS_INT16	4
-#define SCICOS_INT32	3
-#define SCICOS_UINT8	8
-#define SCICOS_UINT16	7
-#define SCICOS_UINT32	6
-#define SCICOS_REAL		1
+#ifdef RET_OK
+#undef RET_OK
+#endif
+#ifdef RET_FAIL
+#undef RET_FAIL
+#endif
+#define RET_OK 1
+#define RET_FAIL 0
+
 
 /* Declarations */
-static void build_from_scicos_types(int* scicos_types, int size, dm_item_type** dm_types);
+static int build_from_scicos_types(int* scicos_types, int size, dm_item_type** dm_types);
 static char* int_to_string(int val);
 static char* build_channel_name(const char* base_channel_name, const char* block_index);
 static char** build_engine_parameters(const char *engine_file, int background,
@@ -79,37 +81,43 @@ static int file_exists(const char* file_name, const char* perm);
 static char* get_engine_exe(const char* path, const char* exe_name, const char* folder_sep);
 
 /* Definitions */
-void build_from_scicos_types(int* scicos_types, int size, dm_item_type** dm_types)
+int build_from_scicos_types(int* scicos_types, int size, dm_item_type** dm_types)
 {
-	int i;
-	*dm_types = (dm_item_type*) malloc(size * sizeof(dm_item_type));
-	for (i = 0; i < size; ++i) {
-		switch(scicos_types[i]) {
-			case SCICOS_INT8:
-				(*dm_types)[i] = DM_INT8;
-				break;
-			case SCICOS_INT16:
-				(*dm_types)[i] = DM_INT16;
-				break;
-			case SCICOS_INT32:
-				(*dm_types)[i] = DM_INT32;
-				break;
-			case SCICOS_UINT8:
-				(*dm_types)[i] = DM_UINT8;
-				break;
-			case SCICOS_UINT16:
-				(*dm_types)[i] = DM_UINT16;
-				break;
-			case SCICOS_UINT32:
-				(*dm_types)[i] = DM_UINT32;
-				break;
-			case SCICOS_REAL:
-				(*dm_types)[i] = DM_REAL;
-				break;
-			default:
-				break;
+	int i, res = RET_OK;
+	if (size == 0) {
+		*dm_types = NULL;
+	} else {
+		*dm_types = (dm_item_type*) malloc(size * sizeof(dm_item_type));
+		for (i = 0; i < size; ++i) {
+			switch(scicos_types[i]) {
+				case SCSINT8_N:
+					(*dm_types)[i] = DM_INT8;
+					break;
+				case SCSINT16_N:
+					(*dm_types)[i] = DM_INT16;
+					break;
+				case SCSINT32_N:
+					(*dm_types)[i] = DM_INT32;
+					break;
+				case SCSUINT8_N:
+					(*dm_types)[i] = DM_UINT8;
+					break;
+				case SCSUINT16_N:
+					(*dm_types)[i] = DM_UINT16;
+					break;
+				case SCSUINT32_N:
+					(*dm_types)[i] = DM_UINT32;
+					break;
+				case SCSREAL_N:
+					(*dm_types)[i] = DM_REAL;
+					break;
+				default:
+					res = RET_FAIL;
+					break;
+			}
 		}
 	}
+	return res;
 }
 
 char* int_to_string(int val)
