@@ -31,6 +31,14 @@ function [res] = _translateOldInOut(str)
   res = str;
   res = strsubst(res, "d", "1 1;");
   res = strsubst(res, "i", "3 1;");
+  open_par = strindex(res, "[");
+  if isempty(open_par) then
+    res = "[" + res;
+  end
+  close_par = strindex(res, "]");
+  if isempty(close_par) then
+    res = res + "]";
+  end
 endfunction
 
 function [res, err] = _parseInOut(str)
@@ -48,6 +56,21 @@ function [res, err] = _parseInOut(str)
   end
 endfunction
 
+function [filename] = _getOldBlockEngineFile(ipar)
+  filename = [];
+  il = ipar(3);
+  ol = ipar(3 + il + 1);
+  fl = ipar(3+ il + 1 + ol + 1);
+  if fl <> 0 then
+    pos = 3 + il + 1 + ol + 1 + 1;
+    engine_file = ascii2string(ipar(pos:pos+fl-1)');
+    [info_file,ierr] = fileinfo(engine_file);
+    if ierr == 0 then
+        filename = engine_file;
+    end
+  end
+endfunction
+  
 
 
 
@@ -319,18 +342,34 @@ case 'define' then      //** the standard define
 case 'compile' then
   model = arg1;
   ipar = model.ipar;
+  update_model = %f;
   fl = ipar(3);
   if fl == 0 then
-    error("SMCube file is empty");
+    engine_file_old = _getOldBlockEngineFile(ipar);
+    if isempty(engine_file_old) == %t then
+        error("SMCube file is empty");
+    else
+        engine_file = engine_file_old;
+        update_model = %t;
+    end
   else
     pos = 3 + 1;
     engine_file = ascii2string(ipar(pos:pos+fl-1)');
     [info_file,ierr] = fileinfo(engine_file);
     if ierr <> 0 then
-      error("SMCube file " + engine_file + " not found!");
+        engine_file_old = _getOldBlockEngineFile(ipar);
+        if isempty(engine_file_old) == %t then
+            error("SMCube file " + engine_file + " not found!");
+        else
+            engine_file = engine_file_old;
+            update_model = %t;
+        end
     end
   end
-  
+  if update_model == %t then
+    model.ipar = [ipar(1);ipar(2); length(engine_file);ascii(engine_file)'];
+    x = model;
+  end
   sengine_path = getenv("SMCUBEPATH","");
   if isempty(sengine_path) == %T then
     disp("Environment variable SMCUBEPATH not found!");
