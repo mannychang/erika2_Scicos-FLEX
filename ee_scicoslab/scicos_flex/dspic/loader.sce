@@ -31,7 +31,11 @@ if smcexe_err == 0
 	setenv('SMCUBEPATH', SCI + '/contrib/scicos_ee/bin');
 end
 
-
-
+//% Load OTHER blockset
+exec(DIR + '/macros/flex_blocks/OTHER/FLEX_DMB_LedsLcd.sci');
+exec(DIR + '/macros/flex_blocks/OTHER/FLEX_randm.sci');
+exec(DIR + '/macros/flex_blocks/OTHER/FLEX_step.sci');
+exec(DIR + '/macros/flex_blocks/OTHER/FLEX_square.sci');
+exec(DIR + '/macros/flex_blocks/OTHER/FLEX_sinus.sci');
 
 
