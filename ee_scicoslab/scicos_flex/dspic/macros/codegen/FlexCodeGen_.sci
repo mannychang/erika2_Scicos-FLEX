@@ -45,6 +45,7 @@ function FlexCodeGen_()
 
          //## test to know if a simulation have not been finished
          if alreadyran then
+
             Scicos_commands=['%diagram_path_objective=[];%scicos_navig=1';
                              '[alreadyran,%cpr]=do_terminate();'+...
                              '%diagram_path_objective='+sci2exp(super_path)+';%scicos_navig=1';
@@ -1418,7 +1419,6 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
   //*************************************************************************************************
   //## second pass of compilation
   cpr=c_pass2(bllst,connectmat,clkconnect,cor,corinv,"silent")
-
   if cpr==list() then
     ok=%f,
     error("Problem compiling; perhaps an algebraic loop.");
@@ -1809,7 +1809,7 @@ function [ok,XX,gui_path,flgcdgen,szclkINTemp,freof,c_atomic_code,cpr]=do_compil
 
 	[x_x_x,smcexe_err] = fileinfo(SCI + "/contrib/scicos_ee/bin/SMCube.exe");
 	if smcexe_err == 0
-		[cpr.sim.ipar, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(XX, cpr.sim.ipar, xml_list, smb_id);
+		[cpr, cor, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(XX, cpr, cor, '', xml_list, smb_id);
 	end
 
 	if smc_err ~= 0 then

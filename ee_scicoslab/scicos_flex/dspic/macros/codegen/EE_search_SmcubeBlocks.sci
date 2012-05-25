@@ -4,7 +4,7 @@
 // Author: Dario Di Stefano, Evidence Srl
 // 같같같같같같같같같같같같같같같같같같같같같같같같같같같같같같�
 
-function [cprsim_ipar, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(XX, cprsim_ipar, xml_list, smb_id)
+function [cpr, cor, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(XX, cpr, cor, sbnum, xml_list, smb_id)
 
 	smc_err = 0;
 	scsm = XX.model.rpar;
@@ -18,7 +18,7 @@ function [cprsim_ipar, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(XX, c
 			// if the block is a super-block restart...
 			if scsm.objs(i).model.sim(1)=="super" then 
 				//disp("super!!!");
-				[cprsim_ipar, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(scsm.objs(i), cprsim_ipar, xml_list, smb_id);
+				[cpr, cor, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(scsm.objs(i), cpr, cor, sbnum + '('+string(i)+')', xml_list, smb_id);
 				if smc_err ~= 0 then
 					return;
 				end
@@ -60,32 +60,12 @@ function [cprsim_ipar, xml_list, smb_id, smc_err] = EE_search_SmcubeBlocks(XX, c
 					end
 					smb_id = [smb_id; grep(xml_list, iblock_exprs(3))];
 
-					// Find the index to write the smb_id in the ipar vector 
-					// scsm.objs(i).model.ipar(1) = smb_id; // write on the local copy
-					[row_size_ipar_i, col_size_ipar_i] = size(scsm.objs(i).model.ipar);
-					[row_size_ipar, col_size_ipar] = size(cprsim_ipar);
-					for k = 1:row_size_ipar // Start the loop to find the index....
-						loop_ok = 0;
-						if cprsim_ipar(k) == scsm.objs(i).model.ipar(2) then
-							if row_size_ipar_i >= 5 				// 5 is the minimun length of ipar vector for a SMCube block
-								for w = 1:(row_size_ipar_i - 2) 	// Check if there is a part of the pre-compiled ipar that is equivalent of block ipar
-																	// In case of SMCube block it should happen. In this case we put the smb_id overwriting on cprsim_ipar(k-1)
-									if cprsim_ipar(k+w) == scsm.objs(i).model.ipar(2+w)
-										loop_ok = 1;				// Index found!
-									else
-										loop_ok = 0;				// Index wrong! trying with the next...
-										break;
-									end
-								end
-							end
-						end
-						if loop_ok == 1
-							//disp("loop_ok == 1!!!");
-							cprsim_ipar(k-1) = length(smb_id);  // write on the global copy, the pre-compiled structure of the scicos diagram ( used by make_standalonert() )
-							//disp("smb_id wrote!!!");
-							break;
-						end
-					end
+					//% Find the index to write the smb_id in the ipar vector 
+					//% i: is the block index in the diagram
+					//% cor(superblocks)(i): is the block index in the compiled structure 
+					execstr('cmp_index = cor'+sbnum+'('+string(i)+')');
+					//% write on the global copy, the pre-compiled structure of the scicos diagram ( used by make_standalonert() )
+					cpr.sim.ipar(cpr.sim.ipptr(cmp_index)) = length(smb_id);  
 				end
 			end
 		end
