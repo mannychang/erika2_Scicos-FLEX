@@ -379,7 +379,6 @@ case 'compile' then
     error("SMCube has not been installed!");
   else
       sengine_exe_name = "SMCube";
-      sengine_conf_name = "Configuration.ini";
       sengine_path = _buildPath(sengine_path);
       if MSDOS == %T then
         sengine_exe_name = sengine_exe_name + ".exe";
@@ -388,11 +387,6 @@ case 'compile' then
       [info_file,ierr] = fileinfo(sengine_binary_file);
       if ierr <> 0 then
         error("SMCube application binary file " + sengine_binary_file + " not found!");
-      end
-      sengine_conf_file = sengine_path + sengine_conf_name;
-      [info_file,ierr] = fileinfo(sengine_conf_file);
-      if ierr <> 0 then
-        error("Cannot open the configuration file.");
       end
   end 
   
