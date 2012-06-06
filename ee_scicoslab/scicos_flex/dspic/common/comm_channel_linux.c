@@ -382,17 +382,13 @@ int read_from_channel(struct comm_channel *channel, char *data, int max_size)
 
 int read_from_channel_size(struct comm_channel *channel, int size, char *data, int max_size)
 {
-	int read;
-	int to_read = (size>max_size?max_size:size);
-	if (size > channel->in_buff_size_ || size > max_size)
-	{
-		clean_error(channel);
-		return -1;
-	}
+	int read = 0;
+	int real_size = (size>max_size?max_size:size);
+	int to_read = real_size;
 	do
 	{
 		read = recv(channel->handle_,
-		       (char*)data + size - to_read, to_read, 0);
+			   (char*)data + real_size - to_read, to_read, 0);
 		if (read == 0)
 		{
 			return -1; /*the peer has performed an orderly shutdown, quit*/
