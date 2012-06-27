@@ -709,75 +709,85 @@ else
   cd(MYDIR+'scicos_ee\user\ScicosLab\4.4.1'); // 4.4.1
 end
 
-[x,ierr]=fileinfo(SCIHOME+'\.scilab');
-if ierr==0
-	waitbar("                                                        " + "\n" + ..
-			"               # Installation Warning #                 " + "\n" + ..
-			"    The installation should modify the .scilab script   " + "\n" + ..
-			"         Please, if the .scilab file is open,           " + "\n" + ..
-			"             close it before proceeding...              " + "\n" + ..
-			"                                                        ", winId_wait);
-	EE_debug_printf('  #warning: Please, if the .scilab file is open, close it before proceeding...', fd_log);
-	if exists('INSTALLER_BATCH_MODE')==0 & exists('answ_dot_scilab')==0
-		answ_dot_scilab = buttondialog("The installation should modify the .scilab script (Yes: to continue, No: to abort)","yes|no","question");
-		answ_dot_scilab_up = 1;
+if exists('INSTALLER_BATCH_MODE')==1
+	//% batch installer write in the .scilab
+	[x,ierr]=fileinfo(SCIHOME+'\.scilab');
+	if ierr==0
+		waitbar("                                                        " + "\n" + ..
+				"               # Installation Warning #                 " + "\n" + ..
+				"    The installation should modify the .scilab script   " + "\n" + ..
+				"         Please, if the .scilab file is open,           " + "\n" + ..
+				"             close it before proceeding...              " + "\n" + ..
+				"                                                        ", winId_wait);
+		EE_debug_printf('  #warning: Please, if the .scilab file is open, close it before proceeding...', fd_log);
+		if exists('answ_dot_scilab')==0
+				answ_dot_scilab = '1'; // allow changes in .scilab by default...
+		end
+		// EE_debug_printf('  #warning: .scilab file found!', fd_log);
+		txt=mgetl(SCIHOME+'\.scilab');
 	else
+		// EE_debug_printf('  #warning: .scilab file not found!. The file will be created.', fd_log);
+		txt=[];
 		if exists('answ_dot_scilab')==0
 			answ_dot_scilab = '1'; // allow changes in .scilab by default...
 		end
 	end
-	// EE_debug_printf('  #warning: .scilab file found!', fd_log);
-	txt=mgetl(SCIHOME+'\.scilab');
-else
-	// EE_debug_printf('  #warning: .scilab file not found!. The file will be created.', fd_log);
-	txt=[];
-	if exists('answ_dot_scilab')==0
-		answ_dot_scilab = '1'; // allow changes in .scilab by default...
-	end
-end
 
-if answ_dot_scilab=='1'
-	res = grep(txt,'### Scicos EE ###');
-	if res ~= [] // the string was found...
-		// UNINSTALLER: .scilab will be cleaned
-		// EE_debug_printf('  #warning: .scilab should be cleaned!', 0);
-		res_begin = grep(txt,'### Scicos EE ###');
-		res_end = grep(txt,'### Scicos EE - end ###');
-		if res_end==[]
-			waitbar("                                                        " + "\n" + ..
-					"                # Installation Error #                  " + "\n" + ..
-					"              .scilab file is corrupted!                " + "\n" + ..
-					"       Please, delete the .scilab file and retry...     " + "\n" + ..
-					"                Installation aborted!                   " + "\n" + ..
-					"                                                        ", winId_wait);
-			EE_debug_printf('  #error: .scilab file is corrupted!', fd_log);
-			EE_debug_printf('  Installation aborted!', fd_log);
-			EE_debug_printf('### END ###', fd_log);
-			mclose(fd_log);
-			cd(home); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
-		else
-			// EE_debug_printf('  #warning: .scilab was successfully restored!', 0);
-			res = size(txt);
-			new_txt = [txt(1:res_begin-1);txt(res_end+1:res(1))];
-			mputl(new_txt, SCIHOME+'\.scilab');
+	if answ_dot_scilab=='1'
+		res = grep(txt,'### Scicos EE ###');
+		if res ~= [] // the string was found...
+			// UNINSTALLER: .scilab will be cleaned
+			// EE_debug_printf('  #warning: .scilab should be cleaned!', 0);
+			res_begin = grep(txt,'### Scicos EE ###');
+			res_end = grep(txt,'### Scicos EE - end ###');
+			if res_end==[]
+				waitbar("                                                        " + "\n" + ..
+						"                # Installation Error #                  " + "\n" + ..
+						"              .scilab file is corrupted!                " + "\n" + ..
+						"       Please, delete the .scilab file and retry...     " + "\n" + ..
+						"                Installation aborted!                   " + "\n" + ..
+						"                                                        ", winId_wait);
+				EE_debug_printf('  #error: .scilab file is corrupted!', fd_log);
+				EE_debug_printf('  Installation aborted!', fd_log);
+				EE_debug_printf('### END ###', fd_log);
+				mclose(fd_log);
+				cd(home); exec(MYDIR+'scicos_ee\utils\clear_inst_vars.sce'); return;
+			else
+				// EE_debug_printf('  #warning: .scilab was successfully restored!', 0);
+				res = size(txt);
+				new_txt = [txt(1:res_begin-1);txt(res_end+1:res(1))];
+				mputl(new_txt, SCIHOME+'\.scilab');
+			end
 		end
-	end
 
-	[fd,err]=mopen(SCIHOME+'\.scilab', 'a');
-	txt=mgetl('.scilab');
-	res = size(txt);
-	mfprintf(fd,"\n");
-	mfprintf(fd,"\n");
-	mfprintf(fd,"// ### Scicos EE ###\n");
-	mfprintf(fd,"\n");
-	for i=1:res(1),
-	  mfprintf(fd,"%s\n",txt(i));
+		[fd,err]=mopen(SCIHOME+'\.scilab', 'a');
+		txt=mgetl('.scilab');
+		res = size(txt);
+		mfprintf(fd,"\n");
+		mfprintf(fd,"\n");
+		mfprintf(fd,"// ### Scicos EE ###\n");
+		mfprintf(fd,"\n");
+		for i=1:res(1),
+		  mfprintf(fd,"%s\n",txt(i));
+		end
+		mfprintf(fd,"\n");
+		mfprintf(fd,"// ### Scicos EE - end ###\n");
+		mfprintf(fd,"\n");
+		mclose(fd);
+		mputl(txt, SCIDIR+"\contrib\scicos_ee\loader.sce");
 	end
-	mfprintf(fd,"\n");
-	mfprintf(fd,"// ### Scicos EE - end ###\n");
-	mfprintf(fd,"\n");
-	mclose(fd);
+else
+	//% not in batch installer mode
+	//% Now, loader.sce is created to enable toolbox support.
+	mputl(mgetl('.scilab'), SCIDIR+"\contrib\scicos_ee\loader.sce");
 end
+
+//% Now, builder.sce is created to enable toolbox support.
+txt = ['mode(-1);';
+       'DIR = get_absolute_file_path(''builder.sce'');';
+       'exec(DIR + ''utils\palette_builder.sce'');';
+       'clear DIR;'];
+mputl(txt, SCIDIR+"\contrib\scicos_ee\builder.sce"); 
 
 // 95%
 waitbar(0.95, winId_wait);
