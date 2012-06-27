@@ -20,10 +20,7 @@
  * Boston, MA 02110-1301 USA.
  */
 
-//#include "stdafx.h"
-#include <stdlib.h> /* for rand()*/
-
-#include "flexsim.h"
+#include "miscsim.h"
 
 // Types: Use "float" and not "double". 
 // This improves the accuracy of the simulation.
@@ -35,23 +32,14 @@ static void init(scicos_block *block)
 
 static void inout(scicos_block *block)
 {
-  float t = (float)get_scicos_time();
-  float v;
+  float t =         (float)get_scicos_time();
+  float delay =     (float)rpar(1);
   float amplitude = (float)rpar(0);
-  float period =    (float)rpar(1);
-  float impulse_width = (float)rpar(2);
-  float bias =      (float)rpar(3);
-  float delay =     (float)rpar(4);
 
-  if (t < delay) output(0,0) = 0.0;
-  else {
-    v = (t - delay)/period;
-    v = (v - (int) v) * period;
-    if(v < impulse_width)  
-		output(0,0) = bias + amplitude;
-    else                   
-		output(0,0) = bias;
-  }
+  if ( t < delay )
+	  output(0,0) = 0.0;
+  else
+	  output(0,0) = amplitude;
 }
 
 static void end(scicos_block *block)
@@ -59,9 +47,7 @@ static void end(scicos_block *block)
   output(0,0) = 0.0;
 }
 
-
-
-FLEXSIM_LIB_API void rt_square(scicos_block *block,int flag)
+EXPORT_SHARED_LIB void rt_step(scicos_block *block,int flag)
 {
   if (flag==OutputUpdate){
     /* set output */

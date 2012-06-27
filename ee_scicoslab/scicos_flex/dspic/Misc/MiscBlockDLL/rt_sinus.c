@@ -20,28 +20,33 @@
  * Boston, MA 02110-1301 USA.
  */
 
-//#include "stdafx.h"
-#include <stdlib.h> /* for rand()*/
-
-#include "flexsim.h"
+#include "miscsim.h"
+#include <math.h>
 
 // Types: Use "float" and not "double". 
 // This improves the accuracy of the simulation.
 
 static void init(scicos_block *block)
 {
-  float seed = (float)rpar(1)  ;
-
-  srand ( (int)seed ); // randomize the generator
   output(0,0) = 0.0;
 }
 
 static void inout(scicos_block *block)
 {
-  float amplitude = (float)rpar(0); 
+  float w, pi = (float)3.1415927;
+  float t = (float)get_scicos_time();
+  float amplitude = (float)rpar(0);
+  float frequency = (float)rpar(1);
+  float phase =     (float)rpar(2);
+  float bias =      (float)rpar(3);
+  float delay =     (float)rpar(4);
 
-  //** one random integer [0 RAND_MAX]
-  output(0,0) = amplitude * ( (float)rand() / (float)RAND_MAX  ) ; 
+   if (t < delay) 
+		output(0,0) = 0.0;
+   else {
+		w = (float)fmod(2*pi*frequency*(t - delay) - phase,(2*pi));
+		output(0,0) = amplitude * sin(w) + bias;
+   }
 }
 
 static void end(scicos_block *block)
@@ -50,9 +55,8 @@ static void end(scicos_block *block)
 }
 
 
-//** This block produce a pseudo random output 
 
-FLEXSIM_LIB_API void rt_randm(scicos_block *block,int flag)
+EXPORT_SHARED_LIB void rt_sinus(scicos_block *block,int flag)
 {
   if (flag==OutputUpdate){
     /* set output */

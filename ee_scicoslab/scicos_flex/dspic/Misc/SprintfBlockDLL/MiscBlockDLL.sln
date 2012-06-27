@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SprintfBlockDLL", "SprintfBlockDLL.vcproj", "{08529516-015D-472B-A5A9-F1A74BB17241}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SprintfBlockDLL", "MiscBlockDLL.vcproj", "{08529516-015D-472B-A5A9-F1A74BB17241}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

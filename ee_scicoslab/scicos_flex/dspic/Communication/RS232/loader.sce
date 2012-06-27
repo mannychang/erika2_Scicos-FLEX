@@ -8,6 +8,5 @@ rs232_dll_mode = 'Release';
 
 rs232_link_num = link(rs232_receiver_path + rs232_dll_mode + '\libFlexRS232Comms.dll',['rs232_config','rs232_receiver','rs232_sender'],'c');
 // remove temp. variables on stack
-clear rs232_receiver_path;
-clear get_file_path;
+clear rs232_receiver_path rs232_dll_mode;
 // ------------------------------------------------------

@@ -20,16 +20,12 @@
  * Boston, MA 02110-1301 USA.
  */
 
-#include <scicos/scicos_block4.h>
+#include "../MiscBlockDLL/miscsim.h"
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
 
-#ifdef _WIN32
-	#define EXPORT_SHARED_LIB __declspec(dllexport)
-#else
-	#define EXPORT_SHARED_LIB
-#endif
+
 
 #define IPAR_N_ARGUMENTS 0
 #define IPAR_SIZES 1

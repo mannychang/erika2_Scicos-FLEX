@@ -2,3 +2,4 @@
 // ------------------------------------------------------
 smcube_block_path=get_absolute_file_path('win_loader.sce');
 libsmcube_link_num = link(smcube_block_path+'release/libsmcube_block.dll',['smcube_block'],'c');
+clear smcube_block_path;

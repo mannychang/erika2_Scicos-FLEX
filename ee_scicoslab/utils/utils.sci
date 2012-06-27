@@ -2,19 +2,19 @@
 // ScicosLab pack functions
 //###################################
 
-function res = EE_debug_printf(msg, on_off)
-// This function prints a message only if on_off > 0.
+function EE_debug_printf(msg, flag)
+//% This function prints a message only if flag > 0.
 
 [lhs , rhs] = argn(0);
-if rhs == 1
-  on_off = 0;
+if (rhs == 1)
+  flag = 0;
 end
-disp(msg);
-if on_off > 0
-    mfprintf(on_off, msg);
-	mfprintf(on_off, "\n");
+if (flag > 0)
+    mfprintf(flag, msg);
+    mfprintf(flag, "\n");
+elseif (flag==0)
+    disp(msg)
 end
-res = on_off;
 
 
 

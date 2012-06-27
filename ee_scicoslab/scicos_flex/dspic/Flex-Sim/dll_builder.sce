@@ -8,3 +8,5 @@ VC_BUILD_PERSPECTIVE = 'release ';
 
 cmd = VC_BUILD_EXE + VC_BUILD_OPT + VC_BUILD_PROJ + VC_BUILD_PERSPECTIVE;
 unix( cmd );
+
+clear cmd;

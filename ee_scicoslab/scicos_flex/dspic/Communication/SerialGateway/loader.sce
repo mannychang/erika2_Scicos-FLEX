@@ -10,3 +10,5 @@ comp_fun   = ['serial_gateway_block'];
 
 // Link to import the selected modules of the library
 serial_gateway_link_num = link(serial_gateway_lib_path + 'Release\lib_serial_gateway.dll', comp_fun, 'c');
+
+clear serial_gateway_lib_path comp_fun;
