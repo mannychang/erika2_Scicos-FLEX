@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\$(ConfigurationName)"
+			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="0"
@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\..\..\..\routines"
+				AdditionalIncludeDirectories="..\..\..\..\..\routines"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SPRINTFBLOCKDLL_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="LibScilab.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\..\..\..\..\bin"
+				AdditionalLibraryDirectories="..\..\..\..\..\bin"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -92,7 +92,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\$(ConfigurationName)"
+			OutputDirectory="$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
 			CharacterSet="0"
@@ -117,7 +117,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\..\..\..\..\..\routines"
+				AdditionalIncludeDirectories="..\..\..\..\..\routines"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;SPRINTFBLOCKDLL_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -138,7 +138,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="LibScilab.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="..\..\..\..\..\..\bin"
+				AdditionalLibraryDirectories="..\..\..\..\..\bin"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -177,23 +177,23 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\MiscBlockDLL\rt_randm.c"
+				RelativePath=".\MiscBlockDLL\rt_randm.c"
 				>
 			</File>
 			<File
-				RelativePath="..\MiscBlockDLL\rt_sinus.c"
+				RelativePath=".\MiscBlockDLL\rt_sinus.c"
 				>
 			</File>
 			<File
-				RelativePath="..\MiscBlockDLL\rt_square.c"
+				RelativePath=".\MiscBlockDLL\rt_square.c"
 				>
 			</File>
 			<File
-				RelativePath="..\MiscBlockDLL\rt_step.c"
+				RelativePath=".\MiscBlockDLL\rt_step.c"
 				>
 			</File>
 			<File
-				RelativePath=".\sprintf_block.c"
+				RelativePath=".\SprintfBlockDLL\sprintf_block.c"
 				>
 			</File>
 		</Filter>
@@ -203,7 +203,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\MiscBlockDLL\miscsim.h"
+				RelativePath=".\MiscBlockDLL\miscsim.h"
 				>
 			</File>
 		</Filter>
