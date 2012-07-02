@@ -33,6 +33,7 @@
 typedef enum {
 	spf_parameter_type_int = 3,
 	spf_parameter_type_unsigned = 6,
+	spf_parameter_type_int8 = 5,
 	spf_parameter_type_double = 1,
 	spf_parameter_type_string = -1
 }spf_parameter_type;
@@ -48,6 +49,9 @@ static void spf_generic(char* dst, int size, const char* fmt, void* param,
 			break;
 		case spf_parameter_type_unsigned:
 			n = _snprintf(dst, size, fmt, *(unsigned*)param);
+			break;
+		case spf_parameter_type_int8:
+			n = _snprintf(dst, size, fmt, *(char*)param);
 			break;
 		case spf_parameter_type_double:
 			n = _snprintf(dst, size, fmt, *(double*)param);
@@ -94,7 +98,7 @@ static void initialize(scicos_block* block)
 static void update(scicos_block* block)
 {
 	char* dst = Getint8OutPortPtrs(block, 1);
-	int size = GetOutPortSize(block,1,2);
+	int size = GetOutPortSize(block,1,1) * GetOutPortSize(block,1,2);
 	int arguments = (GetIparPtrs(block))[IPAR_N_ARGUMENTS];
 	const char** fmts = (const char**)block->oparptr;
 	void** params = block->inptr;

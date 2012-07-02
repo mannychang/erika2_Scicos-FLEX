@@ -8,4 +8,5 @@ comp_fun = ['rt_sinus',..
             'rt_randm',..
             'sprintf_block'];
 libsprintf_link_num = link(misc_load_path + 'Release/MiscBlockDll.dll',comp_fun,'c');
+//%libsprintf_link_num = link(misc_load_path + 'Debug/MiscBlockDll.dll',comp_fun,'c');
 clear comp_fun misc_load_path;
