@@ -130,12 +130,12 @@ case 'set' then //** set parameters
         """%[flags][width][.precision][length]specifier"" this implementation:";
         "    - Does not support the [length] sub-specifier";
         "    - Supports only the following specifiers: d(int32), u(uint32), f(real), c(int8)";
-        "The output is an int8 vector representing the ASCII codes of the whole string"];
+        "The output is an int8 row/column vector representing the ASCII codes of the whole string"];
     [ok, fmts, sizes, outsize] = getvalue(dialog_box_banner,...
       ['Formats (must be list(""fmt1"", ""fmt2"", ...) and each ""fmt"" supports up to one parameter)';...
         'Sizes (The length of each ""fmt"" not including the null-terminator)';...
         'Output size (Max '+sci2exp(_spf_get_max_out_size())+' including the null-terminator)'],...
-      list('lis',-1,'vec',-1,'vec',1), [sfmts; ssizes; soutsize]);
+      list('lis',-1,'vec',-1,'row',-1), [sfmts; ssizes; soutsize]);
     if ~ok then break, end //** in case of error
     
     opar=list();
@@ -143,9 +143,20 @@ case 'set' then //** set parameters
        str = fmts(i);
        opar = lstcat(opar, int8([ascii(str) 0]));
     end
+    // Check outsize
+    if(length(outsize)==1)
+      outsize = [1 outsize];
+      message('SPRINTF block: For compatibility with old GUI, output array is a row vector if only one dimension is specified.');
+    elseif(length(outsize)>2)
+      message('SPRINTF block: Bad size for the output vector!');
+      break;
+    elseif(outsize(1)*outsize(2) > outsize(1) & outsize(1)*outsize(2) > outsize(2))
+      message('SPRINTF block: Bad size for the output array! It should be a vector!');
+      break;
+    end
     //parse formats to find out the inputs types
     [valid, errstr, intypes] = _spf_get_types(fmts);   
-    if valid == %F | outsize > _spf_get_max_out_size() then 
+    if valid == %F | outsize(1)*outsize(2) > _spf_get_max_out_size() then 
         model.opar = opar;
         s = size(sizes);
         if s(1) < s(2) then
@@ -174,7 +185,7 @@ case 'set' then //** set parameters
       end
     end
   
-    o = [1 outsize];
+    o = outsize;
     ot = 8; //uint8
   
     ng = [];
