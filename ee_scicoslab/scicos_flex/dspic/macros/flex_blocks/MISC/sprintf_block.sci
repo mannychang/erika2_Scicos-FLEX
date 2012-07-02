@@ -111,7 +111,7 @@ case 'set' then //** set parameters
   model    = arg1.model;
   graphics = arg1.graphics;
   label    = graphics.exprs;
-  outsize = model.out2;
+  outsize = [model.out model.out2];
   sizes = model.ipar(2:1:2+model.ipar(1)-1);
   lfmts = list();
   for i=1:length(model.opar)
