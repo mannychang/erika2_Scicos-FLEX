@@ -119,6 +119,9 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 	char* sblock_index = 0;
 	char** parameters;
 	int nparameters;
+	int smcube_init_res;
+	int smcube_input_size;
+	int smcube_output_size;
 	switch (flag) {
  	/* Init */
 	case 4:{
@@ -232,6 +235,29 @@ void EXPORT_SHARED_LIB smcube_block(scicos_block *block,int flag)
 			Coserror("Channel wait for connection failed: %d." ,
 				channel->last_error_code_);
 			goto init_error;
+		}
+		smcube_init_res = get_smcube_init_result(channel, &smcube_input_size, &smcube_output_size);
+		if (smcube_init_res < 0) { /* Channel Error */
+			Coserror("Read from channel failed: %d.", channel->last_error_code_);
+			*engine_exists = 0;
+			goto init_error;
+		} else if (smcube_init_res > 0) { /* SMCube Error */
+			*engine_exists = 0;
+			Coserror("%s. Please, open the SMCube editor and GENERATE to find the error.", 
+				get_smcube_error_code_string(smcube_init_res));
+			goto init_error;	
+		} else { /* if (smcube_init_res == 0) */
+			if (smcube_input_size != input_data->data_size) { /* Input size mismatch */
+				*engine_exists = 0;
+				Coserror("Input size mismatch (block size is %d bytes while SMCube size is %d bytes)",  
+					input_data->data_size, smcube_input_size);
+				goto init_error;
+			} else if (smcube_output_size != output_data->data_size) { /* Output size mismatch */
+				*engine_exists = 0;
+				Coserror("Output size mismatch (block size is %d bytes while SMCube size is %d bytes)",  
+					output_data->data_size, smcube_output_size);
+				goto init_error;
+			}
 		}
 		free(engine_exe);
 		free(engine_file);
