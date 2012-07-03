@@ -47,27 +47,6 @@
 #include "scicos/scicos_block4.h"
 
 #include "../common/data_model.h"
-#include "../common/comm_channel.h"
-
-#pragma pack(push, 1)
-struct smcube_data_model_msg {
-	int input_size;
-	int output_size;
-};
-#pragma pack(pop)
-
-#define SMCUBE_ERRORS_CODE_STR_SIZE (7)
-
-static const char* smcube_errors_code_str[] = {
-	"", /* NO ERROR */
-	"Unknown error",
-	"Invalid arguments",
-	"File error",
-	"Generation code error",
-	"Build code error",
-	"Load library error",
-	"Invalid error code"
-};
 
 #define SNPRINTF snprintf
 
@@ -100,8 +79,6 @@ static char* get_string(scicos_block* block, int base, int length);
 static char* trim_string(const char* str);
 static int file_exists(const char* file_name, const char* perm);
 static char* get_engine_exe(const char* path, const char* exe_name, const char* folder_sep);
-static int get_smcube_init_result(comm_channel* channel, int* input_size, int* output_size);
-static const char* get_smcube_error_code_string(int error_code);
 
 /* Definitions */
 int build_from_scicos_types(int* scicos_types, int size, dm_item_type** dm_types)
@@ -300,32 +277,6 @@ char* get_engine_exe(const char* path, const char* exe_name, const char* folder_
 	}
 	return res;
 }
-/*result: 
-	- < 0: channel error
-	- 0 : OK
-	- > 0: smcube error, the result is the code error, just 1 (Unknown error) right now.
-*/
-int get_smcube_init_result(comm_channel* channel, int* input_size, int* output_size)
-{
-	struct smcube_data_model_msg dm_msg;
-	int init_res;
-	int ret = -1;
-	if (read_from_channel_size(channel, sizeof(init_res), (char*)&init_res, sizeof(init_res)) != -1) {
-		if (read_from_channel_size(channel, sizeof(dm_msg), (char*)&dm_msg, sizeof(dm_msg)) != -1) {
-			ret = init_res;
-			*input_size = dm_msg.input_size;
-			*output_size = dm_msg.output_size;
-		}
-	}
-	return ret;
-}
 
-const char* get_smcube_error_code_string(int error_code)
-{
-	if (error_code >= 0 && error_code < SMCUBE_ERRORS_CODE_STR_SIZE) {
-		return smcube_errors_code_str[error_code];
-	}
-	return smcube_errors_code_str[SMCUBE_ERRORS_CODE_STR_SIZE];
-}
 
 #endif
