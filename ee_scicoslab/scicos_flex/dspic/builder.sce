@@ -14,6 +14,8 @@ libname_fb_misc='fb_misc'
 libname_easylab='easylab'
 libname_gif_icons = 'gif_icons'
 libname_cg_sources = 'cg_sources'
+libname_fb_isim = 'fb_isim'
+
 
 //** It is a better function to recover the absolute path information 
 DIR = get_absolute_file_path('builder.sce')
@@ -41,6 +43,7 @@ genlib(libname_fb_misc,FB_MACROS+'MISC/')
 genlib(libname_easylab,FB_MACROS+'EASYLAB/')
 genlib(libname_gif_icons,MACROS+'man/')
 genlib(libname_cg_sources,FB_MACROS+'CG-Sources/')
+genlib(libname_cg_sources,FB_MACROS+'FLEX-iSim/')
 
 // Flex Demo Board simulation (QT executable)
 [x_x_x,dmbexe_err] = fileinfo(SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');

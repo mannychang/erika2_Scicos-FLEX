@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Flex-Sim</ProjectName>
+    <ProjectGuid>{D010109B-1C97-4308-9E11-71544C44FAE8}</ProjectGuid>
+    <RootNamespace>FlexBlocksDLL</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SCI)\routines\scicos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;FLEXSIM_LIB_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>LibScilab.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)libflexsim.dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SCI)\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)libflexsim.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(SCI)\routines\scicos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;FLEXSIM_LIB_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>LibScilab.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)libflexsim.dll</OutputFile>
+      <AdditionalLibraryDirectories>$(SCI)\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)libflexsim.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="amazing_button.c" />
+    <ClCompile Include="amazing_pwm.c" />
+    <ClCompile Include="amazing_reset.c" />
+    <ClCompile Include="amazing_touch.c" />
+    <ClCompile Include="amazing_tuner.c" />
+    <ClCompile Include="easylab_adc.c" />
+    <ClCompile Include="easylab_buzzer.c" />
+    <ClCompile Include="easylab_gpin.c" />
+    <ClCompile Include="easylab_gpout.c" />
+    <ClCompile Include="easylab_leds.c" />
+    <ClCompile Include="easylab_pwm.c" />
+    <ClCompile Include="easylab_serial_receive.c" />
+    <ClCompile Include="easylab_serial_send.c" />
+    <ClCompile Include="easylab_sys_led.c" />
+    <ClCompile Include="flex_adcin.c" />
+    <ClCompile Include="flex_can_config.c" />
+    <ClCompile Include="flex_can_in.c" />
+    <ClCompile Include="flex_can_out.c" />
+    <ClCompile Include="flex_daughter_acc.c" />
+    <ClCompile Include="flex_daughter_adc.c" />
+    <ClCompile Include="flex_daughter_button.c" />
+    <ClCompile Include="flex_daughter_buzzer.c" />
+    <ClCompile Include="flex_daughter_dac.c" />
+    <ClCompile Include="flex_daughter_dcm_pwm.c" />
+    <ClCompile Include="flex_daughter_encoder.c" />
+    <ClCompile Include="flex_daughter_gpin.c" />
+    <ClCompile Include="flex_daughter_gpout.c" />
+    <ClCompile Include="flex_daughter_lcd.c" />
+    <ClCompile Include="flex_daughter_ldr.c" />
+    <ClCompile Include="flex_daughter_leds.c" />
+    <ClCompile Include="flex_daughter_leds_barrier.c" />
+    <ClCompile Include="flex_daughter_pwm.c" />
+    <ClCompile Include="flex_daughter_switch.c" />
+    <ClCompile Include="flex_daughter_therm.c" />
+    <ClCompile Include="flex_daughter_touch.c" />
+    <ClCompile Include="flex_daughter_trimmer.c" />
+    <ClCompile Include="flex_gpin.c" />
+    <ClCompile Include="flex_gpout.c" />
+    <ClCompile Include="flex_lcd.c" />
+    <ClCompile Include="flex_led.c" />
+    <ClCompile Include="flex_serial_config.c" />
+    <ClCompile Include="flex_serial_receive.c" />
+    <ClCompile Include="flex_serial_send.c" />
+    <ClCompile Include="flex_simple802154_coordinator_config.c" />
+    <ClCompile Include="flex_simple802154_device_config.c" />
+    <ClCompile Include="flex_simple802154_receive.c" />
+    <ClCompile Include="flex_simple802154_send.c" />
+    <ClCompile Include="flex_udp_config.c" />
+    <ClCompile Include="flex_udp_receive.c" />
+    <ClCompile Include="flex_udp_send.c" />
+    <ClCompile Include="flex_usb_receive.c" />
+    <ClCompile Include="flex_usb_send.c" />
+    <ClCompile Include="flexsim.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="flexsim.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

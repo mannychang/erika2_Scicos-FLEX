@@ -28,8 +28,7 @@ comp_fun =[comp_fun,..
             'flex_daughter_leds',..
             'flex_daughter_pwm',..
             'flex_daughter_therm',..
-            'flex_daughter_trimmer',..
-            'flex_blocks'];
+            'flex_daughter_trimmer'];
 
 // Flex-MTB
 // 'flex_daughter_button', 'flex_daughter_encoder', 'flex_daughter_leds', 'flex_daughter_pwm' -> see DMB
@@ -79,11 +78,6 @@ comp_fun =[comp_fun,..
             'amazing_tuner'];
 
 // Link to import the selected modules of the library
-// Flex Demo Board simulation (QT executable)
-if (execstr('getenv(''FLEXPATH'')','errcatch') == 0)
-	flexsim_link_num = link(flexsim_path + 'Release\libflexsim.dll', comp_fun, 'c');
-else
-	flexsim_link_num = link(flexsim_path + 'Release_fake\libflexsim.dll', comp_fun, 'c');
-end
+flexsim_link_num = link(flexsim_path + 'release\libflexsim.dll', comp_fun, 'c');
 
-clear flexsim_path comp_fun x_x_x dmbexe_err;
+clear flexsim_path comp_fun;

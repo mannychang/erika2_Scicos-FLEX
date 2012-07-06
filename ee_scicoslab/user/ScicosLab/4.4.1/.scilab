@@ -70,7 +70,8 @@ if isdir(EESCI_DSPIC_PATH) == %T
 
 		//** Load the FLEX shared library of computational functions for SIMULATION 
 		exec(EESCI_DSPIC_PATH + "/Flex-Sim/loader.sce"); 
-
+		exec(EESCI_DSPIC_PATH + "/Flex-iSim/loader.sce");
+		
 		//** Load the shared library of computational functions for Native Integer Support 
 		exec(EESCI_DSPIC_PATH + "/NativeInteger/loader.sce"); 
 
