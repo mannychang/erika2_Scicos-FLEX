@@ -65,6 +65,7 @@ if isdir(EESCI_DSPIC_PATH) == %T
 	scicos_pal($+1,:)=['Easylab',PALETTE_DIR + 'EASYLAB.cosf'];
 	scicos_pal($+1,:)=['Miscellaneous',PALETTE_DIR + 'MISC.cosf'];
 	scicos_pal($+1,:)=['SMCube',PALETTE_DIR + 'SMCube.cosf'];
+	scicos_pal($+1,:)=['FLEX-iSim',PALETTE_DIR + 'FLEX-iSim.cosf'];
 
 	if MSDOS then
 

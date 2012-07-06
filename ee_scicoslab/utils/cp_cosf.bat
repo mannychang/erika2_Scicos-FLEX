@@ -10,4 +10,5 @@ xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\EASYLAB\EASYLAB.
 xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\MISC\MISC.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
 xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\CG-Sources\CG-Sources.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
 xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\SMCube\SMCube.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
+xcopy %1\contrib\scicos_ee\scicos_flex\dspic\macros\flex_blocks\FLEX-iSim\FLEX-iSim.cosf %1\contrib\scicos_ee\scicos_flex\dspic\macros\palettes /s /e /y /i
 exit
