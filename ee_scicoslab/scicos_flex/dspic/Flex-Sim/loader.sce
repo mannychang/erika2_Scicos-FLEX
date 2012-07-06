@@ -80,8 +80,7 @@ comp_fun =[comp_fun,..
 
 // Link to import the selected modules of the library
 // Flex Demo Board simulation (QT executable)
-[x_x_x,dmbexe_err] = fileinfo(SCI + '/contrib/scicos_ee/bin/FlexDemoBoard.exe');
-if dmbexe_err == 0
+if (execstr('getenv(''FLEXPATH'')','errcatch') == 0)
 	flexsim_link_num = link(flexsim_path + 'Release\libflexsim.dll', comp_fun, 'c');
 else
 	flexsim_link_num = link(flexsim_path + 'Release_fake\libflexsim.dll', comp_fun, 'c');
