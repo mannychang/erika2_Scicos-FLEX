@@ -774,20 +774,8 @@ if exists('INSTALLER_BATCH_MODE')==1
 		mfprintf(fd,"// ### Scicos EE - end ###\n");
 		mfprintf(fd,"\n");
 		mclose(fd);
-		mputl(txt, SCIDIR+"\contrib\scicos_ee\loader.sce");
 	end
-else
-	//% not in batch installer mode
-	//% Now, loader.sce is created to enable toolbox support.
-	mputl(mgetl('.scilab'), SCIDIR+"\contrib\scicos_ee\loader.sce");
 end
-
-//% Now, builder.sce is created to enable toolbox support.
-txt = ['mode(-1);';
-       'DIR = get_absolute_file_path(''builder.sce'');';
-       'exec(DIR + ''utils\palette_builder.sce'');';
-       'clear DIR;'];
-mputl(txt, SCIDIR+"\contrib\scicos_ee\builder.sce"); 
 
 // 95%
 waitbar(0.95, winId_wait);

@@ -1,4 +1,8 @@
 mode(-1);
+
+//% Set environment variable for CG version
+setenv('CGTOOL_VERSION','v12.0');
+
 // specific part
 libname='dspic' // name of scilab function library [CUSTOM]
 DIR = get_absolute_file_path('loader.sce');

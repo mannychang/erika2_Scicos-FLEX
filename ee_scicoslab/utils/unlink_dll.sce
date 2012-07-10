@@ -8,31 +8,134 @@
 // ***********************************************************
 
 // This script is used to unlink DLLs
+unlink_err = 0;
 
-if exists('roller_link_num')
-	ulink(roller_link_num);
+//% SMCUBE unlinking
+bfunc = 'smcube_block';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('flexsim_link_num')
-	ulink(flexsim_link_num);
+
+//% Sources unlinking
+bfunc = 'rt_sinus';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('nativeinteger_link_num')
-	ulink(nativeinteger_link_num);
+
+//% GW unlinking
+bfunc = 'serial_gateway_block';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('udp_link_num')
-	ulink(udp_link_num);
+
+//% RS232 unlinking
+bfunc = 'rs232_config';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('mcp2200_link_num')
-	ulink(mcp2200_link_num);
+
+//% MCP2200 unlinking
+bfunc = 'mcp2200_block';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('serial_gateway_link_num')
-	ulink(serial_gateway_link_num);
+
+//% Rollers GUI unlinking
+bfunc = 'EvidenceRollers';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('rs232_link_num')
-	ulink(rs232_link_num);
+
+//% UDP unlinking
+bfunc = 'udp_config';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('libsmcube_link_num')
-	ulink(libsmcube_link_num);
+
+//% Native integer unlinking
+bfunc = 'nat_gainblk_i32n';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
-if exists('libsprintf_link_num')
-	ulink(libsprintf_link_num);
+
+//% iSIm unlinking
+bfunc = 'flex_blocks';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
+end
+
+//% Flex SIm unlinking
+bfunc = 'flex_adcin';
+[test,ilib] = c_link(bfunc);
+if (test)
+  ulink(ilib);
+  if( c_link(bfunc) )
+    disp('Error: Unable to remove '+bfunc+' DLL link!');
+    unlink_err = -1;
+  else
+    disp('Removing DLL link...Done!');
+  end
 end
